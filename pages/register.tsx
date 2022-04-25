@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout';
 import { Terminal } from '../components/Terminal/Terminal';
 import { TerminalButton } from '../components/Terminal/TerminalButton';
@@ -21,7 +21,6 @@ type RegisterFormValues = {
 export default function RegisterPage() {
 	const [acceptedTOS, setAcceptedTOS] = useState<boolean>(false);
 	const [disableButton, setDisableButton] = useState<boolean>(true);
-	const [error, setError] = useState<string>('');
 
 	const handleCheckboxChange = ():void => {
 		//TODO what info do we want to pull? UserAgent, browser?
@@ -54,12 +53,8 @@ export default function RegisterPage() {
 						}
 					}
 				});
-				console.log(data);
 			} catch(err: any) {
-				const { graphQLErrors } = err;
-				const { message } = graphQLErrors[0];
-				console.log(message);
-				setError(message);
+				console.error(err);
 			}
 		},
 	});
@@ -73,7 +68,7 @@ export default function RegisterPage() {
 
 	return (
 		<>
-			<Layout handleError={setError} error={error}>
+			<Layout>
 				<div className="flex justify-center">
 					{/* TODO can we abstract and re-use this because its really really similar to login */}
 					<Terminal>

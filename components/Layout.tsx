@@ -1,16 +1,17 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head'
 import { Error } from './Error';
+import { useAuth } from '../apollo/auth';
 
 type LayoutProps = {
 	children: ReactNode | ReactNode[];
-	handleError?: (error:string) => void;
-	error?: string;
 	style404?: boolean;
 };
 
-export const Layout = ({ children, style404, handleError, error = '' }: LayoutProps) => {
+export const Layout = ({ children, style404 }: LayoutProps) => {
 	const [showError, setShowError] = useState<string>('');
+
+	const { error, removeError } = useAuth();
 
 	useEffect(() => {
 		if (error !== '') {
@@ -20,7 +21,7 @@ export const Layout = ({ children, style404, handleError, error = '' }: LayoutPr
 
 	const handleClose = () => {
 		setShowError('');
-		if(handleError) setTimeout(() => handleError(''), 800);
+		setTimeout(() => removeError(), 800);
 	};
 
 	return (
@@ -33,7 +34,7 @@ export const Layout = ({ children, style404, handleError, error = '' }: LayoutPr
 				<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
 			</Head>
 			<div className={`${style404 ? "bg-404-pattern" : "bg-slate-900"} min-h-screen flex flex-col justify-center`}>
-				<div 
+				<div
 					className={`${showError !== '' ? "smoothRender" : ""}${showError === '' && error !== '' ? "smoothRemove" : ""}`}
 				>
 					{error !== '' && <Error handleClose={handleClose} error={error} />}

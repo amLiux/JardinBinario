@@ -1,12 +1,12 @@
-import { ApolloProvider } from '@apollo/client';
 import { AppProps } from 'next/app';
-import { client } from '../apollo/config';
+import { ReactNode } from 'react';
+import { AuthProvider } from '../apollo/auth';
 import '../styles/globals.css';
 
 function JardinBinario({ Component, pageProps }: AppProps) {
-	return <ApolloProvider client={client}>
+	return <AuthProvider>
 		<Component {...pageProps} />
-	</ApolloProvider>
+	</AuthProvider>
 };
 
 export default JardinBinario;

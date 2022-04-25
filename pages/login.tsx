@@ -6,10 +6,9 @@ import { Terminal } from '../components/Terminal/Terminal';
 import { TerminalButton } from '../components/Terminal/TerminalButton';
 import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { TerminalInput } from '../components/Terminal/TerminalInput';
-import * as Yup from 'yup';
-import { useMutation } from '@apollo/client';
-import { querys } from '../gql/querys';
+import * as Yup from 'yup'
 import { TerminalForm } from '../components/Terminal/TerminalForm';
+import { useAuth } from '../apollo/auth';
 
 type LoginFormValues = {
 	email: string;
@@ -18,14 +17,13 @@ type LoginFormValues = {
 
 export default function LoginPage() {
 	const [disableButton, setDisableButton] = useState<boolean>(true);
-	const [error, setError] = useState<string>('');
 
 	const initialValues: LoginFormValues = useMemo(() => ({
 		email: '',
 		password: ''
 	}), []);
 
-	const [authenticate] = useMutation(querys.AUTHENTICATE);
+	const { signIn } = useAuth();
 
 	const formik = useFormik({
 		initialValues,
@@ -34,22 +32,10 @@ export default function LoginPage() {
 			password: Yup.string().required('A password name is required').min(7, 'The password should at least have 7 characters'),
 		}),
 		onSubmit: async (values) => {
-			try {
-				const { data } = await authenticate({
-					variables: {
-						authInput: {
-							...values,
-						}
-					}
-				});
-
-				const { token, __typename } = data.authenticate;
-				localStorage.setItem(String(__typename).toLowerCase(), token);
-			} catch (err: any) {
-				const { graphQLErrors } = err;
-				const { message } = graphQLErrors[0];
-				console.log(message);
-				setError(message);
+			try{
+				await signIn(values);
+			} catch(err) {
+				console.error(err);
 			}
 		},
 	});
@@ -63,7 +49,7 @@ export default function LoginPage() {
 
 	return (
 		<>
-			<Layout handleError={setError} error={error}>
+			<Layout>
 				<div className="flex justify-center">
 					<Terminal>
 						<TerminalHeader header="Login" />
