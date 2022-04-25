@@ -1,16 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+	--velocidad: 5s;
+}
+
+/* TODO check if there is a way to store the classNames in the components */
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.bg-404-pattern {
+	@apply bg-slate-800;
+	background-image:
+		radial-gradient(
+			circle at bottom right,
+			rgb(192 132 252),
+			#0f172a 25%
+		);
+}
+
+.smoothRender {
+	@apply transition-all ease-in;
+	animation: fadeIn 0.8s ease-in;
+}
+
+.smoothRemove {
+	@apply transition-all ease-in;
+	animation: fadeOut 0.8s ease-in;
+}
+
+.star {
+	@apply absolute top-80 left-10 h-0.5 animate-star-trail;
+	filter: drop-shadow(0 0 6px rgb(216 180 254));
+	background: linear-gradient(-45deg, rgb(192 132 252), rgb(147 51 234));
+}
+
+.star::before,
+.star::after {
+	@apply h-[2.8px] absolute content-[''] right-0 transform translate-x-1/2 rotate-45 animate-star;
+	top: calc(100% - 2.2px);
+	border-radius: 100%;
+	background: linear-gradient(-45deg, rgb(147 51 234), rgb(216 180 254), rgb(192 132 252));
+}
+
+.star::after {
+	transform: translateX(50%) rotateZ(-45deg);
+}
+
+.star:nth-child(1) {
+	top: calc(30% - 1rem);
+	left: calc(20% - 2rem);
+	animation-delay: 650ms;
+}
+.star:nth-child(1)::before,
+.star:nth-child(1)::after {
+	animation-delay: 650ms;
+}
+
+.star:nth-child(2) {
+	top: calc(35% - 5rem);
+	left: calc(50% - 3rem);
+	animation-delay: 150ms;
+}
+.star:nth-child(2)::before,
+.star:nth-child(2)::after {
+	animation-delay: 150ms;
+}
+
+.star:nth-child(3) {
+	top: calc(30% - 10rem);
+	left: calc(50% - 5rem);
+	animation-delay: 1600ms;
+}
+.star:nth-child(3)::before,
+.star:nth-child(3)::after {
+	animation-delay: 1600ms;
+}
+
+.star:nth-child(4) {
+	top: calc(110% - 14rem);
+	left: calc(17% - 9rem);
+	animation-delay: 4700ms;
+}
+.star:nth-child(4)::before,
+.star:nth-child(4)::after {
+	animation-delay: 4700ms;
+}
+
+.star:nth-child(5) {
+	top: calc(90% - 3rem);
+	left: calc(20% - 10rem);
+	animation-delay: 2100ms;
+}
+.star:nth-child(5)::before,
+.star:nth-child(5)::after {
+	animation-delay: 2100ms;
+}
+
+.errorContainer {
+	@apply w-40 rounded flex flex-col m-auto px-3 py-1 items-center justify-around;
+	background-color: rgb(22, 21, 21);
+}
+
+
+/* TODO don't override h1, create a class for this */
+
+h1 {
+	@apply text-base relative w-full text-white;
+}
+
+h1::before,
+h1::after {
+	@apply content-[''] absolute top-0 right-0 bottom-0 left-0;
+}
+
+h1::before {
+	@apply animate-writing-machine-before;
+	background-color: rgb(22, 21, 21);
+}
+
+h1::after {
+	@apply w-[3px] bg-slate-200 animate-writing-machine-after;
+}
+
+.terminal {
+	@apply w-full max-w-sm bg-slate-800 rounded text-white;
+}
+
+.terminalHeader {
+	@apply flex justify-items-start p-4 align-middle;
+}
+
+.terminalHeader>.terminalHeader__text {
+	@apply text-base text-center font-light;
+}
+
+.terminalButton {
+	@apply cursor-pointer flex align-middle justify-center transition-all ease-in-out delay-150 bg-slate-900/75 text-white disabled:hover:text-white hover:text-purple-400 w-80 focus:animate-bounce rounded mx-auto my-4 p-2 text-lg hover:bg-slate-700/75 hover:justify-center disabled:bg-slate-700 disabled:cursor-progress;
+}
+
+.terminalForm {
+	@apply text-purple-400 pb-4 shadow-md;
+}
+
+.terminalInput {
+	@apply flex align-middle transition-all ease-in-out;
+}
+
+.terminalInput__focus {
+	@apply border-x-2 border-purple-400 animate-pulse;
+}
+
+.terminalInput__error {
+	@apply border-x-2 border-red-400 animate-pulse;
+}
+
+.terminalInput>.terminalInput__input {
+	@apply text-white appearance-none bg-inherit pl-1 leading-tight focus:outline-none focus:animate-pulse;
+}
+
+.terminalInput>.terminalInput__label {
+	@apply block text-lg ml-3;
+}
+
+/* Animations */
+
+@keyframes tail {
+	0% {
+		width: 0;
+	}
+
+	30% {
+		width: 100px;
+	}
+
+	100% {
+		width: 0;
+	}
+}
+
+@keyframes shining {
+	0% {
+		width: 0;
+	}
+	50% {
+		width: 30px;
+	}
+	100% {
+		width: 0;
+	}
+}
+
+@keyframes shooting {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(320px);
+	}
+}
+
+@keyframes writingMachine {
+	to {
+		left: 100%;
+	}
+}
+
+@keyframes blink {
+	to {
+		background: transparent;
+	}
+	100% {
+		color: rgb(22, 21, 21);
+	}
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 0.07;
+    }
+    15%{
+        opacity: 0.14;
+    }
+    25%{
+        opacity: 0.22;
+    }
+    35%{
+        opacity: 0.36;
+    }
+    45%{
+        opacity: 0.45;
+    }
+    65%{
+        opacity: 0.57;
+    }
+    75%{
+        opacity: 0.69;
+    }
+    85%{
+        opacity: 0.76;
+    }
+    95%{
+        opacity: 0.89;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+	10%{
+        opacity: 0.89;
+    }
+	15%{
+        opacity: 0.76;
+    }
+	25%{
+		opacity: 0.69;
+	}
+	35%{
+		opacity: 0.57;
+    }
+	45%{
+        opacity: 0.45;
+    }
+	55%{
+		opacity: 0.36;
+    }
+	65%{
+        opacity: 0.22;
+    }
+	80%{
+        opacity: 0.14;
+    }
+	90%{
+        opacity: 0.07;
+    }
+	100% {
+		opacity: 0;
+	}
+
 }
