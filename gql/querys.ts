@@ -16,5 +16,15 @@ export const querys = {
                 token
             }
         }
-`,
+    `,
+    GET_USER_INFO: gql`
+        query getUserInfo {
+            getUserInfo {
+                id,
+		        name,
+		        email,
+		        lastName,
+            }
+        }
+    `
 };

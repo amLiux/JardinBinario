@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head'
 import { Error } from './Error';
-import { useAuth } from '../apollo/auth';
+import { useAuth } from '../apollo/AuthClient';
 
 type LayoutProps = {
 	children: ReactNode | ReactNode[];

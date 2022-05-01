@@ -8,7 +8,7 @@ import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { TerminalInput } from '../components/Terminal/TerminalInput';
 import * as Yup from 'yup'
 import { TerminalForm } from '../components/Terminal/TerminalForm';
-import { useAuth } from '../apollo/auth';
+import { useAuth } from '../apollo/AuthClient';
 
 type LoginFormValues = {
 	email: string;

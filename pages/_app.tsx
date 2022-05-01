@@ -1,6 +1,5 @@
 import { AppProps } from 'next/app';
-import { ReactNode } from 'react';
-import { AuthProvider } from '../apollo/auth';
+import { AuthProvider } from '../apollo/AuthClient';
 import '../styles/globals.css';
 
 function JardinBinario({ Component, pageProps }: AppProps) {

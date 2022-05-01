@@ -10,6 +10,7 @@ import { TerminalInput } from '../components/Terminal/TerminalInput';
 import { TerminalTosCheckbox } from '../components/Terminal/TerminalTosCheckbox';
 import { useMutation } from '@apollo/client';
 import { querys } from '../gql/querys';
+import { withAuth } from '../HOC/withAuth';
 
 type RegisterFormValues = {
 	name: string;
@@ -18,7 +19,7 @@ type RegisterFormValues = {
 	password: string;
 };
 
-export default function RegisterPage() {
+const RegisterPage = () => {
 	const [acceptedTOS, setAcceptedTOS] = useState<boolean>(false);
 	const [disableButton, setDisableButton] = useState<boolean>(true);
 
@@ -104,3 +105,5 @@ export default function RegisterPage() {
 		</>
 	);
 }
+
+export default withAuth(RegisterPage);

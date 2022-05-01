@@ -1,4 +1,4 @@
-import React, { createElement, ReactNode, useState } from 'react'
+import React, { ReactNode, useState } from 'react';
 
 type TooltipProps = {
 	children: ReactNode | ReactNode[];
@@ -14,7 +14,7 @@ export const Tooltip = ({ children, tooltipText }: TooltipProps) => {
 		<>
 			{
 				isShown && (
-					<div className="text-xs text-center bg-black/75 text-gray-100 absolute top rounded shadow-xl left-2 right-2 w-15">
+					<div className="text-base text-center bg-black/75 text-gray-100 absolute top rounded shadow-xl left-2 right-2 w-15">
 						{tooltipText}
 					</div>
 				)

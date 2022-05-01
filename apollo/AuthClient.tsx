@@ -4,23 +4,15 @@ import {
 	ApolloProvider,
 	ApolloClient,
 	InMemoryCache,
-	gql,
 	createHttpLink,
 } from '@apollo/client';
 import { querys } from '../gql/querys';
 import { onError } from '@apollo/client/link/error';
-import { Router, useRouter } from 'next/router';
-
 const authContext = createContext({});
 
 type AuthProviderProps = {
 	children: ReactNode;
 }
-
-
-type ProtectRouteProps = {
-	children: ReactNode;
-};
 
 export function AuthProvider({ children }: AuthProviderProps) {
 	const auth = useProviderAuth();
@@ -40,25 +32,18 @@ export const useAuth = (): any => {
 
 function useProviderAuth() {
 	const [error, setError] = useState<string>('');
-	const [cachedToken, setCachedToken] = useState<string>('');
 
-	useEffect(() => {
+	function getAuthToken() {
 		const token = localStorage.getItem('token') || '';
-		if (token) setCachedToken(token);
-	}, []);
+		if (!token) return '';
+		return token;
+	}
 
 	const removeError = (): void => {
 		setError('');
 	};
 
-	const isSignedIn = (): boolean => {
-		if (cachedToken) {
-			return true;
-		} else {
-			return false;
-		}
-	};
-
+	// TODO not sure about exposing this whenever we instance getAuth(), this happens because I think I'll also use useQuery and useMutation queries on child components,so I'll def need a client instance wrappign my parent Component
 	const createApolloClient = () => {
 		const httpLink = createHttpLink({
 			uri: 'http://localhost:4000',
@@ -69,14 +54,19 @@ function useProviderAuth() {
 				...prevContext,
 				headers: {
 					...prevContext.headers,
-					Authorization: `Bearer ${cachedToken}`,
+					Authorization: `Bearer ${getAuthToken()}`,
 				},
 			};
 		});
 
 		const handleOnError = onError((error: any) => {
 			const { graphQLErrors } = error;
-			const { message } = graphQLErrors[0];
+			let { message } = graphQLErrors[0];
+			// this happens if the GQL server runs up with issues while creating our context
+			const toRemoveIfIncludes = 'Context creation failed: ';
+			if(message.includes(toRemoveIfIncludes)) {
+				message = message.replace(toRemoveIfIncludes, '');
+			}
 			setError(message);
 		});
 
@@ -107,26 +97,34 @@ function useProviderAuth() {
 		}
 	};
 
+	const getUserInfo = async(values:any) => {
+		const client = createApolloClient();
+		const GetUserInfoQuery = querys.GET_USER_INFO;
+
+		try {
+			const { data } = await client.mutate({
+				mutation: GetUserInfoQuery
+			});
+
+			if (data?.getUserInfo) {
+				return data.getUserInfo;
+			}
+	
+		} catch (err) {
+			console.error(err);
+		}
+	}
+
 	const signOut = () => {
 		localStorage.removeItem('token');
 	};
 
 	return {
-		isSignedIn,
 		signIn,
 		signOut,
 		createApolloClient,
 		error,
-		removeError
+		removeError,
+		getUserInfo,
 	};
 }
-
-export const ProtectRoute = ({ children }: ProtectRouteProps) => {
-	const { isSignedIn } = useAuth();
-	if (!isSignedIn && window.location.pathname !== '/login') {
-		window.location.pathname = '/login';
-	}
-	return <>
-		{children}
-	</>;
-};
