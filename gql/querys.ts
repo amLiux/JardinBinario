@@ -26,5 +26,17 @@ export const querys = {
 		        lastName,
             }
         }
-    `
+    `,
+    FORGOT_PASSWORD_INIT: gql`
+        mutation initForgotPassword($email: String) {
+            initForgotPassword(email: $email)
+        }
+    `,
+    FORGOT_PASSWORD_FINISH: gql`
+        mutation FinishForgotPassword($forgotPasswordInput: ForgotPasswordInput) {
+            finishForgotPassword(forgotPasswordInput: $forgotPasswordInput) {
+                name
+            }
+        }
+    `,
 };

@@ -1,12 +1,13 @@
 import { useFormik } from 'formik';
 import { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
+import * as Yup from 'yup';
 import { HelpMessage } from '../components/HelpMessage';
 import { Layout } from '../components/Layout';
 import { Terminal } from '../components/Terminal/Terminal';
 import { TerminalButton } from '../components/Terminal/TerminalButton';
 import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { TerminalInput } from '../components/Terminal/TerminalInput';
-import * as Yup from 'yup'
 import { TerminalForm } from '../components/Terminal/TerminalForm';
 import { useAuth } from '../apollo/AuthClient';
 
@@ -24,6 +25,7 @@ export default function LoginPage() {
 	}), []);
 
 	const { signIn } = useAuth();
+	const router = useRouter();
 
 	const formik = useFormik({
 		initialValues,
@@ -34,6 +36,7 @@ export default function LoginPage() {
 		onSubmit: async (values) => {
 			try{
 				await signIn(values);
+				router.push('/index');
 			} catch(err) {
 				console.error(err);
 			}
@@ -76,7 +79,7 @@ export default function LoginPage() {
 								})
 							}
 							<TerminalButton disabled={disableButton} text="Sign In" />
-							<HelpMessage text="Forgot your password?" />
+							<HelpMessage text="Forgot your password?" onClick={() => router.push('/forgotPassword')}/>
 						</TerminalForm>
 					</Terminal>
 				</div>

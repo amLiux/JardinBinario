@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head'
-import { Error } from './Error';
+import { Message } from './Message';
 import { useAuth } from '../apollo/AuthClient';
 
 type LayoutProps = {
@@ -9,19 +9,19 @@ type LayoutProps = {
 };
 
 export const Layout = ({ children, style404 }: LayoutProps) => {
-	const [showError, setShowError] = useState<string>('');
+	const [showMessage, setShowMessage] = useState<string>('');
 
-	const { error, removeError } = useAuth();
+	const { message, removeMessage } = useAuth();
 
 	useEffect(() => {
-		if (error !== '') {
-			setShowError(error);
+		if (message.msg !== '') {
+			setShowMessage(message.msg);
 		}
-	}, [error]);
+	}, [message]);
 
 	const handleClose = () => {
-		setShowError('');
-		setTimeout(() => removeError(), 800);
+		setShowMessage('');
+		setTimeout(() => removeMessage(), 800);
 	};
 
 	return (
@@ -35,9 +35,9 @@ export const Layout = ({ children, style404 }: LayoutProps) => {
 			</Head>
 			<div className={`${style404 ? "bg-404-pattern" : "bg-slate-900"} min-h-screen flex flex-col justify-center`}>
 				<div
-					className={`${showError !== '' ? "smoothRender" : ""}${showError === '' && error !== '' ? "smoothRemove" : ""}`}
+					className={`${showMessage !== '' ? "smoothRender" : ""}${showMessage === '' && message !== '' ? "smoothRemove" : ""}`}
 				>
-					{error !== '' && <Error handleClose={handleClose} error={error} />}
+					{message.msg !== '' && <Message handleClose={handleClose} error={message.error} message={message.msg} />}
 				</div>
 				{children}
 			</div>

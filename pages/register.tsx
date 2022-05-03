@@ -10,7 +10,7 @@ import { TerminalInput } from '../components/Terminal/TerminalInput';
 import { TerminalTosCheckbox } from '../components/Terminal/TerminalTosCheckbox';
 import { useMutation } from '@apollo/client';
 import { querys } from '../gql/querys';
-import { withAuth } from '../HOC/withAuth';
+import { withAuth } from '../hoc/withAuth';
 
 type RegisterFormValues = {
 	name: string;
@@ -55,6 +55,7 @@ const RegisterPage = () => {
 					}
 				});
 			} catch(err: any) {
+				// do we set error here 
 				console.error(err);
 			}
 		},

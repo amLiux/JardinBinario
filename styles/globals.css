@@ -84,7 +84,7 @@ a {
 }
 
 .star:nth-child(3) {
-	top: calc(30% - 10rem);
+	top: calc(30% - 8rem);
 	left: calc(50% - 5rem);
 	animation-delay: 1600ms;
 }

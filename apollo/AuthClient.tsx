@@ -30,8 +30,16 @@ export const useAuth = (): any => {
 	return useContext(authContext);
 }
 
+type Message = {
+	msg: string;
+	error: boolean;
+};
+
 function useProviderAuth() {
-	const [error, setError] = useState<string>('');
+	const [message, setMessage] = useState<Message>({
+		msg: '',
+		error: false,
+	});
 
 	function getAuthToken() {
 		const token = localStorage.getItem('token') || '';
@@ -39,8 +47,11 @@ function useProviderAuth() {
 		return token;
 	}
 
-	const removeError = (): void => {
-		setError('');
+	const removeMessage = (): void => {
+		setMessage({
+			msg: '',
+			error: false,
+		});
 	};
 
 	// TODO not sure about exposing this whenever we instance getAuth(), this happens because I think I'll also use useQuery and useMutation queries on child components,so I'll def need a client instance wrappign my parent Component
@@ -64,10 +75,14 @@ function useProviderAuth() {
 			let { message } = graphQLErrors[0];
 			// this happens if the GQL server runs up with issues while creating our context
 			const toRemoveIfIncludes = 'Context creation failed: ';
-			if(message.includes(toRemoveIfIncludes)) {
+			if (message.includes(toRemoveIfIncludes)) {
 				message = message.replace(toRemoveIfIncludes, '');
 			}
-			setError(message);
+
+			setMessage({
+				msg: message,
+				error: true,
+			});
 		});
 
 		const authFlow = setAuthorizationInContext.concat(handleOnError);
@@ -97,7 +112,7 @@ function useProviderAuth() {
 		}
 	};
 
-	const getUserInfo = async(values:any) => {
+	const getUserInfo = async () => {
 		const client = createApolloClient();
 		const GetUserInfoQuery = querys.GET_USER_INFO;
 
@@ -109,11 +124,64 @@ function useProviderAuth() {
 			if (data?.getUserInfo) {
 				return data.getUserInfo;
 			}
-	
+
 		} catch (err) {
 			console.error(err);
 		}
-	}
+	};
+
+	const forgotPasswordInit = async (email: string) => {
+		const client = createApolloClient();
+		const ForgotPasswordInitMutation = querys.FORGOT_PASSWORD_INIT;
+
+		try {
+			const { data } = await client.mutate({
+				mutation: ForgotPasswordInitMutation,
+				variables: {
+					email,
+				},
+			});
+
+			if (data?.initForgotPassword) {
+				return data.initForgotPassword;
+			}
+
+
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	const forgotPasswordFinish = async (values: any) => {
+		const client = createApolloClient();
+		const { email, otp, newPassword } = values;
+		const ForgotPasswordInitMutation = querys.FORGOT_PASSWORD_FINISH;
+		delete values.confirmPassword;
+		values.time = new Date().toISOString();
+
+		try {
+			const { data } = await client.mutate({
+				mutation: ForgotPasswordInitMutation,
+				variables: {
+					forgotPasswordInput: {
+						email,
+						otp,
+						newPassword,
+						time: new Date().toISOString(),
+					},
+				},
+			});
+
+
+			if (data?.finishForgotPassword) {
+				const { name } = data.finishForgotPassword;
+				return `Hey ${name} your password has been updated, try to login!`;
+			}
+
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
 	const signOut = () => {
 		localStorage.removeItem('token');
@@ -123,8 +191,11 @@ function useProviderAuth() {
 		signIn,
 		signOut,
 		createApolloClient,
-		error,
-		removeError,
+		message,
+		forgotPasswordInit,
+		forgotPasswordFinish,
+		removeMessage,
 		getUserInfo,
+		setMessage,
 	};
 }
