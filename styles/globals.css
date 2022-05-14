@@ -121,21 +121,21 @@ a {
 
 /* TODO don't override h1, create a class for this */
 
-h1 {
+.header {
 	@apply text-base relative w-full text-white;
 }
 
-h1::before,
-h1::after {
+.header::before,
+.header::after {
 	@apply content-[''] absolute top-0 right-0 bottom-0 left-0;
 }
 
-h1::before {
+.header::before {
 	@apply animate-writing-machine-before;
 	background-color: rgb(22, 21, 21);
 }
 
-h1::after {
+.header::after {
 	@apply w-[3px] bg-slate-200 animate-writing-machine-after;
 }
 
