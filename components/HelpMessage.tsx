@@ -2,11 +2,18 @@ import React from 'react'
 
 type HelpMessageProps = {
 	text: string;
+	onClick?: () => void;
 };
 
-export const HelpMessage = ({text}:HelpMessageProps) => {
+const easterEggMessage = `
+	War is peace.
+	Freedom is slavery.
+	Ignorance is strength.
+`;
+
+export const HelpMessage = ({text, onClick = () => console.log(easterEggMessage)}:HelpMessageProps) => {
 	return (
-		<span className="block mt-4 text-light text-xs text-center italic hover:underline hover:underline-offset-2">
+		<span onClick={onClick} className="block mt-4 text-light text-xs text-center italic hover:underline hover:underline-offset-2">
 			{text}
 		</span>
 	)
