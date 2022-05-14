@@ -14,7 +14,7 @@ export const Tooltip = ({ children, tooltipText }: TooltipProps) => {
 		<>
 			{
 				isShown && (
-					<div className="text-base text-center bg-black/75 text-gray-100 absolute top rounded shadow-xl left-2 right-2 w-15">
+					<div className="text-lg font-mono text-center bg-black/75 text-gray-100 absolute bottom-90 inset-x-80 rounded shadow-xl p-4 w-15">
 						{tooltipText}
 					</div>
 				)
