@@ -21,7 +21,7 @@ export const withAuth = (Component: ElementType) => {
             getUser();
         }, [router, getUserInfo]);
 
-        return !!userContext ? <Component userContext={userContext} /> : <h1>hello</h1>; //TODO do we add a skeleton approach or go by simply running a cool ouroboros spinner?
+        return !!userContext ? <Component userContext={userContext} /> : <div className="w-screen h-screen bg-slate-900">hello</div>; //TODO do we add a skeleton approach or go by simply running a cool ouroboros spinner?
     };
 
     return AuthenticatedComponent;

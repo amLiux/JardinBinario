@@ -19,8 +19,8 @@ export const TerminalHeader = ({ header, editor = false }: TerminalHeaderProps) 
 			<span className={dotClass('red')}></span>
 			<span className={dotClass('yellow')}></span>
 			<span className={dotClass('green')}></span>
-			<h5 className={`terminalHeader__text ${editor ? 'text-white mr-auto' : ''}`}>
-				<code> | {header}</code>
+			<h5 className={`terminalHeader__text ${editor ? 'text-white' : ''}`}>
+				<code className={`${editor ? 'text-base' : ''}`}> | {header}</code>
 			</h5>
 			{
 				editor && <EditorNavbarOptions />

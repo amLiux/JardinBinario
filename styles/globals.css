@@ -36,7 +36,7 @@ a {
 }
 
 .smoothRender {
-	@apply transition-all ease-in;
+	@apply transition-all ease-in z-10 h-10;
 	animation: fadeIn 0.8s ease-in;
 }
 
@@ -139,6 +139,11 @@ a {
 	@apply w-[3px] bg-slate-200 animate-writing-machine-after;
 }
 
+
+.yellow {
+	@apply bg-yellow-500;
+}
+
 .terminal {
 	@apply w-full max-w-sm bg-slate-800 rounded text-white;
 }
@@ -148,11 +153,11 @@ a {
 }
 
 .terminalHeader>.terminalHeader__text {
-	@apply text-base text-center font-light;
+	@apply text-xl text-center font-light;
 }
 
 .terminalButton {
-	@apply cursor-pointer flex align-middle justify-center transition-all ease-in-out delay-150 bg-slate-900/75 text-white disabled:hover:text-white hover:text-purple-400 w-80 focus:animate-bounce rounded mx-auto my-4 p-2 text-lg hover:bg-slate-700/75 hover:justify-center disabled:bg-slate-700 disabled:cursor-progress;
+	@apply cursor-pointer flex align-middle justify-center transition-all ease-in-out delay-150 bg-slate-900/75 text-white disabled:hover:text-white hover:text-purple-400 w-80 focus:animate-bounce rounded mx-auto my-4 p-2 text-2xl hover:bg-slate-700/75 hover:justify-center disabled:bg-slate-700 disabled:cursor-progress;
 }
 
 .terminalForm {
@@ -172,11 +177,11 @@ a {
 }
 
 .terminalInput>.terminalInput__input {
-	@apply text-white appearance-none bg-inherit pl-1 leading-tight focus:outline-none focus:animate-pulse;
+	@apply text-white appearance-none bg-inherit pl-1 leading-tight focus:outline-none text-lg focus:animate-pulse;
 }
 
 .terminalInput>.terminalInput__label {
-	@apply block text-lg ml-3;
+	@apply block text-xl ml-3;
 }
 
 /* Animations */

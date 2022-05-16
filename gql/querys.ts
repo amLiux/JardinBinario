@@ -39,4 +39,13 @@ export const querys = {
             }
         }
     `,
+    NEW_BLOG_ENTRY: gql`
+        mutation($blogInput: BlogInput) {
+            newBlogEntry(blogInput: $blogInput) {
+                id,
+                author,
+                title
+            }
+        }
+    `,
 };
