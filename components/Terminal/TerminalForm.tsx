@@ -7,7 +7,6 @@ type TerminalFormProps = {
 };
 
 export const TerminalForm = ({ children, handleSubmit }: TerminalFormProps) => {
-
 	return (
 		<form onSubmit={(e) => {e.preventDefault(); if(handleSubmit) handleSubmit(e)}} autoComplete="off" className="terminalForm">
 			{children}

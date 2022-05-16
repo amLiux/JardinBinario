@@ -7,7 +7,7 @@ type TerminalTosCheckboxProps = {
 
 export const TerminalTosCheckbox = ({ handleCheck }: TerminalTosCheckboxProps) => {
 	return (
-		<div className="flex items-center mt-3">
+		<div className="flex items-center text-lg mt-3">
 			<input onChange={handleCheck} id="tos" type="checkbox" className="checked:bg-purple-400 rounded-full w-5 h-5 ml-4 bg-purple-400" />
 			<label htmlFor="tos" className="ml-2 text-sm font-light text-white"
 			>

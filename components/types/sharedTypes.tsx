@@ -12,3 +12,9 @@ export type ForgotPasswordValues = {
 	newPassword: string;
 	confirmPassword: string | undefined;
 };
+
+export type NewBlogEntryValues = {
+    tags?: string[];
+    title: string;
+	markdown: string;
+};
