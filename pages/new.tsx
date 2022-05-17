@@ -33,6 +33,7 @@ const NewBlogPage = () => {
 		validationSchema: Yup.object({
 			title: Yup.string().required('A name is required'),
 			markdown: Yup.string().required('A last name is required'),
+			tags: Yup.array().of(Yup.string()),
 		}),
 		enableReinitialize: true,
 		onSubmit: async (values) => {
@@ -55,7 +56,7 @@ const NewBlogPage = () => {
 					});
 
 					// TODO once we have a page that resolves blogs, let's redirect from here/ do we do title or id?
-					setTimeout(() => router.push(`/${encodeURIComponent(title)}`), 2000)
+					setTimeout(() => router.push(`/${encodeURIComponent(title)}`), 2000);
 				}
 			} catch (err: any) {
 				// do we set error here 
@@ -68,9 +69,11 @@ const NewBlogPage = () => {
 		visualMarkdown,
 		setVisualMarkdown,
 
+		tags: formik.values.tags,
+		setTags: formik.setFieldValue,
 		markdownText: formik.values.markdown,
 		setMarkdownText: formik.setFieldValue,
-		publishBlog: formik.handleSubmit,
+		
 		title: formik.values.title,
 		setBlogTitle: formik.setFieldValue,
 	};
