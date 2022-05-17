@@ -36,7 +36,7 @@ export default function LoginPage() {
 		onSubmit: async (values) => {
 			try{
 				await signIn(values);
-				router.push('/index');
+				router.push('/new');
 			} catch(err) {
 				console.error(err);
 			}

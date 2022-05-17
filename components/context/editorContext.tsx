@@ -11,7 +11,8 @@ export type EditorContext = {
     setVisualMarkdown: (prop:string) => void;
     visualMarkdown: string;
 
-    publishBlog: FormikHandlers['handleSubmit'];
+    tags:string[];
+    setTags: formikHelper;
 
     setMarkdownText: formikHelper;
     markdownText: string;
@@ -21,7 +22,8 @@ const defaultContext:EditorContext = {
     markdownText: '',
     title: '',
     visualMarkdown: '',
-    publishBlog: () => {},
+    tags: [],
+    setTags: (prop:string, value:string[]) => {},
     setVisualMarkdown: (prop:string) => {},
     setBlogTitle: (prop:string, value:string) => {},
     setMarkdownText: (prop:string, value:string) => {}

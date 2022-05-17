@@ -74,7 +74,14 @@ function useProviderAuth() {
 			const { graphQLErrors } = error;
 			let { message } = graphQLErrors[0];
 			// this happens if the GQL server runs up with issues while creating our context
-			const toRemoveIfIncludes = 'Context creation failed: ';
+			const toRemoveIfIncludes = 'Context creation failed: '; 
+			const toChangeIfIncludes = 'MongoServerError: E11000';
+
+			// TODO check this later man, its gross haha
+			if(message.includes(toChangeIfIncludes)) {
+				message = 'Duplicated blog title, try a different one.';
+			}
+
 			if (message.includes(toRemoveIfIncludes)) {
 				message = message.replace(toRemoveIfIncludes, '');
 			}
