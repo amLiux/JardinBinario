@@ -342,3 +342,28 @@ a {
 		width: calc(100vw - 32px);
 	}
 }
+
+
+.preview {
+
+}
+
+.markdownResult {
+	@apply prose break-normal prose-img:mx-auto prose-h1:text-center prose-xl p-5 w-8/12 overflow-auto text-ellipsis rounded-md h-[49rem];
+}
+
+/* .prose blockquote p::after {
+	content: ""!important;
+}
+
+.prose blockquote p::before {
+	content: ""!important;
+} */
+
+.preview {
+	@apply prose-strong:text-purple-400 prose-h2:text-purple-500 prose-blockquote:text-purple-400 prose-h1:text-purple-400 mx-auto text-white prose-blockquote:bg-slate-800 prose-a:text-purple-400 prose-code:text-white prose-th:text-purple-500 prose-h3:text-purple-400 prose-blockquote:rounded-md h-screen prose-thead:bg-slate-800 prose-th:p-5 prose-td:p-5 ; 
+}
+
+.writing { 
+	@apply prose-strong:text-slate-800 prose-h2:text-slate-800 prose-blockquote:text-slate-800 prose-h1:text-slate-800 bg-white;
+}

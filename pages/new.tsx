@@ -9,15 +9,19 @@ import { MarkdownResult } from '../components/NewBlog/MarkdownResult';
 import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { withAuth } from '../hoc/withAuth';
 import { querys } from '../gql/querys';
-import { NewBlogEntryValues } from '../components/types/sharedTypes';
+import { EditorContextType, NewBlogEntryValues, UserContext } from '../components/types/sharedTypes';
 import { useAuth } from '../apollo/AuthClient';
 import { useRouter } from 'next/router';
 
-const NewBlogPage = () => {
+type NewBlogPageProps = {
+	userContext: UserContext;
+};
 
+const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 	const [newBlogEntry] = useMutation(querys.NEW_BLOG_ENTRY);
 	const [visualMarkdown, setVisualMarkdown] = useState<string>('');
-
+	const [preview, setPreview] = useState<boolean>(false);
+	
 	const initialValues: NewBlogEntryValues = {
 		title: '',
 		markdown: '',
@@ -25,7 +29,6 @@ const NewBlogPage = () => {
 	};
 
 	const router = useRouter();
-
 	const { setMessage } = useAuth();
 
 	const formik = useFormik({
@@ -48,8 +51,8 @@ const NewBlogPage = () => {
 					}
 				});
 
-				if(response.data.newBlogEntry) {
-					const {title, id} = response.data.newBlogEntry;
+				if (response.data.newBlogEntry) {
+					const { title, id } = response.data.newBlogEntry;
 					setMessage({
 						msg: `The blog ${response.data.newBlogEntry.title} was created succesfuly`,
 						error: false
@@ -65,28 +68,36 @@ const NewBlogPage = () => {
 		},
 	});
 
-	const contextValue = {
+	const contextValue:EditorContextType = {
 		visualMarkdown,
 		setVisualMarkdown,
+		setPreview,
 
-		tags: formik.values.tags,
+		tags: formik.values.tags || [],
 		setTags: formik.setFieldValue,
 		markdownText: formik.values.markdown,
 		setMarkdownText: formik.setFieldValue,
-		
 		title: formik.values.title,
 		setBlogTitle: formik.setFieldValue,
 	};
 
 	return (
 		<>
-			<EditorContext.Provider value={contextValue as any}>
+			<EditorContext.Provider value={contextValue}>
 				<Layout>
 					<TerminalHeader editor header={`${formik.values.title || 'New blog entry'}`} />
-					<form className="flex justify-around h-screen p-4" id="newBlogEntryForm" onSubmit={formik.handleSubmit}>
-						<Editor />
-						<MarkdownResult />
-					</form>
+					{
+						preview
+							?
+							<>
+								<MarkdownResult userContext={userContext} preview={preview} />
+							</>
+							:
+							<form className="flex justify-around h-screen p-4" id="newBlogEntryForm" onSubmit={formik.handleSubmit}>
+								<Editor />
+								<MarkdownResult preview={preview} />
+							</form>
+					}
 				</Layout>
 			</EditorContext.Provider>
 		</>

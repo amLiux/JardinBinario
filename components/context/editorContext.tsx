@@ -1,29 +1,13 @@
-import { FormikHandlers, FormikHelpers } from 'formik';
 import { createContext } from 'react';
-import { NewBlogEntryValues } from '../types/sharedTypes';
+import { EditorContextType } from '../types/sharedTypes';
 
-type formikHelper = FormikHelpers<NewBlogEntryValues>['setFieldValue']; 
-
-export type EditorContext = {
-    setBlogTitle: formikHelper;
-    title:string;
-
-    setVisualMarkdown: (prop:string) => void;
-    visualMarkdown: string;
-
-    tags:string[];
-    setTags: formikHelper;
-
-    setMarkdownText: formikHelper;
-    markdownText: string;
-}
-
-const defaultContext:EditorContext = {
+const defaultContext:EditorContextType = {
     markdownText: '',
     title: '',
     visualMarkdown: '',
     tags: [],
     setTags: (prop:string, value:string[]) => {},
+    setPreview: (prop: boolean) => {},
     setVisualMarkdown: (prop:string) => {},
     setBlogTitle: (prop:string, value:string) => {},
     setMarkdownText: (prop:string, value:string) => {}

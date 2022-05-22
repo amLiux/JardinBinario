@@ -3,10 +3,11 @@ import { Icons } from '../Icons'
 import { Tooltip } from '../Tooltip'
 
 type EditorNavbarOptionsProps = {
-    showTags: any
+    showTags: any;
+    setPreview: any;
 }
 
-export const EditorNavbarOptions = ({showTags}:EditorNavbarOptionsProps) => {
+export const EditorNavbarOptions = ({showTags, setPreview}:EditorNavbarOptionsProps) => {
 
     const handleTagToggle = (e:SyntheticEvent) => {
         const target = (e.target as HTMLInputElement);
@@ -23,7 +24,7 @@ export const EditorNavbarOptions = ({showTags}:EditorNavbarOptionsProps) => {
                 <button className="bg-slate-600 text-purple-400 hover:outline-purple-500 hover:animate-pulse outline outline-5 outline-transparent p-2 rounded">{Icons.SAVE}</button>
             </Tooltip>
             <Tooltip tooltipText="Preview what you got so far, Note: it will look exacly like this for users!">
-                <button className="bg-slate-600 text-purple-400 hover:outline-purple-500 hover:animate-pulse outline outline-5 outline-transparent p-2 rounded">{Icons.PREVIEW}</button>
+                <button onClick={() => setPreview((preview:boolean) => !preview)} className="bg-slate-600 text-purple-400 hover:outline-purple-500 hover:animate-pulse outline outline-5 outline-transparent p-2 rounded">{Icons.PREVIEW}</button>
             </Tooltip>
             <Tooltip tooltipText="You ready? Let's publish it!">
                 <button form="newBlogEntryForm" type="submit" className="bg-slate-600 text-purple-400 hover:outline-purple-500 hover:animate-pulse outline outline-5 outline-transparent p-2 rounded">{Icons.PUBLISH}</button>

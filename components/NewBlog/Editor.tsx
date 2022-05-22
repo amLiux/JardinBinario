@@ -1,9 +1,10 @@
-import React, { SyntheticEvent, useContext } from 'react';
+import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import editorContext from '../context/editorContext';
 
 
 
 export const Editor = () => {
+	const [defaultValue, setDefaultValue] = useState<string>();
 
 	const MAX_CHARS = 1000;
 	const { setVisualMarkdown, setBlogTitle, title, setMarkdownText, markdownText } = useContext(editorContext);
@@ -11,9 +12,12 @@ export const Editor = () => {
 	const onInputChange = (e: SyntheticEvent) => {
 		const newValue = (e.target as HTMLInputElement).value;
 		setVisualMarkdown(newValue);
+
 		if(newValue.length >= MAX_CHARS) {
 			if(newValue !== markdownText) {
-				const difference = newValue.length > markdownText.length ? newValue.length - markdownText.length: markdownText.length - newValue.length;
+				const difference = newValue.length > markdownText.length 
+					? newValue.length - markdownText.length
+					: markdownText.length - newValue.length;
 				// update the text that is going into formik every 15 chards to avoid that much consuption
 				if(difference >= 15) {
 					setMarkdownText('markdown', newValue);
@@ -27,10 +31,15 @@ export const Editor = () => {
 			if(titleToSet !== title) setBlogTitle('title', titleToSet);
 		}
 
-	}
+	};
+
+	useEffect(() => {
+		setDefaultValue(markdownText);
+	}, [markdownText]);
 
 	return (
 		<textarea
+			defaultValue={defaultValue}
 			onChange={onInputChange}
 			className="h-[49rem] font-mono outline outline-offset-1 outline-3 outline-transparent focus:outline-purple-500 w-4/12 rounded-md resize-none text-xl text-white bg-slate-800 outline-none p-5 pl-10" />
 	)
