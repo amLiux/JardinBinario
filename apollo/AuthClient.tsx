@@ -57,7 +57,7 @@ function useProviderAuth() {
 	// TODO not sure about exposing this whenever we instance getAuth(), this happens because I think I'll also use useQuery and useMutation queries on child components,so I'll def need a client instance wrappign my parent Component
 	const createApolloClient = () => {
 		const httpLink = createHttpLink({
-			uri: 'http://localhost:4000',
+			uri: 'https://jardinbinario-be.herokuapp.com',
 		});
 
 		const setAuthorizationInContext = setContext((_, prevContext) => {
