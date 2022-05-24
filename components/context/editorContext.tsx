@@ -10,7 +10,8 @@ const defaultContext:EditorContextType = {
     setPreview: (prop: boolean) => {},
     setVisualMarkdown: (prop:string) => {},
     setBlogTitle: (prop:string, value:string) => {},
-    setMarkdownText: (prop:string, value:string) => {}
+    setMarkdownText: (prop:string, value:string) => {},
+    storeMarkdown: () => {}
 };
 
 export default createContext(defaultContext)
