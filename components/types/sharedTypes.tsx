@@ -42,4 +42,5 @@ export type EditorContextType = {
 
     setMarkdownText: formikHelper;
     markdownText: string;
+	storeMarkdown: () => void; 
 }
