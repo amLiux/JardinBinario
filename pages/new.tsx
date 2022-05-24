@@ -87,7 +87,7 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 
 	useEffect(() => {
 		if(window) {
-			const storedMarkdown = String(window.sessionStorage.getItem('markdown'));
+			const storedMarkdown = window.sessionStorage.getItem('markdown') || '';
 			if (storedMarkdown.trim().length > 0) {
 				setVisualMarkdown(storedMarkdown);
 				formik.setFieldValue('markdown', storedMarkdown);
