@@ -25,10 +25,9 @@ export const Editor = () => {
 			}
 		} else setMarkdownText('markdown', newValue);
 
-		
-		if(newValue.split("\n").length === 1) {
-			const titleToSet = newValue.split("\n")[0].replace('#', '');
-			if(titleToSet !== title) setBlogTitle('title', titleToSet);
+		const titleToSet = newValue.split("\n")[0].replace('#', '');
+		if(titleToSet !== title ) {
+			setBlogTitle('title', titleToSet);
 		}
 
 	};

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -21,7 +21,7 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 	const [newBlogEntry] = useMutation(querys.NEW_BLOG_ENTRY);
 	const [visualMarkdown, setVisualMarkdown] = useState<string>('');
 	const [preview, setPreview] = useState<boolean>(false);
-	
+
 	const initialValues: NewBlogEntryValues = {
 		title: '',
 		markdown: '',
@@ -68,7 +68,7 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 		},
 	});
 
-	const contextValue:EditorContextType = {
+	const contextValue: EditorContextType = {
 		visualMarkdown,
 		setVisualMarkdown,
 		setPreview,
@@ -79,7 +79,22 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 		setMarkdownText: formik.setFieldValue,
 		title: formik.values.title,
 		setBlogTitle: formik.setFieldValue,
+		storeMarkdown: () => {
+			const { markdown } = formik.values;
+			window.sessionStorage.setItem('markdown', markdown);
+		},
 	};
+
+	useEffect(() => {
+		if(window) {
+			const storedMarkdown = String(window.sessionStorage.getItem('markdown'));
+			if (storedMarkdown.trim().length > 0) {
+				setVisualMarkdown(storedMarkdown);
+				formik.setFieldValue('markdown', storedMarkdown);
+			}
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<>

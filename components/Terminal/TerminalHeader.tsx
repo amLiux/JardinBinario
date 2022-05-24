@@ -12,13 +12,15 @@ type validColors = 'red' | 'yellow' | 'green';
 
 
 export const TerminalHeader = ({ header, editor = false }: TerminalHeaderProps) => {
-	const { tags, setTags, setPreview } = useContext(editorContext);
+	const { tags, setTags, setPreview, storeMarkdown } = useContext(editorContext);
 
 	const dotClass = (color: validColors): string => `w-7 h-7 bg-${color}-500 rounded-full mr-3 animate-pulse`;
 	const [showTags, setShowTags] = useState<boolean>(false);
 	const selectedTags = (tags: string[]) => {
 		setTags('tags', tags);
 	};
+
+
 	return (
 		<div className={`terminalHeader ${editor ? 'bg-slate-800 h-16 items-center' : ''}`}>
 			<span className={dotClass('red')}></span>
@@ -30,7 +32,7 @@ export const TerminalHeader = ({ header, editor = false }: TerminalHeaderProps) 
 			{
 				editor && <>
 					{showTags && <TagsInput selectedTags={selectedTags} tags={tags} />}
-					<EditorNavbarOptions setPreview={setPreview} showTags={setShowTags} />
+					<EditorNavbarOptions storeMarkdown={storeMarkdown} setPreview={setPreview} showTags={setShowTags} />
 				</>
 			}
 		</div>

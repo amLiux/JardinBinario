@@ -5,11 +5,12 @@ type MessageProps = {
 	message: string;
 	handleClose: () => void;
 	error: boolean;
+	warning?: boolean;
 };
 
-export const Message = ({ message, error = false, handleClose }: MessageProps) => {
+export const Message = ({ message, error = false, handleClose, warning = false }: MessageProps) => {
 	return (
-		<div className={`absolute top-0 transition- all w-full flex justify-around transform items-center ${error ? 'bg-red-500' : 'bg-green-500'} text-center py-1 text-white`}>
+		<div className={`absolute top-0 transition- all w-full flex justify-around transform items-center ${error ? 'bg-red-500' : 'bg-green-500'} ${warning ? 'bg-yellow-500' : ''} text-center py-1 text-white`}>
 			<code className="flex items-center justify-center">
 				<span className="text-white font-bold">{error ? 'ERROR:' : 'MESSAGE:'}</span>
 				<div className="underline py-1 text-white px-2">
