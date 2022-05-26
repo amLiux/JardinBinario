@@ -14,6 +14,7 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
+	scrollbar-width: none;
 }
 
 a {
@@ -145,7 +146,7 @@ a {
 }
 
 .terminal {
-	@apply w-full max-w-sm bg-slate-800 rounded text-white;
+	@apply w-full bg-slate-800 rounded text-white;
 }
 
 .terminalHeader {
@@ -343,11 +344,6 @@ a {
 	}
 }
 
-
-.preview {
-
-}
-
 .markdownResult {
 	@apply prose break-normal prose-img:mx-auto prose-h1:text-center prose-xl p-5 w-8/12 overflow-auto text-ellipsis rounded-md h-[49rem];
 }
@@ -360,10 +356,37 @@ a {
 	content: ""!important;
 } */
 
-.preview {
-	@apply prose-strong:text-purple-400 prose-h2:text-purple-500 prose-blockquote:text-purple-400 prose-h1:text-purple-400 mx-auto text-white prose-blockquote:bg-slate-800 prose-a:text-purple-400 prose-code:text-white prose-th:text-purple-500 prose-h3:text-purple-400 prose-blockquote:rounded-md h-screen prose-thead:bg-slate-800 prose-th:p-5 prose-td:p-5 ; 
+.read::-webkit-scrollbar {
+	width: 0!important;
+	overflow: -moz-scrollbars-none;
+	scrollbar-width: none;
+	background: transparent;
 }
 
-.writing { 
+.read {
+	@apply w-auto min-w-[60rem] rounded-t-none prose-blockquote:bg-slate-900 prose-pre:text-purple-200 prose-pre:bg-slate-900;
+}
+
+.readMarkdown {
+	@apply w-auto max-w-[60rem] prose-blockquote:bg-slate-900;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+.preview {
+	@apply prose-strong:text-purple-400 prose-h2:text-purple-500 prose-blockquote:text-purple-400 prose-h1:text-purple-400 mx-auto text-white prose-blockquote:bg-slate-800 prose-a:text-purple-400 prose-code:text-white prose-th:text-purple-500 prose-h3:text-purple-400 prose-blockquote:rounded-md h-screen prose-thead:bg-slate-800 prose-th:p-5 prose-td:p-5 ;
+}
+
+.writing {
 	@apply prose-strong:text-slate-800 prose-h2:text-slate-800 prose-blockquote:text-slate-800 prose-h1:text-slate-800 bg-white;
 }
