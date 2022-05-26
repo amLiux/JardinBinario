@@ -14,6 +14,8 @@ type AuthProviderProps = {
 	children: ReactNode;
 }
 
+const backEnd = 'https://jardinbinario-be.herokuapp.com';
+
 export function AuthProvider({ children }: AuthProviderProps) {
 	const auth = useProviderAuth();
 
@@ -33,6 +35,35 @@ export const useAuth = (): any => {
 type Message = {
 	msg: string;
 	error: boolean;
+};
+
+export const createUnauthorizedApolloClient = () => {
+	const httpLink = createHttpLink({
+		uri: backEnd,
+	});
+
+	const handleOnError = onError((error: any) => {
+		const { graphQLErrors } = error;
+		let { message } = graphQLErrors[0];
+		// this happens if the GQL server runs up with issues while creating our context
+		const toRemoveIfIncludes = 'Context creation failed: '; 
+		const toChangeIfIncludes = 'MongoServerError: E11000';
+
+		// TODO check this later man, its gross haha
+		if(message.includes(toChangeIfIncludes)) {
+			message = 'Duplicated blog title, try a different one.';
+		}
+
+		if (message.includes(toRemoveIfIncludes)) {
+			message = message.replace(toRemoveIfIncludes, '');
+		}
+		console.error(error);
+	});
+
+	return new ApolloClient({
+		link: handleOnError.concat(httpLink),
+		cache: new InMemoryCache(),
+	});
 };
 
 function useProviderAuth() {
@@ -57,7 +88,7 @@ function useProviderAuth() {
 	// TODO not sure about exposing this whenever we instance getAuth(), this happens because I think I'll also use useQuery and useMutation queries on child components,so I'll def need a client instance wrappign my parent Component
 	const createApolloClient = () => {
 		const httpLink = createHttpLink({
-			uri: 'https://jardinbinario-be.herokuapp.com',
+			uri: backEnd,
 		});
 
 		const setAuthorizationInContext = setContext((_, prevContext) => {

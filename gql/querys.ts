@@ -43,9 +43,27 @@ export const querys = {
         mutation($blogInput: BlogInput) {
             newBlogEntry(blogInput: $blogInput) {
                 id,
-                author,
+                author {
+                    name,
+                    lastName
+                },
                 title
             }
         }
     `,
+    GET_BLOG_BY_ID: gql`
+        query getSpecificBlogEntry($blogId:String!) {
+            getSpecificBlogEntry(blogId: $blogId) {
+                title,
+                markdown,
+                createdAt,
+                tags,
+                author {
+                    name
+                    lastName
+                    email
+                },
+            }
+        }
+    `
 };

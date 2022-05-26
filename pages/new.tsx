@@ -54,12 +54,15 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 				if (response.data.newBlogEntry) {
 					const { title, id } = response.data.newBlogEntry;
 					setMessage({
-						msg: `The blog ${response.data.newBlogEntry.title} was created succesfuly`,
+						msg: `The blog ${title} was created succesfuly`,
 						error: false
 					});
 
 					// TODO once we have a page that resolves blogs, let's redirect from here/ do we do title or id?
-					setTimeout(() => router.push(`/${encodeURIComponent(title)}`), 2000);
+					setTimeout(() => router.push({
+						pathname: `/read`,
+						query: {'blogId': id} 
+					}, ), 2000);
 				}
 			} catch (err: any) {
 				// do we set error here 
@@ -105,7 +108,7 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 						preview
 							?
 							<>
-								<MarkdownResult userContext={userContext} preview={preview} />
+								<MarkdownResult context={userContext} preview={preview} />
 							</>
 							:
 							<form className="flex justify-around h-screen p-4" id="newBlogEntryForm" onSubmit={formik.handleSubmit}>
