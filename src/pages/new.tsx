@@ -111,7 +111,7 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 								<MarkdownResult context={userContext} preview={preview} />
 							</>
 							:
-							<form className="flex justify-around h-screen p-4" id="newBlogEntryForm" onSubmit={formik.handleSubmit}>
+							<form className="flex justify-around items-center h-screen p-4" id="newBlogEntryForm" onSubmit={formik.handleSubmit}>
 								<Editor />
 								<MarkdownResult preview={preview} />
 							</form>

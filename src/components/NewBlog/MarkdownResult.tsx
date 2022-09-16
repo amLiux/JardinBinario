@@ -19,18 +19,19 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 	useEffect(() => {
 		const titleToRemove = visualMarkdown.split('\n')[0] || blogEntry?.markdown?.split('\n')[0] || '';
 
-		const generateUserInfo = (context: UserContext) => {
+		const generateUserInfo = (context: UserContext, createdAt?:string) => {
 			const { lastName, name, email } = context;
 
 			return {
 				name: `> #### [${name} ${lastName}](mailto:${email})`,
-				date: `> ${new Date().toLocaleDateString('es-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}`,
+				date: `> ${new Date(createdAt ? createdAt : new Date()).toLocaleDateString('es-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}`,
 			};
 		};
 
 
 		if (preview && context) {
-			const { name, date } = generateUserInfo(context as any);
+
+			const { name, date } = generateUserInfo(context as any, blogEntry?.createdAt);
 			const toSet = titleToRemove + " \n" + name + "\n" + date + "\n";
 
 			if(blogEntry) {

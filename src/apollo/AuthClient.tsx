@@ -8,11 +8,17 @@ import {
 } from '@apollo/client';
 import { querys } from '../gql/querys';
 import { onError } from '@apollo/client/link/error';
+
 const authContext = createContext({});
 
 type AuthProviderProps = {
 	children: ReactNode;
 }
+
+type Message = {
+	msg: string;
+	error: boolean;
+};
 
 const backEnd = 'https://jardinbinario-be.herokuapp.com';
 
@@ -28,14 +34,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
 	);
 }
 
-export const useAuth = (): any => {
+export const useAuth = ():any => {
 	return useContext(authContext);
 }
-
-type Message = {
-	msg: string;
-	error: boolean;
-};
 
 export const createUnauthorizedApolloClient = () => {
 	const httpLink = createHttpLink({
