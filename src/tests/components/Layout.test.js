@@ -121,7 +121,7 @@ describe('<Layout/>', () => {
             </Layout>
         );
 
-        expect(component.container.getElementsByClassName('bg-404-pattern')).toHaveLength(1);
+        expect(component.container.getElementsByClassName('bg404Pattern')).toHaveLength(1);
     });
 
 });

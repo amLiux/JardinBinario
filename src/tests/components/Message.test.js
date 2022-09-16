@@ -16,7 +16,7 @@ describe('<Message/>', () => {
     });
 
     test('should call the onClose mock', () => {
-        const [toClick] = component.container.getElementsByClassName('message-close');
+        const [toClick] = component.container.getElementsByClassName('messageClose');
 
         fireEvent.click(toClick);
         expect(handleClose).toHaveBeenCalled();
