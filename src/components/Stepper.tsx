@@ -10,14 +10,11 @@ export const Stepper = ({ children }: any) => {
     const isLastStep = step === totalSteps - 1;
     const { setMessage, removeMessage } = useAuth();
 
-    const next = () => {
-        setStep(Math.min(step + 1, totalSteps - 1));
-    };
+    const next = () => setStep(Math.min(step + 1, totalSteps - 1));
 
     const currentChild = childrenArray[step];
-    if (!React.isValidElement(currentChild)) {
-        return null;
-    }
+
+    if (!React.isValidElement(currentChild)) return null;
 
     const handleSubmit = async () => {
         if (currentChild.props.onSubmit) {

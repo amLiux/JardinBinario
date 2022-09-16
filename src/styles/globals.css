@@ -15,6 +15,7 @@ body {
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
 	scrollbar-width: none;
+	@apply bg-slate-900;
 }
 
 a {
@@ -119,6 +120,21 @@ a {
 	background-color: rgb(22, 21, 21);
 }
 
+.layout {
+	@apply min-h-screen flex flex-col justify-center;
+}
+
+.tooltip {
+	@apply text-lg font-mono text-center bg-black/75 text-gray-100 absolute inset-x-80 rounded shadow-xl p-4;
+}
+
+.message {
+	@apply absolute top-0 transition-all w-full flex justify-around transform items-center text-center py-1 text-white;
+}
+
+.message-close {
+	@apply rounded-full shadow-xl bg-white border border-white;
+}
 
 /* TODO don't override h1, create a class for this */
 
@@ -371,6 +387,31 @@ a {
 	@apply w-auto max-w-[60rem] prose-blockquote:bg-slate-900;
 }
 
+.spinner{
+    border: 4px solid rgba(0,0,0, .1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+	@apply border-l-purple-600 pb-4;
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
+    animation: spin 3s ease-in infinite;
+}
+
+.spinner-big{
+	width: 100px;
+	height: 100px;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(1080deg);
+    }
+}
 
 .no-scrollbar::-webkit-scrollbar {
     display: none;

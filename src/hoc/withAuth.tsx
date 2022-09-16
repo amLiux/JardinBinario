@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { ElementType, useEffect, useState } from "react";
 import { useAuth } from "../apollo/AuthClient";
+import { Spinner } from "../components/Spinner";
 import { UserContext } from "../components/types/sharedTypes";
 
 export const withAuth = (Component: ElementType) => {
@@ -19,10 +20,20 @@ export const withAuth = (Component: ElementType) => {
                     setUserContext(response);
                 }
             };
-            getUser();
+
+            setTimeout(() => {
+                getUser();
+            }, 2200);
+
         }, [router, getUserInfo]);
 
-        return !!userContext ? <Component userContext={userContext} /> : <div className="w-screen h-screen bg-slate-900">hello</div>; //TODO do we add a skeleton approach or go by simply running a cool ouroboros spinner?
+        return !!userContext 
+            ? 
+                <Component userContext={userContext} /> 
+            : 
+                <div className="w-screen flex flex-col justify-center h-screen bg-slate-900">
+                    <Spinner size="big"/>
+                </div>; //TODO do we add a skeleton approach or go by simply running a cool ouroboros spinner?
     };
 
     return AuthenticatedComponent;
