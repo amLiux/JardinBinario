@@ -20,7 +20,8 @@ type Message = {
 	error: boolean;
 };
 
-const backEnd = 'https://jardinbinario-be.herokuapp.com';
+// const backEnd = 'https://jardinbinario-be.herokuapp.com';
+const backEnd = process.env.backendUrl || 'http://localhost:4000';
 
 export function AuthProvider({ children }: AuthProviderProps) {
 	const auth = useProviderAuth();

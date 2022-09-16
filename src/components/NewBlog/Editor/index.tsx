@@ -1,7 +1,6 @@
 import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
-import editorContext from '../context/editorContext';
-
-
+import editorContext from '../../../context/editorContext';
+import editorStyles from './Editor.module.css';
 
 export const Editor = () => {
 	const [defaultValue, setDefaultValue] = useState<string>();
@@ -40,6 +39,7 @@ export const Editor = () => {
 		<textarea
 			defaultValue={defaultValue}
 			onChange={onInputChange}
-			className="h-[49rem] font-mono outline outline-offset-1 outline-3 outline-transparent focus:outline-purple-500 w-4/12 rounded-md resize-none text-xl text-white bg-slate-800 outline-none p-5 pl-10" />
+			className={editorStyles.editor}
+		/>
 	)
 }

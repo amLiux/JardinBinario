@@ -1,5 +1,5 @@
 import React, { ReactNode, useState } from 'react';
-
+import tooltipStyles from './Tooltip.module.css';
 type TooltipProps = {
 	children: ReactNode | ReactNode[];
 	tooltipText: string;
@@ -13,7 +13,7 @@ export const Tooltip = ({ children, tooltipText }: TooltipProps) => {
 		<>
 			{
 				isShown && (
-					<div className="tooltip">
+					<div className={tooltipStyles.tooltip}>
 						{tooltipText}
 					</div>
 				)

@@ -1,0 +1,96 @@
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 0.07;
+    }
+    15%{
+        opacity: 0.14;
+    }
+    25%{
+        opacity: 0.22;
+    }
+    35%{
+        opacity: 0.36;
+    }
+    45%{
+        opacity: 0.45;
+    }
+    65%{
+        opacity: 0.57;
+    }
+    75%{
+        opacity: 0.69;
+    }
+    85%{
+        opacity: 0.76;
+    }
+    95%{
+        opacity: 0.89;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+	10%{
+        opacity: 0.89;
+    }
+	15%{
+        opacity: 0.76;
+    }
+	25%{
+		opacity: 0.69;
+	}
+	35%{
+		opacity: 0.57;
+    }
+	45%{
+        opacity: 0.45;
+    }
+	55%{
+		opacity: 0.36;
+    }
+	65%{
+        opacity: 0.22;
+    }
+	80%{
+        opacity: 0.14;
+    }
+	90%{
+        opacity: 0.07;
+    }
+	100% {
+		opacity: 0;
+	}
+
+}
+
+.bg404Pattern {
+	@apply bg-slate-800;
+	background-image:
+		radial-gradient(
+			circle at bottom right,
+			rgb(192 132 252),
+			#0f172a 25%
+		);
+}
+
+.layout {
+	@apply min-h-screen flex flex-col justify-center;
+}
+
+.smoothRender {
+	@apply transition-all ease-in z-10 h-10;
+	animation: fadeIn 0.8s ease-in;
+}
+
+.smoothRemove {
+	@apply transition-all ease-in;
+	animation: fadeOut 0.8s ease-in;
+}

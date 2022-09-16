@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import editorContext from '../context/editorContext';
+import editorContext from '../../../context/editorContext';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { BlogEntry, UserContext } from '../types/sharedTypes';
+import { BlogEntry, UserContext } from '../../../types/sharedTypes';
+import markdownResultsStyles from './MarkdownResult.module.css';
 
 type MarkdownRestulProps = {
 	preview?: boolean;
@@ -24,7 +25,7 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 
 			return {
 				name: `> #### [${name} ${lastName}](mailto:${email})`,
-				date: `> ${new Date(createdAt ? createdAt : new Date()).toLocaleDateString('es-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" })}`,
+				date: `> ${new Date(createdAt ? createdAt : new Date()).toLocaleDateString('es-us', { year: "numeric", month: "long", day: "numeric" })}`,
 			};
 		};
 
@@ -55,9 +56,16 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 
 	return (
 		<>
-			<div className={`markdownResult ${preview ? 'preview' : 'writing'} ${blogEntry ? 'readMarkdown' : ''}`}>
+			<div 
+				className={`
+					${markdownResultsStyles.markdownResult} 
+					${preview ? markdownResultsStyles.preview : markdownResultsStyles.writing} 
+					${blogEntry ? markdownResultsStyles.readMarkdown : ''}
+				`}
+			>
 				<ReactMarkdown
-					remarkPlugins={[[remarkGfm, { singleTilde: false }]]}>{toRender || visualMarkdown}</ReactMarkdown>
+					remarkPlugins={[[remarkGfm, { singleTilde: false }]]}>{toRender || visualMarkdown}
+				</ReactMarkdown>
 			</div>
 		</>
 	)

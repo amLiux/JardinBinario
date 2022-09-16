@@ -1,0 +1,3 @@
+.helpMessage {
+    @apply cursor-pointer block mt-4 font-medium text-base text-center italic hover:underline hover:underline-offset-2;
+}

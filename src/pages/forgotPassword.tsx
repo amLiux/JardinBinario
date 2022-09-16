@@ -8,7 +8,7 @@ import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { TerminalInput } from '../components/Terminal/TerminalInput';
 import { useAuth } from '../apollo/AuthClient';
 import { OTPInput } from '../components/Terminal/OTPInput';
-import { ForgotPasswordValues } from '../components/types/sharedTypes';
+import { ForgotPasswordValues } from '../types/sharedTypes';
 import { Step, Stepper } from '../components/Stepper';
 import { useRouter } from 'next/router';
 

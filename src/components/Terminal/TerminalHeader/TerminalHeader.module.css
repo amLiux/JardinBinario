@@ -1,0 +1,7 @@
+.terminalHeader {
+	@apply flex justify-items-start p-4 align-middle;
+}
+
+.terminalHeader > .terminalHeader__text {
+	@apply text-xl text-center font-light;
+}

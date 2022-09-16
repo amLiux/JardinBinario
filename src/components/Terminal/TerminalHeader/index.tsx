@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
-import editorContext from '../context/editorContext';
-import { EditorNavbarOptions } from '../NewBlog/EditorNavbarOptions';
-import { TagsInput } from '../NewBlog/TagInput';
+import editorContext from '../../../context/editorContext';
+import { EditorNavbarOptions } from '../../NewBlog/EditorNavbarOptions';
+import { TagsInput } from '../../NewBlog/TagInput';
+import terminalHeaderStyles from './TerminalHeader.module.css';
 
 type TerminalHeaderProps = {
 	header: string;
@@ -22,7 +23,7 @@ export const TerminalHeader = ({ header, editor = false }: TerminalHeaderProps) 
 
 
 	return (
-		<div className={`terminalHeader ${editor ? 'bg-slate-800 h-16 items-center' : ''}`}>
+		<div className={`${terminalHeaderStyles.terminalHeader} ${editor ? 'bg-slate-800 h-16 items-center' : ''}`}>
 			<span className={dotClass('red')}></span>
 			<span className={dotClass('yellow')}></span>
 			<span className={dotClass('green')}></span>

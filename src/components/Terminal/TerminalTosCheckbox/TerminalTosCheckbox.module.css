@@ -1,0 +1,15 @@
+.container {
+    @apply flex items-center text-lg mt-3;
+}
+
+.input {
+    @apply checked:bg-purple-400 rounded-full w-5 h-5 ml-4 bg-purple-400;
+}
+
+.label {
+    @apply ml-2 text-sm font-light text-white;
+}
+
+.copy {
+    @apply text-indigo-600 hover:text-indigo-500 underline;
+}

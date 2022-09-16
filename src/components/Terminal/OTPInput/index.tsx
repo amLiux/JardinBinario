@@ -1,6 +1,7 @@
 import { FormikHelpers } from 'formik';
 import React, { SyntheticEvent, useEffect, useState } from 'react';
-import { ForgotPasswordValues } from '../types/sharedTypes';
+import { ForgotPasswordValues } from '../../../types/sharedTypes';
+import otpInputStyles from './OTPInput.module.css';
 
 type OTPInputProps = {
 	length: number;
@@ -27,11 +28,11 @@ export const OTPInput = ({ length, setFormikOtp }: OTPInputProps) => {
 	}, [otp, length, setFormikOtp]);
 
 	return (
-		<div className="flex align-middle justify-center">
+		<div className={otpInputStyles.container}>
 			{
 				otp.map(
 					(input, ind) => <input
-							className="bg-slate-800 border-purple-400 border text-center focus:border-2  focus:animate-pulse w-8 text-white focus:outline-none focus:bg-slate-600 shadow-xl rounded-md h-10 m-1 text-sm"
+							className={otpInputStyles.otpInput}
 							value={input}
 							key={ind}
 							maxLength={1}
