@@ -1,7 +1,8 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head'
-import { Message } from './Message';
-import { useAuth } from '../apollo/AuthClient';
+import { Message } from '../Message';
+import { useAuth } from '../../apollo/AuthClient';
+import layoutStyles from './Layout.module.css';
 
 type LayoutProps = {
 	children: ReactNode | ReactNode[];
@@ -27,11 +28,20 @@ export const Layout = ({ children, style404 }: LayoutProps) => {
 	return (
 		<>
 			<Head>
+				{/* TODO Helmet or find a way to add title, og, images, etc... */}
 				<title>Jardin Binario</title>
 			</Head>
-			<div className={`${style404 ? 'bg-404-pattern' : 'bg-slate-900'} smoothRender layout `}>
+			<div 
+				className={`
+					${style404 ? layoutStyles.bg404Pattern : 'bg-slate-900'}
+					${layoutStyles.smoothRenderer}
+					${layoutStyles.layout}
+				`}>
 				<div
-					className={`${showMessage !== '' ? 'smoothRender' : message !== '' ? 'smoothRemove' : ''}`}
+					// TODO check this logic? sort of unreadable
+					className={`
+						${showMessage !== '' ? layoutStyles.smoothRenderer : message !== '' ? layoutStyles.smoothRemove : ''}
+					`}
 				>
 					{
 						message?.msg !== '' && 

@@ -5,7 +5,7 @@ import { MarkdownResult } from '../components/NewBlog/MarkdownResult';
 import { querys } from '../gql/querys';
 import { createUnauthorizedApolloClient } from '../apollo/AuthClient';
 import { InferGetServerSidePropsType } from 'next';
-import { BlogEntry } from '../components/types/sharedTypes';
+import { BlogEntry } from '../types/sharedTypes';
 
 export const getServerSideProps = async (context: any) => {
 	const { blogId } = context.query;

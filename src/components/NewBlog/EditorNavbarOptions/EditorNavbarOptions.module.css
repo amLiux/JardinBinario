@@ -1,0 +1,7 @@
+.editorNavbarButton {
+    @apply bg-slate-600 text-purple-400 hover:outline-purple-500 hover:animate-pulse outline outline-2 outline-transparent p-2 rounded;
+}
+
+.container {
+    @apply flex justify-around items-center ml-auto w-80 p-5 h-5;
+}

@@ -1,0 +1,14 @@
+.terminal {
+	@apply w-full bg-slate-800 rounded text-white;
+}
+
+.read::-webkit-scrollbar {
+	width: 0!important;
+	overflow: -moz-scrollbars-none;
+	scrollbar-width: none;
+	background: transparent;
+}
+
+.read {
+	@apply w-auto min-w-[60rem] rounded-t-none prose-blockquote:bg-slate-900 prose-pre:text-purple-200 prose-pre:bg-slate-900;
+}

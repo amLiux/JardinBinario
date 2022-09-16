@@ -1,0 +1,7 @@
+.container {
+    @apply flex align-middle justify-center;
+}
+
+.otpInput {
+    @apply bg-slate-800 border-purple-400 border text-center focus:border-2 focus:animate-pulse w-8 text-white focus:outline-none focus:bg-slate-600 shadow-xl rounded-md h-10 m-1 text-sm;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Tooltip } from '../Tooltip';
+import { Tooltip } from '../../Tooltip';
+import terminalTosCheckboxStyles from './TerminalTosCheckbox.module.css';
 
 type TerminalTosCheckboxProps = {
 	handleCheck: () => void;
@@ -7,14 +8,13 @@ type TerminalTosCheckboxProps = {
 
 export const TerminalTosCheckbox = ({ handleCheck }: TerminalTosCheckboxProps) => {
 	return (
-		<div className="flex items-center text-lg mt-3">
-			<input onChange={handleCheck} id="tos" type="checkbox" className="checked:bg-purple-400 rounded-full w-5 h-5 ml-4 bg-purple-400" />
-			<label htmlFor="tos" className="ml-2 text-sm font-light text-white"
-			>
+		<div className={terminalTosCheckboxStyles.container}>
+			<input onChange={handleCheck} id="tos" type="checkbox" className={terminalTosCheckboxStyles.input} />
+			<label htmlFor="tos" className={terminalTosCheckboxStyles.label}>
 				<code>
 					I agree to the&nbsp;
 					<Tooltip tooltipText="We gather some information from your browser, device and timezone to keep our application updated.">
-						<a href="#" className="text-indigo-600 hover:text-indigo-500 underline">
+						<a href="#" className={terminalTosCheckboxStyles.copy}>
 							Privacy Policy.
 						</a>
 					</Tooltip>

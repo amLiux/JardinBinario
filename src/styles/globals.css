@@ -7,8 +7,6 @@
 	--velocidad: 5s;
 }
 
-/* TODO check if there is a way to store the classNames in the components */
-
 html,
 body {
 	padding: 0;
@@ -25,26 +23,6 @@ a {
 
 * {
 	box-sizing: border-box;
-}
-
-.bg-404-pattern {
-	@apply bg-slate-800;
-	background-image:
-		radial-gradient(
-			circle at bottom right,
-			rgb(192 132 252),
-			#0f172a 25%
-		);
-}
-
-.smoothRender {
-	@apply transition-all ease-in z-10 h-10;
-	animation: fadeIn 0.8s ease-in;
-}
-
-.smoothRemove {
-	@apply transition-all ease-in;
-	animation: fadeOut 0.8s ease-in;
 }
 
 .star {
@@ -120,22 +98,6 @@ a {
 	background-color: rgb(22, 21, 21);
 }
 
-.layout {
-	@apply min-h-screen flex flex-col justify-center;
-}
-
-.tooltip {
-	@apply text-lg font-mono text-center bg-black/75 text-gray-100 absolute inset-x-80 rounded shadow-xl p-4;
-}
-
-.message {
-	@apply absolute top-0 transition-all w-full flex justify-around transform items-center text-center py-1 text-white;
-}
-
-.message-close {
-	@apply rounded-full shadow-xl bg-white border border-white;
-}
-
 /* TODO don't override h1, create a class for this */
 
 .header {
@@ -156,49 +118,8 @@ a {
 	@apply w-[3px] bg-slate-200 animate-writing-machine-after;
 }
 
-
 .yellow {
 	@apply bg-yellow-500;
-}
-
-.terminal {
-	@apply w-full bg-slate-800 rounded text-white;
-}
-
-.terminalHeader {
-	@apply flex justify-items-start p-4 align-middle;
-}
-
-.terminalHeader>.terminalHeader__text {
-	@apply text-xl text-center font-light;
-}
-
-.terminalButton {
-	@apply cursor-pointer flex align-middle justify-center transition-all ease-in-out delay-150 bg-slate-900/75 text-white disabled:hover:text-white hover:text-purple-400 w-80 focus:animate-bounce rounded mx-auto my-4 p-2 text-2xl hover:bg-slate-700/75 hover:justify-center disabled:bg-slate-700 disabled:cursor-progress;
-}
-
-.terminalForm {
-	@apply text-purple-400 pb-4 shadow-md;
-}
-
-.terminalInput {
-	@apply flex align-middle transition-all ease-in-out;
-}
-
-.terminalInput__focus {
-	@apply border-x-2 border-purple-400 animate-pulse;
-}
-
-.terminalInput__error {
-	@apply border-x-2 border-red-400 animate-pulse;
-}
-
-.terminalInput>.terminalInput__input {
-	@apply text-white appearance-none bg-inherit pl-1 leading-tight focus:outline-none text-lg focus:animate-pulse;
-}
-
-.terminalInput>.terminalInput__label {
-	@apply block text-xl ml-3;
 }
 
 /* Animations */
@@ -253,166 +174,6 @@ a {
 	}
 }
 
-@keyframes fadeIn{
-    0%{
-        opacity: 0;
-    }
-    10%{
-        opacity: 0.07;
-    }
-    15%{
-        opacity: 0.14;
-    }
-    25%{
-        opacity: 0.22;
-    }
-    35%{
-        opacity: 0.36;
-    }
-    45%{
-        opacity: 0.45;
-    }
-    65%{
-        opacity: 0.57;
-    }
-    75%{
-        opacity: 0.69;
-    }
-    85%{
-        opacity: 0.76;
-    }
-    95%{
-        opacity: 0.89;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut{
-    0%{
-        opacity: 1;
-    }
-	10%{
-        opacity: 0.89;
-    }
-	15%{
-        opacity: 0.76;
-    }
-	25%{
-		opacity: 0.69;
-	}
-	35%{
-		opacity: 0.57;
-    }
-	45%{
-        opacity: 0.45;
-    }
-	55%{
-		opacity: 0.36;
-    }
-	65%{
-        opacity: 0.22;
-    }
-	80%{
-        opacity: 0.14;
-    }
-	90%{
-        opacity: 0.07;
-    }
-	100% {
-		opacity: 0;
-	}
-
-}
-
-.tagsInput {
-	transition: width 1s;
-	@apply flex items-start flex-wrap outline outline-2 outline-purple-500 min-h-[48px] w-[35rem] px-2 rounded-md font-mono;
-}
-
-.tagsInputMaxed {
-	@apply w-[27rem] justify-center;
-}
-
-.tagsInput> input {
-	transition: font-size 1s cubic-bezier(1, 0.11, 1, 0.03);
-	@apply p-1 flex-1 text-base h-12 border-none font-mono focus:outline-none text-white bg-slate-800;
-}
-
-#tags {
-	@apply flex flex-wrap p-0 mb-1;
-	margin: 8px 0 0 0;
-}
-
-.tag {
-	@apply w-auto h-8 flex items-center justify-center bg-slate-600 text-white px-2 text-sm font-bold list-none rounded-md;
-	margin: 0 8px 8px 0;
-}
-
-.tag>.tagCloseIcon {
-	@apply text-white items-center text-sm pb-[6px] cursor-pointer w-4 h-4 flex justify-center text-center p-1 ml-2 bg-purple-400 rounded-sm;
-}
-
-@media screen and (max-width: 567px) {
-	.tagsInput {
-		width: calc(100vw - 32px);
-	}
-}
-
-.markdownResult {
-	@apply prose break-normal prose-img:mx-auto prose-h1:text-center prose-xl p-5 w-8/12 overflow-auto text-ellipsis rounded-md h-[49rem];
-}
-
-/* .prose blockquote p::after {
-	content: ""!important;
-}
-
-.prose blockquote p::before {
-	content: ""!important;
-} */
-
-.read::-webkit-scrollbar {
-	width: 0!important;
-	overflow: -moz-scrollbars-none;
-	scrollbar-width: none;
-	background: transparent;
-}
-
-.read {
-	@apply w-auto min-w-[60rem] rounded-t-none prose-blockquote:bg-slate-900 prose-pre:text-purple-200 prose-pre:bg-slate-900;
-}
-
-.readMarkdown {
-	@apply w-auto max-w-[60rem] prose-blockquote:bg-slate-900;
-}
-
-.spinner{
-    border: 4px solid rgba(0,0,0, .1);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-	@apply border-l-purple-600 pb-4;
-    display: block;
-    margin: 0 auto;
-    margin-top: 2rem;
-    animation: spin 3s ease-in infinite;
-}
-
-.spinner-big{
-	width: 100px;
-	height: 100px;
-}
-
-@keyframes spin {
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(1080deg);
-    }
-}
-
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
@@ -421,13 +182,4 @@ a {
 .no-scrollbar {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-}
-
-
-.preview {
-	@apply prose-strong:text-purple-400 prose-h2:text-purple-500 prose-blockquote:text-purple-400 prose-h1:text-purple-400 mx-auto text-white prose-blockquote:bg-slate-800 prose-a:text-purple-400 prose-code:text-white prose-th:text-purple-500 prose-h3:text-purple-400 prose-blockquote:rounded-md h-screen prose-thead:bg-slate-800 prose-th:p-5 prose-td:p-5 ;
-}
-
-.writing {
-	@apply prose-strong:text-slate-800 prose-h2:text-slate-800 prose-blockquote:text-slate-800 prose-h1:text-slate-800 bg-white;
 }

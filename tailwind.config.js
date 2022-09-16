@@ -6,7 +6,7 @@ module.exports = {
 	theme: {
 		extend: {
 			backgroundImage: {
-				'bg-404-pattern': 'radial-gradient(circle at bottom right,rgb(192 132 252),#0f172a 25%)',
+				'bg404Pattern': 'radial-gradient(circle at bottom right,rgb(192 132 252),#0f172a 25%)',
 			},
 			animation: {
 				'star': 'shining 3000ms ease-in-out infinite',

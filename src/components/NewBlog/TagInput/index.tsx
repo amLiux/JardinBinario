@@ -1,4 +1,5 @@
-import { SyntheticEvent, useContext, useEffect, useState } from "react";
+import { SyntheticEvent, useState } from "react";
+import tagInputStyles from './TagInput.module.css';
 
 type TagsInputType = {
 	selectedTags: (tags: string[]) => void;
@@ -14,6 +15,7 @@ export const TagsInput = (props: TagsInputType) => {
 		setTags(newTags);
 		props.selectedTags(newTags);
 	};
+
 	const addTags = (e: SyntheticEvent) => {
 		let target = (e.target as HTMLInputElement);
 
@@ -25,14 +27,12 @@ export const TagsInput = (props: TagsInputType) => {
 	};
 
 	return (
-		<div className={`tagsInput ${tags.length > MAX_TAGS ? 'tagsInputMaxed' : ''} ml-auto`}>
-			<ul id="tags">
+		<div className={`${tagInputStyles.tagsInput} ${tags.length > MAX_TAGS ? tagInputStyles.tagsInputMaxed : ''}`}>
+			<ul id="tags" className={tagInputStyles.tags}>
 				{tags.map((tag: string, index: number) => (
-					<li key={index} className="tag">
-						<span className='tagTitle'>{tag}</span>
-						<span className='tagCloseIcon'
-							onClick={() => removeTags(index)}
-						>
+					<li key={index} className={tagInputStyles.tag}>
+						<span className={tagInputStyles.tagTitle}>{tag}</span>
+						<span className={tagInputStyles.tagCloseIcon} onClick={() => removeTags(index)}>
 							x
 						</span>
 					</li>

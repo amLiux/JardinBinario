@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
-import { ElementType, useEffect, useState } from "react";
-import { useAuth } from "../apollo/AuthClient";
-import { Spinner } from "../components/Spinner";
-import { UserContext } from "../components/types/sharedTypes";
+import { useRouter } from 'next/router';
+import { ElementType, useEffect, useState } from 'react';
+import { useAuth } from '../apollo/AuthClient';
+import { Spinner } from '../components/Spinner';
+import { UserContext } from '../types/sharedTypes';
 
 export const withAuth = (Component: ElementType) => {
     const AuthenticatedComponent = () => {

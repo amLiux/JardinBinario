@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React, { Children, ReactNode, useState } from 'react'
 import { useAuth } from '../apollo/AuthClient';
 import { HelpMessage } from './HelpMessage';
@@ -9,6 +10,7 @@ export const Stepper = ({ children }: any) => {
     const totalSteps = childrenArray.length;
     const isLastStep = step === totalSteps - 1;
     const { setMessage, removeMessage } = useAuth();
+	const router = useRouter();
 
     const next = () => setStep(Math.min(step + 1, totalSteps - 1));
 
@@ -32,7 +34,7 @@ export const Stepper = ({ children }: any) => {
 
     return <TerminalForm handleSubmit={handleSubmit}>
         {currentChild}
-        <HelpMessage text="Go back to login" />
+        <HelpMessage text="Go back to login" onClick={() => router.push('/login')} />
     </TerminalForm>
 };
 

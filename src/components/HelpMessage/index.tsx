@@ -1,4 +1,5 @@
 import React from 'react'
+import helpMessageStyles from './HelpMessage.module.css';
 
 type HelpMessageProps = {
 	text: string;
@@ -13,7 +14,7 @@ const easterEggMessage = `
 
 export const HelpMessage = ({ text, onClick = () => console.log(easterEggMessage) }: HelpMessageProps) => {
 	return (
-		<span onClick={onClick} className="block mt-4 text-light text-md text-center italic hover:underline hover:underline-offset-2">
+		<span onClick={onClick} className={helpMessageStyles.helpMessage}>
 			{text}
 		</span>
 	)

@@ -1,5 +1,6 @@
 import { FormikHandlers } from 'formik';
 import React, { useState } from 'react';
+import terminalInputStyles from './TerminalInput.module.css';
 
 type TerminalInputProps = {
 	type: 'text' | 'password';
@@ -17,8 +18,12 @@ type TerminalInputProps = {
 export const TerminalInput = ({ label, type, id, value, onChange, error }: TerminalInputProps) => {
 	const [focused, setFocused] = useState(false);
 	return (
-		<div className={`terminalInput ${focused ? 'terminalInput__focus' : ''} ${error ? "terminalInput__error" : ""}`}>
-			<label className="terminalInput__label" htmlFor={id}>
+		<div className={`
+			${terminalInputStyles.terminalInput} 
+			${focused ? terminalInputStyles.focus : ''} 
+			${error ? terminalInputStyles.error : ''}`
+			}>
+			<label className={terminalInputStyles.label} htmlFor={id}>
 				&gt; <code>{label}: </code>
 			</label>
 			<input
@@ -26,7 +31,7 @@ export const TerminalInput = ({ label, type, id, value, onChange, error }: Termi
 				onFocus={() => setFocused(!focused)}
 				onBlur={() => setFocused(!focused)}
 				id={id}
-				className="terminalInput__input"
+				className={terminalInputStyles.input}
 				type={type}
 				value={value}
 			/>

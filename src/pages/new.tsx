@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import EditorContext from '../components/context/editorContext';
+import EditorContext from '../context/editorContext';
 import { Editor } from '../components/NewBlog/Editor';
 import { Layout } from '../components/Layout';
 import { MarkdownResult } from '../components/NewBlog/MarkdownResult';
 import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { withAuth } from '../hoc/withAuth';
 import { querys } from '../gql/querys';
-import { EditorContextType, NewBlogEntryValues, UserContext } from '../components/types/sharedTypes';
+import { EditorContextType, NewBlogEntryValues, UserContext } from '../types/sharedTypes';
 import { useAuth } from '../apollo/AuthClient';
 import { useRouter } from 'next/router';
 
