@@ -29,18 +29,18 @@ export const Layout = ({ children, style404 }: LayoutProps) => {
 		<>
 			<Head>
 				{/* TODO Helmet or find a way to add title, og, images, etc... */}
-				<title>Jardin Binario</title>
+				<title>Jardín Binario</title>
 			</Head>
 			<div 
 				className={`
 					${style404 ? layoutStyles.bg404Pattern : 'bg-slate-900'}
-					${layoutStyles.smoothRenderer}
+					${layoutStyles.smoothRender}
 					${layoutStyles.layout}
 				`}>
 				<div
 					// TODO check this logic? sort of unreadable
 					className={`
-						${showMessage !== '' ? layoutStyles.smoothRenderer : message !== '' ? layoutStyles.smoothRemove : ''}
+						${showMessage !== '' ? layoutStyles.smoothRender : message !== '' ? layoutStyles.smoothRemove : ''}
 					`}
 				>
 					{
