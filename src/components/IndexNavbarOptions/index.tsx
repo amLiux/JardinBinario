@@ -10,7 +10,7 @@ type Tab = {
 }
 
 interface IndexNavbarOptionsProps {
-    handleClickServices: () => void;
+    handleClickServices?: () => void;
 }
 
 const tabs: Tab[] = [

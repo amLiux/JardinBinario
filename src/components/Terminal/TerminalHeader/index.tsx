@@ -9,7 +9,7 @@ type TerminalHeaderProps = {
 	header: string;
 	editor?: boolean;
 	index?: boolean;
-	handleClickServices: () => void;
+	handleClickServices?: () => void;
 }
 
 type validColors = 'red' | 'yellow' | 'green';
