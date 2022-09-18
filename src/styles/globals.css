@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
 	--velocidad: 5s;
 }
@@ -48,6 +47,7 @@ a {
 	left: calc(20% - 2rem);
 	animation-delay: 650ms;
 }
+
 .star:nth-child(1)::before,
 .star:nth-child(1)::after {
 	animation-delay: 650ms;
@@ -58,6 +58,7 @@ a {
 	left: calc(50% - 3rem);
 	animation-delay: 150ms;
 }
+
 .star:nth-child(2)::before,
 .star:nth-child(2)::after {
 	animation-delay: 150ms;
@@ -68,6 +69,7 @@ a {
 	left: calc(50% - 5rem);
 	animation-delay: 1600ms;
 }
+
 .star:nth-child(3)::before,
 .star:nth-child(3)::after {
 	animation-delay: 1600ms;
@@ -78,6 +80,7 @@ a {
 	left: calc(17% - 9rem);
 	animation-delay: 4700ms;
 }
+
 .star:nth-child(4)::before,
 .star:nth-child(4)::after {
 	animation-delay: 4700ms;
@@ -88,6 +91,7 @@ a {
 	left: calc(20% - 10rem);
 	animation-delay: 2100ms;
 }
+
 .star:nth-child(5)::before,
 .star:nth-child(5)::after {
 	animation-delay: 2100ms;
@@ -142,9 +146,11 @@ a {
 	0% {
 		width: 0;
 	}
+
 	50% {
 		width: 30px;
 	}
+
 	100% {
 		width: 0;
 	}
@@ -154,6 +160,7 @@ a {
 	0% {
 		transform: translateX(0);
 	}
+
 	100% {
 		transform: translateX(320px);
 	}
@@ -169,17 +176,26 @@ a {
 	to {
 		background: transparent;
 	}
+
 	100% {
 		color: rgb(22, 21, 21);
 	}
 }
 
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
+	/* Firefox */
+}
+
+.isSticky {
+	@apply shadow-md sticky;
+	backdrop-filter: blur(10px);
+	z-index: 100;
 }

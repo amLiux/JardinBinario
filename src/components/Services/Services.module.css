@@ -1,0 +1,27 @@
+.container {
+    @apply mt-10 flex flex-wrap gap-20;
+}
+
+.card {
+    @apply transition-all hover:ring-4 hover:ring-purple-500 max-w-sm rounded min-h-[460px] bg-white;
+}
+
+.cardTextContainer {
+    @apply p-6;
+}
+
+.cardTextContainer > h4 {
+    @apply font-bold text-2xl text-center text-black mb-2 mt-0; 
+}
+
+.cardTextContainer > span {
+    @apply text-black text-base text-center; 
+}
+
+.logosContainer {
+    @apply py-4 flex flex-wrap justify-center;
+}
+
+.logo {
+    @apply transition-all ease-in-out hover:ring-4 hover:ring-purple-300 flex font-mono bg-gray-200 rounded-md px-3 py-1 mr-2 mb-2 items-center;
+}

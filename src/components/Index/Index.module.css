@@ -1,0 +1,7 @@
+.index {
+    @apply h-auto w-screen prose prose-2xl prose-h1:leading-snug prose-h1:text-white prose-h1:text-center text-white prose-h2:text-white m-auto mt-10 prose-img:rounded mb-20 prose-h2:text-center prose-h4:mt-0 prose-h3:text-white;
+}
+
+.heading {
+    @apply text-purple-500 italic;
+}

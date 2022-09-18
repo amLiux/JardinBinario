@@ -1,5 +1,5 @@
 .terminalHeader {
-	@apply flex justify-items-start p-4 align-middle;
+	@apply flex justify-items-start p-4 align-middle items-center;
 }
 
 .terminalHeader > .terminalHeader__text {

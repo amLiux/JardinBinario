@@ -1,0 +1,11 @@
+.container {
+    @apply ml-auto flex text-white items-center font-mono;
+}
+
+.ctaButton {
+    @apply outline outline-1 hover:outline-slate-800 hover:animate-pulse hover:bg-white hover:text-slate-800 p-2 rounded outline-purple-500;
+}
+
+.linkStyle {
+    @apply hover:border-b-2 border-b-purple-400 transition-all hover:animate-bounce ease-in-out;
+}
