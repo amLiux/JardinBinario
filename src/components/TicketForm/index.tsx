@@ -61,7 +61,7 @@ export const TicketForm = ({ handleSubmit, values, handleChange, errors, setServ
             <span ref={refForForm} className={ticketFormStyles.coolHeading}>
                 <h3>Contáctanos!</h3>
             </span>
-            <div className={`${ticketFormStyles.formContainer} ${submitting || (submitted && !submitting) ? 'flex flex-col justify-center items-center' : ''}`}>
+            <div style={{marginTop: '2.5rem'}} className={`${ticketFormStyles.formContainer} ${submitting || (submitted && !submitting) ? 'flex flex-col justify-center items-center' : ''}`}>
                 {
                     submitting || (submitted && !submitting) 
                     ? <Spinner submitted={submitted} size='big'/>
