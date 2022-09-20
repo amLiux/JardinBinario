@@ -1,5 +1,5 @@
 .container {
-    @apply mt-10 flex flex-wrap gap-y-10 gap-x-28 items-center;
+    @apply mt-10 flex flex-wrap gap-y-10 gap-x-28 items-center font-sans;
     scroll-margin-top: 12rem;
 }
 
