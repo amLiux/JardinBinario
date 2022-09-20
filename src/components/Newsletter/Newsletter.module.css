@@ -8,6 +8,8 @@
 
 .header {
     @apply mb-0 text-white;
+    color: white;
+    margin-bottom: 0!important;
 }
 
 .copy {
