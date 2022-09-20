@@ -9,7 +9,6 @@
 
 .formContainer {
     @apply bg-white uppercase w-full h-[39rem] mt-10 rounded p-10 hover:ring-2 hover:ring-purple-500 font-sans;
-    margin-top: 2.5rem!important;
 }
 
 .formHeading {
