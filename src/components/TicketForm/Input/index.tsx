@@ -15,7 +15,6 @@ interface InputProps {
 };
 
 export const Input = ({extraStyling, friendlyName, id, textInputAsKey, value, placeholder, handleChange, error, type}:InputProps) => {
-	console.log(error);
 	return (
 		<div className={`${ticketFormStyles.textInputBox}`}>
 			<label
