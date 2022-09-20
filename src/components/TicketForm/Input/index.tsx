@@ -12,20 +12,23 @@ interface InputProps {
 	handleChange: FormikHandlers['handleChange'];
 	type: string;
 	error?: string | string[];
+	newsletter?: boolean;
 };
 
-export const Input = ({extraStyling, friendlyName, id, textInputAsKey, value, placeholder, handleChange, error, type}:InputProps) => {
+export const Input = ({ extraStyling, friendlyName, id, textInputAsKey, value, placeholder, handleChange, error, type, newsletter = false }: InputProps) => {
 	return (
-		<div className={`${ticketFormStyles.textInputBox}`}>
-			<label
-				className={`
-    				${extraStyling}
-    				${ticketFormStyles.textInputLabel}
-				`}
-				htmlFor={id}
-			>
-				{friendlyName}
-			</label>
+		<div className={`${ticketFormStyles.textInputBox} ${newsletter ? ticketFormStyles.newsletterInput : ''}`}>
+			{
+				!newsletter && <label
+					className={`
+						${extraStyling}
+						${ticketFormStyles.textInputLabel}
+					`}
+					htmlFor={id}
+				>
+					{friendlyName}
+				</label>
+			}
 			<input
 				onChange={(e) => {
 					const isPhoneNumber = textInputAsKey === 'phoneNumber';
@@ -44,6 +47,17 @@ export const Input = ({extraStyling, friendlyName, id, textInputAsKey, value, pl
 				type={type}
 				placeholder={placeholder}
 			/>
+			{
+				// disabled={disabledButton}
+				// {submitting ? <Spinner></Spinner> : 'Enviar'}
+				newsletter &&
+				<button type='submit' className={`
+					${ticketFormStyles.submitButton}
+					${ticketFormStyles.submitButtonNewsletter} 
+				`}>
+					Suscríbete
+				</button>
+			}
 		</div>
 	)
 }
