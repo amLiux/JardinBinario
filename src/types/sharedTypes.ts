@@ -31,6 +31,14 @@ export type NewBlogEntryValues = {
 	markdown: string;
 };
 
+export type NewTicketValues = {
+	companyName: string;
+	email: string;
+	description: string;
+	service: string[];
+	phoneNumber: string;
+};
+
 export interface UserContext {
 	id?: string;
 	name: string;

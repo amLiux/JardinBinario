@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout';
 import { Terminal } from '../components/Terminal/Terminal';
 import { TerminalButton } from '../components/Terminal/TerminalButton';
-import { TerminalForm } from '../components/Terminal/TerminalForm';
+import { Form } from '../components/Form';
 import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { TerminalInput } from '../components/Terminal/TerminalInput';
 import { TerminalTosCheckbox } from '../components/Terminal/TerminalTosCheckbox';
@@ -75,7 +75,7 @@ const RegisterPage = () => {
 					{/* TODO can we abstract and re-use this because its really really similar to login */}
 					<Terminal>
 						<TerminalHeader header="Register" />
-						<TerminalForm handleSubmit={formik.handleSubmit}>
+						<Form terminal handleSubmit={formik.handleSubmit}>
 							{
 								Object.keys(initialValues).map((inputValue, ind) => {
 									const splittedInputValue = inputValue.split(/(?=[A-Z])/);
@@ -99,7 +99,7 @@ const RegisterPage = () => {
 							}
 							<TerminalTosCheckbox handleCheck={handleCheckboxChange} />
 							<TerminalButton disabled={disableButton} text="Register" />
-						</TerminalForm>
+						</Form>
 					</Terminal>
 				</div>
 			</Layout>

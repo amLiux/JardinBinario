@@ -7,9 +7,10 @@ import layoutStyles from './Layout.module.css';
 type LayoutProps = {
 	children: ReactNode | ReactNode[];
 	style404?: boolean;
+	index?: boolean;
 };
 
-export const Layout = ({ children, style404 }: LayoutProps) => {
+export const Layout = ({ children, style404, index = false }: LayoutProps) => {
 	const [showMessage, setShowMessage] = useState<string>('');
 
 	const { message, removeMessage } = useAuth();
@@ -45,7 +46,7 @@ export const Layout = ({ children, style404 }: LayoutProps) => {
 				>
 					{
 						message?.msg !== '' && 
-							<Message handleClose={handleClose} warning={message?.warning} error={message?.error} message={message?.msg} />
+							<Message index={index} handleClose={handleClose} warning={message?.warning} error={message?.error} message={message?.msg} />
 					}
 				</div>
 				{children}

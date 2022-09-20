@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { Children, ReactNode, useState } from 'react'
 import { useAuth } from '../apollo/AuthClient';
 import { HelpMessage } from './HelpMessage';
-import { TerminalForm } from './Terminal/TerminalForm';
+import { Form } from './Form';
 
 export const Stepper = ({ children }: any) => {
     const [step, setStep] = useState<number>(0);
@@ -32,10 +32,10 @@ export const Stepper = ({ children }: any) => {
         !isLastStep && next(); 
     };
 
-    return <TerminalForm handleSubmit={handleSubmit}>
+    return <Form handleSubmit={handleSubmit}>
         {currentChild}
         <HelpMessage text="Go back to login" onClick={() => router.push('/login')} />
-    </TerminalForm>
+    </Form>
 };
 
 export const Step = ({ children }: any) => children;

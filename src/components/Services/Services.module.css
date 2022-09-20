@@ -1,5 +1,6 @@
 .container {
-    @apply mt-10 flex flex-wrap gap-20;
+    @apply mt-10 flex flex-wrap gap-y-10 gap-x-28 items-center;
+    scroll-margin-top: 12rem;
 }
 
 .card {

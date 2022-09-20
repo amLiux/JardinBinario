@@ -5,12 +5,12 @@ import { services } from './services';
 import servicesStyles from './Services.module.css';
 
 interface ServicesProps {
-    ref: RefObject<HTMLDivElement>;
+    refForScroll: RefObject<HTMLDivElement>;
 }
 
-export const Services = ({ ref }: ServicesProps) => {
+export const Services = ({ refForScroll }: ServicesProps) => {
     return (
-        <div id='services' ref={ref} className={servicesStyles.container}>
+        <div id='services' ref={refForScroll} className={servicesStyles.container}>
             {
                 services.map(({ title, description, stack }, cardIdx) =>
                     <div key={cardIdx} className={servicesStyles.card}>

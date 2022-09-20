@@ -86,11 +86,11 @@
 }
 
 .smoothRender {
-	@apply transition-all ease-in z-10;
+	@apply transition-all ease-in-out z-10;
 	animation: fadeIn 0.8s ease-in;
 }
 
 .smoothRemove {
-	@apply transition-all ease-in;
+	@apply transition-all ease-in-out z-10;
 	animation: fadeOut 0.8s ease-in;
 }
