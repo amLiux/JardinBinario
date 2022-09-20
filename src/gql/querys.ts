@@ -33,14 +33,14 @@ export const querys = {
         }
     `,
     FORGOT_PASSWORD_FINISH: gql`
-        mutation FinishForgotPassword($forgotPasswordInput: ForgotPasswordInput) {
+        mutation finishForgotPassword($forgotPasswordInput: ForgotPasswordInput) {
             finishForgotPassword(forgotPasswordInput: $forgotPasswordInput) {
                 name
             }
         }
     `,
     NEW_BLOG_ENTRY: gql`
-        mutation($blogInput: BlogInput) {
+        mutation newBlogEntry($blogInput: BlogInput) {
             newBlogEntry(blogInput: $blogInput) {
                 id,
                 author {
@@ -63,6 +63,13 @@ export const querys = {
                     lastName
                     email
                 },
+            }
+        }
+    `,
+    NEW_TICKET: gql`
+        mutation newTicket($ticketInput: TicketInput) {
+            newTicket(ticketInput: $ticketInput) {
+                id
             }
         }
     `

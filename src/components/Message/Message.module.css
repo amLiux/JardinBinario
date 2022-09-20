@@ -1,5 +1,5 @@
 .container {
-	@apply absolute top-0 transition-all w-full flex justify-around transform items-center text-center py-1 text-white;
+	@apply transition-all w-full flex justify-around transform items-center text-center py-1 text-white;
 }
 
 .messageClose {

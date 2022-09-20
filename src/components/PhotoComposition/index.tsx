@@ -10,15 +10,15 @@ import photoCompositionStyles from './PhotoComposition.module.css';
 const toRender = [
 	{
 		image: imagen3,
-		alt: ''
+		alt: 'a desk with some work on branding design with an iPad',
 	},
 	{ 
 		image: imagen2,
-		alt: '',
+		alt: 'mobile application interface sketches',
 	},
 	{
 		image: imagen1,
-		alt: ''
+		alt: 'someone coding on a laptop with a cup on coffee and a plant on the desk',
 	}
 ];
 

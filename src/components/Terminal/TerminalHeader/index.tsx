@@ -9,7 +9,7 @@ type TerminalHeaderProps = {
 	header: string;
 	editor?: boolean;
 	index?: boolean;
-	handleClickServices?: () => void;
+	handleClickServices?: (ref:string) => void;
 }
 
 type validColors = 'red' | 'yellow' | 'green';
@@ -36,7 +36,6 @@ export const TerminalHeader = ({ header, editor = false, index = false, handleCl
 	const isSticky = (e:SyntheticEvent) => {
 		const header = document.querySelector('.scroll');
 		const scrollTop = window.scrollY;
-		console.log(scrollTop);
 		scrollTop >= 100 ? header?.classList.add('isSticky') : header?.classList.remove('isSticky');
 	};
 

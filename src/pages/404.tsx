@@ -4,10 +4,9 @@ import { Sky } from '../components/404/Sky';
 import { Layout } from '../components/Layout';
 
 export default function Custom404() {
-	// TODO redirect to index after 2 seconds when its created
 	const router = useRouter();
 	useEffect(() => {
-		setTimeout(() => router.push('/login'), 6500);
+		setTimeout(() => router.push('/'), 6500);
 	}, [router]);
 
 	return (

@@ -8,7 +8,7 @@ import { Terminal } from '../components/Terminal/Terminal';
 import { TerminalButton } from '../components/Terminal/TerminalButton';
 import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { TerminalInput } from '../components/Terminal/TerminalInput';
-import { TerminalForm } from '../components/Terminal/TerminalForm';
+import { Form } from '../components/Form';
 import { useAuth } from '../apollo/AuthClient';
 
 type LoginFormValues = {
@@ -56,7 +56,7 @@ export default function LoginPage() {
 				<div className="flex justify-center">
 					<Terminal>
 						<TerminalHeader header="Login" />
-						<TerminalForm handleSubmit={formik.handleSubmit}>
+						<Form terminal handleSubmit={formik.handleSubmit}>
 							{
 								Object.keys(initialValues).map((inputValue, ind) => {
 									const splittedInputValue = inputValue.split(/(?=[A-Z])/);
@@ -80,7 +80,7 @@ export default function LoginPage() {
 							}
 							<TerminalButton disabled={disableButton} text="Sign In" />
 							<HelpMessage text="Forgot your password?" onClick={() => router.push('/forgotPassword')}/>
-						</TerminalForm>
+						</Form>
 					</Terminal>
 				</div>
 			</Layout>

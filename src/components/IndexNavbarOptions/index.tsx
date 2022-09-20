@@ -10,7 +10,7 @@ type Tab = {
 }
 
 interface IndexNavbarOptionsProps {
-    handleClickServices?: () => void;
+    handleClickServices?: (ref:string) => void;
 }
 
 const tabs: Tab[] = [
@@ -21,12 +21,12 @@ const tabs: Tab[] = [
 	},
     {
 		text: 'Servicios',
-		route: '#services',
+		route: 'services',
 		link: false,
 	},
 	{
-		text: 'Contactanos',
-		route: '#ticket',
+		text: 'Contáctanos',
+		route: 'ticket',
 		link: false,
 		ctaButton: true,
 	},
@@ -44,7 +44,7 @@ export const IndexNavbarOptions = ({handleClickServices}:IndexNavbarOptionsProps
                             className={`
                                 ${ctaButton ? indexNavbarOptionsStyles.ctaButton : indexNavbarOptionsStyles.linkStyle}`
                             }
-                            onClick={() => link ? router.push(route) : () => handleClickServices}>
+                            onClick={link ? () => router.push(route) : () => handleClickServices ? handleClickServices(route) : undefined}>
                             {text}
                         </button>
                     </li>
