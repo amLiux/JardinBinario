@@ -12,6 +12,7 @@ import { Services } from '../components/Services';
 import { TicketForm } from '../components/TicketForm';
 import { querys } from '../gql/querys';
 import { NewTicketValues } from '../types/sharedTypes';
+import { Newsletter } from '../components/Newsletter';
 
 function timeout(delay: number) {
 	return new Promise(res => setTimeout(res, delay));
@@ -111,6 +112,7 @@ export default function IndexPage() {
 						message={message}
 						refForForm={refForm}
 					/>
+					<Newsletter />
 				</div>
 			</Layout>
 		</>
