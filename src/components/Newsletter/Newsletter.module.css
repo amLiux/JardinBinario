@@ -1,9 +1,15 @@
 .container {
-    @apply font-sans transition ease-in-out relative hover:ring-2 hover:ring-purple-500 ring-2 ring-white w-full h-56 rounded bg-white mt-20 p-5 text-white text-left;
+    @apply font-sans transition ease-in-out relative hover:ring-2 hover:ring-purple-500 ring-2 ring-white w-full h-56 rounded bg-white mt-20 p-5 text-left;
+}
+
+.subheading {
+    @apply text-base;
 }
 
 .header {
-    @apply mb-0;
+    @apply mb-0 text-white;
+    color: white!important;
+    margin-bottom: 0!important;
 }
 
 .copy {

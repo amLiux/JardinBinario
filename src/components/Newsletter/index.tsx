@@ -6,10 +6,10 @@ import { Sky } from '../404/Sky';
 
 export const Newsletter = () => {
     return (
-        <div className={`${layoutStyles.bg404Pattern} ${layoutStyles.container}`}>
+        <div className={`${layoutStyles.bg404Pattern} ${newsletterStyles.container}`}>
             <Sky stars={2}/>
             <h4 className={newsletterStyles.header}>Suscríbete a nuestro newsletter</h4>
-            <span>Recibe notificaciones de nuestras últimas actualizaciones, blogs, posiciones, ofertas.</span>
+            <span className={newsletterStyles.subheading}>Recibe notificaciones de nuestras últimas actualizaciones, blogs, posiciones, ofertas.</span>
             <Input
                 newsletter
                 handleChange={() => {}}
@@ -22,7 +22,7 @@ export const Newsletter = () => {
                 extraStyling={'ml-0 w-40'}
                 error={undefined}
             />
-            <span className={layoutStyles.copy}>Testeando este texto para ver que tan largo hay que hacerlo.</span>
+            <span className={newsletterStyles.copy}>Testeando este texto para ver que tan largo hay que hacerlo.</span>
         </div>
     )
 }
