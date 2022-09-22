@@ -7,6 +7,7 @@
 	--main-bg-color: brown;
     --brand-success: #5cb85c;
     --loader-size: 100px;
+    --loader-size-little: 40px;
 	--tw-border-opacity: 1;
     --check-height: var(--loader-size)/2;
     --check-width: var(--loader-size)/2;

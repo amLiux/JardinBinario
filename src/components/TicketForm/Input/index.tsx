@@ -3,16 +3,16 @@ import React from 'react'
 import ticketFormStyles from '../TicketForm.module.css';
 
 interface InputProps {
-	extraStyling: string;
-	friendlyName: string;
 	id: string;
-	textInputAsKey: string;
 	value: string;
 	placeholder: string;
 	handleChange: FormikHandlers['handleChange'];
 	type: string;
 	error?: string | string[];
 	newsletter?: boolean;
+	textInputAsKey?: string;
+	extraStyling?: string;
+	friendlyName?: string;
 };
 
 export const Input = ({ extraStyling, friendlyName, id, textInputAsKey, value, placeholder, handleChange, error, type, newsletter = false }: InputProps) => {
@@ -47,17 +47,6 @@ export const Input = ({ extraStyling, friendlyName, id, textInputAsKey, value, p
 				type={type}
 				placeholder={placeholder}
 			/>
-			{
-				// disabled={disabledButton}
-				// {submitting ? <Spinner></Spinner> : 'Enviar'}
-				newsletter &&
-				<button type='submit' className={`
-					${ticketFormStyles.submitButton}
-					${ticketFormStyles.submitButtonNewsletter} 
-				`}>
-					Suscríbete
-				</button>
-			}
 		</div>
 	)
 }

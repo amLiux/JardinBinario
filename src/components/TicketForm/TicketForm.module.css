@@ -34,7 +34,7 @@
 }
 
 .newsletterInput {
-    @apply w-full pl-0 mt-5 flex items-center mb-0;
+    @apply w-full pl-0 mt-5 flex items-center mb-0 pr-0;
 }
 
 .newsletterInput > input {
@@ -42,9 +42,9 @@
 }
 
 .submitButton {
-    @apply disabled:bg-purple-300 disabled:hover:bg-none transition-all block m-auto mt-6 uppercase bg-purple-500 hover:bg-purple-700 text-white py-2 px-4 rounded;
+    @apply disabled:bg-purple-300 transition-all block m-auto mt-6 uppercase bg-purple-500 hover:bg-purple-700 text-white py-2 px-4 rounded;
 }
 
 .submitButtonNewsletter {
-    @apply ml-10 mt-0 mb-0 bg-purple-800;
+    @apply ml-10 mt-5 mb-0 bg-purple-800 disabled:bg-purple-500 min-w-[22%];
 }
