@@ -20,7 +20,7 @@ type Message = {
 	error: boolean;
 };
 
-const backEnd = process.env.backendUrl;
+const backEnd = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export function AuthProvider({ children }: AuthProviderProps) {
 	const auth = useProviderAuth();

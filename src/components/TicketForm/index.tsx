@@ -1,5 +1,5 @@
 import { FormikErrors, FormikHandlers, FormikHelpers, FormikValues } from 'formik';
-import React, { RefObject, useEffect, useState } from 'react'
+import React, { RefObject, useState } from 'react'
 import { NewTicketValues } from '../../types/sharedTypes';
 import { Form } from '../Form';
 import RadioGroup from '../RadioGroup';

@@ -13,6 +13,7 @@
 
 .formHeading {
     @apply after:content-['📝'] after:ml-1 mb-8;
+    margin-bottom: 2rem!important;
 }
 
 .textInputContainer {
