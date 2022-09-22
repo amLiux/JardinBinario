@@ -1,28 +1,51 @@
-import React from 'react'
+import React from 'react';
+import { FormikErrors, FormikHandlers, FormikValues } from 'formik';
 import { Input } from '../TicketForm/Input';
-import newsletterStyles from './Newsletter.module.css';
-import layoutStyles from '../Layout/Layout.module.css';
 import { Sky } from '../404/Sky';
+import { NewsletterValues } from '../../types/sharedTypes';
+import { Form } from '../Form';
+import { Spinner } from '../Spinner';
+import ticketFormStyles from '../TicketForm/TicketForm.module.css';
+import newsletterStyles from './Newsletter.module.css';
 
-export const Newsletter = () => {
+type NewsletterFormProps = {
+    handleSubmit: FormikHandlers['handleSubmit'];
+    values: FormikValues;
+    handleChange: FormikHandlers['handleChange'];
+    errors: FormikErrors<NewsletterValues>;
+    disabledButton: boolean;
+    submitting: boolean;
+    submitted: boolean;
+    message?: string;
+};
+
+export const Newsletter = ({ handleChange, handleSubmit, values, errors, disabledButton, submitting, submitted }: NewsletterFormProps) => {
     return (
-        <div className={`${layoutStyles.bg404Pattern} ${newsletterStyles.container}`}>
-            <Sky stars={2}/>
+        <Form newsletter handleSubmit={handleSubmit}>
+            <Sky stars={2} />
             <h4 className={newsletterStyles.header}>Suscríbete a nuestro newsletter</h4>
             <span className={newsletterStyles.subheading}>Recibe notificaciones de nuestras últimas actualizaciones, blogs, posiciones, ofertas.</span>
-            <Input
-                newsletter
-                handleChange={() => {}}
-                id={'test'}
-                value={''}
-                textInputAsKey={'test'}
-                friendlyName={'test'}
-                placeholder={'E-mail'}
-                type={'text'}
-                extraStyling={'ml-0 w-40'}
-                error={undefined}
-            />
+            <div className={newsletterStyles.inputContainer}>
+                <Input
+                    newsletter
+                    handleChange={handleChange}
+                    id='email'
+                    value={values.email}
+                    placeholder='E-mail'
+                    type='text'
+                    error={errors.email}
+                />
+                <button
+                    disabled={disabledButton || submitting || (submitted && !submitting) }
+                    type='submit'
+                    className={`
+                        ${ticketFormStyles.submitButton}
+                        ${ticketFormStyles.submitButtonNewsletter}
+					`}>
+                        {submitting || (submitted && !submitting)  ? <Spinner size='little' submitted={submitted}></Spinner> : 'Suscríbete'}
+                </button>
+            </div>
             <span className={newsletterStyles.copy}>Testeando este texto para ver que tan largo hay que hacerlo.</span>
-        </div>
+        </Form>
     )
 }

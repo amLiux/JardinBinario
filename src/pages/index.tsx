@@ -11,7 +11,7 @@ import { PhotoComposition } from '../components/PhotoComposition';
 import { Services } from '../components/Services';
 import { TicketForm } from '../components/TicketForm';
 import { querys } from '../gql/querys';
-import { NewTicketValues } from '../types/sharedTypes';
+import { NewsletterValues, NewTicketValues } from '../types/sharedTypes';
 import { Newsletter } from '../components/Newsletter';
 
 function timeout(delay: number) {
@@ -20,11 +20,19 @@ function timeout(delay: number) {
 
 export default function IndexPage() {
 	const [newTicket] = useMutation(querys.NEW_TICKET);
-	const [disableButton, setDisableButton] = useState<boolean>(true);
-	const [submitted, setSubmitted] = useState<boolean>(false);
+	const [newNewsletter] = useMutation(querys.NEW_NEWSLETTER);
+
+	const sharedState = (initialState: boolean) => ({
+		contactForm: initialState,
+		newsletterForm: initialState
+	});
+
+	const [disableButton, setDisableButton] = useState<Record<string, boolean>>(sharedState(true));
+	const [submitted, setSubmitted] = useState<Record<string, boolean>>(sharedState(false));
+
 	const [message, setMessage] = useState<string>('');
 
-	const initialValues: NewTicketValues = {
+	const initialValuesContactForm: NewTicketValues = {
 		companyName: '',
 		email: '',
 		description: '',
@@ -32,10 +40,14 @@ export default function IndexPage() {
 		phoneNumber: '',
 	};
 
+	const initialValuesNewsletter: NewsletterValues = {
+		email: '',
+	};
+
 	const phoneRegExp = /^[0-9]{4}[-][0-9]{4}$/;
 
-	const formik = useFormik({
-		initialValues,
+	const formikContactForm = useFormik({
+		initialValues: initialValuesContactForm,
 		validationSchema: Yup.object({
 			companyName: Yup.string().required('Un nombre de compañia es requerido'),
 			email: Yup.string().email().required('Un correo electronico es requerido'),
@@ -46,7 +58,6 @@ export default function IndexPage() {
 		enableReinitialize: true,
 		onSubmit: async (values) => {
 			try {
-				localStorage.setItem('token', '');
 				await timeout(4000);
 				const response = await newTicket({
 					variables: {
@@ -57,8 +68,39 @@ export default function IndexPage() {
 				});
 
 				if (response.data.newTicket) {
-					setSubmitted(true);
+					let submittedCopy = { ...submitted };
+					submittedCopy.contactForm = true;
+					setSubmitted(submittedCopy);
 					setMessage('Gracias por tu mensaje, estaremos en contacto muy pronto!')
+				}
+			} catch (err: any) {
+				// do we set error here 
+				console.error(err);
+			}
+		},
+	});
+
+	const formikNewsletter = useFormik({
+		initialValues: initialValuesNewsletter,
+		validationSchema: Yup.object({
+			email: Yup.string().email().required('Un correo electronico es requerido'),
+		}),
+		onSubmit: async (values) => {
+			try {
+				await timeout(4000);
+				const response = await newNewsletter({
+					variables: {
+						newsletterInput: {
+							...values,
+						}
+					}
+				});
+
+				if (response.data.newNewsletterEntry) {
+					let submittedCopy = { ...submitted };
+					submittedCopy.newsletterForm = true;
+					setSubmitted(submittedCopy);
+					// setMessage('Gracias por tu mensaje, estaremos en contacto muy pronto!');
 				}
 			} catch (err: any) {
 				// do we set error here 
@@ -70,8 +112,8 @@ export default function IndexPage() {
 	const refServices = useRef<HTMLDivElement>(null);
 	const refForm = useRef<HTMLDivElement>(null);
 
-	const handleClickServices = (ref:string) => {
-		const toScrollMapping:Record<string, RefObject<HTMLDivElement>> = {
+	const handleClickServices = (ref: string) => {
+		const toScrollMapping: Record<string, RefObject<HTMLDivElement>> = {
 			ticket: refForm,
 			services: refServices,
 		};
@@ -83,10 +125,23 @@ export default function IndexPage() {
 	};
 
 	useEffect(() => {
-		if (formik.isValid) {
-			setDisableButton(false);
-		} else setDisableButton(true);
-	}, [formik, formik.values]);
+		let disabledButtonCopy = { ...disableButton };
+
+		if (formikContactForm.isValid) {
+			disabledButtonCopy.contactForm = false;
+		} else {
+			disabledButtonCopy.contactForm = true;
+		}
+
+		if (formikNewsletter.isValid) {
+			disabledButtonCopy.newsletterForm = false;
+		} else {
+			disabledButtonCopy.newsletterForm = true;
+		}
+
+		setDisableButton(disabledButtonCopy);
+
+	}, [formikContactForm.isValid, formikNewsletter.isValid]);
 
 	return (
 		<>
@@ -101,18 +156,26 @@ export default function IndexPage() {
 					<h3>{texts.heading3}</h3>
 					<Services refForScroll={refServices} />
 					<TicketForm
-						handleChange={formik.handleChange}
-						errors={formik.errors}
-						values={formik.values}
-						handleSubmit={formik.handleSubmit}
-						setServices={formik.setFieldValue}
-						disabledButton={disableButton}
-						submitting={formik.isSubmitting}
-						submitted={submitted}
+						handleChange={formikContactForm.handleChange}
+						errors={formikContactForm.errors}
+						values={formikContactForm.values}
+						handleSubmit={formikContactForm.handleSubmit}
+						setServices={formikContactForm.setFieldValue}
+						disabledButton={disableButton.contactForm}
+						submitting={formikContactForm.isSubmitting}
+						submitted={submitted.contactForm}
 						message={message}
 						refForForm={refForm}
 					/>
-					<Newsletter />
+					<Newsletter
+						handleSubmit={formikNewsletter.handleSubmit}
+						handleChange={formikNewsletter.handleChange}
+						submitting={formikNewsletter.isSubmitting}
+						values={formikNewsletter.values}
+						errors={formikNewsletter.errors}
+						disabledButton={disableButton.newsletterForm}
+						submitted={submitted.newsletterForm}
+					/>
 				</div>
 			</Layout>
 		</>

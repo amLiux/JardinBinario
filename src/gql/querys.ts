@@ -72,5 +72,12 @@ export const querys = {
                 id
             }
         }
+    `,
+    NEW_NEWSLETTER: gql`
+        mutation newNewsletterEntry($newsletterInput: NewsletterInput) {
+            newNewsletterEntry(newsletterInput: $newsletterInput) {
+                email
+            }
+        }
     `
 };

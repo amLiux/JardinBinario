@@ -39,6 +39,10 @@ export type NewTicketValues = {
 	phoneNumber: string;
 };
 
+export type NewsletterValues = {
+	email: string;
+};
+
 export interface UserContext {
 	id?: string;
 	name: string;

@@ -65,7 +65,6 @@ export const TicketForm = ({ handleSubmit, values, handleChange, errors, setServ
                 {
                     submitting || (submitted && !submitting) 
                     ? <Spinner submitted={submitted} size='big'/>
-
                     : <>
                         <h4 className={ticketFormStyles.formHeading}>Formulario de contacto</h4>
                         <Form handleSubmit={handleSubmit}>
