@@ -21,6 +21,7 @@ export const Tooltip = ({ children, tooltipText, size, position}: TooltipProps) 
 				)
 			}
 			<div
+				className='inline'
 				onMouseEnter={() => setIsShown(true)}
 				onMouseLeave={() => setIsShown(false)}
 			>

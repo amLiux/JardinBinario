@@ -31,9 +31,9 @@ export const withAuth = (Component: ElementType) => {
             ? 
                 <Component userContext={userContext} /> 
             : 
-                <div className="w-screen flex flex-col justify-center h-screen bg-slate-900">
-                    <Spinner size="big"/>
-                </div>; //TODO do we add a skeleton approach or go by simply running a cool ouroboros spinner?
+                <div className='w-screen flex flex-col justify-center h-screen bg-slate-900'>
+                    <Spinner size='big'/>
+                </div> //TODO do we add a skeleton approach or go by simply running a cool ouroboros spinner?
     };
 
     return AuthenticatedComponent;

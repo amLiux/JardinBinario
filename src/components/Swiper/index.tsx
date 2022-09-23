@@ -7,7 +7,6 @@ import 'swiper/css';
 
 import customSwiperStyles from './CustomSwiper.module.css';
 import ticketFormStyles from '../TicketForm/TicketForm.module.css';
-import pic from '../../public/pic.jpeg';
 import likes from '../../public/buttons/likes.png';
 import views from '../../public/buttons/views.png';
 import { BlogEntry } from '../../types/sharedTypes';
@@ -20,11 +19,11 @@ interface CustomSwiperProps {
 const DEFAULT_WIDTH_HEIGTH = 32;
 
 const getSlidesToRender = (blogs: BlogEntry[], router: NextRouter) => (
-    blogs.map(({ title, author: { name, lastName }, createdAt, views: blogViews, tags, id }, idx) =>
+    blogs.map(({ title, author: { name, lastName, avatar }, createdAt, views: blogViews, tags, id }, idx) =>
         <SwiperSlide
             onClick={
                 () => router.push({
-                    pathname: `/read`,
+                    pathname: '/read',
                     query: { 'blogId': id }
                 })
             }
@@ -35,11 +34,11 @@ const getSlidesToRender = (blogs: BlogEntry[], router: NextRouter) => (
                 <div className={customSwiperStyles.identityContainer}>
                     <div className={customSwiperStyles.identityCard}>
                         <div className={customSwiperStyles.profilePicContainer}>
-                            <Image src={pic} alt="myself" layout='intrinsic' />
+                            <Image src={avatar} alt={`${name} ${lastName} profile pic`} layout='fill' />
                         </div>
                         <div className={customSwiperStyles.identityText} >
                             <p>{`${name} ${lastName}`}</p>
-                            <p>{new Date(createdAt).toLocaleDateString('es-us', { year: "numeric", month: "long", day: "numeric" })}</p>
+                            <p>{new Date(createdAt).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                         </div>
                     </div>
                     <div className={customSwiperStyles.statsContainer}>

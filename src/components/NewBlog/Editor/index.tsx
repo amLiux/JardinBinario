@@ -24,7 +24,7 @@ export const Editor = () => {
 			}
 		} else setMarkdownText('markdown', newValue);
 
-		const titleToSet = newValue.split("\n")[0].replace('#', '');
+		const titleToSet = newValue.split('\n')[0].replace('#', '');
 		if(titleToSet !== title ) {
 			setBlogTitle('title', titleToSet);
 		}

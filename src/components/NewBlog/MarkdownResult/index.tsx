@@ -25,7 +25,7 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 
 			return {
 				name: `> #### [${name} ${lastName}](mailto:${email})`,
-				date: `> ${new Date(createdAt ? createdAt : new Date()).toLocaleDateString('es-us', { year: "numeric", month: "long", day: "numeric" })}`,
+				date: `> ${new Date(createdAt ? createdAt : new Date()).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })}`,
 			};
 		};
 
@@ -33,7 +33,7 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 		if (preview && context) {
 
 			const { name, date } = generateUserInfo(context as any, blogEntry?.createdAt);
-			const toSet = titleToRemove + " \n" + name + "\n" + date + "\n";
+			const toSet = titleToRemove + ' \n' + name + '\n' + date + '\n';
 
 			if(blogEntry) {
 				setToRender(blogEntry.markdown.replace(titleToRemove, toSet));
@@ -44,9 +44,9 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 				setVisualMarkdown(visualMarkdown.replace(titleToRemove, toSet));
 			}
 		} else {
-			const toRemove = visualMarkdown.split('\n')[1] + "\n" + visualMarkdown.split('\n')[2];
+			const toRemove = visualMarkdown.split('\n')[1] + '\n' + visualMarkdown.split('\n')[2];
 			if (!context && toRemove.includes('>')) {
-				const toRemove = visualMarkdown.split('\n')[1] + "\n" + visualMarkdown.split('\n')[2];
+				const toRemove = visualMarkdown.split('\n')[1] + '\n' + visualMarkdown.split('\n')[2];
 				const newValue = visualMarkdown.replace(toRemove, '');
 				setVisualMarkdown(newValue);
 				setMarkdownText('markdown', newValue)

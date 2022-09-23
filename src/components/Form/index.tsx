@@ -15,7 +15,7 @@ export const Form = ({ children, handleSubmit, terminal = false, newsletter = fa
 	return (
 		<form 
 			onSubmit={(e) => {e.preventDefault(); if(handleSubmit) handleSubmit(e)}}
-			autoComplete="off"
+			autoComplete='off'
 			className={`
 				${terminal ? terminalFormStyles.terminalForm : ''}
 				${newsletter ? layoutStyles.bg404Pattern : ''}
