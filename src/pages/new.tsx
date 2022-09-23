@@ -60,7 +60,7 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 
 					// TODO once we have a page that resolves blogs, let's redirect from here/ do we do title or id?
 					setTimeout(() => router.push({
-						pathname: `/read`,
+						pathname: '/read',
 						query: {'blogId': id} 
 					}, ), 2000);
 				}
@@ -112,8 +112,8 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 							</>
 							:
 							<form 
-								className="flex justify-around items-center h-screen p-4"
-								id="newBlogEntryForm"
+								className='flex justify-around items-center h-screen p-4'
+								id='newBlogEntryForm'
 								onSubmit={formik.handleSubmit}>
 								<Editor />
 								<MarkdownResult preview={preview} />

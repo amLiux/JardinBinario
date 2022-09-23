@@ -44,7 +44,7 @@ export const TerminalHeader = ({ header, editor = false, index = false, handleCl
 			className={`
 				${terminalHeaderStyles.terminalHeader}
 				${editor ? 'bg-slate-800 h-16 items-center' : ''}
-				${index ? `scroll sticky top-0` : ''}
+				${index ? 'scroll sticky top-0' : ''}
 			`}>
 			<span className={dotClass('red')}></span>
 			<span className={dotClass('yellow')}></span>

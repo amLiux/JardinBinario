@@ -7,7 +7,7 @@
 }
 
 .label {
-    @apply ml-2 text-sm font-light text-white;
+    @apply ml-2 font-light text-base text-white;
 }
 
 .copy {

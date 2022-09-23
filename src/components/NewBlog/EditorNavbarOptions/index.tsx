@@ -20,7 +20,7 @@ export const EditorNavbarOptions = ({ showTags, setPreview, storeMarkdown }: Edi
 
     return (
         <div className={editorNavbarOptionsStyles.container}>
-            <Tooltip tooltipText="Add some tags to your blog for us to categorize and filter it better!">
+            <Tooltip tooltipText='Add some tags to your blog for us to categorize and filter it better!'>
                 <button
                     onClick={handleTagToggle}
                     className={editorNavbarOptionsStyles.editorNavbarButton}
@@ -28,7 +28,7 @@ export const EditorNavbarOptions = ({ showTags, setPreview, storeMarkdown }: Edi
                     {Icons.TAG}
                 </button>
             </Tooltip>
-            <Tooltip tooltipText="Save your work? This will override any saved in-progress blog entry!">
+            <Tooltip tooltipText='Save your work? This will override any saved in-progress blog entry!'>
                 <button
                     onClick={() => storeMarkdown()}
                     className={editorNavbarOptionsStyles.editorNavbarButton}
@@ -36,7 +36,7 @@ export const EditorNavbarOptions = ({ showTags, setPreview, storeMarkdown }: Edi
                     {Icons.SAVE}
                 </button>
             </Tooltip>
-            <Tooltip tooltipText="Preview what you got so far, Note: it will look exacly like this for users!">
+            <Tooltip tooltipText='Preview what you got so far, Note: it will look exacly like this for users!'>
                 <button
                     onClick={() => setPreview((preview: boolean) => !preview)}
                     className={editorNavbarOptionsStyles.editorNavbarButton}
@@ -46,8 +46,8 @@ export const EditorNavbarOptions = ({ showTags, setPreview, storeMarkdown }: Edi
             </Tooltip>
             <Tooltip tooltipText="You ready? Let's publish it!">
                 <button
-                    form="newBlogEntryForm"
-                    type="submit"
+                    form='newBlogEntryForm'
+                    type='submit'
                     className={editorNavbarOptionsStyles.editorNavbarButton}
                 >
                     {Icons.PUBLISH}

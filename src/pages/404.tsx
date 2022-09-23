@@ -13,8 +13,8 @@ export default function Custom404() {
 		<>
 			<Layout style404={true}>
 				<Sky stars={5} />
-				<div className="errorContainer">
-					<h1 className="header">
+				<div className='errorContainer'>
+					<h1 className='header'>
 						<code>404 NOT FOUND.</code>
 					</h1>
 				</div>

@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const querys = {
     REGISTER: gql`
@@ -90,10 +90,11 @@ export const querys = {
                 author {
                     name
                     lastName
-                    email
+                    email,
+                    avatar
                 },
                 views,
-                tags
+                tags,
             }
         }
     `,
@@ -107,10 +108,11 @@ export const querys = {
                 author {
                     name
                     lastName
-                    email
+                    email,
+                    avatar
                 },
                 views,
-                tags
+                tags,
             }
         }
     `

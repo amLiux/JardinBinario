@@ -56,9 +56,9 @@ export default function ForgotPassword() {
     return (
         <>
             <Layout>
-                <div className="flex justify-center">
+                <div className='flex justify-center'>
                     <Terminal>
-                        <TerminalHeader header="Forgot your password?" />
+                        <TerminalHeader header='Forgot your password?' />
                         <Stepper>
                             <Step
                                 onSubmit={(e: SyntheticEvent) => {
@@ -70,35 +70,35 @@ export default function ForgotPassword() {
                                     error={formik.errors?.email}
                                     onChange={formik.handleChange}
                                     value={formik.values?.email}
-                                    id="email"
-                                    type="text"
-                                    label="Email"
+                                    id='email'
+                                    type='text'
+                                    label='Email'
                                 />
-                                <TerminalButton disabled={formik.values.email === ''} text="Get reset code" />
+                                <TerminalButton disabled={formik.values.email === ''} text='Get reset code' />
                             </Step>
 
                             <Step>
                                 <OTPInput error={formik.errors?.otp} setFormikOtp={formik.setFieldValue} length={8} />
-                                <TerminalButton disabled={formik.values.otp === ''} text="Validate" />
+                                <TerminalButton disabled={formik.values.otp === ''} text='Validate' />
                             </Step>
                             <Step onSubmit={formik.handleSubmit}>
                                 <TerminalInput
                                     error={formik.errors?.newPassword}
                                     onChange={formik.handleChange}
                                     value={formik.values?.newPassword}
-                                    id="newPassword"
-                                    type="password"
-                                    label="New Password"
+                                    id='newPassword'
+                                    type='password'
+                                    label='New Password'
                                 />
                                 <TerminalInput
                                     error={formik.errors?.confirmPassword}
                                     onChange={formik.handleChange}
                                     value={String(formik.values?.confirmPassword)}
-                                    id="confirmPassword"
-                                    type="password"
-                                    label="Confirm it"
+                                    id='confirmPassword'
+                                    type='password'
+                                    label='Confirm it'
                                 />
-                                <TerminalButton disabled={disableButton} text="Save new password" />
+                                <TerminalButton disabled={disableButton} text='Save new password' />
                             </Step>
                         </Stepper>
                     </Terminal>

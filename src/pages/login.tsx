@@ -53,9 +53,9 @@ export default function LoginPage() {
 	return (
 		<>
 			<Layout>
-				<div className="flex justify-center">
+				<div className='flex justify-center'>
 					<Terminal>
-						<TerminalHeader header="Login" />
+						<TerminalHeader header='Login' />
 						<Form terminal handleSubmit={formik.handleSubmit}>
 							{
 								Object.keys(initialValues).map((inputValue, ind) => {
@@ -63,7 +63,7 @@ export default function LoginPage() {
 									const isPassword = inputValue === 'password';
 									const newLabel = splittedInputValue.map(
 										(element) => element.charAt(0).toUpperCase() + element.slice(1)
-									).join(" ");
+									).join(' ');
 									const inputValueAsKey = inputValue as keyof LoginFormValues;
 									return (
 										<TerminalInput
@@ -72,14 +72,14 @@ export default function LoginPage() {
 											value={formik.values?.[inputValueAsKey]}
 											key={`${inputValue}-${ind}`}
 											id={inputValue}
-											type={isPassword ? "password" : "text"}
+											type={isPassword ? 'password' : 'text'}
 											label={newLabel}
 										/>
 									);
 								})
 							}
-							<TerminalButton disabled={disableButton} text="Sign In" />
-							<HelpMessage text="Forgot your password?" onClick={() => router.push('/forgotPassword')}/>
+							<TerminalButton disabled={disableButton} text='Sign In' />
+							<HelpMessage text='Forgot your password?' onClick={() => router.push('/forgotPassword')}/>
 						</Form>
 					</Terminal>
 				</div>

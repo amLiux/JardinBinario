@@ -42,7 +42,7 @@ export default function ReadBlogPage({ blogEntry }: InferGetServerSidePropsType<
 	return (
 		<>
 			<Layout>
-				<div className="flex justify-center">
+				<div className='flex justify-center'>
 					<Terminal read>
 						<TerminalHeader header={title} />
 						<MarkdownResult blogEntry={blogEntry} context={author} preview />

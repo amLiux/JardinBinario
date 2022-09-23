@@ -17,6 +17,7 @@ import { NewsletterValues, NewTicketValues } from '../types/sharedTypes';
 import { Newsletter } from '../components/Newsletter';
 import { CustomSwiper } from '../components/Swiper';
 import { createUnauthorizedApolloClient } from '../apollo/AuthClient';
+import { Footer } from '../components/Footer';
 
 export const getServerSideProps = async (context: any) => {
 	const client = createUnauthorizedApolloClient();
@@ -169,7 +170,7 @@ export default function IndexPage({recentEntries, mostViewedEntries}: InferGetSe
 		}
 
 		setDisableButton(disabledButtonCopy);
-
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [formikContactForm.isValid, formikNewsletter.isValid]);
 
 	return (
@@ -206,6 +207,7 @@ export default function IndexPage({recentEntries, mostViewedEntries}: InferGetSe
 						submitted={submitted.newsletterForm}
 					/>
 					<CustomSwiper recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
+					<Footer />
 				</div> 
 			</Layout>
 		</>

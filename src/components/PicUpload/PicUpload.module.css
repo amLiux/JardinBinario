@@ -1,0 +1,19 @@
+.container {
+    @apply text-center mt-2 ml-5 mx-auto;
+}
+
+.relativeContainer {
+    @apply relative w-14;
+}
+
+.previewImage {
+    @apply w-14 h-14 rounded-full absolute;
+}
+
+.fileInput {
+    @apply w-14 h-14 ring-2 ring-white hover:bg-gray-200 opacity-60 rounded-full absolute flex justify-center items-center cursor-pointer transition duration-500;
+}
+
+.uploadLogo {
+    @apply hidden w-10;
+}

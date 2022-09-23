@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useState } from 'react';
 import tagInputStyles from './TagInput.module.css';
 
 type TagsInputType = {
@@ -19,16 +19,16 @@ export const TagsInput = (props: TagsInputType) => {
 	const addTags = (e: SyntheticEvent) => {
 		let target = (e.target as HTMLInputElement);
 
-		if (target.value !== "") {
+		if (target.value !== '') {
 			setTags([...tags, target.value]);
 			props.selectedTags([...tags, target.value]);
-			target.value = "";
+			target.value = '';
 		}
 	};
 
 	return (
 		<div className={`${tagInputStyles.tagsInput} ${tags.length > MAX_TAGS ? tagInputStyles.tagsInputMaxed : ''}`}>
-			<ul id="tags" className={tagInputStyles.tags}>
+			<ul id='tags' className={tagInputStyles.tags}>
 				{tags.map((tag: string, index: number) => (
 					<li key={index} className={tagInputStyles.tag}>
 						<span className={tagInputStyles.tagTitle}>{tag}</span>
@@ -41,9 +41,9 @@ export const TagsInput = (props: TagsInputType) => {
 			{
 				tags.length <= MAX_TAGS &&
 					<input
-						type="text"
-						onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
-						placeholder="Press Enter"
+						type='text'
+						onKeyUp={event => event.key === 'Enter' ? addTags(event) : null}
+						placeholder='Press Enter'
 					/>	
 			}
 		</div>

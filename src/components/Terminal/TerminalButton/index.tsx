@@ -8,9 +8,9 @@ type TerminalButtonProps = {
 }
 
 export const TerminalButton = ({ text, disabled }: TerminalButtonProps) => {
-	const IconIndex = text.replace(/ /g, "").toUpperCase();
+	const IconIndex = text.replace(/ /g, '').toUpperCase();
 	return (
-		<button disabled={disabled} type="submit" className={terminalButtonStyles.terminalButton}>
+		<button disabled={disabled} type='submit' className={terminalButtonStyles.terminalButton}>
 			<code>
 				{text}
 			</code>

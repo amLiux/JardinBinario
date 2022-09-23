@@ -1,4 +1,4 @@
-import { FormikHelpers, FormikValues } from "formik";
+import { FormikHelpers, FormikValues } from 'formik';
 
 export type FormData = {
 	initialValues: FormikValues;
@@ -23,6 +23,7 @@ export type BlogEntry = {
 		name: string;
 		lastName: string;
 		email: string;
+		avatar: string;
 	};
 	views: number;
 };
