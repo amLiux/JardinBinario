@@ -79,5 +79,39 @@ export const querys = {
                 email
             }
         }
+    `,
+    GET_RECENT_BLOGS: gql`
+        query getRecentEntries {
+            getRecentEntries {
+                title,
+                id,
+                markdown,
+                createdAt,
+                author {
+                    name
+                    lastName
+                    email
+                },
+                views,
+                tags
+            }
+        }
+    `,
+    GET_MOST_VIEWED_BLOGS: gql`
+        query getMostViewedEntries {
+            getMostViewedEntries {
+                title,
+                id,
+                markdown,
+                createdAt,
+                author {
+                    name
+                    lastName
+                    email
+                },
+                views,
+                tags
+            }
+        }
     `
 };

@@ -4,6 +4,8 @@ import { RefObject, useEffect, useRef, useState } from 'react';
 import { useFormik } from 'formik';
 import { useMutation } from '@apollo/client';
 import * as Yup from 'yup';
+import { InferGetServerSidePropsType } from 'next';
+
 
 import { texts } from '../components/Index/text';
 import indexStyles from '../components/Index/Index.module.css';
@@ -13,12 +15,39 @@ import { TicketForm } from '../components/TicketForm';
 import { querys } from '../gql/querys';
 import { NewsletterValues, NewTicketValues } from '../types/sharedTypes';
 import { Newsletter } from '../components/Newsletter';
+import { CustomSwiper } from '../components/Swiper';
+import { createUnauthorizedApolloClient } from '../apollo/AuthClient';
+
+export const getServerSideProps = async (context: any) => {
+	const client = createUnauthorizedApolloClient();
+
+	const { data:{getRecentEntries} } = await client.query({
+		query: querys.GET_RECENT_BLOGS,
+	});
+
+	const { data:{getMostViewedEntries} } = await client.query({
+		query: querys.GET_MOST_VIEWED_BLOGS,
+	});
+
+	if (!getRecentEntries || !getMostViewedEntries) {
+		return {
+			notFound: true,
+		}
+	}
+
+	return {
+		props: {
+			recentEntries: getRecentEntries,
+			mostViewedEntries: getMostViewedEntries
+		}
+	};
+}
 
 function timeout(delay: number) {
 	return new Promise(res => setTimeout(res, delay));
 }
 
-export default function IndexPage() {
+export default function IndexPage({recentEntries, mostViewedEntries}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	const [newTicket] = useMutation(querys.NEW_TICKET);
 	const [newNewsletter] = useMutation(querys.NEW_NEWSLETTER);
 
@@ -176,7 +205,8 @@ export default function IndexPage() {
 						disabledButton={disableButton.newsletterForm}
 						submitted={submitted.newsletterForm}
 					/>
-				</div>
+					<CustomSwiper recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
+				</div> 
 			</Layout>
 		</>
 	)
