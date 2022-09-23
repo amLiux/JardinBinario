@@ -36,8 +36,6 @@ export const getServerSideProps = async (context: any) => {
 	};
 }
 
-
-
 export default function ReadBlogPage({ blogEntry }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	const { title, author } = blogEntry;
 

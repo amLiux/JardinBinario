@@ -1,0 +1,74 @@
+.container {
+    @apply mt-20;
+}
+
+.blogCard {
+    @apply bg-white rounded-md h-64 w-full p-5 font-sans hover:animate-pulse cursor-pointer;
+}
+
+.blogTitle {
+    @apply text-base font-bold text-black mb-3 leading-5;
+}
+
+.swiperContainer {
+    @apply mt-10 mb-10;
+}
+
+.sneakpeak {
+    @apply text-xs text-black m-0;
+}
+
+.identityContainer {
+    @apply flex m-0 justify-start;
+}
+
+.identityCard {
+    @apply flex bg-slate-800 items-center text-sm text-white p-1 rounded-md pr-5 mt-3 w-fit;
+}
+
+.statsContainer {
+    @apply flex ml-4;
+}
+
+.stats {
+    @apply bg-slate-500 p-1 rounded-md text-center mt-3;
+}
+
+.stats:last-child {
+    @apply ml-2;
+}
+
+.stats > p {
+    @apply m-0 text-xs font-bold mt-[-14.5px];
+}
+
+.identityText {
+    @apply ml-1 pl-5 border-l-2 border-white;
+}
+
+.identityText > p {
+    margin: 0!important;
+}
+
+.identityText > p:first-child {
+    @apply mb-0 font-bold;
+}
+
+.identityText > p:last-child {
+    @apply text-xs italic;
+}
+
+.profilePicContainer {
+    @apply flex justify-center overflow-hidden items-center rounded-md relative mr-1;
+    width: 45px;
+    height: 45px;
+    position: relative;
+}
+
+.tagsContainer {
+    @apply pt-2;
+}
+
+.tag {
+    @apply inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 text-center;
+}
