@@ -9,7 +9,7 @@
 .blogTitle {
     @apply text-base font-bold text-black mb-3 leading-5;
     line-height: 1.25rem!important;
-    font-weight: 700;
+    font-weight: 700!important;
     margin-bottom: 0.75rem!important;
 }
 
