@@ -14,7 +14,8 @@ export type ForgotPasswordValues = {
 };
 
 export type BlogEntry = {
-	tags?: string[];
+	id: string;
+	tags: string[];
 	title: string;
 	markdown: string;
 	createdAt: string;
@@ -23,10 +24,11 @@ export type BlogEntry = {
 		lastName: string;
 		email: string;
 	};
+	views: number;
 };
 
 export type NewBlogEntryValues = {
-	tags?: string[];
+	tags: string[];
 	title: string;
 	markdown: string;
 };
