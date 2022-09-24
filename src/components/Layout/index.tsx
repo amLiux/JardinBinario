@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { Message } from '../Message';
 import { useAuth } from '../../apollo/AuthClient';
 import layoutStyles from './Layout.module.css';
+import { useRouter } from 'next/router';
+import { seoMapping } from '../../seo';
 
 type LayoutProps = {
 	children: ReactNode | ReactNode[];
@@ -12,6 +14,8 @@ type LayoutProps = {
 
 export const Layout = ({ children, style404, index = false }: LayoutProps) => {
 	const [showMessage, setShowMessage] = useState<string>('');
+	const router = useRouter();
+	const seo = seoMapping[router.asPath];
 
 	const { message, removeMessage } = useAuth();
 
@@ -29,10 +33,18 @@ export const Layout = ({ children, style404, index = false }: LayoutProps) => {
 	return (
 		<>
 			<Head>
-				{/* TODO Helmet or find a way to add title, og, images, etc... */}
-				<title>Jardín Binario</title>
+				<title>{seo?.title}</title>
+				<meta name="description" content={seo?.description} />
+				<meta property="og:title" content={seo?.title} />
+				<meta property="og:description" content={seo?.description} />
+				{/* <meta property="og:image" content={page?.data?.image} /> */}
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:url"
+					content={'https://jardinbinario.com' + router.asPath}
+				/>
 			</Head>
-			<div 
+			<div
 				className={`
 					${style404 ? layoutStyles.bg404Pattern : 'bg-slate-900'}
 					${layoutStyles.smoothRender}
@@ -45,8 +57,8 @@ export const Layout = ({ children, style404, index = false }: LayoutProps) => {
 					`}
 				>
 					{
-						message?.msg !== '' && 
-							<Message index={index} handleClose={handleClose} warning={message?.warning} error={message?.error} message={message?.msg} />
+						message?.msg !== '' &&
+						<Message index={index} handleClose={handleClose} warning={message?.warning} error={message?.error} message={message?.msg} />
 					}
 				</div>
 				{children}
