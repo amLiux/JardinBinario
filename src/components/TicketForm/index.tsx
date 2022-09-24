@@ -68,7 +68,7 @@ export const TicketForm = ({ handleSubmit, values, handleChange, errors, setServ
                     : <>
                         <h4 className={ticketFormStyles.formHeading}>Formulario de contacto</h4>
                         <Form handleSubmit={handleSubmit}>
-                            <div className='flex'>
+                            <div className='flex flex-col md:flex-row'>
                                 <div className={ticketFormStyles.textInputContainer}>
                                     {
                                         textInputValues.map((textInput, idx) => {
@@ -130,10 +130,10 @@ export const TicketForm = ({ handleSubmit, values, handleChange, errors, setServ
                                         <div key={idx} 
                                             className={`
                                                 ${errors.hasOwnProperty('service') ? '' : ''}
-                                                flex ml-4 justify-around
+                                                flex ml-2 md:ml-4 justify-around
                                             `}
                                         >
-                                            <span className='font-bold appearance-none text-gray-600'>{service}</span>
+                                            <span className='font-bold text-xs md:text-base appearance-none text-gray-600'>{service}</span>
                                         </div>
                                     )
                                 }
