@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Option } from './Option';
+import optionsStyles from './Option/Option.module.css';
 
 interface IProps {
     options: React.ReactElement[];
@@ -20,7 +21,7 @@ const RadioGroup = ({ options, onChange, value, labelText }: IProps) => {
     return (
         <div>
             <h4 style={{ marginTop: '2rem', marginBottom: '0.6666667em' }} className="after:content-['⚙️'] after:ml-1">{labelText}</h4>
-            <div className='flex justify-around'>
+            <div className={optionsStyles.container}>
                 {options.map((el, index) => (
                     <Option
                         key={index}

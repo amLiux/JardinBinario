@@ -22,11 +22,11 @@ import { Footer } from '../components/Footer';
 export const getServerSideProps = async (context: any) => {
 	const client = createUnauthorizedApolloClient();
 
-	const { data:{getRecentEntries} } = await client.query({
+	const { data: { getRecentEntries } } = await client.query({
 		query: querys.GET_RECENT_BLOGS,
 	});
 
-	const { data:{getMostViewedEntries} } = await client.query({
+	const { data: { getMostViewedEntries } } = await client.query({
 		query: querys.GET_MOST_VIEWED_BLOGS,
 	});
 
@@ -48,7 +48,7 @@ function timeout(delay: number) {
 	return new Promise(res => setTimeout(res, delay));
 }
 
-export default function IndexPage({recentEntries, mostViewedEntries}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function IndexPage({ recentEntries, mostViewedEntries }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	const [newTicket] = useMutation(querys.NEW_TICKET);
 	const [newNewsletter] = useMutation(querys.NEW_NEWSLETTER);
 
@@ -174,42 +174,41 @@ export default function IndexPage({recentEntries, mostViewedEntries}: InferGetSe
 	}, [formikContactForm.isValid, formikNewsletter.isValid]);
 
 	return (
-		<>
-			<Layout index>
-				<TerminalHeader handleClickServices={handleClickServices} index header='Jardín Binario' />
-				<div className={indexStyles.index}>
-					<h1>Artesanía convertida en <span className={indexStyles.heading}>tecnología</span> que cosechan tus ideas</h1>
-					<span>{texts.subheading}</span>
-					<PhotoComposition />
-					<h2>Un equipo que busca ayudarte a analizar, <span className={indexStyles.heading}>sembrar y cosechar</span> tus ideas.</h2>
-					<span>{texts.subheading2}</span>
-					<h3>{texts.heading3}</h3>
-					<Services refForScroll={refServices} />
-					<TicketForm
-						handleChange={formikContactForm.handleChange}
-						errors={formikContactForm.errors}
-						values={formikContactForm.values}
-						handleSubmit={formikContactForm.handleSubmit}
-						setServices={formikContactForm.setFieldValue}
-						disabledButton={disableButton.contactForm}
-						submitting={formikContactForm.isSubmitting}
-						submitted={submitted.contactForm}
-						message={message}
-						refForForm={refForm}
-					/>
-					<Newsletter
-						handleSubmit={formikNewsletter.handleSubmit}
-						handleChange={formikNewsletter.handleChange}
-						submitting={formikNewsletter.isSubmitting}
-						values={formikNewsletter.values}
-						errors={formikNewsletter.errors}
-						disabledButton={disableButton.newsletterForm}
-						submitted={submitted.newsletterForm}
-					/>
-					<CustomSwiper recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
-					<Footer />
-				</div> 
-			</Layout>
-		</>
+
+		<Layout index>
+			<TerminalHeader handleClickServices={handleClickServices} index header='Jardín Binario' />
+			<div className={indexStyles.index}>
+				<h1>Artesanía convertida en <span className={indexStyles.heading}>tecnología</span> que cosechan tus ideas</h1>
+				<p>{texts.subheading}</p>
+				<PhotoComposition />
+				<h2 className='mt-0'>Un equipo que busca ayudarte a analizar, <span className={indexStyles.heading}>sembrar y cosechar</span> tus ideas.</h2>
+				<p>{texts.subheading2}</p>
+				<h3>{texts.heading3}</h3>
+				<Services refForScroll={refServices} />
+				<TicketForm
+					handleChange={formikContactForm.handleChange}
+					errors={formikContactForm.errors}
+					values={formikContactForm.values}
+					handleSubmit={formikContactForm.handleSubmit}
+					setServices={formikContactForm.setFieldValue}
+					disabledButton={disableButton.contactForm}
+					submitting={formikContactForm.isSubmitting}
+					submitted={submitted.contactForm}
+					message={message}
+					refForForm={refForm}
+				/>
+				<Newsletter
+					handleSubmit={formikNewsletter.handleSubmit}
+					handleChange={formikNewsletter.handleChange}
+					submitting={formikNewsletter.isSubmitting}
+					values={formikNewsletter.values}
+					errors={formikNewsletter.errors}
+					disabledButton={disableButton.newsletterForm}
+					submitted={submitted.newsletterForm}
+				/>
+				<CustomSwiper recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
+			</div>
+		</Layout>
+
 	)
 }

@@ -1,7 +1,26 @@
 .index {
-    @apply h-auto w-screen prose prose-2xl prose-h1:leading-snug prose-h1:text-white prose-h1:text-center text-white prose-h2:text-white m-auto mt-10 prose-img:rounded mb-20 prose-h2:text-center prose-h4:mt-0 prose-h3:text-white;
+    @apply h-auto w-screen prose prose-lg text-white p-5 m-auto mt-10 prose-img:rounded mb-20;
+
+    /* Headings */
+
+    /* h1 */
+    @apply prose-h1:leading-tight md:prose-h1:leading-normal lg:prose-h1:leading-relaxed prose-h1:text-white prose-h1:text-center;
+    /* h2 */
+    @apply prose-h2:text-white prose-h2:text-center prose-h2:leading-tight md:prose-h2:leading-normal lg:prose-h2:leading-relaxed;
+    /* h3 */
+    @apply prose-h3:text-white;
+    /* h4 */
+    @apply prose-h4:mt-0;
+
+    /* Text */
+    
+    /* p */
+    @apply prose-p:text-center; 
+
+    /* Breakpoints */
+    @apply md:p-0 lg:p-0 md:prose-xl lg:prose-2xl;
 }
 
 .heading {
-    @apply text-purple-500 italic;
+    @apply text-purple-500 italic leading-none md:leading-normal lg:leading-relaxed;
 }
