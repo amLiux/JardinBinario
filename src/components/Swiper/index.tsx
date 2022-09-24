@@ -27,6 +27,7 @@ const getSlidesToRender = (blogs: BlogEntry[], router: NextRouter) => (
                     query: { 'blogId': id }
                 })
             }
+            className={customSwiperStyles.swiperSlide}
             key={idx}>
             <div className={customSwiperStyles.blogCard}>
                 <h4 className={customSwiperStyles.blogTitle}>{title}</h4>
@@ -34,7 +35,7 @@ const getSlidesToRender = (blogs: BlogEntry[], router: NextRouter) => (
                 <div className={customSwiperStyles.identityContainer}>
                     <div className={customSwiperStyles.identityCard}>
                         <div className={customSwiperStyles.profilePicContainer}>
-                            <Image src={avatar} alt={`${name} ${lastName} profile pic`} layout='fill' />
+                            <Image src={avatar} alt={`${name} ${lastName} profile pic`} layout='fill' objectFit='cover' />
                         </div>
                         <div className={customSwiperStyles.identityText} >
                             <p>{`${name} ${lastName}`}</p>
@@ -74,6 +75,21 @@ export const CustomSwiper = ({ recentBlogs, mostViewedBlogs }: CustomSwiperProps
             </span>
             <div className={customSwiperStyles.swiperContainer}>
                 <Swiper
+                    effect='fade'
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 40,
+                        },
+                        1024: {
+                            slidesPerView: 2,
+                            spaceBetween: 50,
+                        },
+                    }}
                     spaceBetween={45}
                     slidesPerView={2}
                 >
@@ -85,6 +101,21 @@ export const CustomSwiper = ({ recentBlogs, mostViewedBlogs }: CustomSwiperProps
             </span>
             <div className={customSwiperStyles.swiperContainer}>
                 <Swiper
+                    effect='fade'
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 40,
+                        },
+                        1024: {
+                            slidesPerView: 2,
+                            spaceBetween: 50,
+                        },
+                    }}
                     spaceBetween={45}
                     slidesPerView={2}
                 >

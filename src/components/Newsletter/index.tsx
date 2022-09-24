@@ -24,7 +24,7 @@ export const Newsletter = ({ handleChange, handleSubmit, values, errors, disable
         <Form newsletter handleSubmit={handleSubmit}>
             <Sky stars={2} />
             <h4 className={newsletterStyles.header}>Suscríbete a nuestro newsletter</h4>
-            <span className={newsletterStyles.subheading}>Recibe notificaciones de nuestras últimas actualizaciones, blogs, posiciones, ofertas.</span>
+            <p className={newsletterStyles.subheading}>Recibe notificaciones de nuestras últimas actualizaciones, blogs, posiciones, ofertas.</p>
             <div className={newsletterStyles.inputContainer}>
                 <Input
                     newsletter
@@ -45,7 +45,7 @@ export const Newsletter = ({ handleChange, handleSubmit, values, errors, disable
                         {submitting || (submitted && !submitting)  ? <Spinner size='little' submitted={submitted}></Spinner> : 'Suscríbete'}
                 </button>
             </div>
-            <span className={newsletterStyles.copy}>Testeando este texto para ver que tan largo hay que hacerlo.</span>
+            <p className={newsletterStyles.copy}>Testeando este texto para ver que tan largo hay que hacerlo.</p>
         </Form>
     )
 }

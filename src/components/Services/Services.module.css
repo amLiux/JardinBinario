@@ -5,7 +5,7 @@
 }
 
 .card {
-    @apply transition-all hover:ring-4 hover:ring-purple-500 max-w-sm rounded min-h-[460px] bg-white;
+    @apply transition-all hover:ring-4 hover:ring-purple-500 max-w-sm rounded m-auto min-h-[300px] md:min-h-[460px] bg-white;
 }
 
 .cardTextContainer {

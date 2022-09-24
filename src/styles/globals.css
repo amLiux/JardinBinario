@@ -58,6 +58,14 @@ a {
 	animation-delay: 650ms;
 }
 
+@media only screen and (max-width: 640px) {
+	.star:nth-child(1) {
+		top: calc(50% - 1rem);
+		left: calc(40% - 8rem);
+		animation-delay: 650ms;
+	}
+}
+
 .star:nth-child(1)::before,
 .star:nth-child(1)::after {
 	animation-delay: 650ms;
@@ -67,6 +75,14 @@ a {
 	top: calc(43% - 5rem);
 	left: calc(50% - 3rem);
 	animation-delay: 150ms;
+}
+
+@media only screen and (max-width: 640px) {
+	.star:nth-child(2) {
+		top: calc(43% - 5.2rem);
+		left: calc(17% - 3rem);
+		animation-delay: 150ms;
+	}
 }
 
 .star:nth-child(2)::before,
