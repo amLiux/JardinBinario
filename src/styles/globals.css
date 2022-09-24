@@ -79,7 +79,7 @@ a {
 
 @media only screen and (max-width: 640px) {
 	.star:nth-child(2) {
-		top: calc(43% - 4.5rem);
+		top: calc(43% - 5rem);
 		left: calc(17% - 3rem);
 		animation-delay: 150ms;
 	}

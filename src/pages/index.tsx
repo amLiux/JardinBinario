@@ -174,7 +174,6 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 	}, [formikContactForm.isValid, formikNewsletter.isValid]);
 
 	return (
-
 		<Layout index>
 			<TerminalHeader handleClickServices={handleClickServices} index header='Jardín Binario' />
 			<div className={indexStyles.index}>

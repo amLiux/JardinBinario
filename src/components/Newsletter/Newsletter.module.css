@@ -4,6 +4,7 @@
 
 .subheading {
     @apply text-left text-xs md:text-base mb-0;
+    text-align: left!important;
 }
 
 .header {
@@ -14,6 +15,7 @@
 
 .copy {
     @apply text-xs mt-3 md:mt-0 text-left pb-0 mb-0;
+    text-align: left!important;
 }
 
 .inputContainer {
