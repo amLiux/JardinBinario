@@ -6,7 +6,6 @@ import { useMutation } from '@apollo/client';
 import * as Yup from 'yup';
 import { InferGetServerSidePropsType } from 'next';
 
-
 import { texts } from '../components/Index/text';
 import indexStyles from '../components/Index/Index.module.css';
 import { PhotoComposition } from '../components/PhotoComposition';
@@ -17,7 +16,6 @@ import { NewsletterValues, NewTicketValues } from '../types/sharedTypes';
 import { Newsletter } from '../components/Newsletter';
 import { CustomSwiper } from '../components/Swiper';
 import { createUnauthorizedApolloClient } from '../apollo/AuthClient';
-import { Footer } from '../components/Footer';
 
 export const getServerSideProps = async (context: any) => {
 	const client = createUnauthorizedApolloClient();

@@ -24,6 +24,7 @@ export const querys = {
 		        name,
 		        email,
 		        lastName,
+                avatar
             }
         }
     `,
@@ -62,6 +63,7 @@ export const querys = {
                     name
                     lastName
                     email
+                    avatar
                 },
             }
         }

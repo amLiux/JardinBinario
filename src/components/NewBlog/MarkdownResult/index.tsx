@@ -1,7 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
-import editorContext from '../../../context/editorContext';
+import React, { useContext, useEffect, useState } from 'react';
+import rehypeRaw from 'rehype-raw';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+
+import editorContext from '../../../context/editorContext';
 import { BlogEntry, UserContext } from '../../../types/sharedTypes';
 import markdownResultsStyles from './MarkdownResult.module.css';
 
@@ -20,22 +22,24 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 	useEffect(() => {
 		const titleToRemove = visualMarkdown.split('\n')[0] || blogEntry?.markdown?.split('\n')[0] || '';
 
-		const generateUserInfo = (context: UserContext, createdAt?:string) => {
-			const { lastName, name, email } = context;
-
+		const generateUserInfo = (context: UserContext, createdAt?: string) => {
+			const { lastName, name, email, avatar } = context;
+			const fullName = `${name} ${lastName}`;
+			//TODO this is messed up, it works but it's ugly, debug this later
 			return {
-				name: `> #### [${name} ${lastName}](mailto:${email})`,
-				date: `> ${new Date(createdAt ? createdAt : new Date()).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })}`,
+				name: ` <div className='${markdownResultsStyles.identityText}'> [${fullName}](mailto:${email})`,
+				date: ` <p> ${new Date(createdAt ? createdAt : new Date()).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })} </p> </div> </blockquote>`,
+				avatar: `<blockquote className='${markdownResultsStyles.identityContainer}'> ![${fullName} profile pic](${avatar})`,
 			};
 		};
 
 
 		if (preview && context) {
 
-			const { name, date } = generateUserInfo(context as any, blogEntry?.createdAt);
-			const toSet = titleToRemove + ' \n' + name + '\n' + date + '\n';
+			const { name, date, avatar } = generateUserInfo(context as any, blogEntry?.createdAt);
+			const toSet = titleToRemove + avatar + name + date + '\n';
 
-			if(blogEntry) {
+			if (blogEntry) {
 				setToRender(blogEntry.markdown.replace(titleToRemove, toSet));
 			}
 
@@ -44,9 +48,9 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 				setVisualMarkdown(visualMarkdown.replace(titleToRemove, toSet));
 			}
 		} else {
-			const toRemove = visualMarkdown.split('\n')[1] + '\n' + visualMarkdown.split('\n')[2];
-			if (!context && toRemove.includes('>')) {
-				const toRemove = visualMarkdown.split('\n')[1] + '\n' + visualMarkdown.split('\n')[2];
+			const firstHTMLTag = titleToRemove.indexOf('<');
+			const toRemove = titleToRemove.substring(firstHTMLTag, titleToRemove.length);
+			if (toRemove.includes('<blockquote')) {
 				const newValue = visualMarkdown.replace(toRemove, '');
 				setVisualMarkdown(newValue);
 				setMarkdownText('markdown', newValue)
@@ -55,18 +59,18 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 	}, [preview, visualMarkdown, context, setVisualMarkdown, title, mainTitle, setMarkdownText, blogEntry]);
 
 	return (
-		<>
-			<div 
-				className={`
-					${markdownResultsStyles.markdownResult} 
+		<div
+			className={`
+					${!preview ? markdownResultsStyles.markdownResult : ''} 
 					${preview ? markdownResultsStyles.preview : markdownResultsStyles.writing} 
-					${blogEntry ? markdownResultsStyles.readMarkdown : ''}
 				`}
+		>
+			<ReactMarkdown
+				remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
+				rehypePlugins={[rehypeRaw]}
 			>
-				<ReactMarkdown
-					remarkPlugins={[[remarkGfm, { singleTilde: false }]]}>{toRender || visualMarkdown}
-				</ReactMarkdown>
-			</div>
-		</>
+				{toRender || visualMarkdown}
+			</ReactMarkdown>
+		</div>
 	)
 };

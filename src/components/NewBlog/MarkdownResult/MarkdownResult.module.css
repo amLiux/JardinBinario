@@ -1,19 +1,58 @@
 .markdownResult {
-	@apply prose break-normal prose-img:mx-auto prose-h1:text-center prose-xl p-5 w-8/12 overflow-auto text-ellipsis rounded-md h-full;
+	@apply prose prose-xl break-normal prose-img:mx-auto prose-img:mt-5 p-5 w-8/12 overflow-auto text-ellipsis rounded-md h-full;
+}
+
+.identityContainer {
+	@apply transition-all ease-in-out flex p-3 text-left items-center justify-center w-fit mb-0 mt-14 border-l-0 font-sans hover:ring-2 hover:ring-purple-500;
+	padding: 0.75rem!important;
+	text-align: left!important;
+}
+
+.identityContainer > img {
+	@apply w-14 h-14 rounded-md m-0;
+}
+
+.identityText {
+	@apply text-base ml-3 text-white border-l-2 pl-5;
+}
+
+.identityText > p {
+	@apply m-0 before:content-[''] text-white;
+}
+
+.identityText > a {
+	@apply text-white font-bold decoration-purple-500;
+	font-style: normal;
 }
 
 .preview {
-	@apply prose-strong:text-purple-400 prose-h2:text-purple-500 prose-blockquote:text-purple-400 prose-h1:text-purple-400 mx-auto text-white prose-blockquote:bg-slate-800 prose-a:text-purple-400 prose-code:text-white prose-th:text-purple-500 prose-h3:text-purple-400 prose-blockquote:rounded-md h-screen prose-thead:bg-slate-800 prose-th:p-5 prose-td:p-5 prose-h1:text-left;
+	/* Basic */
+	@apply mt-10 prose prose-lg p-5 w-screen h-auto m-auto text-white font-sans;
+
+	/* h1 */
+	@apply prose-h1:leading-tight md:prose-h1:leading-normal lg:prose-h1:leading-relaxed prose-h1:text-white prose-h1:text-4xl prose-h1:mt-0;
+
+	/* blockquote */
+	@apply prose-blockquote:rounded-md prose-blockquote:p-1 prose-blockquote:text-center prose-blockquote:bg-slate-900 prose-blockquote:ring-2 prose-blockquote:ring-slate-800 prose-blockquote:text-white prose-img:rounded;
+
+	/* a */
+	@apply prose-a:text-purple-300 prose-a:decoration-purple-500;
+	
+	@apply md:p-0 lg:p-0 md:prose-xl lg:prose-2xl;
+
+	@apply prose-strong:text-purple-400 prose-h2:text-white prose-code:text-white prose-th:text-purple-500 prose-h3:text-purple-400 prose-thead:bg-slate-800 prose-th:p-5 prose-td:p-5 prose-h1:text-left;
 }
 
-.markdownResult > blockquote:first-child {
-	@apply w-80;
+.preview blockquote:first-child {
+	margin: 0;
+	border-left: 0;
+	margin-top: 4rem;
+}
+
+.preview blockquote {
+	@apply transition ease-in-out hover:border-purple-500 w-fit;
 }
 
 .writing {
 	@apply prose-strong:text-slate-800 prose-h2:text-slate-800 prose-blockquote:text-slate-800 prose-h1:text-slate-800 bg-white;
-}
-
-.readMarkdown {
-	@apply w-auto max-w-[60rem] prose-blockquote:bg-slate-900;
 }
