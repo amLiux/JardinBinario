@@ -1,5 +1,4 @@
 import { Layout } from '../components/Layout';
-import { Terminal } from '../components/Terminal/Terminal';
 import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { MarkdownResult } from '../components/NewBlog/MarkdownResult';
 import { querys } from '../gql/querys';
@@ -40,16 +39,10 @@ export default function ReadBlogPage({ blogEntry }: InferGetServerSidePropsType<
 	const { title, author } = blogEntry;
 
 	return (
-		<>
-			<Layout>
-				<div className='flex justify-center'>
-					<Terminal read>
-						<TerminalHeader header={title} />
-						<MarkdownResult blogEntry={blogEntry} context={author} preview />
-					</Terminal>
-				</div>
-			</Layout>
-		</>
+		<Layout index>
+			<TerminalHeader read />
+			<MarkdownResult blogEntry={blogEntry} context={author} preview />
+		</Layout>
 	)
 }
 

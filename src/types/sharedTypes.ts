@@ -13,18 +13,20 @@ export type ForgotPasswordValues = {
 	confirmPassword: string | undefined;
 };
 
+type Author = {
+	name: string;
+	lastName: string;
+	email: string;
+	avatar: string;
+};
+
 export type BlogEntry = {
 	id: string;
 	tags: string[];
 	title: string;
 	markdown: string;
 	createdAt: string;
-	author: {
-		name: string;
-		lastName: string;
-		email: string;
-		avatar: string;
-	};
+	author: Author;
 	views: number;
 };
 
@@ -46,11 +48,8 @@ export type NewsletterValues = {
 	email: string;
 };
 
-export interface UserContext {
+export interface UserContext extends Author {
 	id?: string;
-	name: string;
-	email: string;
-	lastName: string;
 	__typename: string;
 };
 
