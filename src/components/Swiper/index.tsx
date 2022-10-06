@@ -14,6 +14,7 @@ import { BlogEntry } from '../../types/sharedTypes';
 interface CustomSwiperProps {
     recentBlogs: BlogEntry[]
     mostViewedBlogs: BlogEntry[]
+    router: NextRouter
 }
 
 const DEFAULT_WIDTH_HEIGTH = 32;
@@ -65,9 +66,7 @@ const getSlidesToRender = (blogs: BlogEntry[], router: NextRouter) => (
     )
 )
 
-export const CustomSwiper = ({ recentBlogs, mostViewedBlogs }: CustomSwiperProps) => {
-    const router = useRouter();
-
+export const CustomSwiper = ({ recentBlogs, mostViewedBlogs, router }: CustomSwiperProps) => {
     return (
         <div className={customSwiperStyles.container}>
             <span className={ticketFormStyles.coolHeading} >

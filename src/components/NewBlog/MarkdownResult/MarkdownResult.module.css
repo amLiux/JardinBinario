@@ -43,10 +43,19 @@
 	@apply prose-strong:text-purple-400 prose-h2:text-white prose-code:text-white prose-th:text-purple-500 prose-h3:text-purple-400 prose-thead:bg-slate-800 prose-th:p-5 prose-td:p-5 prose-h1:text-left;
 }
 
+.preview table {
+	table-layout:fixed!important;
+    width:100%!important;
+}
+
 .preview blockquote:first-child {
 	margin: 0;
 	border-left: 0;
 	margin-top: 4rem;
+}
+
+.preview a {
+	word-wrap: break-word;
 }
 
 .preview blockquote {

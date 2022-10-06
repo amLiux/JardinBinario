@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { NextRouter } from 'next/router';
 
 import editorContext from '../../../context/editorContext';
 import { IndexNavbarOptions } from '../../IndexNavbarOptions';
@@ -15,15 +15,16 @@ type TerminalHeaderProps = {
 	index?: boolean;
 	read?: boolean;
 	handleClickServices?: (ref: string) => void;
+	router?: NextRouter;
 }
 
 type validColors = 'red' | 'yellow' | 'green';
 
-export const TerminalHeader = ({ header, editor = false, index = false, read = false, handleClickServices }: TerminalHeaderProps) => {
+export const TerminalHeader = ({ header, editor = false, index = false, read = false, handleClickServices, router }: TerminalHeaderProps) => {
 	const { tags, setTags, setPreview, storeMarkdown } = useContext(editorContext);
+	
 	const [completion, setCompletion] = useState<number>(0);
 	// const [width, setWidth] = useState<number>(0);
-	const router = useRouter();
 	const dotClass = (color: validColors): string => `w-7 h-7 bg-${color}-500 rounded-full mr-3 animate-pulse`;
 	const [showTags, setShowTags] = useState<boolean>(false);
 	const selectedTags = (tags: string[]) => {
@@ -73,9 +74,9 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 				index || read
 					?
 					<div
-						onClick={() => router.push('/')}
+						onClick={() => router?.push('/')}
 						className={terminalHeaderStyles.logoContainer}
-						>
+					>
 						<Image src={logo} alt='Jardin Binario logo' layout='responsive' />
 					</div>
 					:
