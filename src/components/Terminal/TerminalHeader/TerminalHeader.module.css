@@ -1,5 +1,5 @@
 .terminalHeader {
-	@apply flex p-4 justify-start align-middle items-center;
+	@apply flex p-2 justify-start align-middle items-center;
 }
 
 .terminalHeader > .terminalHeader__text {
@@ -7,5 +7,5 @@
 }
 
 .logoContainer {
-	@apply w-32 md:w-44 cursor-pointer ml-0 md:ml-10;
+	@apply w-32 md:w-40 cursor-pointer ml-0 md:ml-10 mt-1;
 }

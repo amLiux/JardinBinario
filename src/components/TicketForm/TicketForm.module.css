@@ -1,6 +1,6 @@
 .coolHeading {
     @apply transition-all ease-in-out before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-purple-500 relative block before:rounded p-4 text-center;
-    scroll-margin-top: 15rem;
+    scroll-margin-top: 16rem;
 }
 
 .coolHeading > h3 {

@@ -1,0 +1,24 @@
+.imageContainer {
+    @apply w-24 h-24 cursor-pointer;
+}
+
+
+.edit {
+    @apply cursor-pointer flex items-center justify-around border-b-2 transition-all ease-in-out border-transparent hover:border-purple-500;
+}
+
+.container {
+    @apply flex justify-evenly items-center text-white py-14 font-mono border-t border-transparent hover:border-transparent transition-all ease-in-out;
+}
+
+.socialMedia {
+    @apply text-xs min-w-[8rem] block;
+}
+
+.socialMedia > li {
+    @apply leading-7 flex p-2 justify-around before:content-[''] before:pr-1 before:mr-1 before:hover:bg-purple-500  before:bg-white hover:animate-pulse border-2 border-transparent cursor-pointer rounded-md hover:border-white transition-all ease-out;
+}
+
+.socialMediaLogoContainer {
+    @apply w-6 h-6;
+}

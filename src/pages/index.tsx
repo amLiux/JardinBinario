@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import { useMutation } from '@apollo/client';
 import * as Yup from 'yup';
 import { InferGetServerSidePropsType } from 'next';
+import { Footer } from '../components/Footer';
 
 import { texts } from '../components/Index/text';
 import indexStyles from '../components/Index/Index.module.css';
@@ -16,6 +17,7 @@ import { NewsletterValues, NewTicketValues } from '../types/sharedTypes';
 import { Newsletter } from '../components/Newsletter';
 import { CustomSwiper } from '../components/Swiper';
 import { createUnauthorizedApolloClient } from '../apollo/AuthClient';
+import { useRouter } from 'next/router';
 
 export const getServerSideProps = async (context: any) => {
 	const client = createUnauthorizedApolloClient();
@@ -50,6 +52,8 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 	const [newTicket] = useMutation(querys.NEW_TICKET);
 	const [newNewsletter] = useMutation(querys.NEW_NEWSLETTER);
 
+	const router = useRouter();
+	// TODO maybe get a hook  going?
 	const sharedState = (initialState: boolean) => ({
 		contactForm: initialState,
 		newsletterForm: initialState
@@ -173,7 +177,7 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 
 	return (
 		<Layout index>
-			<TerminalHeader handleClickServices={handleClickServices} index header='Jardín Binario' />
+			<TerminalHeader router={router} handleClickServices={handleClickServices} index header='Jardín Binario' />
 			<div className={indexStyles.index}>
 				<h1>Artesanía convertida en <span className={indexStyles.heading}>tecnología</span> que cosechan tus ideas</h1>
 				<p>{texts.subheading}</p>
@@ -203,8 +207,9 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 					disabledButton={disableButton.newsletterForm}
 					submitted={submitted.newsletterForm}
 				/>
-				<CustomSwiper recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
+				<CustomSwiper router={router} recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
 			</div>
+			<Footer router={router}/>
 		</Layout>
 
 	)
