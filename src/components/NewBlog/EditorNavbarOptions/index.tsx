@@ -1,6 +1,6 @@
-import React, { SyntheticEvent } from 'react'
-import { Icons } from '../../Icons'
-import { Tooltip } from '../../Tooltip'
+import { SyntheticEvent } from 'react';
+import { Icons } from '../../Icons';
+import { Tooltip } from '../../Tooltip';
 import editorNavbarOptionsStyles from './EditorNavbarOptions.module.css';
 
 type EditorNavbarOptionsProps = {
@@ -16,7 +16,7 @@ export const EditorNavbarOptions = ({ showTags, setPreview, storeMarkdown }: Edi
         const target = (e.target as HTMLInputElement);
         showTags((show: boolean) => !show);
         target.focus();
-    }
+    };
 
     return (
         <div className={editorNavbarOptionsStyles.container}>
@@ -54,5 +54,5 @@ export const EditorNavbarOptions = ({ showTags, setPreview, storeMarkdown }: Edi
                 </button>
             </Tooltip>
         </div>
-    )
-} 
+    );
+};

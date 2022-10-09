@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -65,5 +65,5 @@ export const Layout = ({ children, style404, index = false }: LayoutProps) => {
 				{children}
 			</div>
 		</>
-	)
-}
+	);
+};

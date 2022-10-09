@@ -1,4 +1,3 @@
-import React from 'react';
 import picUploadStyles from './PicUpload.module.css';
 
 export const PicUpload = ({ selectedFile }: any) => {
@@ -20,5 +19,5 @@ export const PicUpload = ({ selectedFile }: any) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

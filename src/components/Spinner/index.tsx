@@ -1,10 +1,10 @@
-import React from 'react';
 import spinnerStyles from './Spinner.module.css';
 
 export const Spinner = ({ size, submitted = false}: any) => {
+	
 	const getSpinnerSize = (size:string) => {
-		const propToCheck = `spinner-${size}`
-		return spinnerStyles?.[propToCheck] ? spinnerStyles[propToCheck] : ''
+		const propToCheck = `spinner-${size}`;
+		return spinnerStyles?.[propToCheck] ? spinnerStyles[propToCheck] : '';
 	};
 
 	return (

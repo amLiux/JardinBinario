@@ -1,5 +1,5 @@
 import { FormikHelpers } from 'formik';
-import React, { SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { ForgotPasswordValues } from '../../../types/sharedTypes';
 import otpInputStyles from './OTPInput.module.css';
 
@@ -19,7 +19,7 @@ export const OTPInput = ({ length, setFormikOtp }: OTPInputProps) => {
 		if (nextNode && target.value !== '') {
 			nextNode.focus();
 		}
-	}
+	};
 
 	useEffect(() => {
 		if (otp.join('').trim().length === length) {
@@ -36,10 +36,10 @@ export const OTPInput = ({ length, setFormikOtp }: OTPInputProps) => {
 							value={input}
 							key={ind}
 							maxLength={1}
-							onChange={(e: SyntheticEvent) => { handleOTPChange(e, ind) }}
+							onChange={(e: SyntheticEvent) => { handleOTPChange(e, ind); }}
 						/>
 				)
 			}
 		</div>
-	)
-}
+	);
+};

@@ -1,5 +1,4 @@
-import { useRouter } from 'next/router';
-import React from 'react';
+import { NextRouter } from 'next/router';
 import indexNavbarOptionsStyles from './IndexNavbarOptions.module.css';
 
 type Tab = {
@@ -11,6 +10,7 @@ type Tab = {
 
 interface IndexNavbarOptionsProps {
     handleClickServices?: (ref:string) => void;
+    router?: NextRouter;
 }
 
 const tabs: Tab[] = [
@@ -32,8 +32,7 @@ const tabs: Tab[] = [
 	},
 ];
 
-export const IndexNavbarOptions = ({handleClickServices}:IndexNavbarOptionsProps) => {
-    const router = useRouter();
+export const IndexNavbarOptions = ({handleClickServices, router}:IndexNavbarOptionsProps) => {
 
     return (
         <ul className={indexNavbarOptionsStyles.container}>
@@ -44,12 +43,12 @@ export const IndexNavbarOptions = ({handleClickServices}:IndexNavbarOptionsProps
                             className={`
                                 ${ctaButton ? indexNavbarOptionsStyles.ctaButton : indexNavbarOptionsStyles.linkStyle}`
                             }
-                            onClick={link ? () => router.push(route) : () => handleClickServices ? handleClickServices(route) : undefined}>
+                            onClick={link ? () => router?.push(route) : () => handleClickServices ? handleClickServices(route) : undefined}>
                             {text}
                         </button>
                     </li>
                 )
             }
         </ul>
-    )
-}
+    );
+};

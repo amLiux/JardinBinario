@@ -1,5 +1,4 @@
 import { FormikHandlers } from 'formik';
-import React from 'react'
 import ticketFormStyles from '../TicketForm.module.css';
 
 interface InputProps {
@@ -48,5 +47,5 @@ export const Input = ({ extraStyling, friendlyName, id, textInputAsKey, value, p
 				placeholder={placeholder}
 			/>
 		</div>
-	)
-}
+	);
+};

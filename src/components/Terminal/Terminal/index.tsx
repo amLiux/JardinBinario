@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import terminalStyles from './Terminal.module.css';
 
 type TerminalProps =  {
@@ -11,5 +11,5 @@ export const Terminal = ({children, read=false}:TerminalProps) => {
 		<div className={`${terminalStyles.terminal} ${read ? terminalStyles.read : 'max-w-md'}`}>
 			{children}
 		</div>
-	)
-}
+	);
+};

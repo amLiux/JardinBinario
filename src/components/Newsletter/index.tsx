@@ -1,4 +1,3 @@
-import React from 'react';
 import { FormikErrors, FormikHandlers, FormikValues } from 'formik';
 import { Input } from '../TicketForm/Input';
 import { Sky } from '../404/Sky';
@@ -47,5 +46,5 @@ export const Newsletter = ({ handleChange, handleSubmit, values, errors, disable
             </div>
             <p className={newsletterStyles.copy}>Testeando este texto para ver que tan largo hay que hacerlo.</p>
         </Form>
-    )
-}
+    );
+};

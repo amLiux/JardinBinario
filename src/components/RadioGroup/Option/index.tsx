@@ -1,5 +1,5 @@
-import React from 'react'
 import optionsStyles from './Option.module.css';
+
 interface OptionProps {
     index: number;
     selectedIndexes: number[];

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Tooltip } from '../../Tooltip';
 import terminalTosCheckboxStyles from './TerminalTosCheckbox.module.css';
 
@@ -21,5 +20,5 @@ export const TerminalTosCheckbox = ({ handleCheck }: TerminalTosCheckboxProps) =
 				</code>
 			</label>
 		</div>
-	)
-}
+	);
+};

@@ -5,6 +5,7 @@ import { querys } from '../gql/querys';
 import { createUnauthorizedApolloClient } from '../apollo/AuthClient';
 import { InferGetServerSidePropsType } from 'next';
 import { BlogEntry } from '../types/sharedTypes';
+import { useRouter } from 'next/router';
 
 export const getServerSideProps = async (context: any) => {
 	const { blogId } = context.query;
@@ -17,7 +18,7 @@ export const getServerSideProps = async (context: any) => {
 	if (!data) {
 		return {
 			notFound: true,
-		}
+		};
 	}
 
 	const { title, markdown, createdAt, author, tags }: BlogEntry = data.getSpecificBlogEntry;
@@ -33,17 +34,17 @@ export const getServerSideProps = async (context: any) => {
 			},
 		}
 	};
-}
+};
 
 export default function ReadBlogPage({ blogEntry }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	const { title, author } = blogEntry;
-
+	const router = useRouter();
 	return (
 		<Layout index>
-			<TerminalHeader read />
+			<TerminalHeader router={router} read />
 			<MarkdownResult blogEntry={blogEntry} context={author} preview />
 		</Layout>
-	)
+	);
 }
 
 

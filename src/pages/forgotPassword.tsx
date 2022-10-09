@@ -1,57 +1,20 @@
-import { useFormik } from 'formik';
-import React, { SyntheticEvent, useEffect, useMemo, useState } from 'react';
-import * as Yup from 'yup';
+import { SyntheticEvent} from 'react';
 import { Layout } from '../components/Layout';
 import { Terminal } from '../components/Terminal/Terminal';
 import { TerminalButton } from '../components/Terminal/TerminalButton';
 import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { TerminalInput } from '../components/Terminal/TerminalInput';
-import { useAuth } from '../apollo/AuthClient';
 import { OTPInput } from '../components/Terminal/OTPInput';
-import { ForgotPasswordValues } from '../types/sharedTypes';
 import { Step, Stepper } from '../components/Stepper';
-import { useRouter } from 'next/router';
+import { useForgotPassword } from '../hooks/useForgotPassword';
 
 export default function ForgotPassword() {
-    const [disableButton, setDisableButton] = useState<boolean>(true);
-    const router = useRouter();
-
-    const initialValues: ForgotPasswordValues = useMemo(() => ({
-        email: '',
-        otp: '',
-        time: '',
-        newPassword: '',
-        confirmPassword: '',
-    }), []);
-
-    const { forgotPasswordInit, forgotPasswordFinish } = useAuth();
-
-    const formik = useFormik({
-        initialValues,
-        validationSchema: Yup.object({
-            email: Yup.string().email().required('An email is required'),
-            otp: Yup.string().required('The reset code is required').min(8, 'The reset coude should at least have 8 characters long'),
-            newPassword: Yup.string().required('The reset code is required').min(8, 'The reset coude should at least have 8 characters long'),
-            confirmPassword: Yup.string().oneOf([Yup.ref('newPassword')], 'Passwords must match'),
-        }),
-        enableReinitialize: true,
-        // TODO can we do https://stackoverflow.com/questions/62358876/validating-only-a-part-of-formik-form-with-useformik-hook something like this so we use formik.onSubmit
-        onSubmit: async function(values) {
-            try {
-                const message = await forgotPasswordFinish(values);
-                router.push('/login');
-                return message;
-            } catch (err) {
-                console.error(err);
-            }
-        },
-    });
-
-    useEffect(() => {
-        if (formik.isValid && formik.dirty) {
-            setDisableButton(false);
-        } else setDisableButton(true);
-    }, [formik]);
+    
+    const {
+        formik,
+        disableButton,
+        forgotPasswordInit
+    } = useForgotPassword();
 
     return (
         <>
@@ -62,6 +25,7 @@ export default function ForgotPassword() {
                         <Stepper>
                             <Step
                                 onSubmit={(e: SyntheticEvent) => {
+                                    // TODO need to check if there is a user with this email
                                     const { email } = formik.values;
                                     return forgotPasswordInit(email);
                                 }}
@@ -105,5 +69,5 @@ export default function ForgotPassword() {
                 </div>
             </Layout>
         </>
-    )
+    );
 }
