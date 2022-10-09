@@ -1,13 +1,10 @@
 import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import editorContext from '../context/editorContext';
 
-type validColors = 'red' | 'yellow' | 'green';
-
 export const useHeader = () => {
 	const { tags, setTags, setPreview, storeMarkdown } = useContext(editorContext);
 	
 	const [completion, setCompletion] = useState<number>(0);
-	const dotClass = (color: validColors): string => `w-7 h-7 bg-${color}-500 rounded-full mr-3 animate-pulse`;
 	const [showTags, setShowTags] = useState<boolean>(false);
 	const selectedTags = (tags: string[]) => {
 		setTags('tags', tags);
@@ -49,7 +46,6 @@ export const useHeader = () => {
 	};
 
     return {
-        dotClass,
         showTags,
         setShowTags,
         tags,
