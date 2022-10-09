@@ -1,5 +1,4 @@
-import React from 'react';
-import { NextRouter, useRouter } from 'next/router';
+import { NextRouter } from 'next/router';
 import Image from 'next/image';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -64,7 +63,7 @@ const getSlidesToRender = (blogs: BlogEntry[], router: NextRouter) => (
             </div>
         </SwiperSlide>
     )
-)
+);
 
 export const CustomSwiper = ({ recentBlogs, mostViewedBlogs, router }: CustomSwiperProps) => {
     return (
@@ -122,5 +121,5 @@ export const CustomSwiper = ({ recentBlogs, mostViewedBlogs, router }: CustomSwi
                 </Swiper>
             </div>
         </div>
-    )
-}
+    );
+};

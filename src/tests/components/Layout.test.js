@@ -28,7 +28,7 @@ describe('<Layout/>', () => {
     });
 
     test.skip('should render an error message if the message is an error', () => {
-        const errorMessage = 'Error in Jest.'
+        const errorMessage = 'Error in Jest.';
         hookSpy.mockImplementation(() => ({
             message: {
                 msg: errorMessage,
@@ -50,7 +50,7 @@ describe('<Layout/>', () => {
     });
 
     test.skip('should render a warning message if the message is a warning', () => {
-        const warningMessage = 'Warning in Jest.'
+        const warningMessage = 'Warning in Jest.';
         hookSpy.mockImplementation(() => ({
             message: {
                 msg: warningMessage,
@@ -72,7 +72,7 @@ describe('<Layout/>', () => {
     });
 
     test.skip('should render a success message if the message is a success', () => {
-        const successMessage = 'Sucess in Jest.'
+        const successMessage = 'Sucess in Jest.';
         hookSpy.mockImplementation(() => ({
             message: {
                 msg: successMessage,
@@ -93,7 +93,7 @@ describe('<Layout/>', () => {
 
     test.skip('should call the removeMessage function if we click on the close icon', async () => {
         const removeMessage = jest.fn(() => { });
-        const successMessage = 'Sucess in Jest.'
+        const successMessage = 'Sucess in Jest.';
         hookSpy.mockImplementation(() => ({
             message: {
                 msg: successMessage,

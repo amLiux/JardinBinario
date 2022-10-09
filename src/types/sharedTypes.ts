@@ -3,7 +3,7 @@ import { FormikHelpers, FormikValues } from 'formik';
 export type FormData = {
 	initialValues: FormikValues;
 	onSubmit: () => void;
-}
+};
 
 export type ForgotPasswordValues = {
 	email: string;
@@ -69,4 +69,17 @@ export type EditorContextType = {
 	setMarkdownText: formikHelper;
 	markdownText: string;
 	storeMarkdown: () => void;
-}
+};
+
+export type RegisterFormValues = {
+	name: string;
+	lastName: string;
+	email: string;
+	password: string;
+	file: string;
+};
+
+export type LoginFormValues = {
+	email: string;
+	password: string;
+};

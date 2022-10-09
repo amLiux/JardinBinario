@@ -1,4 +1,3 @@
-import React from 'react'
 import { Icons } from '../../Icons';
 import terminalButtonStyles from './TerminalButton.module.css';
 
@@ -16,5 +15,5 @@ export const TerminalButton = ({ text, disabled }: TerminalButtonProps) => {
 			</code>
 			{Icons?.[IconIndex]}
 		</button>
-	)
-}
+	);
+};

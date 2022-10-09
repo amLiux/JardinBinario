@@ -1,4 +1,3 @@
-import React from 'react'
 import { Icons } from '../Icons';
 import messageStyles from './Message.module.css';
 
@@ -28,5 +27,5 @@ export const Message = ({ message, handleClose, warning = false, error = false, 
 				{Icons.ERROR}
 			</button>
 		</div>
-	)
-}
+	);
+};

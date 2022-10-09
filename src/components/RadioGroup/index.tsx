@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Option } from './Option';
 import optionsStyles from './Option/Option.module.css';
 
@@ -10,7 +10,7 @@ interface IProps {
     labelText: string;
 }
 
-const RadioGroup = ({ options, onChange, value, labelText }: IProps) => {
+export const RadioGroup = ({ options, onChange, value, labelText }: IProps) => {
     const [selectedIndexes, setSelectedIndexes] = useState<number[]>(value);
 
     function onSelect(index: number) {
@@ -36,4 +36,3 @@ const RadioGroup = ({ options, onChange, value, labelText }: IProps) => {
         </div>
     );
 };
-export default RadioGroup;

@@ -1,6 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
 import { NextRouter } from 'next/router';
-import React from 'react'
 import logo from '../../public/littleLogo.png';
 import footerStyles from './Footer.module.css';
 import gitHubLogo from '../../public/logos/gitHubLogo.png';
@@ -74,5 +73,5 @@ export const Footer = ({ router }: FooterProps) => {
 				}
 			</ul>
 		</div>
-	)
-}
+	);
+};

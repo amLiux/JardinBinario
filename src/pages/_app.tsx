@@ -5,7 +5,7 @@ import '../styles/globals.css';
 function JardinBinario({ Component, pageProps }: AppProps) {
 	return <AuthProvider>
 		<Component {...pageProps} />
-	</AuthProvider>
+	</AuthProvider>;
 };
 
 export default JardinBinario;

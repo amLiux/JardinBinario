@@ -1,4 +1,3 @@
-import React from 'react'
 import { Star } from './Star';
 
 type SkyProps = {
@@ -17,5 +16,5 @@ export const Sky = ({ stars, newsletter = false }: SkyProps) => {
                 }
             </div>
         </div>
-    )
-}
+    );
+};

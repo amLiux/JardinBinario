@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import React from 'react';
 import indexNavbarOptionsStyles from './IndexNavbarOptions.module.css';
 
 type Tab = {
@@ -51,5 +50,5 @@ export const IndexNavbarOptions = ({handleClickServices}:IndexNavbarOptionsProps
                 )
             }
         </ul>
-    )
-}
+    );
+};

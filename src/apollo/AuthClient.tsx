@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext, ReactNode, useEffect } from 'react';
+import { useState, useContext, createContext, ReactNode, useEffect } from 'react';
 import { setContext } from '@apollo/client/link/context';
 import {
 	ApolloProvider,
@@ -36,7 +36,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 export const useAuth = ():any => {
 	return useContext(authContext);
-}
+};
 
 export const createUnauthorizedApolloClient = () => {
 	const httpLink = createHttpLink({

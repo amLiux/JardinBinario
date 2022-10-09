@@ -1,5 +1,5 @@
 import { FormikHandlers } from 'formik';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import terminalInputStyles from './TerminalInput.module.css';
 
 type TerminalInputProps = {
@@ -36,5 +36,5 @@ export const TerminalInput = ({ label, type, id, value, onChange, error }: Termi
 				value={value}
 			/>
 		</div>
-	)
-}
+	);
+};

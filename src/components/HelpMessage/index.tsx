@@ -1,4 +1,3 @@
-import React from 'react'
 import helpMessageStyles from './HelpMessage.module.css';
 
 type HelpMessageProps = {
@@ -17,5 +16,5 @@ export const HelpMessage = ({ text, onClick = () => console.log(easterEggMessage
 		<span onClick={onClick} className={helpMessageStyles.helpMessage}>
 			{text}
 		</span>
-	)
-}
+	);
+};

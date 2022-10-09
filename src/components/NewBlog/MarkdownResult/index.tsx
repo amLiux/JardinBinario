@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import rehypeRaw from 'rehype-raw';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -53,7 +53,7 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 			if (toRemove.includes('<blockquote')) {
 				const newValue = visualMarkdown.replace(toRemove, '');
 				setVisualMarkdown(newValue);
-				setMarkdownText('markdown', newValue)
+				setMarkdownText('markdown', newValue);
 			}
 		}
 	}, [preview, visualMarkdown, context, setVisualMarkdown, title, mainTitle, setMarkdownText, blogEntry]);
@@ -72,5 +72,5 @@ export const MarkdownResult = ({ preview = false, context, blogEntry }: Markdown
 				{toRender || visualMarkdown}
 			</ReactMarkdown>
 		</div>
-	)
+	);
 };

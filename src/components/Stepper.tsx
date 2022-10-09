@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { Children, ReactNode, useState } from 'react'
+import React, { Children, ReactNode, useState } from 'react';
 import { useAuth } from '../apollo/AuthClient';
 import { HelpMessage } from './HelpMessage';
 import { Form } from './Form';
@@ -27,7 +27,7 @@ export const Stepper = ({ children }: any) => {
                     msg: response,
                     error: false,
                 });
-            } else removeMessage()
+            } else removeMessage();
         }
         !isLastStep && next(); 
     };
@@ -35,7 +35,7 @@ export const Stepper = ({ children }: any) => {
     return <Form handleSubmit={handleSubmit}>
         {currentChild}
         <HelpMessage text='Go back to login' onClick={() => router.push('/login')} />
-    </Form>
+    </Form>;
 };
 
 export const Step = ({ children }: any) => children;

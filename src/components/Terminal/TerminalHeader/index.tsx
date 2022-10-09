@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
+import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { NextRouter } from 'next/router';
 
@@ -68,7 +68,7 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 		<div
 			className={`
 				${terminalHeaderStyles.terminalHeader}
-				${index || read ? 'scroll sticky top-0' : ''}
+				${index || read ? 'scroll sticky top-0 p-2' : 'p-4'}
 			`}>
 			{
 				index || read
@@ -107,5 +107,5 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 			}
 
 		</div>
-	)
-}
+	);
+};

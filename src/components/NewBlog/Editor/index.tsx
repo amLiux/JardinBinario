@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
+import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import editorContext from '../../../context/editorContext';
 import editorStyles from './Editor.module.css';
 
@@ -41,5 +41,5 @@ export const Editor = () => {
 			onChange={onInputChange}
 			className={editorStyles.editor}
 		/>
-	)
-}
+	);
+};

@@ -1,6 +1,17 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "quotes": [2, "single", { "avoidEscape": true }]
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "semi-style": [
+      "error",
+      "last"
+    ],
+    "semi": [2, "always"]
   }
 }

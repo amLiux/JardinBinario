@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import tooltipStyles from './Tooltip.module.css';
 type TooltipProps = {
 	children: ReactNode | ReactNode[];
@@ -28,6 +28,5 @@ export const Tooltip = ({ children, tooltipText, size, position}: TooltipProps) 
 				{children}
 			</div>
 		</>
-
-	)
-}
+	);
+};

@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
 
 import imagen1 from '../../public/imagen1.jpg';
 import imagen2 from '../../public/imagen2.jpg';
@@ -24,9 +23,9 @@ const toRender = [
 
 export const PhotoComposition = () => {
 	const getComputedStyle = (number: number) => {
-		const propToCheck = `compositionPhoto--p${number}`
+		const propToCheck = `compositionPhoto--p${number}`;
 		return photoCompositionStyles?.[propToCheck] ? photoCompositionStyles[propToCheck] : '';
-	}
+	};
 
 	return (
 		<>
@@ -47,5 +46,5 @@ export const PhotoComposition = () => {
 				</div>
 			</div>
 		</>
-	)
-}
+	);
+};
