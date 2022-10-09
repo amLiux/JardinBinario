@@ -15,13 +15,13 @@ type TerminalHeaderProps = {
 	read?: boolean;
 	handleClickServices?: (ref: string) => void;
 	router?: NextRouter;
-}
+};
 
+type validColors = 'red' | 'yellow' | 'green';
 
 export const TerminalHeader = ({ header, editor = false, index = false, read = false, handleClickServices, router }: TerminalHeaderProps) => {
 	
 	const {
-		dotClass,
 		showTags,
 		setShowTags,
 		tags,
@@ -30,6 +30,8 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 		setPreview,
 		completion
 	} = useHeader();
+	
+	const dotClass = (color: validColors): string => `w-7 h-7 bg-${color}-500 rounded-full mr-3 animate-pulse`;
 
 	const needsStickyHeader = index || read;
 
