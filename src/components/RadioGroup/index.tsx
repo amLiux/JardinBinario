@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Option } from './Option';
 import optionsStyles from './Option/Option.module.css';
@@ -18,6 +17,7 @@ export const RadioGroup = ({ options, onChange, value, labelText }: IProps) => {
         selectedIndexes?.includes(index) ? setSelectedIndexes(selectedIndexes.filter((idx) => idx !== index)) : setSelectedIndexes([...selectedIndexes as any, index]);
         onChange && onChange(index);
     }
+
     return (
         <div>
             <h4 style={{ marginTop: '2rem', marginBottom: '0.6666667em' }} className="after:content-['⚙️'] after:ml-1">{labelText}</h4>

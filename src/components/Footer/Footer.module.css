@@ -2,7 +2,6 @@
     @apply w-24 h-24 cursor-pointer;
 }
 
-
 .edit {
     @apply cursor-pointer flex items-center justify-around border-b-2 transition-all ease-in-out border-transparent hover:border-purple-500;
 }

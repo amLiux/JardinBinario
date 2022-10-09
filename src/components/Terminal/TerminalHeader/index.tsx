@@ -1,13 +1,12 @@
-import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { NextRouter } from 'next/router';
 
-import editorContext from '../../../context/editorContext';
 import { IndexNavbarOptions } from '../../IndexNavbarOptions';
 import { EditorNavbarOptions } from '../../NewBlog/EditorNavbarOptions';
 import { TagsInput } from '../../NewBlog/TagInput';
 import terminalHeaderStyles from './TerminalHeader.module.css';
 import logo from '../../../public/logo.png';
+import { useHeader } from '../../../hooks/useHeader';
 
 type TerminalHeaderProps = {
 	header?: string;
@@ -18,60 +17,30 @@ type TerminalHeaderProps = {
 	router?: NextRouter;
 }
 
-type validColors = 'red' | 'yellow' | 'green';
 
 export const TerminalHeader = ({ header, editor = false, index = false, read = false, handleClickServices, router }: TerminalHeaderProps) => {
-	const { tags, setTags, setPreview, storeMarkdown } = useContext(editorContext);
 	
-	const [completion, setCompletion] = useState<number>(0);
-	// const [width, setWidth] = useState<number>(0);
-	const dotClass = (color: validColors): string => `w-7 h-7 bg-${color}-500 rounded-full mr-3 animate-pulse`;
-	const [showTags, setShowTags] = useState<boolean>(false);
-	const selectedTags = (tags: string[]) => {
-		setTags('tags', tags);
-	};
+	const {
+		dotClass,
+		showTags,
+		setShowTags,
+		tags,
+		selectedTags,
+		storeMarkdown,
+		setPreview,
+		completion
+	} = useHeader();
 
-	useEffect(() => {
-		// function handleResize() {
-		// 	setWidth(window.innerWidth);
-		// }
-
-		// window.addEventListener('resize', handleResize);
-		// handleResize();
-
-		window.addEventListener('scroll', handleScroll as any);
-		return () => {
-			window.removeEventListener('scroll', handleScroll as any);
-			// window.removeEventListener('resize', handleResize);
-		};
-	});
-
-	// const truncatedText = (text: string): string => {
-	// 	const truncateText = (toTruncate: string, toRemove: number): string =>
-	// 	  `${toTruncate.substring(0, toRemove)}...`
-	// 	if (width < parseInt(theme.breakpoints.smallMobile.replace('px', '')))
-	// 	  return truncateText(text, 60)
-	// 	if (width < parseInt(theme.breakpoints.mobile.replace('px', '')))
-	// 	  return truncateText(text, 130)
-	// 	return text
-	//   }
-
-	const handleScroll = (e: SyntheticEvent) => {
-		const header = document.querySelector('.scroll');
-		const currentProgress = window.scrollY;
-		currentProgress >= 70 ? header?.classList.add('isSticky') : header?.classList.remove('isSticky');
-		const scrollHeight = document.body.scrollHeight - window.innerHeight;
-		setCompletion(Number((currentProgress / scrollHeight).toFixed(2)) * 100);
-	};
+	const needsStickyHeader = index || read;
 
 	return (
 		<div
 			className={`
 				${terminalHeaderStyles.terminalHeader}
-				${index || read ? 'scroll sticky top-0 p-2' : 'p-4'}
+				${ needsStickyHeader ? 'scroll sticky top-0 p-2' : 'p-4'}
 			`}>
 			{
-				index || read
+				needsStickyHeader
 					?
 					<div
 						onClick={() => router?.push('/')}
@@ -97,7 +66,7 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 				</>
 			}
 			{
-				index && !editor && <IndexNavbarOptions handleClickServices={handleClickServices} />
+				index && <IndexNavbarOptions router={router} handleClickServices={handleClickServices} />
 			}
 			{
 				read && <span

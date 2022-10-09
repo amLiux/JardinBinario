@@ -1,15 +1,16 @@
 .tagsInput {
 	transition: width 1s;
-	@apply flex items-start flex-wrap outline outline-2 outline-purple-500 min-h-[48px] w-[35rem] px-2 rounded-md font-mono ml-auto;
+	@apply flex items-center flex-wrap outline outline-2 outline-purple-500 min-h-[48px] w-[35rem] px-2 rounded-md font-mono ml-auto;
 }
 
 .tagsInputMaxed {
-	@apply w-[27rem] justify-center;
+	@apply w-[34rem] justify-center;
 }
 
 .tagsInput > input {
 	transition: font-size 1s cubic-bezier(1, 0.11, 1, 0.03);
-	@apply p-1 flex-1 text-base h-12 border-none font-mono focus:outline-none text-white bg-slate-800;
+	@apply p-1 flex-1 w-4 text-base border-none font-mono focus:outline-none text-white bg-slate-800;
+	background-color: #0f172a!important;
 }
 
 .tags {

@@ -23,7 +23,7 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 		<>
 			<EditorContext.Provider value={contextValue}>
 				<Layout>
-					<TerminalHeader editor header={`${formik.values.title || 'New blog entry'}`} />
+					<TerminalHeader read={preview} editor header={`${formik.values.title || 'New blog entry'}`} />
 					{
 						preview
 							?

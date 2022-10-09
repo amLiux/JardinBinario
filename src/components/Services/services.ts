@@ -11,8 +11,6 @@ import iosLogo from '../../public/logos/iosLogo.png';
 import androidLogo from '../../public/logos/androidLogo.png';
 import obsLogo from '../../public/logos/obsLogo.png';
 
-
-
 type Stack = {
     name: string;
     logo: StaticImageData;
