@@ -19,8 +19,56 @@
 
     /* Breakpoints */
     @apply md:p-0 lg:p-0 md:prose-xl lg:prose-2xl;
+
 }
 
-.heading {
+.headingEffect {
     @apply text-purple-500 italic leading-none md:leading-normal lg:leading-relaxed;
+}
+
+.headingContainer {
+    transform: rotateX(0deg);
+}
+
+@keyframes moveFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.animationLeft {
+    @apply block;
+    animation: moveFromLeft 1s ease-in;
+
+}
+
+.animationRight {
+    @apply block;
+    animation: moveFromRight 1s ease-in;
 }

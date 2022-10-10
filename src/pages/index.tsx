@@ -58,9 +58,21 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 		<Layout index>
 			<TerminalHeader router={router} handleClickServices={handleClickServices} index header='Jardín Binario' />
 			<div className={indexStyles.index}>
-				<HeadingBlock tag='h1' heading={texts.heading} subheading={texts.subheading} />
+				<HeadingBlock
+					subheadingAnimationDirection='Right'
+					headingAnimationDirection='Left'
+					tag='h1'
+					heading={texts.heading}
+					subheading={texts.subheading} 
+				/>
 				<PhotoComposition />
-				<HeadingBlock tag='h2' heading={texts.heading2} subheading={texts.subheading2} />
+				<HeadingBlock
+					headingAnimationDirection='Right'
+					subheadingAnimationDirection='Left'
+					tag='h2'
+					heading={texts.heading2}
+					subheading={texts.subheading2}
+				/>
 				<Services refForScroll={refServices} />
 				<TicketForm
 					handleChange={formikContactForm.handleChange}
