@@ -11,30 +11,34 @@ interface HeadingBlockProps {
     };
     subheading: string;
     tag: Tag;
+    headingAnimationDirection?: 'Left' | 'Right';
+    subheadingAnimationDirection?: 'Left' | 'Right';
 }
 
 interface HeadingProps {
     tag: Tag;
     children: ReactNode;
+    className: string;
 }
 
-const Heading = ({tag, children}:HeadingProps) => {
-    if(tag === 'h1') return <h1>{children}</h1>;
-    if(tag === 'h2') return <h2>{children}</h2>;
+const Heading = ({ tag, children, className }: HeadingProps) => {
+    const sharedClassName = { className };
+    if (tag === 'h1') return <h1 {...sharedClassName}>{children}</h1>;
+    if (tag === 'h2') return <h2 {...sharedClassName}>{children}</h2>;
     return null;
 };
 
-export const HeadingBlock = ({ heading, subheading, tag }: HeadingBlockProps) => {
+export const HeadingBlock = ({ heading, subheading, tag, headingAnimationDirection = undefined, subheadingAnimationDirection = undefined }: HeadingBlockProps) => {
     return (
-        <>
-            <Heading tag={tag}>
+        <header className={indexStyles.headingContainer}>
+            <Heading className={headingAnimationDirection ? indexStyles[`animation${headingAnimationDirection}`] : ''} tag={tag}>
                 {heading.firstPart}
-                <span className={indexStyles.heading}>
+                <span className={indexStyles.headingEffect}>
                     {heading.highlight}
                 </span>
                 {heading.secondPart}
             </Heading>
-            <p>{subheading}</p>
-        </>
+            <p className={subheadingAnimationDirection ? indexStyles[`animation${subheadingAnimationDirection}`] : ''} >{subheading}</p>
+        </header>
     );
 };

@@ -1,23 +1,23 @@
 .imageContainer {
-    @apply w-24 h-24 cursor-pointer;
+    @apply w-20 h-20 md:w-24 md:h-24 cursor-pointer;
 }
 
 .edit {
-    @apply cursor-pointer flex items-center justify-around border-b-2 transition-all ease-in-out border-transparent hover:border-purple-500;
+    @apply hidden md:flex text-base cursor-pointer  items-center justify-around border-b-2 transition-all ease-in-out border-transparent hover:border-purple-500;
 }
 
 .container {
-    @apply flex justify-evenly items-center text-white py-14 font-mono border-t border-transparent hover:border-transparent transition-all ease-in-out;
+    @apply flex justify-around md:justify-evenly items-center text-white py-7 md:py-14 font-mono transition-all ease-in-out;
 }
 
 .socialMedia {
-    @apply text-xs min-w-[8rem] block;
+    @apply text-xs min-w-[8rem];
 }
 
 .socialMedia > li {
-    @apply leading-7 flex p-2 justify-around before:content-[''] before:pr-1 before:mr-1 before:hover:bg-purple-500  before:bg-white hover:animate-pulse border-2 border-transparent cursor-pointer rounded-md hover:border-white transition-all ease-out;
+    @apply p-1 md:p-2 leading-7 flex justify-around before:content-[''] before:pr-[2px] before:mr-2 before:hover:bg-purple-500 before:bg-white hover:animate-pulse border-2 border-transparent cursor-pointer rounded-md hover:border-white transition-all ease-out;
 }
 
 .socialMediaLogoContainer {
-    @apply w-6 h-6;
+    @apply w-6 h-6 ml-1;
 }
