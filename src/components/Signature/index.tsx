@@ -152,7 +152,7 @@ export const Signature = ({ signatureInfo, signatureRef, confidential, dark }: S
                                                             <tbody>
                                                                 <tr style={{ height: '25' }}>
                                                                     <td>
-                                                                        <p style={{ fontSize: '12px', wordBreak: 'break-all', color: 'white' }}>El contenido de este correo electrónico es confidencial y está destinado únicamente al destinatario especificado en el mensaje. Está estrictamente prohibido compartir cualquier parte de este mensaje con terceros, sin el consentimiento por escrito del remitente.</p>
+                                                                        <p style={{ fontSize: '12px', wordBreak: 'break-all', color: dark ? 'white' : '#c46a3d' }}>El contenido de este correo electrónico es confidencial y está destinado únicamente al destinatario especificado en el mensaje. Está estrictamente prohibido compartir cualquier parte de este mensaje con terceros, sin el consentimiento por escrito del remitente.</p>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
