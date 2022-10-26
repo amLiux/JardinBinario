@@ -67,7 +67,7 @@ export const useIndex = () => {
                     let submittedCopy = { ...submitted };
                     submittedCopy.contactForm = true;
                     setSubmitted(submittedCopy);
-                    setMessage('Gracias por tu mensaje, estaremos en contacto muy pronto!')
+                    setMessage('Gracias por tu mensaje, estaremos en contacto muy pronto!');
                 }
             } catch (err: any) {
                 // do we set error here 
@@ -150,5 +150,4 @@ export const useIndex = () => {
         message,
         router
     };
-
-}
+};

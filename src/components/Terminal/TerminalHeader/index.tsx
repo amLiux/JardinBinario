@@ -68,7 +68,7 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 				</>
 			}
 			{
-				index && <IndexNavbarOptions router={router} handleClickServices={handleClickServices} />
+				index && handleClickServices && <IndexNavbarOptions router={router} handleClickServices={handleClickServices} />
 			}
 			{
 				read && <span

@@ -1,5 +1,5 @@
 .container {
-    @apply flex items-center text-lg mt-3;
+    @apply flex items-center text-lg;
 }
 
 .input {
@@ -7,7 +7,7 @@
 }
 
 .label {
-    @apply ml-2 font-light text-base text-white;
+    @apply ml-2 font-light text-base;
 }
 
 .copy {
