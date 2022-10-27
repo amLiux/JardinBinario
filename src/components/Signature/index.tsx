@@ -9,6 +9,21 @@ interface SignatureProps {
     dark: boolean;
 }
 
+const copyIcon = (white:boolean) => <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 460 460"
+    // style={{
+    //     enableBackground: "new 0 0 460 460",
+    // }}
+    xmlSpace="preserve"
+    fill={`${white ? 'white' : '#a855f7'}`}
+    width="1em"
+    height="1em"
+>
+    <path d="M425.934 0H171.662c-18.122 0-32.864 14.743-32.864 32.864v77.134h30V32.864A2.868 2.868 0 0 1 171.662 30h254.272a2.868 2.868 0 0 1 2.864 2.864v254.272a2.868 2.868 0 0 1-2.864 2.865h-74.729v30h74.729c18.121 0 32.864-14.743 32.864-32.865V32.864C458.797 14.743 444.055 0 425.934 0z" />
+    <path d="M288.339 139.998H34.068c-18.122 0-32.865 14.743-32.865 32.865v254.272C1.204 445.257 15.946 460 34.068 460H288.34c18.122 0 32.865-14.743 32.865-32.864V172.863c.001-18.122-14.744-32.865-32.866-32.865zM288.341 430H34.068a2.868 2.868 0 0 1-2.865-2.864V172.863a2.868 2.868 0 0 1 2.865-2.865H288.34a2.868 2.868 0 0 1 2.865 2.865v254.273h.001a2.868 2.868 0 0 1-2.865 2.864z" />
+</svg>;
+
 // Note: cannot abstract styling to tailwind because at copy time it will grab classNames instead of style tag so we lose all styling
 
 export const Signature = ({ signatureInfo, signatureRef, confidential, dark }: SignatureProps) => {
@@ -54,9 +69,9 @@ export const Signature = ({ signatureInfo, signatureRef, confidential, dark }: S
     };
 
     return (
-        <div className='flex flex-col h-full justify-around transition-all ease-in-out'>
+        <div className='flex flex-col h-full justify-around ease-in-out'>
             <div ref={signatureRef}>
-                <table style={{ transition:'all ease-in-out', fontFamily:'system-ui', backgroundColor: `${dark ? 'black' : 'white'}`, borderRadius: '10px', padding: '1rem' }} cellSpacing="0" cellPadding="20">
+                <table style={{ fontFamily: 'system-ui', backgroundColor: `${dark ? 'black' : 'white'}`, borderRadius: '10px', padding: '1rem' }} cellSpacing="0" cellPadding="20">
                     <tbody>
                         <tr>
                             <td>
@@ -78,7 +93,7 @@ export const Signature = ({ signatureInfo, signatureRef, confidential, dark }: S
                                                         })
                                                     }
                                                 </h3>
-                                                <p style={{ fontWeight: '500', fontStyle:'italic',  margin: '0px', color: `${dark ? 'white' : 'black'}`, lineHeight: '24px' }}>
+                                                <p style={{ fontWeight: '500', fontStyle: 'italic', margin: '0px', color: `${dark ? 'white' : 'black'}`, lineHeight: '24px' }}>
                                                     <span>{signatureInfo.position}</span>
                                                 </p>
                                                 <p style={{ margin: '0px', fontWeight: '500', color: `${dark ? 'white' : 'black'}`, lineHeight: '24px' }}>
@@ -185,10 +200,18 @@ export const Signature = ({ signatureInfo, signatureRef, confidential, dark }: S
             <button style={{ width: '14em' }} onClick={() => {
                 const code = signatureRef?.current && signatureRef.current.innerHTML;
                 copyToClip(String(code));
-            }} disabled={copied} className="relative border-2 border-purple-500 inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-purple-600 transition-all duration-150 ease-in-out text-center rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
+
+            }} disabled={copied} className="relative border-2 border-purple-500 inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-medium text-purple-600 transition-all duration-150 ease-in-out text-center rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
                 <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-purple-500 group-hover:h-full"></span>
-                <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">{copied ? 'Copied!' : 'Get your signature'}</span>
+                <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
+                    {copyIcon(false)}
+                </span>
+                <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
+                    {copyIcon(true)}
+                </span>
+
+                <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">{copied ? 'Copiada!' : 'Copia tu signature'}</span>
             </button>
-        </div>
+        </div >
     );
 };
