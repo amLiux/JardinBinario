@@ -83,3 +83,11 @@ export type LoginFormValues = {
 	email: string;
 	password: string;
 };
+
+export type SignatureInfo = {
+    name: string;
+    position: string;
+    department: string;
+    phoneNumber: string;
+    email: string;
+};

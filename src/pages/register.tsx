@@ -4,7 +4,7 @@ import { TerminalButton } from '../components/Terminal/TerminalButton';
 import { Form } from '../components/Form';
 import { TerminalHeader } from '../components/Terminal/TerminalHeader';
 import { TerminalInput } from '../components/Terminal/TerminalInput';
-import { TerminalTosCheckbox } from '../components/Terminal/TerminalTosCheckbox';
+import { Checkbox } from '../components/Checkbox';
 import { withAuth } from '../hoc/withAuth';
 import { PicUpload } from '../components/PicUpload';
 import { useRegister } from '../hooks/useRegister';
@@ -66,7 +66,12 @@ const RegisterPage = () => {
 								})
 							}
 
-							<TerminalTosCheckbox handleCheck={handleCheckboxChange} />
+							<Checkbox
+								message='I agree to the'
+								tooltipToHover='Privacy Policy.'
+								tooltip='We gather some information from your browser, device and timezone to keep our application updated.'
+								handleCheck={handleCheckboxChange}
+							/>
 							<TerminalButton disabled={disableButton} text='Register' />
 						</Form>
 					</Terminal>
