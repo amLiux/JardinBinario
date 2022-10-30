@@ -10,6 +10,7 @@ import edit from '../../public/edit.png';
 
 interface FooterProps {
 	router: NextRouter;
+	filePath: string;
 };
 
 type SocialMediaEntry = {
@@ -46,13 +47,18 @@ const socialMedia: SocialMediaEntry[] = [
 	},
 ];
 
-export const Footer = ({ router }: FooterProps) => {
+export const Footer = ({ router, filePath }: FooterProps) => {
 	return (
 		<div className={footerStyles.container}>
-			<p onClick={() => router.push('https://github.com/Marceliux/JardinBinario/blob/main/src/pages/index.tsx')} className={footerStyles.edit}>
-				Edit this page
-				<Image src={edit} alt='pencil drawing' height={24} width={24} />
-			</p>
+			{
+				filePath ?
+					<p onClick={() => router.push(`https://github.com/Marceliux/JardinBinario/blob/main/src/pages/${filePath}.tsx`)} className={footerStyles.edit}>
+						Edit this page
+						<Image src={edit} alt='pencil drawing' height={24} width={24} />
+					</p>
+					:
+					<div></div>
+			}
 			<div
 				onClick={() => router.push('/')}
 				className={footerStyles.imageContainer}>

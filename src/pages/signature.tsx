@@ -101,7 +101,7 @@ export default function SignaturePage() {
 
             </div>
 
-            <Footer router={router} />
+            <Footer filePath='signature' router={router} />
         </Layout>
     );
 }

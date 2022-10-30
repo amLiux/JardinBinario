@@ -97,7 +97,7 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 				/>
 				<CustomSwiper router={router} recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
 			</div>
-			<Footer router={router} />
+			<Footer filePath='index' router={router} />
 		</Layout>
 	);
 }
