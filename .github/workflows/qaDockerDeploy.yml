@@ -1,9 +1,11 @@
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - qa
 jobs:
-  deploy-dev:
+  deploy-docker-qa:
     runs-on: ubuntu-latest
     steps:
       - 
@@ -11,5 +13,5 @@ jobs:
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          token: ${{ secrets.DOCKER_HUB_TOKEN }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
       
