@@ -14,4 +14,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
-      
+      -
+        name: Build :qa tag and push to Docker Hub
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: marceliux/jardinbinario:qa
