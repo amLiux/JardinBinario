@@ -19,7 +19,7 @@ jobs:
           push: true
           tags: marceliux/jardinbinario:qa
           secrets: | 
-            "NEXT_PUBLIC_BACKEND_URL = ${{ secrets.NEXT_PUBLIC_BACKEND_URL }}"
-            "NEXT_PUBLIC_PLACEHOLDER_IMAGE = ${{ secrets.NEXT_PUBLIC_PLACEHOLDER_IMAGE }}"
-            "NEXT_PUBLIC_UPLOAD_IMAGE = ${{ secrets.NEXT_PUBLIC_UPLOAD_IMAGE }}"
-            "NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL = ${{ secrets.NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL }}"
+            NEXT_PUBLIC_BACKEND_URL = ${{ secrets.NEXT_PUBLIC_BACKEND_URL }}
+            NEXT_PUBLIC_PLACEHOLDER_IMAGE = ${{ secrets.NEXT_PUBLIC_PLACEHOLDER_IMAGE }}
+            NEXT_PUBLIC_UPLOAD_IMAGE = ${{ secrets.NEXT_PUBLIC_UPLOAD_IMAGE }}
+            NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL = ${{ secrets.NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL }}
