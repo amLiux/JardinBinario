@@ -1,7 +1,7 @@
 import React from 'react';
-import { Layout } from '../Layout';
 import Image from 'next/image';
-import logo from '../../public/logo.png';
+import { Layout } from '@/components/Layout';
+import logo from '@/assets/logo.png';
 
 export const LoadingSplash = () => {
 	return (
