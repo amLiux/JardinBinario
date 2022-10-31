@@ -1,6 +1,6 @@
 import { SyntheticEvent } from 'react';
-import { Icons } from '../../Icons';
-import { Tooltip } from '../../Tooltip';
+import { Icons } from '@/components/Icons';
+import { Tooltip } from '@/components/Tooltip';
 import editorNavbarOptionsStyles from './EditorNavbarOptions.module.css';
 
 type EditorNavbarOptionsProps = {

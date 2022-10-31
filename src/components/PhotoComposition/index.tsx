@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-import imagen1 from '../../public/imagen1.jpg';
-import imagen2 from '../../public/imagen2.jpg';
-import imagen3 from '../../public/imagen3.jpg';
+import imagen1 from '@/assets/imagen1.jpg';
+import imagen2 from '@/assets/imagen2.jpg';
+import imagen3 from '@/assets/imagen3.jpg';
 
 import photoCompositionStyles from './PhotoComposition.module.css';
 

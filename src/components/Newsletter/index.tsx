@@ -1,10 +1,11 @@
 import { FormikErrors, FormikHandlers, FormikValues } from 'formik';
-import { Input } from '../TicketForm/Input';
-import { Sky } from '../404/Sky';
-import { NewsletterValues } from '../../types/sharedTypes';
-import { Form } from '../Form';
-import { Spinner } from '../Spinner';
-import ticketFormStyles from '../TicketForm/TicketForm.module.css';
+import { Input } from '@/components/TicketForm/Input';
+import { Sky } from '@/components/404/Sky';
+import { NewsletterValues } from '@/types/sharedTypes';
+import { Form } from '@/components/Form';
+import { Spinner } from '@/components/Spinner';
+import ticketFormStyles from '@/components/TicketForm/TicketForm.module.css';
+
 import newsletterStyles from './Newsletter.module.css';
 
 type NewsletterFormProps = {

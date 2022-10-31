@@ -1,12 +1,12 @@
-import { HelpMessage } from '../components/HelpMessage';
-import { Layout } from '../components/Layout';
-import { Terminal } from '../components/Terminal/Terminal';
-import { TerminalButton } from '../components/Terminal/TerminalButton';
-import { TerminalHeader } from '../components/Terminal/TerminalHeader';
-import { TerminalInput } from '../components/Terminal/TerminalInput';
-import { Form } from '../components/Form';
-import { LoginFormValues } from '../types/sharedTypes';
-import { useLogin } from '../hooks/useLogin';
+import { HelpMessage } from '@/components/HelpMessage';
+import { Layout } from '@/components/Layout';
+import { Terminal } from '@/components/Terminal/Terminal';
+import { TerminalButton } from '@/components/Terminal/TerminalButton';
+import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
+import { TerminalInput } from '@/components/Terminal/TerminalInput';
+import { Form } from '@/components/Form';
+import { LoginFormValues } from '@/types/sharedTypes';
+import { useLogin } from '@/hooks/useLogin';
 
 export default function LoginPage() {
 	

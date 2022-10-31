@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { Children, ReactNode, useState } from 'react';
-import { useAuth } from '../apollo/AuthClient';
+import { useAuth } from '@/apollo/AuthClient';
 import { HelpMessage } from './HelpMessage';
 import { Form } from './Form';
 

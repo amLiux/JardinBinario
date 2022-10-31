@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app';
-import { AuthProvider } from '../apollo/AuthClient';
+import { AuthProvider } from '@/apollo/AuthClient';
 import '../styles/globals.css';
 import { useRouter } from 'next/router';
 import { ReactNode, useEffect, useState } from 'react';

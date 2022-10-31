@@ -1,15 +1,15 @@
 import { StaticImageData } from 'next/image';
-import reactLogo from '../../public/logos/reactLogo.png';
-import nodeLogo from '../../public/logos/nodeLogo.png';
-import graphqlLogo from '../../public/logos/graphqlLogo.png';
-import pythonLogo from '../../public/logos/pythonLogo.png';
-import flutterLogo from '../../public/logos/flutterLogo.png';
-import figmaLogo from '../../public/logos/figmaLogo.png';
-import adobeCloudLogo from '../../public/logos/adobeCloudLogo.png';
-import typescriptLogo from '../../public/logos/typescriptLogo.png';
-import iosLogo from '../../public/logos/iosLogo.png';
-import androidLogo from '../../public/logos/androidLogo.png';
-import obsLogo from '../../public/logos/obsLogo.png';
+import reactLogo from '@/assets/logos/reactLogo.png';
+import nodeLogo from '@/assets/logos/nodeLogo.png';
+import graphqlLogo from '@/assets/logos/graphqlLogo.png';
+import pythonLogo from '@/assets/logos/pythonLogo.png';
+import flutterLogo from '@/assets/logos/flutterLogo.png';
+import figmaLogo from '@/assets/logos/figmaLogo.png';
+import adobeCloudLogo from '@/assets/logos/adobeCloudLogo.png';
+import typescriptLogo from '@/assets/logos/typescriptLogo.png';
+import iosLogo from '@/assets/logos/iosLogo.png';
+import androidLogo from '@/assets/logos/androidLogo.png';
+import obsLogo from '@/assets/logos/obsLogo.png';
 
 type Stack = {
     name: string;

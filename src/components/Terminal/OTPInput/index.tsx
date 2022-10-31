@@ -1,6 +1,6 @@
 import { FormikHelpers } from 'formik';
 import { SyntheticEvent, useEffect, useState } from 'react';
-import { ForgotPasswordValues } from '../../../types/sharedTypes';
+import { ForgotPasswordValues } from '@/types/sharedTypes';
 import otpInputStyles from './OTPInput.module.css';
 
 type OTPInputProps = {

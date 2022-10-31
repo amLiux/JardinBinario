@@ -1,13 +1,13 @@
 import React, { ChangeEvent, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import { Layout } from '../components/Layout';
-import { TerminalHeader } from '../components/Terminal/TerminalHeader';
-import { Footer } from '../components/Footer';
-import { Input } from '../components/TicketForm/Input';
-import { Signature } from '../components/Signature';
-import { SignatureInfo } from '../types/sharedTypes';
-import { Checkbox } from '../components/Checkbox';
+import { Layout } from '@/components/Layout';
+import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
+import { Footer } from '@/components/Footer';
+import { Input } from '@/components/TicketForm/Input';
+import { Signature } from '@/components/Signature';
+import { SignatureInfo } from '@/types/sharedTypes';
+import { Checkbox } from '@/components/Checkbox';
 
 type SignaturePropMapping = {
     placeholder: string;

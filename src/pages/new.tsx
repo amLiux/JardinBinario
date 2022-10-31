@@ -1,11 +1,11 @@
-import EditorContext from '../context/editorContext';
-import { Editor } from '../components/NewBlog/Editor';
-import { Layout } from '../components/Layout';
-import { MarkdownResult } from '../components/NewBlog/MarkdownResult';
-import { TerminalHeader } from '../components/Terminal/TerminalHeader';
-import { withAuth } from '../hoc/withAuth';
-import { UserContext } from '../types/sharedTypes';
-import { useNew } from '../hooks/useNew';
+import EditorContext from '@/context/editorContext';
+import { Editor } from '@/components/NewBlog/Editor';
+import { Layout } from '@/components/Layout';
+import { MarkdownResult } from '@/components/NewBlog/MarkdownResult';
+import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
+import { withAuth } from '@/hoc/withAuth';
+import { UserContext } from '@/types/sharedTypes';
+import { useNew } from '@/hooks/useNew';
 
 type NewBlogPageProps = {
 	userContext: UserContext;
