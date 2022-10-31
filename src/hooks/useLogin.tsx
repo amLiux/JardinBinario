@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
 import * as Yup from 'yup';
 
-import { useAuth } from '../apollo/AuthClient';
-import { LoginFormValues } from '../types/sharedTypes';
+import { useAuth } from '@/apollo/AuthClient';
+import { LoginFormValues } from '@/types/sharedTypes';
 
 export const useLogin = () => {
     const [disableButton, setDisableButton] = useState<boolean>(true);

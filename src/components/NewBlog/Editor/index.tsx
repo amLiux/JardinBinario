@@ -1,4 +1,4 @@
-import { useEditor } from '../../../hooks/useEditor';
+import { useEditor } from '@/hooks/useEditor';
 import editorStyles from './Editor.module.css';
 
 export const Editor = () => {

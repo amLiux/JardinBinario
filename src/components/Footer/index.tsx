@@ -1,12 +1,13 @@
 import Image, { StaticImageData } from 'next/image';
 import { NextRouter } from 'next/router';
-import logo from '../../public/littleLogo.png';
+import logo from '@/assets/littleLogo.png';
+import gitHubLogo from '@/assets/logos/gitHubLogo.png';
+import youtubeLogo from '@/assets/logos/youtubeLogo.png';
+import linkedinLogo from '@/assets/logos/linkedinLogo.png';
+import behanceLogo from '@/assets/logos/behanceLogo.png';
+import edit from '@/assets/edit.png';
+
 import footerStyles from './Footer.module.css';
-import gitHubLogo from '../../public/logos/gitHubLogo.png';
-import youtubeLogo from '../../public/logos/youtubeLogo.png';
-import linkedinLogo from '../../public/logos/linkedinLogo.png';
-import behanceLogo from '../../public/logos/behanceLogo.png';
-import edit from '../../public/edit.png';
 
 interface FooterProps {
 	router: NextRouter;

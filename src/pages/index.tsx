@@ -1,19 +1,19 @@
 import { InferGetServerSidePropsType } from 'next';
 
-import { Layout } from '../components/Layout';
-import { TerminalHeader } from '../components/Terminal/TerminalHeader';
-import { Footer } from '../components/Footer';
-import { texts } from '../components/Index/text';
-import indexStyles from '../components/Index/Index.module.css';
-import { PhotoComposition } from '../components/PhotoComposition';
-import { Services } from '../components/Services';
-import { TicketForm } from '../components/TicketForm';
-import { querys } from '../gql/querys';
-import { Newsletter } from '../components/Newsletter';
-import { CustomSwiper } from '../components/Swiper';
-import { createUnauthorizedApolloClient } from '../apollo/AuthClient';
-import { useIndex } from '../hooks/useIndex';
-import { HeadingBlock } from '../components/Index/HeadingBlock';
+import { Layout } from '@/components/Layout';
+import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
+import { Footer } from '@/components/Footer';
+import { texts } from '@/components/Index/text';
+import indexStyles from '@/components/Index/Index.module.css';
+import { PhotoComposition } from '@/components/PhotoComposition';
+import { Services } from '@/components/Services';
+import { TicketForm } from '@/components/TicketForm';
+import { querys } from '@/gql/querys';
+import { Newsletter } from '@/components/Newsletter';
+import { CustomSwiper } from '@/components/Swiper';
+import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
+import { useIndex } from '@/hooks/useIndex';
+import { HeadingBlock } from '@/components/Index/HeadingBlock';
 
 export const getServerSideProps = async () => {
 	const client = createUnauthorizedApolloClient();

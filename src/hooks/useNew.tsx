@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import * as Yup from 'yup';
 
-import { useAuth } from '../apollo/AuthClient';
-import { querys } from '../gql/querys';
-import { EditorContextType, NewBlogEntryValues } from '../types/sharedTypes';
+import { useAuth } from '@/apollo/AuthClient';
+import { querys } from '@/gql/querys';
+import { EditorContextType, NewBlogEntryValues } from '@/types/sharedTypes';
 
 
 export const useNew = () => {

@@ -2,9 +2,10 @@ import rehypeRaw from 'rehype-raw';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-import { BlogEntry, UserContext } from '../../../types/sharedTypes';
+import { BlogEntry, UserContext } from '@/types/sharedTypes';
+import { useMarkdownResult } from '@/hooks/useMarkdownResult';
+
 import markdownResultsStyles from './MarkdownResult.module.css';
-import { useMarkdownResult } from '../../../hooks/useMarkdownResult';
 
 type MarkdownRestulProps = {
 	preview?: boolean;
