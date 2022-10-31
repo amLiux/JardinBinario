@@ -45,7 +45,7 @@ export const createUnauthorizedApolloClient = () => {
 
 	const handleOnError = onError((error: any) => {
 		const { graphQLErrors } = error;
-		let { message } = graphQLErrors[0];
+		let { message } = graphQLErrors?.[0];
 		// this happens if the GQL server runs up with issues while creating our context
 		const toRemoveIfIncludes = 'Context creation failed: '; 
 		const toChangeIfIncludes = 'MongoServerError: E11000';

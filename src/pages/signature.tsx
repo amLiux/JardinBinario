@@ -8,13 +8,14 @@ import { Input } from '@/components/TicketForm/Input';
 import { Signature } from '@/components/Signature';
 import { SignatureInfo } from '@/types/sharedTypes';
 import { Checkbox } from '@/components/Checkbox';
+import { withAuth } from '@/hoc/withAuth';
 
 type SignaturePropMapping = {
     placeholder: string;
     type: 'text' | 'email' | 'phone';
 };
 
-export default function SignaturePage() {
+const SignaturePage = () => {
     const router = useRouter();
     const signatureRef = useRef<HTMLDivElement>(null);
     const [confidentialEmails, setConfidentialEmails] = useState<boolean>(false);
@@ -76,6 +77,7 @@ export default function SignaturePage() {
                                     placeholder={placeholder}
                                     value={signatureInfo[propAsKey]}
                                     type={type}
+                                    textInputAsKey={propAsKey}
                                     handleChange={handleChange}
                                 />
                             );
@@ -101,7 +103,9 @@ export default function SignaturePage() {
 
             </div>
 
-            <Footer router={router} />
+            <Footer filePath='signature' router={router} />
         </Layout>
     );
-}
+};
+
+export default withAuth(SignaturePage);
