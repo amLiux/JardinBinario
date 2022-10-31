@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
-import editorContext from '../context/editorContext';
-import { BlogEntry, UserContext } from '../types/sharedTypes';
-import markdownResultsStyles from '../components/NewBlog/MarkdownResult/MarkdownResult.module.css';
+import editorContext from '@/context/editorContext';
+import { BlogEntry, UserContext } from '@/types/sharedTypes';
+import markdownResultsStyles from '@/components/NewBlog/MarkdownResult/MarkdownResult.module.css';
 
 export const useMarkdownResult = (preview:boolean, context?:UserContext, blogEntry?:BlogEntry) => {
     const { visualMarkdown, setVisualMarkdown, title: mainTitle, setMarkdownText } = useContext(editorContext);

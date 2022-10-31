@@ -6,9 +6,9 @@ import 'swiper/css';
 
 import customSwiperStyles from './CustomSwiper.module.css';
 import ticketFormStyles from '../TicketForm/TicketForm.module.css';
-import likes from '../../public/buttons/likes.png';
-import views from '../../public/buttons/views.png';
-import { BlogEntry } from '../../types/sharedTypes';
+import likes from '@/assets/buttons/likes.png';
+import views from '@/assets/buttons/views.png';
+import { BlogEntry } from '@/types/sharedTypes';
 
 interface CustomSwiperProps {
     recentBlogs: BlogEntry[]

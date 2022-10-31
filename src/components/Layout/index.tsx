@@ -2,10 +2,11 @@ import { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { Message } from '../Message';
-import { useAuth } from '../../apollo/AuthClient';
+import { Message } from '@/components/Message';
+import { useAuth } from '@/apollo/AuthClient';
+import { seoMapping } from '@/seo/index';
+
 import layoutStyles from './Layout.module.css';
-import { seoMapping } from '../../seo';
 
 type LayoutProps = {
 	children: ReactNode | ReactNode[];

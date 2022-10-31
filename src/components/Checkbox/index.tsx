@@ -1,4 +1,4 @@
-import { Tooltip } from '../Tooltip';
+import { Tooltip } from '@/components/Tooltip';
 import checkboxStyles from './Checkbox.module.css';
 
 type CheckboxProps = {

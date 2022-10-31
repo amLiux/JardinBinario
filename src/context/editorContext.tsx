@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { EditorContextType } from '../types/sharedTypes';
+import { EditorContextType } from '@/types/sharedTypes';
 
 const defaultContext:EditorContextType = {
     markdownText: '',
@@ -14,4 +14,4 @@ const defaultContext:EditorContextType = {
     storeMarkdown: () => {}
 };
 
-export default createContext(defaultContext)
+export default createContext(defaultContext);

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { RefObject, useMemo, useState } from 'react';
-import { SignatureInfo } from '../../types/sharedTypes';
+import { SignatureInfo } from '@/types/sharedTypes';
 
 interface SignatureProps {
     signatureInfo: SignatureInfo;

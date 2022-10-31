@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { NextRouter } from 'next/router';
 
-import { IndexNavbarOptions } from '../../IndexNavbarOptions';
-import { EditorNavbarOptions } from '../../NewBlog/EditorNavbarOptions';
-import { TagsInput } from '../../NewBlog/TagInput';
+import { IndexNavbarOptions } from '@/components/IndexNavbarOptions';
+import { EditorNavbarOptions } from '@/components/NewBlog/EditorNavbarOptions';
+import { TagsInput } from '@/components/NewBlog/TagInput';
+import logo from '@/assets/logo.png';
+import { useHeader } from '@/hooks/useHeader';
+
 import terminalHeaderStyles from './TerminalHeader.module.css';
-import logo from '../../../public/logo.png';
-import { useHeader } from '../../../hooks/useHeader';
 
 type TerminalHeaderProps = {
 	header?: string;

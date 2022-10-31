@@ -1,11 +1,11 @@
-import { Layout } from '../components/Layout';
-import { TerminalHeader } from '../components/Terminal/TerminalHeader';
-import { MarkdownResult } from '../components/NewBlog/MarkdownResult';
-import { querys } from '../gql/querys';
-import { createUnauthorizedApolloClient } from '../apollo/AuthClient';
 import { InferGetServerSidePropsType } from 'next';
-import { BlogEntry } from '../types/sharedTypes';
 import { useRouter } from 'next/router';
+import { Layout } from '@/components/Layout';
+import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
+import { MarkdownResult } from '@/components/NewBlog/MarkdownResult';
+import { querys } from '@/gql/querys';
+import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
+import { BlogEntry } from '@/types/sharedTypes';
 
 export const getServerSideProps = async (context: any) => {
 	const { blogId } = context.query;

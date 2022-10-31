@@ -1,12 +1,12 @@
 import { SyntheticEvent} from 'react';
-import { Layout } from '../components/Layout';
-import { Terminal } from '../components/Terminal/Terminal';
-import { TerminalButton } from '../components/Terminal/TerminalButton';
-import { TerminalHeader } from '../components/Terminal/TerminalHeader';
-import { TerminalInput } from '../components/Terminal/TerminalInput';
-import { OTPInput } from '../components/Terminal/OTPInput';
-import { Step, Stepper } from '../components/Stepper';
-import { useForgotPassword } from '../hooks/useForgotPassword';
+import { Layout } from '@/components/Layout';
+import { Terminal } from '@/components/Terminal/Terminal';
+import { TerminalButton } from '@/components/Terminal/TerminalButton';
+import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
+import { TerminalInput } from '@/components/Terminal/TerminalInput';
+import { OTPInput } from '@/components/Terminal/OTPInput';
+import { Step, Stepper } from '@/components/Stepper';
+import { useForgotPassword } from '@/hooks/useForgotPassword';
 
 export default function ForgotPassword() {
     

@@ -1,9 +1,11 @@
 import { FormikErrors, FormikHandlers, FormikHelpers, FormikValues } from 'formik';
 import { RefObject, useState } from 'react';
-import { NewTicketValues } from '../../types/sharedTypes';
-import { Form } from '../Form';
-import { RadioGroup } from '../RadioGroup';
-import { Spinner } from '../Spinner';
+
+import { NewTicketValues } from '@/types/sharedTypes';
+import { Form } from '@/components/Form';
+import { RadioGroup } from '@/components/RadioGroup';
+import { Spinner } from '@/components/Spinner';
+
 import { Input } from './Input';
 import ticketFormStyles from './TicketForm.module.css';
 

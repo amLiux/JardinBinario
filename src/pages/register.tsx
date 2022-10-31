@@ -1,14 +1,14 @@
-import { Layout } from '../components/Layout';
-import { Terminal } from '../components/Terminal/Terminal';
-import { TerminalButton } from '../components/Terminal/TerminalButton';
-import { Form } from '../components/Form';
-import { TerminalHeader } from '../components/Terminal/TerminalHeader';
-import { TerminalInput } from '../components/Terminal/TerminalInput';
-import { Checkbox } from '../components/Checkbox';
-import { withAuth } from '../hoc/withAuth';
-import { PicUpload } from '../components/PicUpload';
-import { useRegister } from '../hooks/useRegister';
-import { RegisterFormValues } from '../types/sharedTypes';
+import { Layout } from '@/components/Layout';
+import { Terminal } from '@/components/Terminal/Terminal';
+import { TerminalButton } from '@/components/Terminal/TerminalButton';
+import { Form } from '@/components/Form';
+import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
+import { TerminalInput } from '@/components/Terminal/TerminalInput';
+import { Checkbox } from '@/components/Checkbox';
+import { withAuth } from '@/hoc/withAuth';
+import { PicUpload } from '@/components/PicUpload';
+import { useRegister } from '@/hooks/useRegister';
+import { RegisterFormValues } from '@/types/sharedTypes';
 
 const RegisterPage = () => {
 

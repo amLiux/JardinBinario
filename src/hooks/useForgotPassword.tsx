@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import * as Yup from 'yup';
 import { useEffect, useMemo, useState } from 'react';
 
-import { useAuth } from '../apollo/AuthClient';
-import { ForgotPasswordValues } from '../types/sharedTypes';
+import { useAuth } from '@/apollo/AuthClient';
+import { ForgotPasswordValues } from '@/types/sharedTypes';
 
 export const useForgotPassword = () => {
     const [disableButton, setDisableButton] = useState<boolean>(true);
