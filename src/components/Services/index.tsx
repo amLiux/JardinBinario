@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { RefObject } from 'react';
-import { Tooltip } from '../Tooltip';
+import { Tooltip } from '@/components/Tooltip';
 import { services } from './services';
 import servicesStyles from './Services.module.css';
 

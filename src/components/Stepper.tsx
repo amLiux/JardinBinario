@@ -34,7 +34,7 @@ export const Stepper = ({ children }: any) => {
 
     return <Form handleSubmit={handleSubmit}>
         {currentChild}
-        <HelpMessage text='Go back to login' onClick={() => router.push('/login')} />
+        <HelpMessage stepper text='Go back to login' onClick={() => router.push('/login')} />
     </Form>;
 };
 

@@ -1,9 +1,6 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
-import { Message } from '@/components/Message';
-import { useAuth } from '@/apollo/AuthClient';
 import { seoMapping } from '@/seo/index';
 
 import layoutStyles from './Layout.module.css';
@@ -14,23 +11,9 @@ type LayoutProps = {
 	index?: boolean;
 };
 
-export const Layout = ({ children, style404, index = false }: LayoutProps) => {
-	const [showMessage, setShowMessage] = useState<string>('');
+export const Layout = ({ children, style404 }: LayoutProps) => {
 	const router = useRouter();
 	const seo = seoMapping[router.asPath];
-
-	const { message, removeMessage } = useAuth();
-
-	useEffect(() => {
-		if (message?.msg !== '') {
-			setShowMessage(message?.msg);
-		}
-	}, [message]);
-
-	const handleClose = () => {
-		setShowMessage('');
-		setTimeout(() => removeMessage(), 800);
-	};
 
 	return (
 		<>
@@ -52,17 +35,6 @@ export const Layout = ({ children, style404, index = false }: LayoutProps) => {
 					${layoutStyles.smoothRender}
 					${layoutStyles.layout}
 				`}>
-				<div
-					// TODO check this logic? sort of unreadable
-					className={`
-						${showMessage !== '' ? layoutStyles.smoothRender : message !== '' ? layoutStyles.smoothRemove : ''}
-					`}
-				>
-					{
-						message?.msg !== '' &&
-						<Message index={index} handleClose={handleClose} warning={message?.warning} error={message?.error} message={message?.msg} />
-					}
-				</div>
 				{children}
 			</div>
 		</>
