@@ -12,7 +12,7 @@ type NewBlogPageProps = {
 };
 
 const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
-	
+
 	const {
 		contextValue,
 		formik,
@@ -20,28 +20,28 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 	} = useNew();
 
 	return (
-		<>
-			<EditorContext.Provider value={contextValue}>
-				<Layout>
-					<TerminalHeader read={preview} editor header={`${formik.values.title || 'New blog entry'}`} />
-					{
-						preview
-							?
-							<>
-								<MarkdownResult context={userContext} preview={preview} />
-							</>
-							:
-							<form 
-								className='flex justify-around items-center h-screen p-4'
-								id='newBlogEntryForm'
-								onSubmit={formik.handleSubmit}>
-								<Editor />
-								<MarkdownResult preview={preview} />
-							</form>
-					}
-				</Layout>
-			</EditorContext.Provider>
-		</>
+
+		<EditorContext.Provider value={contextValue}>
+			<Layout>
+				<TerminalHeader read={preview} editor header={`${formik.values.title || 'New blog entry'}`} />
+				{
+					preview
+						?
+						<>
+							<MarkdownResult context={userContext} preview={preview} />
+						</>
+						:
+						<form
+							className='flex justify-around items-center h-screen p-4'
+							id='newBlogEntryForm'
+							onSubmit={formik.handleSubmit}>
+							<Editor />
+							<MarkdownResult preview={preview} />
+						</form>
+				}
+			</Layout>
+		</EditorContext.Provider>
+
 	);
 };
 

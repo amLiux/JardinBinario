@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { ElementType, useEffect, useState } from 'react';
 import { useAuth } from '@/apollo/AuthClient';
-import { Spinner } from '@/components/Spinner';
 import { UserContext } from '@/types/sharedTypes';
 import { LoadingSplash } from '@/components/LoadingSplash';
 
@@ -26,7 +25,8 @@ export const withAuth = (Component: ElementType) => {
                 getUser();
             }, 2200);
 
-        }, [router, getUserInfo]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [getUserInfo]);
 
         return !!userContext 
             ? 

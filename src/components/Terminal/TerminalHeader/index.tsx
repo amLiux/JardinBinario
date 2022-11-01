@@ -72,7 +72,7 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 				index && handleClickServices && <IndexNavbarOptions router={router} handleClickServices={handleClickServices} />
 			}
 			{
-				read && <span
+				read && !!completion && <span
 					style={{ transform: `translateX(${completion - 100}%)` }}
 					className="transition-all ease-in-out absolute bg-purple-500 h-1 w-full bottom-0 left-0"
 				/>

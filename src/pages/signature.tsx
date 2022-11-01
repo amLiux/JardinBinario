@@ -63,7 +63,7 @@ const SignaturePage = () => {
     return (
         <Layout index>
             <TerminalHeader router={router} index header='Jardín Binario' />
-            <div style={{ display: 'flex', height: '56vh', marginTop: '4rem', justifyContent: 'space-evenly', alignItems: 'center', width: '100vw' }}>
+            <div style={{ display: 'flex', height: '75vh', marginTop: '4rem', justifyContent: 'space-evenly', alignItems: 'center', width: '100vw' }}>
                 <div>
                     <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '10px', paddingRight: '1.5rem' }}>
                         {Object.keys(signatureInfo).map((prop, idx) => {
