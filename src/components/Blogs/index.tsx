@@ -18,7 +18,7 @@ const DEFAULT_WIDTH_HEIGTH = 32;
 const getSlidesToRender = (blogs: BlogEntry[]) => (
     blogs.map(({ title, author: { name, lastName, avatar }, createdAt, views: blogViews, tags, id, markdown }, idx) =>
         <>
-            <Link href={`/read?blogId=${id}`} passHref>
+            <Link href={`/read?blogId=${id}`} passHref scroll>
                 <div className={blogsStyles.blogCard}>
                     <h4 className={blogsStyles.blogTitle}>{title}</h4>
                     <p className={blogsStyles.sneakpeak}>
