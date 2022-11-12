@@ -40,14 +40,11 @@ export const getServerSideProps = async (context: any) => {
 export default function ReadBlogPage({ blogEntry }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	const { author } = blogEntry;
 	const router = useRouter();
-	const [showMarkdown, setShowMarkdown] = useState<boolean>(true);
-	router.events.on('routeChangeStart', () => {
-		setShowMarkdown(false);
-	});
+
 	return (
 		<Layout index>
 			<TerminalHeader router={router} read />
-			{showMarkdown && <MarkdownResult blogEntry={blogEntry} context={author} preview />}
+			<MarkdownResult blogEntry={blogEntry} context={author} preview />
 		</Layout>
 	);
 }
