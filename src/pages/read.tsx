@@ -39,10 +39,11 @@ export const getServerSideProps = async (context: any) => {
 export default function ReadBlogPage({ blogEntry }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	const { author } = blogEntry;
 	const router = useRouter();
+	const {isFallback} = router;
 	return (
 		<Layout index>
 			<TerminalHeader router={router} read />
-			<MarkdownResult blogEntry={blogEntry} context={author} preview />
+			{!isFallback && <MarkdownResult blogEntry={blogEntry} context={author} preview />}
 		</Layout>
 	);
 }

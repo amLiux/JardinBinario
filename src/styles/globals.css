@@ -27,7 +27,7 @@ body {
 }
 
 @-moz-document url-prefix() {
-	html {
+	html, body {
 		scroll-behavior: auto;
 	}
 }
