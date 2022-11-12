@@ -1,5 +1,5 @@
 .container {
-    @apply ml-auto flex text-white items-center font-mono;
+    @apply ml-auto flex text-white items-center text-xl;
 }
 
 @media (max-width: 640px) {
@@ -13,5 +13,5 @@
 }
 
 .linkStyle {
-    @apply hover:border-b-2 border-b-purple-400 transition-all hover:animate-bounce ease-in-out;
+    @apply border-b-2 border-transparent hover:border-b-2 hover:border-b-purple-400 transition-all ease-in-out;
 }

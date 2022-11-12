@@ -10,10 +10,10 @@ import { Services } from '@/components/Services';
 import { TicketForm } from '@/components/TicketForm';
 import { querys } from '@/gql/querys';
 import { Newsletter } from '@/components/Newsletter';
-import { CustomSwiper } from '@/components/Swiper';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { useIndex } from '@/hooks/useIndex';
 import { HeadingBlock } from '@/components/Index/HeadingBlock';
+import { Blogs } from '@/components/Blogs';
 
 export const getServerSideProps = async () => {
 	const client = createUnauthorizedApolloClient();
@@ -95,7 +95,7 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 					disabledButton={disableButton.newsletterForm}
 					submitted={submitted.newsletterForm}
 				/>
-				<CustomSwiper router={router} recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
+				<Blogs recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
 			</div>
 			<Footer filePath='index' router={router} />
 		</Layout>

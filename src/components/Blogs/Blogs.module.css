@@ -1,0 +1,88 @@
+.container {
+    @apply mt-20;
+}
+
+.blogCard {
+    @apply bg-white rounded-md h-fit min-h-[300px] w-full p-5 font-sans hover:animate-pulse cursor-pointer;
+}
+
+.blogTitle {
+    @apply text-base font-bold text-black mb-3 leading-5 min-h-[40px];
+    line-height: 1.25rem!important;
+    font-weight: 700!important;
+    margin-bottom: 0.75rem!important;
+    margin-top: 0!important;
+}
+
+.sneakpeak {
+    @apply text-xs text-black m-0;
+    margin: 0!important;
+    text-align: left!important;
+}
+
+.sneakpeak > p {
+    margin: 0!important;
+    text-align: left!important;
+}
+
+.identityContainer {
+    @apply flex m-0 justify-start;
+}
+
+.identityCard {
+    @apply flex bg-slate-800 items-center text-sm text-white p-1 rounded-md pr-5 pb-[0.3rem] pl-1 md:pl-2 mt-3 w-fit;
+}
+
+.profilePicContainer {
+    @apply flex justify-center overflow-hidden items-center rounded-md relative mx-1 md:mx-0;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    position: relative;
+}
+
+@media (max-width: 640px) {
+    .profilePicContainer {
+        width: 50px!important;
+	}
+}
+
+.identityText {
+    @apply ml-1 pl-5 border-l-2 border-white;
+}
+
+.identityText > p {
+    margin: 0!important;
+}
+
+.identityText > p:first-child {
+    @apply mb-0 font-bold;
+}
+
+.identityText > p:last-child {
+    @apply text-xs italic;
+}
+
+.statsContainer {
+    @apply flex ml-4;
+}
+
+.stats {
+    @apply bg-slate-500 p-1 rounded-md text-left md:text-center mt-3;
+}
+
+.stats:last-child {
+    @apply ml-2;
+}
+
+.stats > p {
+    @apply m-0 text-xs font-bold mt-0 md:mt-[-14.5px];
+}
+
+.tagsContainer {
+    @apply pt-2;
+}
+
+.tag {
+    @apply inline-block bg-gray-200 rounded-md px-2 md:px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mr-1 md:mr-2 mb-2 text-center;
+}

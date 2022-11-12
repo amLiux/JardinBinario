@@ -34,12 +34,12 @@ const socialMedia: SocialMediaEntry[] = [
 		alt: 'youtube logo',
 		displayName: 'YouTube',
 	},
-	{
-		url: 'https://behance.com/jardinbinario',
-		logo: behanceLogo,
-		alt: 'behance logo',
-		displayName: 'Behance',
-	},
+	// {
+	// 	url: 'https://behance.com/jardinbinario',
+	// 	logo: behanceLogo,
+	// 	alt: 'behance logo',
+	// 	displayName: 'Behance',
+	// },
 	{
 		url: 'https://www.linkedin.com/company/jard%C3%ADn-binario/',
 		logo: linkedinLogo,
@@ -55,7 +55,7 @@ export const Footer = ({ router, filePath }: FooterProps) => {
 				filePath ?
 					<p onClick={() => router.push(`https://github.com/Marceliux/JardinBinario/blob/main/src/pages/${filePath}.tsx`)} className={footerStyles.edit}>
 						Edit this page
-						<Image src={edit} alt='pencil drawing' height={24} width={24} />
+						<Image src={edit} alt='pencil drawing' height={20} width={20} />
 					</p>
 					:
 					<div></div>
