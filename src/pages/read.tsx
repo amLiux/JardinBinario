@@ -6,6 +6,7 @@ import { MarkdownResult } from '@/components/NewBlog/MarkdownResult';
 import { querys } from '@/gql/querys';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { BlogEntry } from '@/types/sharedTypes';
+import { useState } from 'react';
 
 export const getServerSideProps = async (context: any) => {
 	const { blogId } = context.query;
@@ -37,8 +38,9 @@ export const getServerSideProps = async (context: any) => {
 };
 
 export default function ReadBlogPage({ blogEntry }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-	const { title, author } = blogEntry;
+	const { author } = blogEntry;
 	const router = useRouter();
+
 	return (
 		<Layout index>
 			<TerminalHeader router={router} read />

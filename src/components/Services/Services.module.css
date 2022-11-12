@@ -1,11 +1,11 @@
 .container {
-    @apply mt-10 flex flex-wrap gap-y-10 gap-x-28 items-center font-sans;
+    @apply mt-10 flex flex-wrap gap-y-10 gap-x-28 items-center;
     scroll-margin-top: 12rem;
     margin-top: 2.5rem!important;
 }
 
 .card {
-    @apply transition-all hover:ring-4 hover:ring-purple-500 max-w-sm rounded m-auto min-h-[300px] md:min-h-[460px] bg-white;
+    @apply transition-all rounded m-auto md:min-h-[300px] bg-white font-sans;
 }
 
 .cardTextContainer {
@@ -13,11 +13,15 @@
 }
 
 .cardTextContainer > h4 {
-    @apply font-bold text-2xl text-center text-black mb-2 mt-0; 
+    @apply transition-all font-extrabold text-2xl w-fit text-left text-gray-800 mb-4 mt-0 border-b-2 border-b-purple-200; 
+}
+
+.card:hover .cardTextContainer > h4 {
+    @apply border-b-purple-500;
 }
 
 .cardTextContainer > span {
-    @apply text-black text-base text-center; 
+    @apply text-black text-base leading-snug;
 }
 
 .logosContainer {
@@ -25,5 +29,5 @@
 }
 
 .logo {
-    @apply transition-all ease-in-out hover:ring-4 hover:ring-purple-300 flex font-mono bg-gray-200 rounded-md px-3 py-1 mr-2 mb-2 items-center;
+    @apply transition-all ease-in-out flex font-mono bg-gray-200 rounded-md px-3 py-1 mr-2 mb-2 items-center;
 }
