@@ -5,15 +5,15 @@
 :root {
 	--velocidad: 5s;
 	--main-bg-color: brown;
-    --brand-success: #5cb85c;
-    --loader-size: 100px;
-    --loader-size-little: 40px;
+	--brand-success: #5cb85c;
+	--loader-size: 100px;
+	--loader-size-little: 40px;
 	--tw-border-opacity: 1;
-    --check-height: var(--loader-size)/2;
-    --check-width: var(--loader-size)/2;
-    --check-left: (var(--loader-size)/6 + var(--loader-size)/12);
-    --check-thickness: 3px;
-    --check-color: rgb(147 51 234 / var(--tw-border-opacity));
+	--check-height: var(--loader-size)/2;
+	--check-width: var(--loader-size)/2;
+	--check-left: (var(--loader-size)/6 + var(--loader-size)/12);
+	--check-thickness: 3px;
+	--check-color: rgb(147 51 234 / var(--tw-border-opacity));
 }
 
 html,
@@ -24,6 +24,12 @@ body {
 	scrollbar-width: none;
 	@apply bg-slate-900;
 	scroll-behavior: smooth;
+}
+
+@-moz-document url-prefix() {
+	html {
+		scroll-behavior: auto;
+	}
 }
 
 a {
