@@ -16,7 +16,6 @@ jobs:
       - name: Build :qa tag and push to Docker Hub
         uses: docker/build-push-action@v3
         with:
-          context: .
           push: true
           tags: marceliux/jardinbinario:qa
           secrets: |
