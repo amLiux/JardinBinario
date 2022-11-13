@@ -1,11 +1,18 @@
-import { Layout } from '../components/Layout';
-import { TerminalHeader } from '../components/Terminal/TerminalHeader';
-import { MarkdownResult } from '../components/NewBlog/MarkdownResult';
-import { querys } from '../gql/querys';
-import { createUnauthorizedApolloClient } from '../apollo/AuthClient';
 import { InferGetServerSidePropsType } from 'next';
-import { BlogEntry } from '../types/sharedTypes';
 import { useRouter } from 'next/router';
+import type {MarkdownRestulProps} from '@/components/NewBlog/MarkdownResult';
+import dynamic from 'next/dynamic';
+
+const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
+  ssr: false,
+});
+
+import { Layout } from '@/components/Layout';
+import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
+import { querys } from '@/gql/querys';
+import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
+import { BlogEntry } from '@/types/sharedTypes';
+import { Footer } from '@/components/Footer';
 
 export const getServerSideProps = async (context: any) => {
 	const { blogId } = context.query;
@@ -37,12 +44,14 @@ export const getServerSideProps = async (context: any) => {
 };
 
 export default function ReadBlogPage({ blogEntry }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-	const { title, author } = blogEntry;
+	const { author } = blogEntry;
 	const router = useRouter();
+
 	return (
 		<Layout index>
 			<TerminalHeader router={router} read />
 			<MarkdownResult blogEntry={blogEntry} context={author} preview />
+			<Footer router={router} filePath='read'/>
 		</Layout>
 	);
 }

@@ -1,20 +1,21 @@
 import React, { ChangeEvent, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import { Layout } from '../components/Layout';
-import { TerminalHeader } from '../components/Terminal/TerminalHeader';
-import { Footer } from '../components/Footer';
-import { Input } from '../components/TicketForm/Input';
-import { Signature } from '../components/Signature';
-import { SignatureInfo } from '../types/sharedTypes';
-import { Checkbox } from '../components/Checkbox';
+import { Layout } from '@/components/Layout';
+import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
+import { Footer } from '@/components/Footer';
+import { Input } from '@/components/TicketForm/Input';
+import { Signature } from '@/components/Signature';
+import { SignatureInfo } from '@/types/sharedTypes';
+import { Checkbox } from '@/components/Checkbox';
+import { withAuth } from '@/hoc/withAuth';
 
 type SignaturePropMapping = {
     placeholder: string;
     type: 'text' | 'email' | 'phone';
 };
 
-export default function SignaturePage() {
+const SignaturePage = () => {
     const router = useRouter();
     const signatureRef = useRef<HTMLDivElement>(null);
     const [confidentialEmails, setConfidentialEmails] = useState<boolean>(false);
@@ -62,7 +63,7 @@ export default function SignaturePage() {
     return (
         <Layout index>
             <TerminalHeader router={router} index header='Jardín Binario' />
-            <div style={{ display: 'flex', height: '56vh', marginTop: '4rem', justifyContent: 'space-evenly', alignItems: 'center', width: '100vw' }}>
+            <div style={{ display: 'flex', height: '75vh', marginTop: '4rem', justifyContent: 'space-evenly', alignItems: 'center', width: '100vw' }}>
                 <div>
                     <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '10px', paddingRight: '1.5rem' }}>
                         {Object.keys(signatureInfo).map((prop, idx) => {
@@ -76,6 +77,7 @@ export default function SignaturePage() {
                                     placeholder={placeholder}
                                     value={signatureInfo[propAsKey]}
                                     type={type}
+                                    textInputAsKey={propAsKey}
                                     handleChange={handleChange}
                                 />
                             );
@@ -101,7 +103,9 @@ export default function SignaturePage() {
 
             </div>
 
-            <Footer router={router} />
+            <Footer filePath='signature' router={router} />
         </Layout>
     );
-}
+};
+
+export default withAuth(SignaturePage);

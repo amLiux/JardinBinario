@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { RefObject } from 'react';
-import { Tooltip } from '../Tooltip';
+import { CustomSwiper } from '@/components/Swiper';
 import { services } from './services';
 import servicesStyles from './Services.module.css';
 
@@ -10,9 +10,17 @@ interface ServicesProps {
 
 export const Services = ({ refForScroll }: ServicesProps) => {
     return (
-        <>
-            <h3>Nuestros servicios: </h3>
-            <div id='services' ref={refForScroll} className={servicesStyles.container}>
+        <div id='services' ref={refForScroll}>
+            <CustomSwiper
+                title="Nuestros servicios:"
+                slidesPerView={{
+                    default: 2,
+                    640: 2,
+                    768: 2,
+                    1024: 2,
+                }}
+                autoplay
+            >
                 {
                     services.map(({ title, description, stack }, cardIdx) =>
                         <div key={cardIdx} className={servicesStyles.card}>
@@ -21,24 +29,19 @@ export const Services = ({ refForScroll }: ServicesProps) => {
                                 <span>{description}</span>
                             </div>
                             <div className={servicesStyles.logosContainer}>
-                                {stack && stack.map(({ name, logo, alt }, idx) =>
-                                    <Tooltip
-                                        size='little'
-                                        key={idx}
-                                        tooltipText={`#${name}`}
-                                        position={cardIdx % 2 === 0 ? 'left-80' : 'right-80'}
-                                    >
-                                        <span key={idx} className={servicesStyles.logo}>
-                                            <Image src={logo} width={48} height={48} alt={alt} />
-                                        </span>
-                                    </Tooltip>
+                                {stack && stack.map(({ logo, alt }, idx) =>
+                                    // TODO shall we keep stacks? or we add something different?
+                                    <span key={idx} className={servicesStyles.logo}>
+                                        <Image src={logo} width={48} height={48} alt={alt} />
+                                    </span>
                                 )}
                             </div>
                         </div>
 
                     )
                 }
-            </div>
-        </>
+            </CustomSwiper>
+        </div>
+
     );
 };

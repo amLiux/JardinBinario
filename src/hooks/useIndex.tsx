@@ -1,10 +1,11 @@
 import { useFormik } from 'formik';
 import { useState, useRef, RefObject, useEffect } from 'react';
-import { NewsletterValues, NewTicketValues } from '../types/sharedTypes';
 import * as Yup from 'yup';
-import { useMutation } from '@apollo/client';
-import { querys } from '../gql/querys';
 import { useRouter } from 'next/router';
+
+import { NewsletterValues, NewTicketValues } from '@/types/sharedTypes';
+import { useMutation } from '@apollo/client';
+import { querys } from '@/gql/querys';
 
 
 function timeout(delay: number) {

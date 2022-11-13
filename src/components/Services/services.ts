@@ -1,15 +1,15 @@
 import { StaticImageData } from 'next/image';
-import reactLogo from '../../public/logos/reactLogo.png';
-import nodeLogo from '../../public/logos/nodeLogo.png';
-import graphqlLogo from '../../public/logos/graphqlLogo.png';
-import pythonLogo from '../../public/logos/pythonLogo.png';
-import flutterLogo from '../../public/logos/flutterLogo.png';
-import figmaLogo from '../../public/logos/figmaLogo.png';
-import adobeCloudLogo from '../../public/logos/adobeCloudLogo.png';
-import typescriptLogo from '../../public/logos/typescriptLogo.png';
-import iosLogo from '../../public/logos/iosLogo.png';
-import androidLogo from '../../public/logos/androidLogo.png';
-import obsLogo from '../../public/logos/obsLogo.png';
+import reactLogo from '@/assets/logos/reactLogo.png';
+import nodeLogo from '@/assets/logos/nodeLogo.png';
+import graphqlLogo from '@/assets/logos/graphqlLogo.png';
+import pythonLogo from '@/assets/logos/pythonLogo.png';
+import flutterLogo from '@/assets/logos/flutterLogo.png';
+import figmaLogo from '@/assets/logos/figmaLogo.png';
+import adobeCloudLogo from '@/assets/logos/adobeCloudLogo.png';
+import typescriptLogo from '@/assets/logos/typescriptLogo.png';
+import iosLogo from '@/assets/logos/iosLogo.png';
+import androidLogo from '@/assets/logos/androidLogo.png';
+import obsLogo from '@/assets/logos/obsLogo.png';
 
 type Stack = {
     name: string;
@@ -26,7 +26,7 @@ type Services = {
 
 export const services:Services[] = [
     {
-        title: 'Desarrollo Full-stack',
+        title: 'Desarrollo Full Stack',
         description: 'Nuestros desarrolladores trabajan en constante comunicación con nuestro equipo de diseñadores para brindar y entregar aplicaciones e interfaces detalladas e intuitivas. Combinadas con metodología planificada rigurosamente para poder trabajar el lado logístico de su aplicación.',
         stack: [
             {name: 'react', logo: reactLogo, alt: 'React logo'}, 
@@ -47,7 +47,7 @@ export const services:Services[] = [
     },
     {
         title: 'Diseño',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil. as;lkfjalksfjl akjflaksjl ajslfjalskfjalskjf lasjflkasjflaksjfalksf lkajsflkajslfkjaslfkj asf asgasgasga asgasgasga agsgasgasg',
+        description: 'El equipo de Jardín Binario está capacitado y equipado para implementar soluciones multi-plataforma, ya sea con tecnologías que permiten el desarrollo con una sola base de código para ambas plataformas y/o un desarrollo nativo 100% ajustable a sus necesidades.',
         stack: [
             {name: 'adobe', logo: adobeCloudLogo, alt: 'Adobe Cloud logo'},
             {name: 'figma', logo: figmaLogo, alt: 'Figma logo'},

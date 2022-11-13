@@ -2,8 +2,8 @@ import { useMutation } from '@apollo/client';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useEffect, useRef, useState } from 'react';
-import { querys } from '../gql/querys';
-import { RegisterFormValues } from '../types/sharedTypes';
+import { querys } from '@/gql/querys';
+import { RegisterFormValues } from '@/types/sharedTypes';
 
 export const useRegister = () => {
     const [acceptedTOS, setAcceptedTOS] = useState<boolean>(false);

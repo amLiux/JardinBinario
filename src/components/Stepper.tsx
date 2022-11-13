@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { Children, ReactNode, useState } from 'react';
-import { useAuth } from '../apollo/AuthClient';
+import { useAuth } from '@/apollo/AuthClient';
 import { HelpMessage } from './HelpMessage';
 import { Form } from './Form';
 
@@ -34,7 +34,7 @@ export const Stepper = ({ children }: any) => {
 
     return <Form handleSubmit={handleSubmit}>
         {currentChild}
-        <HelpMessage text='Go back to login' onClick={() => router.push('/login')} />
+        <HelpMessage stepper text='Go back to login' onClick={() => router.push('/login')} />
     </Form>;
 };
 

@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { NextRouter } from 'next/router';
 
-import { IndexNavbarOptions } from '../../IndexNavbarOptions';
-import { EditorNavbarOptions } from '../../NewBlog/EditorNavbarOptions';
-import { TagsInput } from '../../NewBlog/TagInput';
+import { IndexNavbarOptions } from '@/components/IndexNavbarOptions';
+import { EditorNavbarOptions } from '@/components/NewBlog/EditorNavbarOptions';
+import { TagsInput } from '@/components/NewBlog/TagInput';
+import logo from '@/assets/logo.png';
+import { useHeader } from '@/hooks/useHeader';
+
 import terminalHeaderStyles from './TerminalHeader.module.css';
-import logo from '../../../public/logo.png';
-import { useHeader } from '../../../hooks/useHeader';
 
 type TerminalHeaderProps = {
 	header?: string;
@@ -71,7 +72,7 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 				index && handleClickServices && <IndexNavbarOptions router={router} handleClickServices={handleClickServices} />
 			}
 			{
-				read && <span
+				read && !!completion && <span
 					style={{ transform: `translateX(${completion - 100}%)` }}
 					className="transition-all ease-in-out absolute bg-purple-500 h-1 w-full bottom-0 left-0"
 				/>

@@ -1,5 +1,5 @@
 import { SyntheticEvent, useContext, useEffect, useState } from 'react';
-import editorContext from '../context/editorContext';
+import editorContext from '@/context/editorContext';
 
 export const useHeader = () => {
 	const { tags, setTags, setPreview, storeMarkdown } = useContext(editorContext);

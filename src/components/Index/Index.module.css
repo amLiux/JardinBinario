@@ -64,11 +64,11 @@
 
 .animationLeft {
     @apply block;
-    animation: moveFromLeft 1s ease-in;
+    animation: moveFromLeft 1.5s ease-in-out;
 
 }
 
 .animationRight {
     @apply block;
-    animation: moveFromRight 1s ease-in;
+    animation: moveFromRight 1.5s ease-in-out;
 }
