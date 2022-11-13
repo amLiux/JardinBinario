@@ -49,15 +49,15 @@ export const CustomSwiper = ({ children, title, slidesPerView, autoplay }: Custo
                     breakpoints={{
                         640: {
                             slidesPerView: slidesPerView[640],
-                            spaceBetween: 20,
+                            spaceBetween: 32,
                         },
                         768: {
                             slidesPerView: slidesPerView[768],
-                            spaceBetween: 40,
+                            spaceBetween: 32,
                         },
                         1024: {
                             slidesPerView: slidesPerView[1024],
-                            spaceBetween: 50,
+                            spaceBetween: 32,
                         },
                     }}
                     slidesPerView={slidesPerView.default}
