@@ -3,7 +3,7 @@
 }
 
 .blogCard {
-    @apply bg-white rounded-md h-fit min-h-[300px] w-full p-5 font-sans hover:animate-pulse cursor-pointer;
+    @apply bg-white rounded-md h-fit min-h-[340px] m-auto md:min-h-[300px] w-11/12 md:w-full p-5 font-sans hover:animate-pulse cursor-pointer;
 }
 
 .blogTitle {
