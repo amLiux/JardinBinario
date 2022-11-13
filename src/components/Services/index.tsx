@@ -15,8 +15,8 @@ export const Services = ({ refForScroll }: ServicesProps) => {
                 title="Nuestros servicios:"
                 slidesPerView={{
                     default: 2,
-                    640: 2,
-                    768: 2,
+                    640: 1,
+                    768: 1,
                     1024: 2,
                 }}
                 autoplay
