@@ -28,6 +28,9 @@
       ],
       "@/assets/*": [
         "assets/*"
+      ],
+      "@/screens/*": [
+        "screens/*"
       ]
     },
     "target": "es2016",

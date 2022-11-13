@@ -7,7 +7,8 @@ import { useMarkdownResult } from '@/hooks/useMarkdownResult';
 
 import markdownResultsStyles from './MarkdownResult.module.css';
 
-type MarkdownRestulProps = {
+
+export type MarkdownRestulProps = {
 	preview?: boolean;
 	context?: UserContext;
 	blogEntry?: BlogEntry;
