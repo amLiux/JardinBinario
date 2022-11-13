@@ -14,7 +14,7 @@ export const Services = ({ refForScroll }: ServicesProps) => {
             <CustomSwiper
                 title="Nuestros servicios:"
                 slidesPerView={{
-                    default: 2,
+                    default: 1,
                     640: 1,
                     768: 1,
                     1024: 2,
