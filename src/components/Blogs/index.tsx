@@ -64,9 +64,9 @@ export const Blogs = ({ recentBlogs, mostViewedBlogs }: CustomSwiperProps) => {
             <CustomSwiper
                 title="Blogs más recientes:"
                 slidesPerView={{
-                    default: 2,
-                    640: 2,
-                    768: 2,
+                    default: 1,
+                    640: 1,
+                    768: 1,
                     1024: 2,
                 }}
                 autoplay
@@ -76,9 +76,9 @@ export const Blogs = ({ recentBlogs, mostViewedBlogs }: CustomSwiperProps) => {
             <CustomSwiper
                 title="Blogs más vistos:"
                 slidesPerView={{
-                    default: 2,
-                    640: 2,
-                    768: 2,
+                    default: 1,
+                    640: 1,
+                    768: 1,
                     1024: 2,
                 }}
                 autoplay
