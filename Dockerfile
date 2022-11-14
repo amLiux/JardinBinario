@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 FROM node:current-alpine
 RUN apk add --update tini
 RUN mkdir -p /usr/jardinbinario/app
