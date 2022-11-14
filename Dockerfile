@@ -20,6 +20,8 @@ RUN --mount=type=secret,id=NEXT_PUBLIC_BACKEND_URL \
     && export NEXT_PUBLIC_UPLOAD_IMAGE \
     && export NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL
 
+RUN npm ci
+
 # Environment variables done
 COPY . .
 EXPOSE 3000
