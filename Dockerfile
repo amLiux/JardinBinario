@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 FROM node:current-alpine
 RUN apk add --update tini
 RUN mkdir -p /usr/jardinbinario/app
@@ -14,7 +15,13 @@ RUN --mount=type=secret,id=NEXT_PUBLIC_BACKEND_URL \
     NEXT_PUBLIC_PLACEHOLDER_IMAGE=$(cat /run/secrets/NEXT_PUBLIC_PLACEHOLDER_IMAGE) \
     NEXT_PUBLIC_UPLOAD_IMAGE=$(cat /run/secrets/NEXT_PUBLIC_UPLOAD_IMAGE) \
     NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL=$(cat /run/secrets/NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL) \
-    npm ci
+    && export NEXT_PUBLIC_BACKEND_URL \
+    && export NEXT_PUBLIC_PLACEHOLDER_IMAGE \
+    && export NEXT_PUBLIC_UPLOAD_IMAGE \
+    && export NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL
+
+RUN npm ci
+
 # Environment variables done
 COPY . .
 EXPOSE 3000
