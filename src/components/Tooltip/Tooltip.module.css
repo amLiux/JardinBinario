@@ -1,4 +1,4 @@
 .tooltip {
-	@apply z-20 text-lg font-mono text-center bg-black/75 text-gray-100 absolute rounded shadow-xl p-4;
+	@apply z-20 text-base w-fit font-mono text-center bg-black/75 text-gray-100 absolute rounded shadow-xl p-4;
 	backdrop-filter: blur(10px);
 }

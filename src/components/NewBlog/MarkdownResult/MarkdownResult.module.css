@@ -1,5 +1,5 @@
 .markdownResult {
-	@apply prose prose-xl break-normal prose-img:mx-auto prose-img:mt-5 p-5 w-8/12 overflow-auto text-ellipsis rounded-md h-full;
+	@apply prose prose-xl break-normal prose-img:mx-auto prose-img:mt-5 p-5 w-8/12 overflow-auto text-ellipsis rounded-md h-[85%];
 }
 
 .identityContainer {
@@ -27,7 +27,7 @@
 
 .preview {
 	/* Basic */
-	@apply mt-10 mb-10 prose prose-lg p-5 w-screen h-auto m-auto text-white font-sans;
+	@apply min-h-screen mt-10 mb-10 prose prose-lg p-5 w-screen h-auto m-auto text-white font-sans;
 
 	/* h1 */
 	@apply prose-h1:leading-tight md:prose-h1:leading-normal lg:prose-h1:leading-relaxed prose-h1:text-white prose-h1:text-4xl prose-h1:mt-0;

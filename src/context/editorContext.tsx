@@ -6,6 +6,7 @@ const defaultContext:EditorContextType = {
     title: '',
     visualMarkdown: '',
     tags: [],
+    setShowSneakpeak: (prop: boolean) => {},
     setTags: (prop:string, value:string[]) => {},
     setPreview: (prop: boolean) => {},
     setVisualMarkdown: (prop:string) => {},

@@ -34,6 +34,7 @@ export type NewBlogEntryValues = {
 	tags: string[];
 	title: string;
 	markdown: string;
+	sneakpeak: string;
 };
 
 export type NewTicketValues = {
@@ -58,6 +59,8 @@ type formikHelper = FormikHelpers<NewBlogEntryValues>['setFieldValue'];
 export type EditorContextType = {
 	setBlogTitle: formikHelper;
 	title: string;
+
+	setShowSneakpeak: (prop: boolean) => void;
 
 	setVisualMarkdown: (prop: string) => void;
 	setPreview: (prop: boolean) => void;

@@ -31,6 +31,9 @@
       ],
       "@/screens/*": [
         "screens/*"
+      ],
+      "@/utils/*": [
+        "utils/*"
       ]
     },
     "target": "es2016",

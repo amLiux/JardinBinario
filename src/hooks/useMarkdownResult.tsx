@@ -4,9 +4,10 @@ import { BlogEntry, UserContext } from '@/types/sharedTypes';
 import markdownResultsStyles from '@/components/NewBlog/MarkdownResult/MarkdownResult.module.css';
 
 export const useMarkdownResult = (preview:boolean, context?:UserContext, blogEntry?:BlogEntry) => {
-    const { visualMarkdown, setVisualMarkdown, title: mainTitle, setMarkdownText } = useContext(editorContext);
+    const { visualMarkdown, setVisualMarkdown, title: mainTitle, setMarkdownText, markdownText } = useContext(editorContext);
     const [title, setTitle] = useState<string>('');
     const [toRender, setToRender] = useState<string>('');
+    const filler = '# Hello, fill this with an amazing blog \n Start here';
 
     useEffect(() => {
         const titleToRemove = visualMarkdown.split('\n')[0] || blogEntry?.markdown?.split('\n')[0] || '';
@@ -24,7 +25,6 @@ export const useMarkdownResult = (preview:boolean, context?:UserContext, blogEnt
 
 
         if (preview && context) {
-
             const { name, date, avatar } = generateUserInfo(context as any, blogEntry?.createdAt);
             const toSet = titleToRemove + avatar + name + date + '\n';
 
@@ -36,6 +36,11 @@ export const useMarkdownResult = (preview:boolean, context?:UserContext, blogEnt
                 setTitle(toSet);
                 setVisualMarkdown(visualMarkdown.replace(titleToRemove, toSet));
             }
+
+            if(markdownText.trim().length === 0) {
+                setToRender(filler);
+            }
+
         } else {
             const firstHTMLTag = titleToRemove.indexOf('<');
             const toRemove = titleToRemove.substring(firstHTMLTag, titleToRemove.length);
@@ -45,6 +50,7 @@ export const useMarkdownResult = (preview:boolean, context?:UserContext, blogEnt
                 setMarkdownText('markdown', newValue);
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [preview, visualMarkdown, context, setVisualMarkdown, title, mainTitle, setMarkdownText, blogEntry]);
 
     return {
