@@ -97,6 +97,7 @@ export const querys = {
                 },
                 views,
                 tags,
+                sneakpeak,
             }
         }
     `,
@@ -115,6 +116,7 @@ export const querys = {
                 },
                 views,
                 tags,
+                sneakpeak,
             }
         }
     `

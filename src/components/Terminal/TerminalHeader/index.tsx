@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { NextRouter } from 'next/router';
+import { SyntheticEvent } from 'react';
 
 import { IndexNavbarOptions } from '@/components/IndexNavbarOptions';
 import { EditorNavbarOptions } from '@/components/NewBlog/EditorNavbarOptions';
@@ -24,13 +25,20 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 	
 	const {
 		showTags,
-		setShowTags,
 		tags,
+		completion,
+		setShowTags,
 		selectedTags,
 		storeMarkdown,
 		setPreview,
-		completion
+		setShowSneakpeak,
 	} = useHeader();
+
+	const handleTagToggle = (e: SyntheticEvent) => {
+        const target = (e.target as HTMLInputElement);
+        setShowTags((show: boolean) => !show);
+        target.focus();
+    };
 	
 	const dotClass = (color: validColors): string => `w-7 h-7 bg-${color}-500 rounded-full mr-3 animate-pulse`;
 
@@ -65,7 +73,12 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 			{
 				editor && <>
 					{showTags && <TagsInput selectedTags={selectedTags} tags={tags} />}
-					<EditorNavbarOptions storeMarkdown={storeMarkdown} setPreview={setPreview} showTags={setShowTags} />
+					<EditorNavbarOptions
+						showSneakpeak={setShowSneakpeak}
+						storeMarkdown={storeMarkdown}
+						setPreview={setPreview}
+						showTags={handleTagToggle} 
+					/>
 				</>
 			}
 			{

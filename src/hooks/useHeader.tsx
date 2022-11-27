@@ -2,7 +2,7 @@ import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import editorContext from '@/context/editorContext';
 
 export const useHeader = () => {
-	const { tags, setTags, setPreview, storeMarkdown } = useContext(editorContext);
+	const { tags, setTags, setPreview, storeMarkdown, setShowSneakpeak } = useContext(editorContext);
 	
 	const [completion, setCompletion] = useState<number>(0);
 	const [showTags, setShowTags] = useState<boolean>(false);
@@ -52,7 +52,8 @@ export const useHeader = () => {
         selectedTags,
         storeMarkdown,
         setPreview,
-        completion
+        completion,
+		setShowSneakpeak
     };
 
 };

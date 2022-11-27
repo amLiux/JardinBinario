@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { useAuth } from '@/apollo/AuthClient';
 import { ForgotPasswordValues } from '@/types/sharedTypes';
+import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
 
 export const useForgotPassword = () => {
     const [disableButton, setDisableButton] = useState<boolean>(true);
@@ -23,9 +24,9 @@ export const useForgotPassword = () => {
     const formik = useFormik({
         initialValues,
         validationSchema: Yup.object({
-            email: Yup.string().email().required('An email is required'),
-            otp: Yup.string().required('The reset code is required').min(8, 'The reset coude should at least have 8 characters long'),
-            newPassword: Yup.string().required('The reset code is required').min(8, 'The reset coude should at least have 8 characters long'),
+            email: Yup.string().email().required(generateRequiredMessage('email')),
+            otp: Yup.string().required(generateRequiredMessage('reset code')).min(8, 'The reset coude should at least have 8 characters long'),
+            newPassword: Yup.string().required(generateRequiredMessage('new password')).min(8, 'The reset coude should at least have 8 characters long'),
             confirmPassword: Yup.string().oneOf([Yup.ref('newPassword')], 'Passwords must match'),
         }),
         enableReinitialize: true,
