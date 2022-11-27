@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { useEffect, useRef, useState } from 'react';
 import { querys } from '@/gql/querys';
 import { RegisterFormValues } from '@/types/sharedTypes';
+import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
 
 export const useRegister = () => {
     const [acceptedTOS, setAcceptedTOS] = useState<boolean>(false);
@@ -35,11 +36,11 @@ export const useRegister = () => {
     const formik = useFormik({
         initialValues,
         validationSchema: Yup.object({
-            name: Yup.string().required('A name is required'),
-            lastName: Yup.string().required('A last name is required'),
-            email: Yup.string().email().required('An email is required'),
-            password: Yup.string().required('A password name is required').min(7, 'The password should at least have 7 characters'),
-            file: Yup.mixed().required('Profile pic is required'),
+            name: Yup.string().required(generateRequiredMessage('name')),
+            lastName: Yup.string().required(generateRequiredMessage('last name')),
+            email: Yup.string().email().required(generateRequiredMessage('email')),
+            password: Yup.string().required(generateRequiredMessage('password')).min(7, 'The password should at least have 7 characters'),
+            file: Yup.mixed().required(generateRequiredMessage('profile pic')),
             avatar: Yup.string()
         }),
         onSubmit: async (values) => {

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Fragment } from 'react';
 
 import { CustomSwiper } from '@/components/Swiper';
 import likes from '@/assets/buttons/likes.png';
@@ -8,7 +9,7 @@ import { BlogEntry } from '@/types/sharedTypes';
 
 import blogsStyles from './Blogs.module.css';
 
-interface CustomSwiperProps {
+interface BlogsProps {
     recentBlogs: BlogEntry[]
     mostViewedBlogs: BlogEntry[]
 }
@@ -16,13 +17,13 @@ interface CustomSwiperProps {
 const DEFAULT_WIDTH_HEIGTH = 32;
 
 const getSlidesToRender = (blogs: BlogEntry[]) => (
-    blogs.map(({ title, author: { name, lastName, avatar }, createdAt, views: blogViews, tags, id, markdown }, idx) =>
-        <>
+    blogs.map(({ title, author: { name, lastName, avatar }, createdAt, views: blogViews, tags, id, sneakpeak }, idx) =>
+        <Fragment key={id}>
             <Link href={`/read?blogId=${id}`} passHref scroll>
                 <div className={blogsStyles.blogCard}>
                     <h4 className={blogsStyles.blogTitle}>{title}</h4>
                     <p className={blogsStyles.sneakpeak}>
-                        Agregar un nuevo field cuando se agrega el field para agregar el sneakpeak, siento que es mejor poner un sneakpeak llamativo que llame al usuario, rather than usar el inicio del blog
+                        {sneakpeak}
                     </p>
                     <div className={blogsStyles.identityContainer}>
                         <div className={blogsStyles.identityCard}>
@@ -54,11 +55,11 @@ const getSlidesToRender = (blogs: BlogEntry[]) => (
                     </div>
                 </div>
             </Link>
-        </>
+        </Fragment>
     )
 );
 
-export const Blogs = ({ recentBlogs, mostViewedBlogs }: CustomSwiperProps) => {
+export const Blogs = ({ recentBlogs, mostViewedBlogs }: BlogsProps) => {
     return (
         <div className={blogsStyles.container}>
             <CustomSwiper

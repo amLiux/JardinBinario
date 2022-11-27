@@ -1,4 +1,5 @@
 import { InferGetServerSidePropsType } from 'next';
+import dynamic from 'next/dynamic';
 
 import { Layout } from '@/components/Layout';
 import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
@@ -6,12 +7,12 @@ import { Footer } from '@/components/Footer';
 import { querys } from '@/gql/querys';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { useIndex } from '@/hooks/useIndex';
-import { IndexScreenProps } from 'screens/indexScreen';
+import { IndexScreenProps } from '@/screens/indexScreen';
 
-import dynamic from 'next/dynamic';
 
 const IndexScreen = dynamic<IndexScreenProps>(() => import('@/screens/indexScreen').then(mod => mod.IndexScreen), {
 	ssr: false,
+	loading: ({ isLoading }) => isLoading ? <div className='min-h-screen'></div> : null,
 });
 
 

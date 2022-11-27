@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 import { useAuth } from '@/apollo/AuthClient';
 import { LoginFormValues } from '@/types/sharedTypes';
+import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
 
 export const useLogin = () => {
     const [disableButton, setDisableButton] = useState<boolean>(true);
@@ -20,8 +21,8 @@ export const useLogin = () => {
     const formik = useFormik({
         initialValues,
         validationSchema: Yup.object({
-            email: Yup.string().email().required('An email is required'),
-            password: Yup.string().required('A password name is required').min(7, 'The password should at least have 7 characters'),
+            email: Yup.string().email().required(generateRequiredMessage('email')),
+            password: Yup.string().required(generateRequiredMessage('password')).min(7, 'The password should at least have 7 characters'),
         }),
         onSubmit: async (values) => {
             try {

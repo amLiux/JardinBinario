@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { NewsletterValues, NewTicketValues } from '@/types/sharedTypes';
 import { useMutation } from '@apollo/client';
 import { querys } from '@/gql/querys';
+import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
 
 
 function timeout(delay: number) {
@@ -46,11 +47,11 @@ export const useIndex = () => {
     const formikContactForm = useFormik({
         initialValues: initialValuesContactForm,
         validationSchema: Yup.object({
-            companyName: Yup.string().required('Un nombre de compañia es requerido'),
-            email: Yup.string().email().required('Un correo electronico es requerido'),
+            companyName: Yup.string().required(generateRequiredMessage('company name')),
+            email: Yup.string().email().required(generateRequiredMessage('email')),
             service: Yup.array().of(Yup.string()).min(1),
-            description: Yup.string().required('Una descripcion es requerida'),
-            phoneNumber: Yup.string().matches(phoneRegExp, 'El formato del numero es invalido').required('Un numero telefonico es requerido'),
+            description: Yup.string().required(generateRequiredMessage('description')),
+            phoneNumber: Yup.string().matches(phoneRegExp, "Phone number's format is invalid").required(generateRequiredMessage('phone number')),
         }),
         enableReinitialize: true,
         onSubmit: async (values) => {
@@ -80,7 +81,7 @@ export const useIndex = () => {
     const formikNewsletter = useFormik({
         initialValues: initialValuesNewsletter,
         validationSchema: Yup.object({
-            email: Yup.string().email().required('Un correo electronico es requerido'),
+            email: Yup.string().email().required(generateRequiredMessage('email')),
         }),
         onSubmit: async (values) => {
             try {

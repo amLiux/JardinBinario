@@ -37,7 +37,7 @@ export const useMarkdownResult = (preview:boolean, context?:UserContext, blogEnt
                 setVisualMarkdown(visualMarkdown.replace(titleToRemove, toSet));
             }
 
-            if(markdownText.trim().length === 0) {
+            if(markdownText.trim().length === 0 && !blogEntry ) {
                 setToRender(filler);
             }
 

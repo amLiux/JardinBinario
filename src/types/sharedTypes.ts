@@ -28,6 +28,7 @@ export type BlogEntry = {
 	createdAt: string;
 	author: Author;
 	views: number;
+	sneakpeak: string;
 };
 
 export type NewBlogEntryValues = {

@@ -31,7 +31,8 @@ export const useNew = () => {
             title: Yup.string().required(generateRequiredMessage('title')),
             markdown: Yup.string().required(generateRequiredMessage('markdown content')),
             tags: Yup.array().of(Yup.string()),
-            sneakpeak: Yup.string().required(generateRequiredMessage('sneakpeak')).test('len', 'Must be exactly 5 characters', val => val ? val.toString().length === 180 : false)
+            sneakpeak: Yup.string().required(generateRequiredMessage('sneakpeak'))
+            // .test('len', 'Must be exactly 5 characters', val => val?.toString().length === 180)
         }),
         enableReinitialize: true,
         onSubmit: async (values) => {
