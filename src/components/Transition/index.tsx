@@ -40,7 +40,6 @@ export const Transition = ({ children }: TransitionProps) => {
 			</div>
 			<AnimatePresence
 				initial={false}
-				exitBeforeEnter
 				mode='wait'
 			>
 				<motion.div

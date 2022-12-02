@@ -119,5 +119,12 @@ export const querys = {
                 sneakpeak,
             }
         }
+    `,
+    GET_ALL_BLOGS_IDS: gql`
+        query getAllEntriesIds {
+            getAllEntriesIds {
+                id,
+            }
+        }
     `
 };

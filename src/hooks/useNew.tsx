@@ -54,10 +54,7 @@ export const useNew = () => {
                         error: false
                     });
 
-                    setTimeout(() => router.push({
-                        pathname: '/read',
-                        query: { 'blogId': id }
-                    },), 2000);
+                    setTimeout(() => router.push(`/read/${id}`), 2000);
                 }
             } catch (err: any) {
                 // do we set error here 
