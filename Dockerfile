@@ -34,7 +34,7 @@ COPY . .
 EXPOSE 3000
 
 # building the 'production' version
-RUN npm run build
+# RUN npm run build
 
 # running our code
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]
