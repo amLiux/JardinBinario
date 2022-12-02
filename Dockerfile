@@ -23,7 +23,7 @@ ENV NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL=${NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL}
 # Install dependencies based on the preferred package manager
 COPY package.json package-lock.json* ./
 RUN \
-  if [ -f package-lock.json ]; then npm ci --only=production && npm cache clean --force; \
+  if [ -f package-lock.json ]; then npm ci && npm cache clean --force; \
   else echo "Lockfile not found." && exit 1; \
   fi
 
