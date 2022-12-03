@@ -9,14 +9,17 @@ type LayoutProps = {
 	children: ReactNode | ReactNode[];
 	style404?: boolean;
 	index?: boolean;
+	dynamicSeo?: boolean;
 };
 
-export const Layout = ({ children, style404 }: LayoutProps) => {
+export const Layout = ({ children, style404, dynamicSeo = false }: LayoutProps) => {
 	const router = useRouter();
 	const seo = seoMapping[router.asPath];
 
 	return (
 		<>
+			{
+			!dynamicSeo && 
 			<Head>
 				<title>{seo?.title}</title>
 				<meta name="description" content={seo?.description} />
@@ -29,6 +32,7 @@ export const Layout = ({ children, style404 }: LayoutProps) => {
 					content={'https://jardinbinario.com' + router.asPath}
 				/>
 			</Head>
+			}
 			<div
 				className={`
 					${style404 ? layoutStyles.bg404Pattern : 'bg-slate-900'}

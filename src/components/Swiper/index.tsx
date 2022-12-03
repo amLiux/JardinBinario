@@ -45,7 +45,8 @@ export const CustomSwiper = ({ children, title, slidesPerView, autoplay }: Custo
                 <Swiper
                     {...sharedProps}
                     effect='fade'
-                    loop
+                    // This avoids Swiper duplicating blogs when there is only one blog
+                    loop={wrapper.length > 1}
                     breakpoints={{
                         640: {
                             slidesPerView: slidesPerView[640],

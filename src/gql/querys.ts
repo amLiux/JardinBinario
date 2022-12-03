@@ -97,6 +97,7 @@ export const querys = {
                 },
                 views,
                 tags,
+                sneakpeak,
             }
         }
     `,
@@ -115,6 +116,14 @@ export const querys = {
                 },
                 views,
                 tags,
+                sneakpeak,
+            }
+        }
+    `,
+    GET_ALL_BLOGS_IDS: gql`
+        query getAllEntriesIds {
+            getAllEntriesIds {
+                id,
             }
         }
     `

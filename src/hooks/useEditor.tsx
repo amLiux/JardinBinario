@@ -17,7 +17,7 @@ export const useEditor = () => {
                 const difference = newValue.length > markdownText.length
                     ? newValue.length - markdownText.length
                     : markdownText.length - newValue.length;
-                // update the text that is going into formik every 15 chards to avoid that much consuption
+                // update the text that is going into formik every 15 chars to avoid that much consuption
                 if (difference >= 15) {
                     setMarkdownText('markdown', newValue);
                 }

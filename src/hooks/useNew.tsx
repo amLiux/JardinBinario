@@ -7,16 +7,18 @@ import * as Yup from 'yup';
 import { useAuth } from '@/apollo/AuthClient';
 import { querys } from '@/gql/querys';
 import { EditorContextType, NewBlogEntryValues } from '@/types/sharedTypes';
+import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
 
 
 export const useNew = () => {
     const [newBlogEntry] = useMutation(querys.NEW_BLOG_ENTRY);
     const [visualMarkdown, setVisualMarkdown] = useState<string>('');
     const [preview, setPreview] = useState<boolean>(false);
-
+    const [showSneakpeak, setShowSneakpeak] = useState<boolean>(false);
     const initialValues: NewBlogEntryValues = {
         title: '',
         markdown: '',
+        sneakpeak: '',
         tags: [],
     };
 
@@ -26,9 +28,11 @@ export const useNew = () => {
     const formik = useFormik({
         initialValues,
         validationSchema: Yup.object({
-            title: Yup.string().required('A name is required'),
-            markdown: Yup.string().required('A last name is required'),
+            title: Yup.string().required(generateRequiredMessage('title')),
+            markdown: Yup.string().required(generateRequiredMessage('markdown content')),
             tags: Yup.array().of(Yup.string()),
+            sneakpeak: Yup.string().required(generateRequiredMessage('sneakpeak'))
+            // .test('len', 'Must be exactly 5 characters', val => val?.toString().length === 180)
         }),
         enableReinitialize: true,
         onSubmit: async (values) => {
@@ -50,11 +54,7 @@ export const useNew = () => {
                         error: false
                     });
 
-                    // TODO once we have a page that resolves blogs, let's redirect from here/ do we do title or id?
-                    setTimeout(() => router.push({
-                        pathname: '/read',
-                        query: { 'blogId': id }
-                    },), 2000);
+                    setTimeout(() => router.push(`/read/${id}`), 2000);
                 }
             } catch (err: any) {
                 // do we set error here 
@@ -67,7 +67,7 @@ export const useNew = () => {
         visualMarkdown,
         setVisualMarkdown,
         setPreview,
-
+        setShowSneakpeak,
         tags: formik.values.tags || [],
         setTags: formik.setFieldValue,
         markdownText: formik.values.markdown,
@@ -94,7 +94,9 @@ export const useNew = () => {
     return {
         contextValue,
         formik,
-        preview
+        preview,
+        showSneakpeak,
+        router
     };
 
 };

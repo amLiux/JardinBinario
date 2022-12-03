@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 export const useTransition = () => {
 	const { asPath } = useRouter();
 	const [showMessage, setShowMessage] = useState<string>('');
+	const [loading, setLoading] = useState<boolean>(true);
 
 	const variants = {
 		inactive: {
@@ -42,6 +43,10 @@ export const useTransition = () => {
 		}
 	}, [message]);
 
+	useEffect(() => {
+		setTimeout(() => setLoading(false), 2000);
+	}, []);
+
 	const handleClose = () => {
 		setShowMessage('');
 		setTimeout(() => removeMessage(), 800);
@@ -52,7 +57,8 @@ export const useTransition = () => {
 		handleClose,
 		variants,
 		showMessage,
-		message
+		message,
+		loading,
 	};
 
 };

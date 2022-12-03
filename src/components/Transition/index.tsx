@@ -4,13 +4,22 @@ import { useTransition } from '@/hooks/useTransition';
 import { Message } from '@/components/Message';
 import { Layout } from '@/components/Layout';
 import layoutStyles from '@/components/Layout/Layout.module.css';
+import { LoadingSplash } from '../LoadingSplash';
 
 interface TransitionProps {
 	children: ReactNode | ReactNode[];
 };
 
 export const Transition = ({ children }: TransitionProps) => {
-	const { showMessage, asPath, variants, handleClose, message } = useTransition();
+	const {
+		showMessage,
+		asPath,
+		variants,
+		handleClose,
+		message,
+		loading
+	} = useTransition();
+
 	return (
 		<Layout index>
 			<div
@@ -31,7 +40,6 @@ export const Transition = ({ children }: TransitionProps) => {
 			</div>
 			<AnimatePresence
 				initial={false}
-				exitBeforeEnter
 				mode='wait'
 			>
 				<motion.div
@@ -41,7 +49,7 @@ export const Transition = ({ children }: TransitionProps) => {
 					animate="inactive"
 					exit="out"
 				>
-					{children}
+					{ loading ? <LoadingSplash/> : children }
 				</motion.div>
 			</AnimatePresence>
 		</Layout>
