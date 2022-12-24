@@ -38,7 +38,8 @@ export const useRegister = () => {
         validationSchema: Yup.object({
             name: Yup.string().required(generateRequiredMessage('name')),
             lastName: Yup.string().required(generateRequiredMessage('last name')),
-            email: Yup.string().email().required(generateRequiredMessage('email')),
+            email: Yup.string().email().required(generateRequiredMessage('email'))
+            .matches(/\@jardinbinario.com$/, 'Domain not allowed'),
             password: Yup.string().required(generateRequiredMessage('password')).min(7, 'The password should at least have 7 characters'),
             file: Yup.mixed().required(generateRequiredMessage('profile pic')),
             avatar: Yup.string()

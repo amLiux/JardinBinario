@@ -21,7 +21,8 @@ export const useLogin = () => {
     const formik = useFormik({
         initialValues,
         validationSchema: Yup.object({
-            email: Yup.string().email().required(generateRequiredMessage('email')),
+            email: Yup.string().email().required(generateRequiredMessage('email'))
+            .matches(/\@jardinbinario.com$/, 'Domain not allowed'),
             password: Yup.string().required(generateRequiredMessage('password')).min(7, 'The password should at least have 7 characters'),
         }),
         onSubmit: async (values) => {
