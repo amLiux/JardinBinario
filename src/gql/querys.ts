@@ -55,6 +55,7 @@ export const querys = {
     GET_BLOG_BY_ID: gql`
         query getSpecificBlogEntry($blogId:String!) {
             getSpecificBlogEntry(blogId: $blogId) {
+                id,
                 title,
                 markdown,
                 createdAt,
@@ -96,6 +97,7 @@ export const querys = {
                     avatar
                 },
                 views,
+                shares,
                 tags,
                 sneakpeak,
             }
@@ -115,6 +117,7 @@ export const querys = {
                     avatar
                 },
                 views,
+                shares,
                 tags,
                 sneakpeak,
             }
@@ -125,6 +128,11 @@ export const querys = {
             getAllEntriesIds {
                 id,
             }
+        }
+    `,
+    UPDATE_BLOG_SHARES: gql`
+        mutation updateBlogShares($blogSharesInput: BlogSharesInput) {
+            updateBlogShares(blogSharesInput: $blogSharesInput)
         }
     `
 };

@@ -1,4 +1,5 @@
 import { FormikHelpers, FormikValues } from 'formik';
+import { ReactNode, SyntheticEvent } from 'react';
 
 export type FormData = {
 	initialValues: FormikValues;
@@ -28,6 +29,7 @@ export type BlogEntry = {
 	createdAt: string;
 	author: Author;
 	views: number;
+	shares: number;
 	sneakpeak: string;
 };
 
@@ -52,7 +54,7 @@ export type NewsletterValues = {
 
 export interface UserContext extends Author {
 	id?: string;
-	__typename: string;
+	__typename?: string;
 };
 
 type formikHelper = FormikHelpers<NewBlogEntryValues>['setFieldValue'];
@@ -94,4 +96,32 @@ export type SignatureInfo = {
     department: string;
     phoneNumber: string;
     email: string;
+};
+
+export type NavbarOptionsProps = {
+    setShowTags: (e: SyntheticEvent) => void;
+    setPreview: any;
+    storeMarkdown: () => void;
+    setShowSneakpeak: any;
+    read: boolean;
+    editor: boolean;
+}
+
+export type Options = {
+    tooltipText: string;
+    icon: ReactNode;
+    submitButton?: boolean;
+    onClick?: (e: SyntheticEvent) => void;
+    text?: string;
+};
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    onClick?: (e: SyntheticEvent) => void;
+    form?: string;
+    type?: 'submit';
+}
+
+export interface OptionProps {
+    buttonParams: ButtonProps;
+    option: Options;
 };

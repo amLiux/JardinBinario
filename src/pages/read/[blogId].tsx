@@ -11,9 +11,11 @@ import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { BlogEntry } from '@/types/sharedTypes';
 import { Footer } from '@/components/Footer';
 import Head from 'next/head';
+import { useRead } from '@/hooks/useRead';
 
 const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
 	ssr: false,
+	loading: ({ isLoading }) => isLoading ? <div className='min-h-screen'></div> : null,
 });
 interface IParams extends ParsedUrlQuery {
 	blogId: string
@@ -41,11 +43,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		variables: { blogId },
 	});
 
-	const { title, markdown, createdAt, author, tags }: BlogEntry = data.getSpecificBlogEntry;
+	const { title, markdown, createdAt, author, tags, id }: BlogEntry = data.getSpecificBlogEntry;
 
 	return {
 		props: {
 			blogEntry: {
+				id,
 				title,
 				markdown,
 				createdAt,
@@ -57,9 +60,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function ReadBlogPage({ blogEntry }: InferGetStaticPropsType<typeof getStaticProps>) {
-	const { author, title, sneakpeak } = blogEntry;
-	const router = useRouter();
-
+	const {
+		title,
+		sneakpeak,
+		router,
+		author,
+	} = useRead(blogEntry);
+	
 	return (
 		<>
 			<Head>

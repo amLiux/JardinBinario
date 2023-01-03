@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 
 import { CustomSwiper } from '@/components/Swiper';
-import likes from '@/assets/buttons/likes.png';
+import shares from '@/assets/buttons/shares.png';
 import views from '@/assets/buttons/views.png';
 import { BlogEntry } from '@/types/sharedTypes';
 
@@ -17,7 +17,7 @@ interface BlogsProps {
 const DEFAULT_WIDTH_HEIGTH = 32;
 
 const getSlidesToRender = (blogs: BlogEntry[]) => (
-    blogs.map(({ title, author: { name, lastName, avatar }, createdAt, views: blogViews, tags, id, sneakpeak }, idx) =>
+    blogs.map(({ title, author: { name, lastName, avatar }, createdAt, views: blogViews, tags, id, sneakpeak, shares: blogShares }) =>
         <Fragment key={id}>
             <Link href={`/read/${id}`} passHref scroll>
                 <div className={blogsStyles.blogCard}>
@@ -41,8 +41,8 @@ const getSlidesToRender = (blogs: BlogEntry[]) => (
                                 <p>{blogViews}</p>
                             </div>
                             <div className={blogsStyles.stats}>
-                                <Image src={likes} width={DEFAULT_WIDTH_HEIGTH} height={DEFAULT_WIDTH_HEIGTH} alt='like'></Image>
-                                <p>4.1k</p>
+                                <Image src={shares} width={DEFAULT_WIDTH_HEIGTH} height={DEFAULT_WIDTH_HEIGTH} alt='shares'></Image>
+                                <p>{blogShares}</p>
                             </div>
                         </div>
                     </div>

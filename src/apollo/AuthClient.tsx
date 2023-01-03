@@ -45,7 +45,7 @@ export const createUnauthorizedApolloClient = () => {
 
 	const handleOnError = onError((error: any) => {
 		const { graphQLErrors } = error;
-		let { message } = graphQLErrors?.[0];
+		let message = graphQLErrors?.[0]?.message;
 		// this happens if the GQL server runs up with issues while creating our context
 		const toRemoveIfIncludes = 'Context creation failed: '; 
 		const toChangeIfIncludes = 'MongoServerError: E11000';
@@ -75,8 +75,7 @@ function useProviderAuth() {
 
 	function getAuthToken() {
 		const token = localStorage.getItem('token') || '';
-		if (!token) return '';
-		return token;
+		return token || '';
 	}
 
 	const removeMessage = (): void => {
@@ -86,7 +85,7 @@ function useProviderAuth() {
 		});
 	};
 
-	// TODO not sure about exposing this whenever we instance getAuth(), this happens because I think I'll also use useQuery and useMutation queries on child components,so I'll def need a client instance wrappign my parent Component
+	// TODO not sure about exposing this whenever we instance getAuth(), this happens because I think I'll also use useQuery and useMutation queries on child components,so I'll def need a client instance wrapping my parent Component
 	const createApolloClient = () => {
 		const httpLink = createHttpLink({
 			uri: backEnd,
@@ -104,7 +103,7 @@ function useProviderAuth() {
 
 		const handleOnError = onError((error: any) => {
 			const { graphQLErrors } = error;
-			let { message } = graphQLErrors[0];
+			let { message } = graphQLErrors?.[0];
 			// this happens if the GQL server runs up with issues while creating our context
 			const toRemoveIfIncludes = 'Context creation failed: '; 
 			const toChangeIfIncludes = 'MongoServerError: E11000';

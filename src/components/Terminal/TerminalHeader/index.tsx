@@ -3,7 +3,7 @@ import { NextRouter } from 'next/router';
 import { SyntheticEvent } from 'react';
 
 import { IndexNavbarOptions } from '@/components/IndexNavbarOptions';
-import { EditorNavbarOptions } from '@/components/NewBlog/EditorNavbarOptions';
+import { NavbarOptions } from '@/components/NavbarOptions';
 import { TagsInput } from '@/components/NewBlog/TagInput';
 import logo from '@/assets/logo.png';
 import { useHeader } from '@/hooks/useHeader';
@@ -22,7 +22,7 @@ type TerminalHeaderProps = {
 type validColors = 'red' | 'yellow' | 'green';
 
 export const TerminalHeader = ({ header, editor = false, index = false, read = false, handleClickServices, router }: TerminalHeaderProps) => {
-	
+
 	const {
 		showTags,
 		tags,
@@ -35,11 +35,11 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 	} = useHeader();
 
 	const handleTagToggle = (e: SyntheticEvent) => {
-        const target = (e.target as HTMLInputElement);
-        setShowTags((show: boolean) => !show);
-        target.focus();
-    };
-	
+		const target = (e.target as HTMLInputElement);
+		setShowTags((show: boolean) => !show);
+		target.focus();
+	};
+
 	const dotClass = (color: validColors): string => `w-7 h-7 bg-${color}-500 rounded-full mr-3 animate-pulse`;
 
 	const needsStickyHeader = index || read;
@@ -48,7 +48,7 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 		<div
 			className={`
 				${terminalHeaderStyles.terminalHeader}
-				${ needsStickyHeader ? 'scroll sticky top-0 p-2' : 'p-4'}
+				${needsStickyHeader ? 'scroll sticky top-0 p-2' : 'p-4'}
 			`}>
 			{
 				needsStickyHeader
@@ -70,17 +70,17 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 					</>
 			}
 
-			{
-				editor && <>
-					{showTags && <TagsInput selectedTags={selectedTags} tags={tags} />}
-					<EditorNavbarOptions
-						showSneakpeak={setShowSneakpeak}
-						storeMarkdown={storeMarkdown}
-						setPreview={setPreview}
-						showTags={handleTagToggle} 
-					/>
-				</>
-			}
+			<>
+				{showTags && <TagsInput selectedTags={selectedTags} tags={tags} />}
+				<NavbarOptions
+					read={read}
+					editor={editor}
+					setShowSneakpeak={setShowSneakpeak}
+					storeMarkdown={storeMarkdown}
+					setPreview={setPreview}
+					setShowTags={handleTagToggle}
+				/>
+			</>
 			{
 				index && handleClickServices && <IndexNavbarOptions router={router} handleClickServices={handleClickServices} />
 			}
