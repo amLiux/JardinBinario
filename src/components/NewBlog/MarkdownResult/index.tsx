@@ -11,7 +11,7 @@ type Context = UserContext | BlogEntry['author'];
 
 export interface MarkdownRestulProps {
 	preview?: boolean;
-	context: Context;
+	context?: Context;
 	blogEntry?: BlogEntry;
 };
 
