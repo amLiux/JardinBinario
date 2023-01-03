@@ -7,10 +7,11 @@ import { useMarkdownResult } from '@/hooks/useMarkdownResult';
 
 import markdownResultsStyles from './MarkdownResult.module.css';
 
+type Context = UserContext | BlogEntry['author'];
 
-export type MarkdownRestulProps = {
+export interface MarkdownRestulProps {
 	preview?: boolean;
-	context?: UserContext;
+	context: Context;
 	blogEntry?: BlogEntry;
 };
 
