@@ -14,20 +14,27 @@ export const useRead = (
 
 	useEffect(() => {
         const updateBlog = async () => {
-            if(query.shared && id) {
-                const client = createUnauthorizedApolloClient();
+            const client = createUnauthorizedApolloClient();
+            let metrics = {
+                views: true,
+                shares: false,
+            };
 
-                await client.mutate({
-                    mutation: querys.UPDATE_BLOG_SHARES,
-                    variables: {
-                        blogSharesInput: {
-                            id,
-                        }
-                    }
-                });
+            if(query?.shared) {
+                metrics.shares = true;
             }
+
+            await client.mutate({
+                mutation: querys.UPDATE_BLOG_METRICS,
+                variables: {
+                    blogMetricsInput: {
+                        id,
+                        ...metrics,
+                    }
+                }
+            });
         };
-        updateBlog().catch((err) => console.error);
+        updateBlog().catch((_err) => console.error);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 

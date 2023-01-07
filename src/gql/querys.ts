@@ -130,9 +130,9 @@ export const querys = {
             }
         }
     `,
-    UPDATE_BLOG_SHARES: gql`
-        mutation updateBlogShares($blogSharesInput: BlogSharesInput) {
-            updateBlogShares(blogSharesInput: $blogSharesInput)
+    UPDATE_BLOG_METRICS: gql`
+        mutation updateBlogMetrics($blogMetricsInput: BlogMetricsInput) {
+            updateBlogMetrics(blogMetricsInput: $blogMetricsInput)
         }
     `
 };
