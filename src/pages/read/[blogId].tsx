@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import { useRouter } from 'next/router';
 import type { MarkdownRestulProps } from '@/components/NewBlog/MarkdownResult';
 import dynamic from 'next/dynamic';
 import { ParsedUrlQuery } from 'querystring';
@@ -10,8 +9,8 @@ import { querys } from '@/gql/querys';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { BlogEntry } from '@/types/sharedTypes';
 import { Footer } from '@/components/Footer';
-import Head from 'next/head';
 import { useRead } from '@/hooks/useRead';
+import { SeoMapping } from '@/seo/index';
 
 const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
 	ssr: false,
@@ -66,25 +65,20 @@ export default function ReadBlogPage({ blogEntry }: InferGetStaticPropsType<type
 		router,
 		author,
 	} = useRead(blogEntry);
+
+	const seo:SeoMapping = {
+		[router.asPath]: {
+			title,
+			description: sneakpeak,
+		}
+	};
 	
 	return (
 		<>
-			<Head>
-				<title>{title}</title>
-				<meta name="description" content={sneakpeak} />
-				<meta property="og:title" content={title} />
-				<meta property="og:description" content={sneakpeak} />
-				{/* <meta property="og:image" content={page?.data?.image} /> */}
-				<meta property="og:type" content="website" />
-				<meta
-					property="og:url"
-					content={'https://jardinbinario.com' + router.asPath}
-				/>
-			</Head>
-			<Layout index dynamicSeo>
+			<Layout index dynamicSeo={seo}>
 				<TerminalHeader router={router} read />
 				<MarkdownResult blogEntry={blogEntry} context={author} preview />
-				<Footer router={router} filePath='read' />
+				<Footer router={router} filePath='read/[blogId]' />
 			</Layout>
 		</>
 	);
