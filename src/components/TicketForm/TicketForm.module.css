@@ -1,10 +1,10 @@
 .coolHeading {
-    @apply transition-all ease-in-out before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-purple-500 relative block before:rounded p-4 text-center;
+    @apply transition-all ease-in-out before:block before:absolute before:-inset-1 bg-purple-500 relative block before:rounded p-4 text-center;
     scroll-margin-top: 16rem;
 }
 
 .coolHeading > h3 {
-    @apply relative italic m-0;
+    @apply relative font-sans m-0;
 }
 
 .formContainer {

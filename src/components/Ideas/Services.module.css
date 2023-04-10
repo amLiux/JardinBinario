@@ -16,12 +16,16 @@
     @apply transition-all font-extrabold text-2xl w-fit text-left text-gray-800 mb-4 mt-0 border-b-2 border-b-purple-200; 
 }
 
+.cardTextContainer > a {
+    @apply transition-all text-sm font-mono mt-0 hover:text-purple-500; 
+}
+
 .card:hover .cardTextContainer > h4 {
     @apply border-b-purple-500;
 }
 
-.cardTextContainer > span {
-    @apply text-black text-base leading-snug;
+.cardTextContainer > p {
+    @apply text-black text-base text-left;
 }
 
 .logosContainer {
