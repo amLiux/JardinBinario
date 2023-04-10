@@ -45,7 +45,7 @@ export const Newsletter = ({ handleChange, handleSubmit, values, errors, disable
                         {submitting || (submitted && !submitting)  ? <Spinner size='little' submitted={submitted}></Spinner> : 'Suscríbete'}
                 </button>
             </div>
-            <p className={newsletterStyles.copy}>Testeando este texto para ver que tan largo hay que hacerlo.</p>
+            <p className={newsletterStyles.copy}>¡Únete a nuestra lista de correo de Jardín Binario y mantente al tanto de nuestras últimas noticias y actualizaciones! </p>
         </Form>
     );
 };

@@ -59,7 +59,7 @@ export const TicketForm = ({ handleSubmit, values, handleChange, errors, setServ
 
     return (
         <>
-            <h2 style={{ textAlign: 'center' }}>Te interesa alguno de nuestros servicios?</h2>
+            <h2 style={{ textAlign: 'center' }}>Te interesa proponer o invertir en alguna de nuestras ideas?</h2>
             <span ref={refForForm} className={ticketFormStyles.coolHeading}>
                 <h3>Contáctanos!</h3>
             </span>

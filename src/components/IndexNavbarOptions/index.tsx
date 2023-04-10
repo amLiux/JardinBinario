@@ -14,18 +14,18 @@ interface IndexNavbarOptionsProps {
 }
 
 const tabs: Tab[] = [
+    // {
+    //     text: 'Blog',
+    //     route: '/blog',
+    //     link: true,
+    // },
+    // {
+    //     text: 'Servicios',
+    //     route: 'services',
+    //     link: false,
+    // },
     {
-        text: 'Blog',
-        route: '/blog',
-        link: true,
-    },
-    {
-        text: 'Servicios',
-        route: 'services',
-        link: false,
-    },
-    {
-        text: 'Contáctanos',
+        text: 'Siembra algo genial',
         route: 'ticket',
         link: false,
         ctaButton: true,

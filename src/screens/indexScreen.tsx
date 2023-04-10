@@ -4,7 +4,7 @@ import { FormikProps } from 'formik';
 import { texts } from '@/components/Index/text';
 import indexStyles from '@/components/Index/Index.module.css';
 import { PhotoComposition } from '@/components/PhotoComposition';
-import { Services } from '@/components/Services';
+import { Ideas } from '@/components/Ideas';
 import { TicketForm } from '@/components/TicketForm';
 import { Newsletter } from '@/components/Newsletter';
 import { HeadingBlock } from '@/components/Index/HeadingBlock';
@@ -35,18 +35,22 @@ export const IndexScreen = ({ recentEntries, mostViewedEntries, formikContactFor
                 subheadingAnimationDirection='Right'
                 headingAnimationDirection='Left'
                 tag='h1'
-                heading={texts.heading}
-                subheading={texts.subheading}
+                block={texts.introBlock}
             />
             <PhotoComposition />
             <HeadingBlock
                 headingAnimationDirection='Right'
                 subheadingAnimationDirection='Left'
                 tag='h2'
-                heading={texts.heading2}
-                subheading={texts.subheading2}
+                block={texts.descriptionBlock}
             />
-            <Services refForScroll={refServices} />
+            <Ideas refForScroll={refServices} />
+            <HeadingBlock
+                headingAnimationDirection='Right'
+                subheadingAnimationDirection='Left'
+                tag='h3'
+                block={texts.disclaimerBlock}
+            />
             <TicketForm
                 handleChange={formikContactForm.handleChange}
                 errors={formikContactForm.errors}

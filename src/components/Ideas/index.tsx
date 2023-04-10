@@ -1,18 +1,18 @@
 import Image from 'next/image';
 import { RefObject } from 'react';
 import { CustomSwiper } from '@/components/Swiper';
-import { services } from './services';
+import { ideas } from './ideas';
 import servicesStyles from './Services.module.css';
 
-interface ServicesProps {
+interface IdeasProps {
     refForScroll: RefObject<HTMLDivElement>;
 }
 
-export const Services = ({ refForScroll }: ServicesProps) => {
+export const Ideas = ({ refForScroll }: IdeasProps) => {
     return (
-        <div id='services' ref={refForScroll}>
+        <div id='ideas' ref={refForScroll}>
             <CustomSwiper
-                title="Nuestros servicios:"
+                title="Nuestras ideas:"
                 slidesPerView={{
                     default: 1,
                     640: 1,
@@ -22,11 +22,12 @@ export const Services = ({ refForScroll }: ServicesProps) => {
                 autoplay
             >
                 {
-                    services.map(({ title, description, stack }, cardIdx) =>
+                    ideas.map(({ title, description, stack, repoUrl }, cardIdx) =>
                         <div key={cardIdx} className={servicesStyles.card}>
                             <div className={servicesStyles.cardTextContainer}>
                                 <h4>{title}</h4>
-                                <span>{description}</span>
+                                <p>{description}</p>
+                                <a href={repoUrl}>Repositorio</a>
                             </div>
                             <div className={servicesStyles.logosContainer}>
                                 {stack && stack.map(({ logo, alt }, idx) =>
