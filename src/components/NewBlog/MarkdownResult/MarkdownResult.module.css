@@ -3,7 +3,7 @@
 }
 
 .identityContainer {
-	@apply transition-all ease-in-out flex p-3 text-left items-center justify-center w-fit mb-0 mt-14 border-l-0 font-sans hover:ring-2 hover:ring-purple-500;
+	@apply transition-all ease-in-out flex p-3 text-left items-center justify-center w-fit mb-0 mt-14 border-l-0 hover:ring-2 hover:ring-purple-500;
 	padding: 0.75rem!important;
 	text-align: left!important;
 }
@@ -27,7 +27,7 @@
 
 .preview {
 	/* Basic */
-	@apply min-h-screen mt-10 mb-10 prose prose-lg p-5 w-screen h-auto m-auto text-white font-sans;
+	@apply min-h-screen mt-10 mb-10 prose prose-lg p-5 w-screen h-auto m-auto text-white;
 
 	/* h1 */
 	@apply prose-h1:leading-tight md:prose-h1:leading-normal lg:prose-h1:leading-relaxed prose-h1:text-white prose-h1:text-4xl prose-h1:mt-0;

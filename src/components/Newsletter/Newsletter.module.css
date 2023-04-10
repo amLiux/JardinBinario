@@ -1,5 +1,5 @@
 .container {
-    @apply h-fit md:h-56 font-sans transition ease-in-out relative hover:ring-2 hover:ring-purple-500 ring-2 ring-white w-full rounded bg-white mt-20 p-5 text-left;
+    @apply h-fit md:h-56 transition ease-in-out relative hover:ring-2 hover:ring-purple-500 ring-2 ring-white w-full rounded bg-white mt-20 p-5 text-left;
 }
 
 .subheading {

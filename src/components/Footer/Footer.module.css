@@ -21,7 +21,7 @@
 }
 
 .socialMedia > li {
-    @apply p-1 md:p-2 font-sans text-xs font-bold leading-7 flex justify-around before:content-[''] before:pr-[2px] before:mr-2 before:hover:bg-purple-500 before:bg-white hover:animate-pulse border-2 border-transparent cursor-pointer rounded-md hover:border-white transition-all ease-out;
+    @apply p-1 md:p-2 text-xs font-bold leading-7 flex justify-around before:content-[''] before:pr-[2px] before:mr-2 before:hover:bg-purple-500 before:bg-white hover:animate-pulse border-2 border-transparent cursor-pointer rounded-md hover:border-white transition-all ease-out;
 }
 
 .socialMediaLogoContainer {
