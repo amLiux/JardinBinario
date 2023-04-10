@@ -20,7 +20,7 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Anuphan', sans-serif;
 	scrollbar-width: none;
 	@apply bg-slate-900;
 	scroll-behavior: smooth;
