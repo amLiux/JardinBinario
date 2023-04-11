@@ -19,11 +19,11 @@ const tabs: Tab[] = [
     //     route: '/blog',
     //     link: true,
     // },
-    // {
-    //     text: 'Servicios',
-    //     route: 'services',
-    //     link: false,
-    // },
+    {
+        text: 'Privacidad',
+        route: '/privacy',
+        link: true,
+    },
     {
         text: 'Siembra algo genial',
         route: 'ticket',

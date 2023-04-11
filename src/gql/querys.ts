@@ -134,5 +134,10 @@ export const querys = {
         mutation updateBlogMetrics($blogMetricsInput: BlogMetricsInput) {
             updateBlogMetrics(blogMetricsInput: $blogMetricsInput)
         }
+    `,
+    NEW_USER_METRIC: gql`
+        mutation newUserDetailsEntry($metricsInput: MetricsInput) {
+            newUserDetailsEntry(metricsInput: $metricsInput)
+        }
     `
 };
