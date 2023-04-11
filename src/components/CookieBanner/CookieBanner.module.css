@@ -7,7 +7,7 @@
 }
 
 .link {
-    @apply ml-1 transition-all hover:text-purple-500 hover:border-2 border cursor-pointer border-b-purple-500;
+    @apply ml-1 transition-all hover:text-purple-500 hover:border-2 border border-transparent cursor-pointer border-b-purple-500;
 }
 
 .button {
