@@ -29,19 +29,18 @@ export const useCookie = () => {
 
     const getUserDetails = async () => {
         // we get this to check if we can upgrade or use new features of js
-        const browser = window.navigator.userAgent;
+        const userAgent = window.navigator.userAgent;
         // we get this to check what translations we should give priority to
         const language = window.navigator.language;
         // we get this to know what ideas would adapt to what markets
         const country = await getUserCountry();
         // to know when to send promotions and such
         const timezone = getUserTimezone();
-
         return {
-            browser,
             language,
             country,
             timezone,
+            userAgent,
         };
     };
 
