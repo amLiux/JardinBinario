@@ -1,25 +1,24 @@
 import { ReactNode } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { seoMapping } from '@/seo/index';
+import { SeoMapping, seoMapping } from '@/seo/index';
 
 import layoutStyles from './Layout.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
 type LayoutProps = {
 	children: ReactNode | ReactNode[];
 	style404?: boolean;
 	index?: boolean;
-	dynamicSeo?: boolean;
+	dynamicSeo?: SeoMapping;
 };
 
-export const Layout = ({ children, style404, dynamicSeo = false }: LayoutProps) => {
-	const router = useRouter();
-	const seo = seoMapping[router.asPath];
+export const Layout = ({ children, style404, dynamicSeo = undefined }: LayoutProps) => {
+	const {asPath} = useRouter();
+	const seo = dynamicSeo?.[asPath] || seoMapping[asPath];
 
 	return (
 		<>
-			{
-			!dynamicSeo && 
 			<Head>
 				<title>{seo?.title}</title>
 				<meta name="description" content={seo?.description} />
@@ -29,18 +28,20 @@ export const Layout = ({ children, style404, dynamicSeo = false }: LayoutProps) 
 				<meta property="og:type" content="website" />
 				<meta
 					property="og:url"
-					content={'https://jardinbinario.com' + router.asPath}
+					content={'https://jardinbinario.com' + asPath}
 				/>
 			</Head>
-			}
-			<div
-				className={`
+			<Flexbox
+				extraClass={`
+					min-h-screen
 					${style404 ? layoutStyles.bg404Pattern : 'bg-slate-900'}
 					${layoutStyles.smoothRender}
-					${layoutStyles.layout}
-				`}>
+				`}
+				justifyContent='center'
+				flexDirection='column'
+			>
 				{children}
-			</div>
+			</Flexbox>
 		</>
 	);
 };

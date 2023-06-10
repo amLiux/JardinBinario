@@ -1,5 +1,5 @@
 .container {
-    @apply flex gap-y-2 justify-start md:justify-around flex-wrap;
+    @apply gap-y-2 justify-start md:justify-around;
 }
 
 .button {

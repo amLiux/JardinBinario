@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { RefObject, useMemo, useState } from 'react';
 import { SignatureInfo } from '@/types/sharedTypes';
+import { Flexbox } from '../lib/Flexbox';
 
 interface SignatureProps {
     signatureInfo: SignatureInfo;
@@ -69,7 +70,7 @@ export const Signature = ({ signatureInfo, signatureRef, confidential, dark }: S
     };
 
     return (
-        <div className='flex flex-col h-full justify-around ease-in-out'>
+        <Flexbox justifyContent='space-around' flexDirection='column' extraClass='h-full ease-in-out'>
             <div ref={signatureRef}>
                 <table style={{ fontFamily: 'system-ui', backgroundColor: `${dark ? 'black' : 'white'}`, borderRadius: '10px', padding: '1rem' }} cellSpacing="0" cellPadding="20">
                     <tbody>
@@ -212,6 +213,6 @@ export const Signature = ({ signatureInfo, signatureRef, confidential, dark }: S
 
                 <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">{copied ? 'Copiada!' : 'Copia tu signature'}</span>
             </button>
-        </div >
+        </Flexbox >
     );
 };

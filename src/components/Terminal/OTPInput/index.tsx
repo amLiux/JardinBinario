@@ -2,6 +2,7 @@ import { FormikHelpers } from 'formik';
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { ForgotPasswordValues } from '@/types/sharedTypes';
 import otpInputStyles from './OTPInput.module.css';
+import { Flexbox } from '@/components/lib/Flexbox';
 
 type OTPInputProps = {
 	length: number;
@@ -28,7 +29,7 @@ export const OTPInput = ({ length, setFormikOtp }: OTPInputProps) => {
 	}, [otp, length, setFormikOtp]);
 
 	return (
-		<div className={otpInputStyles.container}>
+		<Flexbox justifyContent='center' extraClass={otpInputStyles.container}>
 			{
 				otp.map(
 					(input, ind) => <input
@@ -40,6 +41,6 @@ export const OTPInput = ({ length, setFormikOtp }: OTPInputProps) => {
 						/>
 				)
 			}
-		</div>
+		</Flexbox>
 	);
 };

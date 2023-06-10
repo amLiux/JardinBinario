@@ -1,0 +1,15 @@
+.container {
+    @apply transition-all fixed m-auto rounded bottom-3 left-[50%] translate-x-[-50%] w-3/4 bg-white text-slate-800 ring-2 ring-purple-400 p-4 z-50 hover:ring-purple-600;
+}
+
+.cookieMessage {
+    @apply text-sm md:text-sm font-medium;
+}
+
+.link {
+    @apply ml-1 transition-all hover:text-purple-500 hover:border-2 border border-transparent cursor-pointer border-b-purple-500;
+}
+
+.button {
+    @apply transition-all bg-purple-500 hover:bg-purple-600 text-white uppercase py-1 px-2 rounded-md md:text-base;
+}

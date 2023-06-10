@@ -1,18 +1,19 @@
 import Image from 'next/image';
 import { RefObject } from 'react';
 import { CustomSwiper } from '@/components/Swiper';
-import { services } from './services';
-import servicesStyles from './Services.module.css';
+import { ideas } from './ideas';
+import ideasStyles from './Ideas.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
-interface ServicesProps {
+interface IdeasProps {
     refForScroll: RefObject<HTMLDivElement>;
 }
 
-export const Services = ({ refForScroll }: ServicesProps) => {
+export const Ideas = ({ refForScroll }: IdeasProps) => {
     return (
-        <div id='services' ref={refForScroll}>
+        <div id='ideas' ref={refForScroll}>
             <CustomSwiper
-                title="Nuestros servicios:"
+                title="Nuestras ideas:"
                 slidesPerView={{
                     default: 1,
                     640: 1,
@@ -22,18 +23,19 @@ export const Services = ({ refForScroll }: ServicesProps) => {
                 autoplay
             >
                 {
-                    services.map(({ title, description, stack }, cardIdx) =>
-                        <div key={cardIdx} className={servicesStyles.card}>
-                            <div className={servicesStyles.cardTextContainer}>
+                    ideas.map(({ title, description, stack, repoUrl }, cardIdx) =>
+                        <div key={cardIdx} className={ideasStyles.card}>
+                            <div className={ideasStyles.cardTextContainer}>
                                 <h4>{title}</h4>
-                                <span>{description}</span>
+                                <p>{description}</p>
+                                <a href={repoUrl}>Repositorio</a>
                             </div>
-                            <div className={servicesStyles.logosContainer}>
+                            <div className={ideasStyles.logosContainer}>
                                 {stack && stack.map(({ logo, alt }, idx) =>
                                     // TODO shall we keep stacks? or we add something different?
-                                    <span key={idx} className={servicesStyles.logo}>
+                                    <Flexbox key={idx} alignItems='center' extraClass={ideasStyles.logo}>
                                         <Image src={logo} width={48} height={48} alt={alt} />
-                                    </span>
+                                    </Flexbox>
                                 )}
                             </div>
                         </div>

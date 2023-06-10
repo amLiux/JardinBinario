@@ -1,5 +1,5 @@
 .container {
-    @apply flex items-center text-lg;
+    @apply text-lg;
 }
 
 .input {

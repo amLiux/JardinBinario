@@ -3,7 +3,7 @@
 }
 
 .blogCard {
-    @apply bg-white rounded-md h-fit min-h-[340px] m-auto md:min-h-[300px] w-11/12 md:w-full p-5 font-sans hover:animate-pulse cursor-pointer;
+    @apply bg-white rounded-md h-fit min-h-[340px] m-auto md:min-h-[300px] w-11/12 md:w-full p-5 hover:animate-pulse cursor-pointer;
 }
 
 .blogTitle {
@@ -25,16 +25,12 @@
     text-align: left!important;
 }
 
-.identityContainer {
-    @apply flex m-0 justify-start;
-}
-
 .identityCard {
-    @apply flex bg-slate-800 items-center text-sm text-white p-1 rounded-md pr-5 pb-[0.3rem] pl-1 md:pl-2 mt-3 w-fit;
+    @apply bg-slate-800 items-center text-sm text-white p-1 rounded-md pr-5 pb-[0.3rem] pl-1 md:pl-2 mt-3 w-fit;
 }
 
 .profilePicContainer {
-    @apply flex justify-center overflow-hidden items-center rounded-md relative mx-1 md:mx-0;
+    @apply overflow-hidden rounded-md relative mx-1 md:mx-0;
     width: 40px;
     height: 40px;
     margin-right: 5px;
@@ -64,7 +60,7 @@
 }
 
 .statsContainer {
-    @apply flex ml-4;
+    @apply ml-4;
 }
 
 .stats {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Option } from './Option';
 import optionsStyles from './Option/Option.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
 interface IProps {
     options: React.ReactElement[];
@@ -21,7 +22,7 @@ export const RadioGroup = ({ options, onChange, value, labelText }: IProps) => {
     return (
         <div>
             <h4 style={{ marginTop: '2rem', marginBottom: '0.6666667em' }} className="after:content-['⚙️'] after:ml-1">{labelText}</h4>
-            <div className={optionsStyles.container}>
+            <Flexbox wrap extraClass={optionsStyles.container}>
                 {options.map((el, index) => (
                     <Option
                         key={index}
@@ -32,7 +33,7 @@ export const RadioGroup = ({ options, onChange, value, labelText }: IProps) => {
                         {el}
                     </Option>
                 ))}
-            </div>
+            </Flexbox>
         </div>
     );
 };

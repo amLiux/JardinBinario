@@ -3,7 +3,7 @@
 }
 
 .edit {
-    @apply hidden md:flex text-sm cursor-pointer font-mono  items-center justify-around border-b-2 transition-all ease-in-out border-transparent hover:border-purple-500;
+    @apply hidden md:flex text-sm cursor-pointer font-mono items-center justify-around border-b-2 transition-all ease-in-out border-transparent hover:border-purple-500;
 }
 
 .edit > span > img {
@@ -13,7 +13,7 @@
 }
 
 .container {
-    @apply flex justify-around md:justify-evenly items-center text-white py-7 md:py-14 transition-all ease-in-out;
+    @apply md:justify-evenly text-white py-7 md:py-14 transition-all ease-in-out;
 }
 
 .socialMedia {
@@ -21,7 +21,7 @@
 }
 
 .socialMedia > li {
-    @apply p-1 md:p-2 font-sans text-xs font-bold leading-7 flex justify-around before:content-[''] before:pr-[2px] before:mr-2 before:hover:bg-purple-500 before:bg-white hover:animate-pulse border-2 border-transparent cursor-pointer rounded-md hover:border-white transition-all ease-out;
+    @apply p-1 md:p-2 text-xs font-bold leading-7 flex justify-around before:content-[''] before:pr-[2px] before:mr-2 before:hover:bg-purple-500 before:bg-white hover:animate-pulse border-2 border-transparent cursor-pointer rounded-md hover:border-white transition-all ease-out;
 }
 
 .socialMediaLogoContainer {

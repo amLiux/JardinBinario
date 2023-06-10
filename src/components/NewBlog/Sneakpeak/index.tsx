@@ -21,7 +21,7 @@ export const Sneakpeak = ({ showSneakpeak, sneakpeak, setSneakpeak }: SneakpeakP
                     <div className='bg-white p-3 border-t-2 border-b-2 border-purple-500 mb-3'>
                         <input
                             id='sneakpeak'
-                            className='text-black font-sans w-full outline-none'
+                            className='text-black w-full outline-none'
                             value={sneakpeak}
                             onChange={setSneakpeak}
                         />

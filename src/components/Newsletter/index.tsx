@@ -7,6 +7,7 @@ import { Spinner } from '@/components/Spinner';
 import ticketFormStyles from '@/components/TicketForm/TicketForm.module.css';
 
 import newsletterStyles from './Newsletter.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
 type NewsletterFormProps = {
     handleSubmit: FormikHandlers['handleSubmit'];
@@ -25,7 +26,7 @@ export const Newsletter = ({ handleChange, handleSubmit, values, errors, disable
             <Sky stars={2} />
             <h4 className={newsletterStyles.header}>Suscríbete a nuestro newsletter</h4>
             <p className={newsletterStyles.subheading}>Recibe notificaciones de nuestras últimas actualizaciones, blogs, posiciones, ofertas.</p>
-            <div className={newsletterStyles.inputContainer}>
+            <Flexbox alignItems='center' extraClass={newsletterStyles.inputContainer}>
                 <Input
                     newsletter
                     handleChange={handleChange}
@@ -44,8 +45,8 @@ export const Newsletter = ({ handleChange, handleSubmit, values, errors, disable
 					`}>
                         {submitting || (submitted && !submitting)  ? <Spinner size='little' submitted={submitted}></Spinner> : 'Suscríbete'}
                 </button>
-            </div>
-            <p className={newsletterStyles.copy}>Testeando este texto para ver que tan largo hay que hacerlo.</p>
+            </Flexbox>
+            <p className={newsletterStyles.copy}>¡Únete a nuestra lista de correo de Jardín Binario y mantente al tanto de nuestras últimas noticias y actualizaciones! </p>
         </Form>
     );
 };

@@ -1,5 +1,5 @@
 .container {
-    @apply relative mb-[-3rem] md:mb-[-2rem] lg:mb-[-18rem] flex justify-center items-center m-auto mt-16 md:mt-0 lg:mt-10 p-0 md:p-5 lg:p-10;
+    @apply relative mb-[-3rem] md:mb-[-2rem] lg:mb-[-18rem] m-auto mt-16 md:mt-0 lg:mt-10 p-0 md:p-5 lg:p-10;
 }
 .composition {
 	@apply w-full relative;

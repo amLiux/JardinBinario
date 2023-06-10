@@ -1,6 +1,7 @@
 import { FormikHandlers } from 'formik';
 import { useState } from 'react';
 import terminalInputStyles from './TerminalInput.module.css';
+import { Flexbox } from '@/components/lib/Flexbox';
 
 type TerminalInputProps = {
 	type: 'text' | 'password';
@@ -18,11 +19,14 @@ type TerminalInputProps = {
 export const TerminalInput = ({ label, type, id, value, onChange, error }: TerminalInputProps) => {
 	const [focused, setFocused] = useState(false);
 	return (
-		<div className={`
-			${terminalInputStyles.terminalInput} 
-			${focused ? terminalInputStyles.focus : ''} 
-			${error ? terminalInputStyles.error : ''}`
-			}>
+		<Flexbox 
+			justifyContent='start'
+			extraClass={`
+				${terminalInputStyles.terminalInput} 
+				${focused ? terminalInputStyles.focus : ''} 
+				${error ? terminalInputStyles.error : ''}
+			`}
+		>
 			<label className={terminalInputStyles.label} htmlFor={id}>
 				&gt; <code>{label}: </code>
 			</label>
@@ -35,6 +39,6 @@ export const TerminalInput = ({ label, type, id, value, onChange, error }: Termi
 				type={type}
 				value={value}
 			/>
-		</div>
+		</Flexbox>
 	);
 };

@@ -81,10 +81,6 @@
 		);
 }
 
-.layout {
-	@apply min-h-screen flex flex-col justify-center;
-}
-
 .smoothRender {
 	@apply transition-all ease-in-out z-10;
 	animation: fadeIn 0.8s ease-in;

@@ -21,7 +21,6 @@ export const Stepper = ({ children }: any) => {
     const handleSubmit = async () => {
         if (currentChild.props.onSubmit) {
             const response = await currentChild.props.onSubmit();
-            // TODO check why new password message is not getting here;
             if(response) {
                 setMessage({
                     msg: response,

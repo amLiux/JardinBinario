@@ -4,10 +4,10 @@ import logo from '@/assets/littleLogo.png';
 import gitHubLogo from '@/assets/logos/gitHubLogo.png';
 import youtubeLogo from '@/assets/logos/youtubeLogo.png';
 import linkedinLogo from '@/assets/logos/linkedinLogo.png';
-import behanceLogo from '@/assets/logos/behanceLogo.png';
 import edit from '@/assets/edit.png';
 
 import footerStyles from './Footer.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
 interface FooterProps {
 	router: NextRouter;
@@ -50,7 +50,7 @@ const socialMedia: SocialMediaEntry[] = [
 
 export const Footer = ({ router, filePath }: FooterProps) => {
 	return (
-		<div className={footerStyles.container}>
+		<Flexbox alignItems='center' justifyContent='space-around' extraClass={footerStyles.container}>
 			{
 				filePath ?
 					<p onClick={() => router.push(`https://github.com/Marceliux/JardinBinario/blob/main/src/pages/${filePath}.tsx`)} className={footerStyles.edit}>
@@ -79,6 +79,6 @@ export const Footer = ({ router, filePath }: FooterProps) => {
 					)
 				}
 			</ul>
-		</div>
+		</Flexbox>
 	);
 };

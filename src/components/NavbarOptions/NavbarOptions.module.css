@@ -3,5 +3,9 @@
 }
 
 .container {
-    @apply flex justify-around items-center ml-auto w-80 p-5 h-5;
+    @apply items-center ml-auto w-80 p-5 h-5;
+}
+
+.container div button:only-child {
+    @apply flex font-bold uppercase justify-between;
 }
