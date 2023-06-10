@@ -125,3 +125,7 @@ export interface OptionProps {
     buttonParams: ButtonProps;
     option: Options;
 };
+
+export type BasicObject = Record<string, string>;
+
+export type KeyOfBasicObject = keyof BasicObject;

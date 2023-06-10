@@ -1,13 +1,9 @@
 .container {
-	@apply transition-all w-full flex justify-around transform items-center text-center py-1 text-white;
+	@apply transition-all w-full transform text-center text-white py-3;
 }
 
 .messageClose {
 	@apply rounded-full shadow-xl bg-white border border-white;
-}
-
-.messageContainer {
-    @apply flex items-center justify-center;
 }
 
 .messageType {
@@ -15,7 +11,7 @@
 }
 
 .messageBox {
-    @apply underline py-1 text-white px-2;
+    @apply bg-white ml-4 rounded uppercase font-mono font-extrabold py-1 text-red-400 px-2;
 }
 
 .message {

@@ -52,6 +52,8 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 	return (
 		<Layout index>
 			<TerminalHeader router={router} handleClickServices={handleClickServices} index header='Jardín Binario' />
+			<div className='h-screen'>
+			</div>
 			<IndexScreen
 				recentEntries={recentEntries}
 				mostViewedEntries={mostViewedEntries}

@@ -1,9 +1,3 @@
-.container {
-    @apply mt-10 flex flex-wrap gap-y-10 gap-x-28 items-center;
-    scroll-margin-top: 12rem;
-    margin-top: 2.5rem!important;
-}
-
 .card {
     @apply transition-all w-11/12 md:w-full rounded m-auto min-h-[450px] md:min-h-[300px] bg-white;
 }
@@ -33,5 +27,5 @@
 }
 
 .logo {
-    @apply transition-all ease-in-out flex font-mono bg-gray-200 rounded-md px-3 py-1 mr-2 mb-2 items-center;
+    @apply transition-all ease-in-out font-mono bg-gray-200 rounded-md px-3 py-1 mr-2 mb-2;
 }

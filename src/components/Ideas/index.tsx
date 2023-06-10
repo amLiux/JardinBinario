@@ -2,7 +2,8 @@ import Image from 'next/image';
 import { RefObject } from 'react';
 import { CustomSwiper } from '@/components/Swiper';
 import { ideas } from './ideas';
-import servicesStyles from './Services.module.css';
+import ideasStyles from './Ideas.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
 interface IdeasProps {
     refForScroll: RefObject<HTMLDivElement>;
@@ -23,18 +24,18 @@ export const Ideas = ({ refForScroll }: IdeasProps) => {
             >
                 {
                     ideas.map(({ title, description, stack, repoUrl }, cardIdx) =>
-                        <div key={cardIdx} className={servicesStyles.card}>
-                            <div className={servicesStyles.cardTextContainer}>
+                        <div key={cardIdx} className={ideasStyles.card}>
+                            <div className={ideasStyles.cardTextContainer}>
                                 <h4>{title}</h4>
                                 <p>{description}</p>
                                 <a href={repoUrl}>Repositorio</a>
                             </div>
-                            <div className={servicesStyles.logosContainer}>
+                            <div className={ideasStyles.logosContainer}>
                                 {stack && stack.map(({ logo, alt }, idx) =>
                                     // TODO shall we keep stacks? or we add something different?
-                                    <span key={idx} className={servicesStyles.logo}>
+                                    <Flexbox key={idx} alignItems='center' extraClass={ideasStyles.logo}>
                                         <Image src={logo} width={48} height={48} alt={alt} />
-                                    </span>
+                                    </Flexbox>
                                 )}
                             </div>
                         </div>
