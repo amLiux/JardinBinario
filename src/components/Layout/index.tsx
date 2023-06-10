@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { SeoMapping, seoMapping } from '@/seo/index';
 
 import layoutStyles from './Layout.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
 type LayoutProps = {
 	children: ReactNode | ReactNode[];
@@ -30,14 +31,17 @@ export const Layout = ({ children, style404, dynamicSeo = undefined }: LayoutPro
 					content={'https://jardinbinario.com' + asPath}
 				/>
 			</Head>
-			<div
-				className={`
+			<Flexbox
+				extraClass={`
+					min-h-screen
 					${style404 ? layoutStyles.bg404Pattern : 'bg-slate-900'}
 					${layoutStyles.smoothRender}
-					${layoutStyles.layout}
-				`}>
+				`}
+				justifyContent='center'
+				flexDirection='column'
+			>
 				{children}
-			</div>
+			</Flexbox>
 		</>
 	);
 };

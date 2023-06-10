@@ -3,7 +3,7 @@
 }
 
 .edit {
-    @apply hidden md:flex text-sm cursor-pointer font-mono  items-center justify-around border-b-2 transition-all ease-in-out border-transparent hover:border-purple-500;
+    @apply hidden md:flex text-sm cursor-pointer font-mono items-center justify-around border-b-2 transition-all ease-in-out border-transparent hover:border-purple-500;
 }
 
 .edit > span > img {
@@ -13,7 +13,7 @@
 }
 
 .container {
-    @apply flex justify-around md:justify-evenly items-center text-white py-7 md:py-14 transition-all ease-in-out;
+    @apply md:justify-evenly text-white py-7 md:py-14 transition-all ease-in-out;
 }
 
 .socialMedia {

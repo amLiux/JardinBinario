@@ -9,6 +9,7 @@ import logo from '@/assets/logo.png';
 import { useHeader } from '@/hooks/useHeader';
 
 import terminalHeaderStyles from './TerminalHeader.module.css';
+import { Flexbox } from '@/components/lib/Flexbox';
 
 type TerminalHeaderProps = {
 	header?: string;
@@ -45,10 +46,13 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 	const needsStickyHeader = index || read;
 
 	return (
-		<div
-			className={`
+		<Flexbox
+			justifyContent='start'
+			alignItems='center'
+			extraClass={`
 				${terminalHeaderStyles.terminalHeader}
 				${needsStickyHeader ? 'scroll sticky top-0 p-2' : 'p-4'}
+				${index ?  'min-h-[93px]' : ''}
 			`}>
 			{
 				needsStickyHeader
@@ -91,6 +95,6 @@ export const TerminalHeader = ({ header, editor = false, index = false, read = f
 				/>
 			}
 
-		</div>
+		</Flexbox>
 	);
 };

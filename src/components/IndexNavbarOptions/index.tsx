@@ -1,5 +1,6 @@
 import { NextRouter } from 'next/router';
 import indexNavbarOptionsStyles from './IndexNavbarOptions.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
 type Tab = {
     text: string;
@@ -35,7 +36,7 @@ const tabs: Tab[] = [
 export const IndexNavbarOptions = ({ handleClickServices, router }: IndexNavbarOptionsProps) => {
 
     return (
-        <ul className={indexNavbarOptionsStyles.container}>
+        <Flexbox alignItems='center' html='ul' extraClass={indexNavbarOptionsStyles.container}>
             {
                 tabs.map(({ text, link, route, ctaButton }, idx) =>
                     <li key={idx} className='mx-5'>
@@ -49,6 +50,6 @@ export const IndexNavbarOptions = ({ handleClickServices, router }: IndexNavbarO
                     </li>
                 )
             }
-        </ul>
+        </Flexbox>
     );
 };

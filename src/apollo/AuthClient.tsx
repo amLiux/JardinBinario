@@ -1,4 +1,4 @@
-import { useState, useContext, createContext, ReactNode, useEffect } from 'react';
+import { useState, useContext, createContext, ReactNode } from 'react';
 import { setContext } from '@apollo/client/link/context';
 import {
 	ApolloProvider,
@@ -22,6 +22,24 @@ type Message = {
 
 const backEnd = process.env.NEXT_PUBLIC_BACKEND_URL;
 
+const beautifyError = (graphQLErrors: any):Message['msg'] => {
+	let error = graphQLErrors?.graphQLErrors?.[0]?.message;
+	// this happens if the GQL server runs up with issues while creating our context
+	const toRemoveIfIncludes = 'Context creation failed: ';
+	const toChangeIfIncludes = 'MongoServerError: E11000';
+
+	// TODO check this later man, its gross haha
+	if (error?.includes(toChangeIfIncludes)) {
+		error = 'Duplicated blog title, try a different one.';
+	}
+
+	if (error?.includes(toRemoveIfIncludes)) {
+		error = error.replace(toRemoveIfIncludes, '');
+	}
+
+	return error;
+};
+
 export function AuthProvider({ children }: AuthProviderProps) {
 	const auth = useProviderAuth();
 
@@ -34,7 +52,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 	);
 }
 
-export const useAuth = ():any => {
+export const useAuth = (): any => {
 	return useContext(authContext);
 };
 
@@ -44,21 +62,8 @@ export const createUnauthorizedApolloClient = () => {
 	});
 
 	const handleOnError = onError((error: any) => {
-		const { graphQLErrors } = error;
-		let message = graphQLErrors?.[0]?.message;
-		// this happens if the GQL server runs up with issues while creating our context
-		const toRemoveIfIncludes = 'Context creation failed: '; 
-		const toChangeIfIncludes = 'MongoServerError: E11000';
-
-		// TODO check this later man, its gross haha
-		if(message.includes(toChangeIfIncludes)) {
-			message = 'Duplicated blog title, try a different one.';
-		}
-
-		if (message.includes(toRemoveIfIncludes)) {
-			message = message.replace(toRemoveIfIncludes, '');
-		}
-		console.error(error);
+		const errorMessage = beautifyError(error);
+		console.error(errorMessage);
 	});
 
 	return new ApolloClient({
@@ -102,23 +107,10 @@ function useProviderAuth() {
 		});
 
 		const handleOnError = onError((error: any) => {
-			const { graphQLErrors } = error;
-			let { message } = graphQLErrors?.[0];
-			// this happens if the GQL server runs up with issues while creating our context
-			const toRemoveIfIncludes = 'Context creation failed: '; 
-			const toChangeIfIncludes = 'MongoServerError: E11000';
-
-			// TODO check this later man, its gross haha
-			if(message.includes(toChangeIfIncludes)) {
-				message = 'Duplicated blog title, try a different one.';
-			}
-
-			if (message.includes(toRemoveIfIncludes)) {
-				message = message.replace(toRemoveIfIncludes, '');
-			}
-
+			const errorMessage = beautifyError(error);
+			
 			setMessage({
-				msg: message,
+				msg: errorMessage,
 				error: true,
 			});
 		});

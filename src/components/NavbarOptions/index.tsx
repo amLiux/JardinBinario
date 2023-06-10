@@ -3,6 +3,7 @@ import { Tooltip } from '@/components/Tooltip';
 import navbarOptionsStyles from './NavbarOptions.module.css';
 import { ButtonProps, NavbarOptionsProps, OptionProps } from '@/types/sharedTypes';
 import { useNavbarOptions } from '@/hooks/useNavbarOptions';
+import { Flexbox } from '../lib/Flexbox';
 
 const Option = ({ option, buttonParams }: OptionProps) => (
     <Fragment>
@@ -30,7 +31,7 @@ export const NavbarOptions = ({ setShowTags, setPreview, storeMarkdown, setShowS
     );
 
     return shouldRender ? (
-        <div className={navbarOptionsStyles.container}>
+        <Flexbox justifyContent='space-around' alignItems='center' extraClass={navbarOptionsStyles.container}>
             {
                 options.map((option, key) => {
                     const buttonParams: ButtonProps = option.submitButton
@@ -47,6 +48,6 @@ export const NavbarOptions = ({ setShowTags, setPreview, storeMarkdown, setShowS
                     return <Option key={`editor-option-${key}`} buttonParams={buttonParams} option={option} />;
                 })
             }
-        </div>
+        </Flexbox>
     ) : null;
 };

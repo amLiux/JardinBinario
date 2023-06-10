@@ -1,3 +1,4 @@
+import { Flexbox } from '../lib/Flexbox';
 import { Star } from './Star';
 
 type SkyProps = {
@@ -9,12 +10,12 @@ export const Sky = ({ stars, newsletter = false }: SkyProps) => {
     const arrayForRendering = (amountOfStars: number) => [...Array(amountOfStars)];
 
     return (
-        <div className={`${newsletter ? 'absolute' : ''} flex flex-col`}>
+        <Flexbox extraClass={`${newsletter ? 'absolute' : ''}`} flexDirection='column'>
             <div>
                 {
-                    arrayForRendering(stars).map((val, ind) => <Star key={ind} />)
+                    arrayForRendering(stars).map((_, ind) => <Star key={ind} />)
                 }
             </div>
-        </div>
+        </Flexbox>
     );
 };

@@ -8,6 +8,7 @@ import { Spinner } from '@/components/Spinner';
 
 import { Input } from './Input';
 import ticketFormStyles from './TicketForm.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
 type TicketFormProps = {
     handleSubmit: FormikHandlers['handleSubmit'];
@@ -71,7 +72,7 @@ export const TicketForm = ({ handleSubmit, values, handleChange, errors, setServ
                             <h4 className={ticketFormStyles.formHeading}>Formulario de contacto</h4>
                             <Form handleSubmit={handleSubmit}>
                                 <div className='flex flex-col md:flex-row'>
-                                    <div className={ticketFormStyles.textInputContainer}>
+                                    <Flexbox justifyContent='evenly' flexDirection='column'>
                                         {
                                             textInputValues.map((textInput, idx) => {
                                                 const textInputAsKey = textInput as keyof NewTicketValues;
@@ -92,7 +93,7 @@ export const TicketForm = ({ handleSubmit, values, handleChange, errors, setServ
                                                 );
                                             })
                                         }
-                                    </div>
+                                    </Flexbox>
                                     <div className={ticketFormStyles.textInputBox}>
                                         <label
                                             className={`after:content-['👂'] ${ticketFormStyles.textInputLabel}`} htmlFor='description'

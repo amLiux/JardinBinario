@@ -1,5 +1,5 @@
 .container {
-    @apply ml-auto flex text-white items-center text-base;
+    @apply ml-auto text-white text-base;
 }
 
 @media (max-width: 640px) {

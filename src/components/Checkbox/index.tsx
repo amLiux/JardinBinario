@@ -1,5 +1,6 @@
 import { Tooltip } from '@/components/Tooltip';
 import checkboxStyles from './Checkbox.module.css';
+import { Flexbox } from '../lib/Flexbox';
 
 type CheckboxProps = {
 	handleCheck: () => void;
@@ -12,7 +13,7 @@ type CheckboxProps = {
 
 export const Checkbox = ({ handleCheck, message, tooltipToHover, tooltip, signature, id = 'tos'}: CheckboxProps) => {
 	return (
-		<div className={`${checkboxStyles.container} ${signature ? 'mt-10 mb-6' : 'mt-3.5'}`}>
+		<Flexbox alignItems='center' justifyContent='start' extraClass={`${checkboxStyles.container} ${signature ? 'mt-10 mb-6' : 'mt-3.5'}`}>
 			<input onChange={handleCheck} id={id} type='checkbox' className={checkboxStyles.input} />
 			<label htmlFor={id} className={`${checkboxStyles.label} ${signature ? 'text-black' : 'text-white'}`}>
 				<code>
@@ -26,6 +27,6 @@ export const Checkbox = ({ handleCheck, message, tooltipToHover, tooltip, signat
 					}
 				</code>
 			</label>
-		</div>
+		</Flexbox>
 	);
 };

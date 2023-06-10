@@ -33,10 +33,6 @@
     @apply text-purple-500 italic leading-none md:leading-normal lg:leading-relaxed;
 }
 
-.headingContainer {
-    transform: rotateX(0deg);
-}
-
 @keyframes moveFromLeft {
     0% {
         opacity: 0;

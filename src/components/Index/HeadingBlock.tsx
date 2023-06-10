@@ -53,7 +53,7 @@ export const HeadingBlock = ({ block, tag, headingAnimationDirection = undefined
         __html: replaceLinksRefs(link, subheading)
     };
     return (
-        <header className={indexStyles.headingContainer}>
+        <header>
             { (tag && heading) && 
                 <Heading className={headingAnimationDirection ? indexStyles[`animation${headingAnimationDirection}`] : ''} tag={tag}>
                     {heading.firstPart}
