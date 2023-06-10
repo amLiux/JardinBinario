@@ -1,5 +1,6 @@
 import { SyntheticEvent, useState } from 'react';
 import tagInputStyles from './TagInput.module.css';
+import { Flexbox } from '@/components/lib/Flexbox';
 
 type TagsInputType = {
 	selectedTags: (tags: string[]) => void;
@@ -27,17 +28,27 @@ export const TagsInput = (props: TagsInputType) => {
 	};
 
 	return (
-		<div className={`${tagInputStyles.tagsInput} ${tags.length > MAX_TAGS ? tagInputStyles.tagsInputMaxed : ''}`}>
-			<ul id='tags' className={tagInputStyles.tags}>
+		<Flexbox
+			wrap
+			alignItems='center'
+			extraClass={`${tagInputStyles.tagsInput} ${tags.length > MAX_TAGS ? tagInputStyles.tagsInputMaxed : ''}`}
+		>
+			<Flexbox html='ul' id='tags' extraClass={tagInputStyles.tags}>
 				{tags.map((tag: string, index: number) => (
-					<li key={index} className={tagInputStyles.tag}>
+					<Flexbox alignItems='center' justifyContent='center' key={index} extraClass={tagInputStyles.tag}>
 						<span className={tagInputStyles.tagTitle}>{tag}</span>
-						<span className={tagInputStyles.tagCloseIcon} onClick={() => removeTags(index)}>
+						<Flexbox
+							justifyContent='center'
+							html='span'
+							extraClass={tagInputStyles.tagCloseIcon}
+							onClick={() => removeTags(index)}
+						>
 							x
-						</span>
-					</li>
+						</Flexbox>
+					</Flexbox>
 				))}
-			</ul>
+				
+			</Flexbox>
 			{
 				tags.length <= MAX_TAGS &&
 					<input
@@ -46,6 +57,6 @@ export const TagsInput = (props: TagsInputType) => {
 						placeholder='Press Enter'
 					/>	
 			}
-		</div>
+		</Flexbox>
 	);
 };

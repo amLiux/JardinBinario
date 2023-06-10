@@ -19,5 +19,5 @@
 }
 
 .inputContainer {
-    @apply flex items-center w-full pr-3;
+    @apply w-full pr-3;
 }

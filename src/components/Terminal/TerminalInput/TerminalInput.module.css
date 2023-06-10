@@ -1,5 +1,5 @@
 .terminalInput {
-	@apply flex align-middle transition-all ease-in-out;
+	@apply align-middle transition-all ease-in-out;
 }
 
 .focus {

@@ -1,5 +1,5 @@
 .container {
-    @apply flex align-middle justify-center;
+    @apply align-middle;
 }
 
 .otpInput {

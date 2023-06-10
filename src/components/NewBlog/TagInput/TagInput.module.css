@@ -1,6 +1,6 @@
 .tagsInput {
 	transition: width 1s;
-	@apply flex items-center flex-wrap outline outline-2 outline-purple-500 min-h-[48px] w-[35rem] px-2 rounded-md font-mono ml-auto;
+	@apply outline outline-2 outline-purple-500 min-h-[48px] w-[35rem] px-2 rounded-md font-mono ml-auto;
 }
 
 .tagsInputMaxed {
@@ -14,17 +14,17 @@
 }
 
 .tags {
-	@apply flex flex-wrap p-0 mb-1;
+	@apply p-0 mb-1;
 	margin: 8px 0 0 0;
 }
 
 .tag {
-	@apply w-auto h-8 flex items-center justify-center bg-slate-600 text-white px-2 text-sm font-bold list-none rounded-md;
+	@apply w-auto h-8 bg-slate-600 text-white px-2 text-sm font-bold list-none rounded-md;
 	margin: 0 8px 8px 0;
 }
 
 .tag > .tagCloseIcon {
-	@apply text-white items-center text-sm pb-[6px] cursor-pointer w-4 h-4 flex justify-center text-center p-[0.38rem] ml-2 bg-purple-400 rounded-sm m-auto;
+	@apply text-white items-center text-sm pb-[6px] cursor-pointer w-4 h-4 text-center p-[0.38rem] ml-2 bg-purple-400 rounded-sm m-auto;
 }
 
 @media screen and (max-width: 567px) {

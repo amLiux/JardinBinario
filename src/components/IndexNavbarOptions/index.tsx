@@ -36,8 +36,7 @@ const tabs: Tab[] = [
 export const IndexNavbarOptions = ({ handleClickServices, router }: IndexNavbarOptionsProps) => {
 
     return (
-        <ul className={indexNavbarOptionsStyles.container}>
-            <Flexbox alignItems='center'>
+        <Flexbox alignItems='center' html='ul' extraClass={indexNavbarOptionsStyles.container}>
             {
                 tabs.map(({ text, link, route, ctaButton }, idx) =>
                     <li key={idx} className='mx-5'>
@@ -51,7 +50,6 @@ export const IndexNavbarOptions = ({ handleClickServices, router }: IndexNavbarO
                     </li>
                 )
             }
-            </Flexbox>
-        </ul>
+        </Flexbox>
     );
 };

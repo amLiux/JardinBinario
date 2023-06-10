@@ -1,6 +1,5 @@
 .terminalHeader {
-	@apply flex justify-start align-middle items-center min-h-[93px];
-	/* TODO min-h-something is messing the login 'header' maybe it's time to refactor the TerminalHeader */
+	@apply align-middle items-center;
 }
 
 .terminalHeader > .terminalHeader__text {
