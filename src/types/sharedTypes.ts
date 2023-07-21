@@ -129,3 +129,12 @@ export interface OptionProps {
 export type BasicObject = Record<string, string>;
 
 export type KeyOfBasicObject = keyof BasicObject;
+
+export interface Image {
+	prompt: string;
+	date: string;
+	img: {
+		buffer: string;
+		contentType: string;
+	}
+}

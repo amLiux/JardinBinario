@@ -41,7 +41,7 @@ export const Flexbox = ({
             evenly: 'justify-evenly',
         };
         const alignItemsClass: BasicObject = {
-            center: 'items-center'
+            center: 'items-center',
         };
         return `flex ${wrap ? 'flex-wrap' : ''} ${flexDirectionClass} ${justifyContentClass[justifyContent]} ${alignItemsClass?.[alignItems]} ${classToAdd}`.trim();
     };

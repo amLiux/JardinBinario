@@ -8,6 +8,8 @@ import { querys } from '@/gql/querys';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { useIndex } from '@/hooks/useIndex';
 import { IndexScreenProps } from '@/screens/indexScreen';
+import { Hero } from '@/components/Hero/Hero';
+import { useQuery } from '@apollo/client';
 
 
 const IndexScreen = dynamic<IndexScreenProps>(() => import('@/screens/indexScreen').then(mod => mod.IndexScreen), {
@@ -49,11 +51,13 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 		...restOfIndexProps
 	} = useIndex();
 
+	const {loading: imagesLoading, error, data } = useQuery(querys.GET_ALL_IMAGES_OF_TODAY);
+
+
 	return (
 		<Layout index>
 			<TerminalHeader router={router} handleClickServices={handleClickServices} index header='Jardín Binario' />
-			<div className='h-screen'>
-			</div>
+			<Hero imagesLoading={imagesLoading} imagesError={error} data={data} />
 			<IndexScreen
 				recentEntries={recentEntries}
 				mostViewedEntries={mostViewedEntries}
