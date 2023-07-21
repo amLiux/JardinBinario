@@ -34,7 +34,7 @@ export const Hero = ({ imagesLoading, imagesError, data }: HeroProps) => {
                                 submitting={submitting}
                                 formik={formik}
                                 image={image}
-                                renderPrompt={images?.length < 5}
+                                renderPrompt={images?.length < 5 || false}
                             />
                         </>
                 }
