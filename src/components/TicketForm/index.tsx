@@ -86,7 +86,7 @@ export const TicketForm = ({ handleSubmit, values, handleChange, errors, setServ
                                                         friendlyName={friendlyName}
                                                         placeholder={placeholder}
                                                         type={type}
-                                                        extraStyling={extraStyling}
+                                                        extraLabelStyling={extraStyling}
                                                         key={idx}
                                                         error={errors[textInputAsKey]}
                                                     />

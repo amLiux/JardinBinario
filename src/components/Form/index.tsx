@@ -12,15 +12,16 @@ type FormProps = {
 };
 
 export const Form = ({ children, handleSubmit, terminal = false, newsletter = false}: FormProps) => {
+	const className = `
+		${terminal ? terminalFormStyles.terminalForm : ''}
+		${newsletter ? layoutStyles.bg404Pattern : ''}
+		${newsletter ? newsletterStyles.container : ''}
+	`;
 	return (
 		<form 
 			onSubmit={(e) => {e.preventDefault(); if(handleSubmit) handleSubmit(e);}}
 			autoComplete='off'
-			className={`
-				${terminal ? terminalFormStyles.terminalForm : ''}
-				${newsletter ? layoutStyles.bg404Pattern : ''}
-				${newsletter ? newsletterStyles.container : ''}
-			`}
+			className={className.trim().length > 0 ? className : 'w-full'}
 		>
 			{children}
 		</form>
