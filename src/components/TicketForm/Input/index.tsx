@@ -10,18 +10,19 @@ interface InputProps {
 	error?: string | string[];
 	newsletter?: boolean;
 	textInputAsKey?: string;
-	extraStyling?: string;
+	extraLabelStyling?: string;
 	friendlyName?: string;
+	extraInputStyling?: string;
 };
 
-export const Input = ({ extraStyling, friendlyName, id, textInputAsKey, value, placeholder, handleChange, error, type, newsletter = false }: InputProps) => {
+export const Input = ({ extraLabelStyling, friendlyName, id, textInputAsKey, value, placeholder, handleChange, error, type, extraInputStyling, newsletter = false }: InputProps) => {
 	return (
 		<div className={`${ticketFormStyles.textInputBox} ${newsletter ? ticketFormStyles.newsletterInput : ''}`}>
 			{
 				!newsletter && <label
 					className={`
-						${extraStyling}
 						${ticketFormStyles.textInputLabel}
+						${extraLabelStyling}
 					`}
 					htmlFor={id}
 				>
@@ -39,7 +40,9 @@ export const Input = ({ extraStyling, friendlyName, id, textInputAsKey, value, p
 				maxLength={textInputAsKey === 'phoneNumber' ? 9 : undefined}
 				className={`
 					${error ? 'ring-2 ring-red-500 focus:ring-2 focus:border-purple-500' : ''}
-					${ticketFormStyles.textInput}`
+					${ticketFormStyles.textInput}
+					${extraInputStyling}
+					`
 				}
 				id={id}
 				value={value}

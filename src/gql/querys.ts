@@ -139,5 +139,29 @@ export const querys = {
         mutation newUserDetailsEntry($metricsInput: MetricsInput) {
             newUserDetailsEntry(metricsInput: $metricsInput)
         }
+    `,
+    GET_IMAGE_BY_PROMPT: gql`
+        query getImageByPrompt($prompt: String!) {
+            getImageByPrompt(prompt: $prompt) {
+                prompt,
+                date,
+                img {
+                    buffer,
+                    contentType
+                }
+            }
+        }
+    `,
+    GET_ALL_IMAGES_OF_TODAY: gql`
+        query getAllImagesOfDay {
+            getAllImagesOfDay {
+                prompt,
+                date,
+                img {
+                    buffer,
+                    contentType
+                }
+            }
+        }
     `
 };

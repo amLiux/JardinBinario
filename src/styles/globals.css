@@ -226,3 +226,8 @@ a {
 	backdrop-filter: blur(10px);
 	z-index: 100;
 }
+
+
+.swiper {
+	padding: .2rem!important;
+}
