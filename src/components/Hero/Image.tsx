@@ -5,11 +5,16 @@ import heroStyles from './Hero.module.css';
 import { useHeroImage } from '@/hooks/useHeroImage';
 import { Image as ImageType } from '@/types/sharedTypes';
 
-const ImageComponent = ({ prompt, img, date }: ImageType) => {
+interface ImageComponentProps extends ImageType {
+    isMobile: boolean;
+}
+
+const ImageComponent = ({ prompt, img, date, isMobile }: ImageComponentProps) => {
     const { imageUrl, SIZE } = useHeroImage(img);
+    const realSize = isMobile ? SIZE/2 : SIZE;
     return (
         imageUrl ? <div className={heroStyles.imageContainer}>
-            <Image src={imageUrl} alt={`an ai generated image which has a ${prompt}`} width={SIZE} height={SIZE} />
+            <Image src={imageUrl} alt={`an ai generated image which has a ${prompt}`} width={realSize} height={realSize} />
             <div className={heroStyles.imageDescriptionContainer}>
                 <div className={heroStyles.description}>
                     <p className={heroStyles.prompt}>{`"${prompt}"`}</p>

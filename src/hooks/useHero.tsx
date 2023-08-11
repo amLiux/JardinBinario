@@ -8,7 +8,14 @@ import { Image } from '@/types/sharedTypes';
 
 export const useHero = () => {
     const [submitting, setSubmitting] = useState<boolean>(false);
-    const [image, setImage] = useState<Image>();
+    const [image, setImage] = useState<Image>({
+        prompt: '',
+        date: new Date().toLocaleDateString('es'),
+        img: {
+            buffer: '',
+            contentType: 'image/png'
+        }
+    });
     const { setMessage } = useAuth();
 
     const initialValues: Record<string, string> = useMemo(() => ({
@@ -31,7 +38,11 @@ export const useHero = () => {
                         prompt: values.prompt,
                     }
                 });
-        
+                
+                window.localStorage.setItem('aiImage', JSON.stringify({
+                    date: getImageByPrompt.date,
+                    prompt: getImageByPrompt.prompt,
+                }));
                 setImage(getImageByPrompt);
             } catch (err) {
                 setMessage({
@@ -51,6 +62,7 @@ export const useHero = () => {
         return () => {
             document.removeEventListener('keydown', keyDownHandler);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return {

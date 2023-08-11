@@ -53,7 +53,6 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 
 	const {loading: imagesLoading, error, data } = useQuery(querys.GET_ALL_IMAGES_OF_TODAY);
 
-
 	return (
 		<Layout index>
 			<TerminalHeader router={router} handleClickServices={handleClickServices} index header='Jardín Binario' />
