@@ -46,9 +46,9 @@ export const HeroHeading = ({ title, isMobile }: HeroHeadingProps) => {
                     }
                 </h1>
                 {
-                !isMobile && <div className='text-white p-8'>
-                    <p className='font-light text-base'>
-                        Sumérgete en un mundo digital cautivador donde la innovación florece y las soluciones se convierten en realidad. Nuestro equipo de talentosos expertos está listo para cultivar el éxito de tu proyecto. ¡Descubre un oasis de creatividad tecnológica y déjate sorprender!
+                !isMobile && <div className='text-white px-10 py-2'>
+                    <p className='font-light text-xl'>
+                        Nuestro equipo de talentosos expertos está listo para cultivar el éxito de tu proyecto. ¡Adéntrate en un jardín de creatividad tecnológica y déjate sorprender!
                     </p>
                 </div>
                 }

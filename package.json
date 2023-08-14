@@ -15,6 +15,7 @@
   "dependencies": {
     "@apollo/client": "^3.5.10",
     "apollo-link-error": "^1.1.13",
+    "caniuse-lite": "^1.0.30001520",
     "formik": "^2.2.9",
     "framer-motion": "^7.6.2",
     "graphql": "^16.3.0",

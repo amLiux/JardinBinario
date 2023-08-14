@@ -4,11 +4,11 @@
 }
 
 .headingContainer {
-    @apply bg-slate-900 h-[60%] md:h-full w-[100%] md:w-[40%] p-4;
+    @apply bg-slate-900 h-[60%] md:h-full w-[100%] md:w-[50%] p-4 pl-40;
 }
 
 .heading {
-    @apply text-white font-extrabold leading-tight text-5xl md:text-6xl p-2 md:p-10 md:text-left;
+    @apply text-white font-extrabold leading-tight text-5xl md:text-7xl p-2 md:p-10 md:text-left;
 }
 
 .letter {
@@ -16,7 +16,7 @@
 }
 
 .hovered {
-    @apply text-purple-500 animate-pulse;
+    @apply text-purple-500;
 }
 
 .activeHover {
