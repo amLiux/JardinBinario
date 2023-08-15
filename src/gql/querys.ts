@@ -147,8 +147,8 @@ export const querys = {
                 date,
                 img {
                     buffer,
-                    contentType
-                }
+                    contentType,
+                },
             }
         }
     `,
@@ -159,8 +159,8 @@ export const querys = {
                 date,
                 img {
                     buffer,
-                    contentType
-                }
+                    contentType,
+                },
             }
         }
     `
