@@ -23,7 +23,7 @@ type SocialMediaEntry = {
 
 const socialMedia: SocialMediaEntry[] = [
 	{
-		url: 'https://github.com/marceliux',
+		url: 'https://github.com/JardinBinario',
 		logo: gitHubLogo,
 		alt: 'github logo',
 		displayName: 'GitHub',
