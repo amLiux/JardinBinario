@@ -4,11 +4,11 @@
 }
 
 .headingContainer {
-    @apply bg-slate-900 h-full w-[40%] p-4;
+    @apply bg-slate-900 h-[60%] md:h-full w-[100%] md:w-[50%] p-4 pl-40;
 }
 
 .heading {
-    @apply text-white font-extrabold leading-tight text-6xl p-10;
+    @apply text-white font-extrabold leading-tight text-5xl md:text-7xl p-2 md:p-10 md:text-left;
 }
 
 .letter {
@@ -16,7 +16,7 @@
 }
 
 .hovered {
-    @apply text-purple-500 animate-pulse;
+    @apply text-purple-500;
 }
 
 .activeHover {
@@ -24,18 +24,29 @@
 }
 
 .aiPrompt {
-    @apply mx-auto;
-    width: 55%!important;
+    @apply mx-auto w-[80%] md:w-[55%];
+    width: 90%!important;
 }
 
 .aiPromptLabel {
     @apply mx-auto text-xl;
     color: white!important;
-    width: 55%!important;
+    width: 90%!important;
 }
 
+
+@media (min-width: 640px) {
+	.aiPrompt {
+		width: 55%!important;
+	}
+    .aiPromptLabel {
+        width: 55%!important;
+    }
+}
+
+
 .imageContainer {
-    @apply rounded ring-2 transition-all ease-in-out bg-gray-100 ring-white hover:ring-2 hover:ring-purple-500;
+    @apply rounded ring-2 mx-auto transition-all w-[40%] md:w-[100%] ease-in-out bg-gray-100 ring-white hover:ring-2 hover:ring-purple-500;
 }
 
 .imageDescriptionContainer {

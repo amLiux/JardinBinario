@@ -5,15 +5,16 @@ import ImageComponent from './Image';
 
 interface AiImageSwiperProps {
     images: Image[];
+    renderFromPromptComponent?:boolean;
+    isMobile: boolean;
 }
 
-export const AiImageSwiper = ({ images }: AiImageSwiperProps) => {
+export const AiImageSwiper = ({ images, renderFromPromptComponent = false, isMobile}: AiImageSwiperProps) => {
     const showSwiper = images?.length >= 5;
-
-    if (!showSwiper) return null;
+    if (!showSwiper && !renderFromPromptComponent) return null;
 
     return (
-        <div className='w-[600px]'>
+        <div className='md:w-[600px]'>
             <CustomSwiper
                 slidesPerView={{
                     default: 1,
@@ -32,6 +33,7 @@ export const AiImageSwiper = ({ images }: AiImageSwiperProps) => {
                                 prompt={image.prompt}
                                 date={image.date}
                                 img={image.img}
+                                isMobile={isMobile}
                             />
                     )
                 }

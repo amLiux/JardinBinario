@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Flexbox } from '../lib/Flexbox';
 import heroStyles from './Hero.module.css';
 import { HeroHeading } from './HeroHeading';
@@ -20,21 +20,43 @@ interface HeroProps {
 export const Hero = ({ imagesLoading, imagesError, data }: HeroProps) => {
     const { submitting, formik, image } = useHero();
     const images = data?.getAllImagesOfDay;
+    console.log(images);
+        // move this to context maybe?
+        const [width, setWidth] = useState<number>(window.innerWidth);
+
+        function handleWindowSizeChange() {
+            setWidth(window.innerWidth);
+        }
+        useEffect(() => {
+            window.addEventListener('resize', handleWindowSizeChange);
+            return () => {
+                window.removeEventListener('resize', handleWindowSizeChange);
+            };
+        }, []);
+    
+        const isMobile = width <= 768;
     return (
-        <Flexbox alignItems='center' extraClass={heroStyles.container}>
-            <HeroHeading title='Un jardín tecnológico donde las ideas florecen.' />
-            <Flexbox extraClass='bg-slate-900 h-full w-[60%]' justifyContent='center' alignItems='center'>
+        <Flexbox
+            alignItems='center'
+            justifyContent={isMobile ? 'start' : 'space-between'}
+            extraClass={heroStyles.container}
+            flexDirection={isMobile ? 'column' : 'row'}
+        >
+            <HeroHeading isMobile={isMobile} title='Trae tus ideas, cultivaremos la solución.' />
+            <Flexbox extraClass='bg-slate-900 h-[40%] md:h-full w-[100%] md:w-[60%]' justifyContent='center' alignItems={isMobile ? 'start': 'center'}>
                 {
                     imagesLoading
                         ? <Spinner size='big' />
                         :
                         <>
-                            <AiImageSwiper images={images} />
+                            <AiImageSwiper isMobile={isMobile} images={images} />
                             <AiImagePrompt
+                                isMobile={isMobile}
                                 submitting={submitting}
                                 formik={formik}
                                 image={image}
                                 renderPrompt={images?.length < 5 || false}
+                                images={images}
                             />
                         </>
                 }

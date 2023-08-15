@@ -60,7 +60,7 @@ export interface UserContext extends Author {
 type formikHelper = FormikHelpers<NewBlogEntryValues>['setFieldValue'];
 
 export type EditorContextType = {
-	setBlogTitle: formikHelper;
+	setBlogTitle: any;
 	title: string;
 
 	setShowSneakpeak: (prop: boolean) => void;
@@ -70,9 +70,9 @@ export type EditorContextType = {
 	visualMarkdown: string;
 
 	tags: string[];
-	setTags: formikHelper;
+	setTags: any;
 
-	setMarkdownText: formikHelper;
+	setMarkdownText: any;
 	markdownText: string;
 	storeMarkdown: () => void;
 };
