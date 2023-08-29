@@ -1,10 +1,10 @@
 .container {
-    @apply w-screen bg-slate-500;
+    @apply w-screen bg-slate-500 mb-40 md:mb-0;
     height: calc(100vh - 93px);
 }
 
 .headingContainer {
-    @apply bg-slate-900 h-[60%] md:h-full w-[100%] md:w-[50%] p-4 pl-40;
+    @apply bg-slate-900 h-[60%] md:h-full w-[100%] md:w-[50%] p-4 pl-8 md:pl-36 lg:pl-40;
 }
 
 .heading {
@@ -54,7 +54,7 @@
 }
 
 .description {
-    @apply flex justify-between mb-2 items-center text-base;
+    @apply flex justify-between mb-2 items-center text-base flex-col md:flex-row;
 }
 
 .link {
@@ -62,7 +62,7 @@
 }
 
 .date {
-    @apply block text-xs;
+    @apply block text-xs mt-3 md:mt-0;
 }
 
 .prompt {

@@ -39,6 +39,7 @@ export const Flexbox = ({
             start: 'justify-start',
             'space-around': 'justify-around',
             evenly: 'justify-evenly',
+            end: 'justify-end',
         };
         const alignItemsClass: BasicObject = {
             center: 'items-center',

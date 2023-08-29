@@ -20,21 +20,20 @@ interface HeroProps {
 export const Hero = ({ imagesLoading, imagesError, data }: HeroProps) => {
     const { submitting, formik, image } = useHero();
     const images = data?.getAllImagesOfDay;
-    console.log(images);
         // move this to context maybe?
-        const [width, setWidth] = useState<number>(window.innerWidth);
+    const [width, setWidth] = useState<number>(window.innerWidth);
 
-        function handleWindowSizeChange() {
-            setWidth(window.innerWidth);
-        }
-        useEffect(() => {
-            window.addEventListener('resize', handleWindowSizeChange);
-            return () => {
-                window.removeEventListener('resize', handleWindowSizeChange);
-            };
-        }, []);
-    
-        const isMobile = width <= 768;
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        };
+    }, []);
+
+    const isMobile = width <= 768;
     return (
         <Flexbox
             alignItems='center'
