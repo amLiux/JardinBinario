@@ -47,5 +47,5 @@ textarea.textInput {
 }
 
 .submitButtonNewsletter {
-    @apply text-xs md:text-base pl-[0.7rem] md:pl-4 ml-5 md:ml-10 mt-5 mb-0 bg-purple-800 disabled:bg-purple-500 w-2/6 md:w-[22%];
+    @apply text-xs md:text-base pl-[0.7rem] md:pl-4 ml-5 md:ml-10 mt-5 mb-0 bg-purple-800 disabled:bg-purple-500 w-[37%] md:w-[22%];
 }

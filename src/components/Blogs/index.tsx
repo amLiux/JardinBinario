@@ -33,7 +33,8 @@ const getSlidesToRender = (blogs: BlogEntry[]) => (
                             </div>
                             <div className={blogsStyles.identityText} >
                                 <p>{`${name} ${lastName}`}</p>
-                                <p>{new Date(createdAt).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                <p className={blogsStyles.longDate}>{new Date(createdAt).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                <p className={blogsStyles.shortDate}>{new Date(createdAt).toLocaleDateString('es-us')}</p>
                             </div>
                         </Flexbox>
                         <Flexbox extraClass={blogsStyles.statsContainer}>

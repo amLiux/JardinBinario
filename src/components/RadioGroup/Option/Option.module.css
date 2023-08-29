@@ -7,7 +7,7 @@
 }
 
 .radio {
-    @apply rounded-full w-1 md:w-4 h-1 md:h-4 transition delay-200 border md:border-4 border-gray-400 bg-white;
+    @apply rounded-full w-1 md:w-4 h-1 md:h-4 transition delay-200 border md:border-4 border-gray-400 bg-white hidden md:block;
 }
 
 .selectedButton {

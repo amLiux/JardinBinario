@@ -3,7 +3,7 @@
 }
 
 .container {
-    @apply items-center ml-auto w-80 p-5 h-5;
+    @apply items-center ml-auto w-64 md:w-80 p-2 md:p-5 h-5 md:justify-around;
 }
 
 .container div button:only-child {
