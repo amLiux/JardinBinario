@@ -99,12 +99,12 @@ export type SignatureInfo = {
 };
 
 export type NavbarOptionsProps = {
-    setShowTags: (e: SyntheticEvent) => void;
-    setPreview: any;
-    storeMarkdown: () => void;
-    setShowSneakpeak: any;
-    read: boolean;
-    editor: boolean;
+    setShowTags?: (e: SyntheticEvent) => void;
+    setPreview?: any;
+    storeMarkdown?: () => void;
+    setShowSneakpeak?: any;
+    read?: boolean;
+    editor?: boolean;
 }
 
 export type Options = {

@@ -8,6 +8,7 @@ import { UserContext } from '@/types/sharedTypes';
 import { useNew } from '@/hooks/useNew';
 import { Footer } from '@/components/Footer';
 import { Sneakpeak } from '@/components/NewBlog/Sneakpeak';
+import { BlogCard } from '@/components/Blogs/BlogCard';
 
 type NewBlogPageProps = {
 	userContext: UserContext;
@@ -50,6 +51,23 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
 							<MarkdownResult preview={preview} />
 						</form>
 				}
+
+				<div className='w-[480px] m-auto mb-20'>
+					<BlogCard
+						preview
+						id="preview"
+						title={formik.values.title}
+						name={userContext.name}
+						lastName={userContext.lastName}
+						avatar={userContext.avatar}
+						createdAt={new Date().toISOString()}
+						blogShares={0}
+						blogViews={0}
+						tags={formik.values.tags}
+						sneakpeak={formik.values.sneakpeak}
+					/>
+				</div>
+
 				<Footer router={router} filePath='new' />
 			</Layout>
 		</EditorContext.Provider>

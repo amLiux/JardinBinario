@@ -1,5 +1,5 @@
 .container {
-    @apply w-screen bg-slate-500 mb-40 md:mb-0;
+    @apply w-screen mb-[-1rem] md:mb-0;
     height: calc(100vh - 93px);
 }
 

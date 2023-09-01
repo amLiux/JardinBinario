@@ -42,7 +42,11 @@ export const Hero = ({ imagesLoading, imagesError, data }: HeroProps) => {
             flexDirection={isMobile ? 'column' : 'row'}
         >
             <HeroHeading isMobile={isMobile} title='Trae tus ideas, cultivaremos la solución.' />
-            <Flexbox extraClass='bg-slate-900 h-[40%] md:h-full w-[100%] md:w-[60%]' justifyContent='center' alignItems={isMobile ? 'start': 'center'}>
+            <Flexbox
+                justifyContent={isMobile ? 'center' : 'space-around'}
+                extraClass='bg-slate-900 h-[70%] md:h-full w-[100%] md:w-[60%]'
+                alignItems={isMobile ? image ? 'center' : 'start' : 'center'}
+            >
                 {
                     imagesLoading
                         ? <Spinner size='big' />

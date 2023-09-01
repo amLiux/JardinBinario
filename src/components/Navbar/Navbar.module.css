@@ -1,0 +1,7 @@
+.navbar {
+	@apply align-middle items-center sticky top-0 p-2 min-h-[93px];
+}
+
+.completion {
+    @apply transition-all ease-in-out absolute bg-purple-500 h-1 w-full bottom-0 left-0;
+}
