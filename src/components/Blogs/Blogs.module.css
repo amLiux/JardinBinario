@@ -52,7 +52,7 @@
 }
 
 .identityText > p:first-child {
-    @apply mb-0 font-bold;
+    @apply mb-0 font-bold text-left;
 }
 
 .identityText > p:last-child {
@@ -80,7 +80,7 @@
 }
 
 .stats > p {
-    @apply m-0 text-xs font-bold mt-0 md:mt-[-14.5px];
+    @apply m-0 text-sm text-slate-200 font-bold mt-0 md:mt-[0];
 }
 
 .tagsContainer {

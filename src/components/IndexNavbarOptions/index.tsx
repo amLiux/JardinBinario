@@ -12,6 +12,8 @@ type Tab = {
 interface IndexNavbarOptionsProps {
     handleClickServices?: (ref: string) => void;
     router?: NextRouter;
+    privacy: boolean;
+    read: boolean;
 }
 
 const tabs: Tab[] = [
@@ -33,7 +35,11 @@ const tabs: Tab[] = [
     },
 ];
 
-export const IndexNavbarOptions = ({ handleClickServices, router }: IndexNavbarOptionsProps) => {
+export const IndexNavbarOptions = ({ handleClickServices, router, privacy, read }: IndexNavbarOptionsProps) => {
+
+    if (privacy || read) {
+        return null;
+    }
 
     return (
         <Flexbox alignItems='center' html='ul' extraClass={indexNavbarOptionsStyles.container}>

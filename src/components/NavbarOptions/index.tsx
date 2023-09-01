@@ -30,7 +30,9 @@ export const NavbarOptions = ({ setShowTags, setPreview, storeMarkdown, setShowS
         editor,
     );
 
-    return shouldRender ? (
+    if (!shouldRender) return null;
+
+    return (
         <Flexbox justifyContent='end' alignItems='center' extraClass={navbarOptionsStyles.container}>
             {
                 options.map((option, key) => {
@@ -49,5 +51,5 @@ export const NavbarOptions = ({ setShowTags, setPreview, storeMarkdown, setShowS
                 })
             }
         </Flexbox>
-    ) : null;
+    );
 };
