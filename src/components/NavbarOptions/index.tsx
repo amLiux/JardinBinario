@@ -30,8 +30,10 @@ export const NavbarOptions = ({ setShowTags, setPreview, storeMarkdown, setShowS
         editor,
     );
 
-    return shouldRender ? (
-        <Flexbox justifyContent='space-around' alignItems='center' extraClass={navbarOptionsStyles.container}>
+    if (!shouldRender) return null;
+
+    return (
+        <Flexbox justifyContent='end' alignItems='center' extraClass={navbarOptionsStyles.container}>
             {
                 options.map((option, key) => {
                     const buttonParams: ButtonProps = option.submitButton
@@ -49,5 +51,5 @@ export const NavbarOptions = ({ setShowTags, setPreview, storeMarkdown, setShowS
                 })
             }
         </Flexbox>
-    ) : null;
+    );
 };

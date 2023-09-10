@@ -11,6 +11,7 @@ import { BlogEntry } from '@/types/sharedTypes';
 import { Footer } from '@/components/Footer';
 import { useRead } from '@/hooks/useRead';
 import { SeoMapping } from '@/seo/index';
+import { Navbar } from '@/components/Navbar';
 
 const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
 	ssr: false,
@@ -76,7 +77,7 @@ export default function ReadBlogPage({ blogEntry }: InferGetStaticPropsType<type
 	return (
 		<>
 			<Layout index dynamicSeo={seo}>
-				<TerminalHeader router={router} read />
+				<Navbar router={router} read />
 				<MarkdownResult blogEntry={blogEntry} context={author} preview />
 				<Footer router={router} filePath='read/[blogId]' />
 			</Layout>

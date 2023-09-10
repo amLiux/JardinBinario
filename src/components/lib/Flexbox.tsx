@@ -39,9 +39,11 @@ export const Flexbox = ({
             start: 'justify-start',
             'space-around': 'justify-around',
             evenly: 'justify-evenly',
+            end: 'justify-end',
         };
         const alignItemsClass: BasicObject = {
-            center: 'items-center'
+            center: 'items-center',
+            start: 'items-start'
         };
         return `flex ${wrap ? 'flex-wrap' : ''} ${flexDirectionClass} ${justifyContentClass[justifyContent]} ${alignItemsClass?.[alignItems]} ${classToAdd}`.trim();
     };
@@ -57,7 +59,8 @@ export const Flexbox = ({
     const types: Record<string, any> = {
         div: <div {...propsToPass}>{children}</div>,
         ul: <ul {...propsToPass}>{children}</ul>,
-        span: <span {...propsToPass}>{children}</span>
+        span: <span {...propsToPass}>{children}</span>,
+        navbar: <nav {...propsToPass}>{children} </nav>
     };
 
     const Element = types[html];

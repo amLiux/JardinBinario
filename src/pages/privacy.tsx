@@ -5,6 +5,7 @@ import { Footer } from '@/components/Footer';
 import { useIndex } from '@/hooks/useIndex';
 import { HeadingBlock } from '@/components/Index/HeadingBlock';
 import { texts } from '@/components/Index/text';
+import { Navbar } from '@/components/Navbar';
 
 export default function PrivacyPage() {
     const {
@@ -16,7 +17,7 @@ export default function PrivacyPage() {
 
     return (
         <Layout index>
-            <TerminalHeader router={router} handleClickServices={handleClickServices} index header='Jardín Binario' />
+            <Navbar privacy router={router} handleClickServices={handleClickServices} />
             <div className={indexStyles.index}>
                 <HeadingBlock
                     subheadingAnimationDirection='Right'

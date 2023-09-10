@@ -60,7 +60,7 @@ export interface UserContext extends Author {
 type formikHelper = FormikHelpers<NewBlogEntryValues>['setFieldValue'];
 
 export type EditorContextType = {
-	setBlogTitle: formikHelper;
+	setBlogTitle: any;
 	title: string;
 
 	setShowSneakpeak: (prop: boolean) => void;
@@ -70,9 +70,9 @@ export type EditorContextType = {
 	visualMarkdown: string;
 
 	tags: string[];
-	setTags: formikHelper;
+	setTags: any;
 
-	setMarkdownText: formikHelper;
+	setMarkdownText: any;
 	markdownText: string;
 	storeMarkdown: () => void;
 };
@@ -99,12 +99,12 @@ export type SignatureInfo = {
 };
 
 export type NavbarOptionsProps = {
-    setShowTags: (e: SyntheticEvent) => void;
-    setPreview: any;
-    storeMarkdown: () => void;
-    setShowSneakpeak: any;
-    read: boolean;
-    editor: boolean;
+    setShowTags?: (e: SyntheticEvent) => void;
+    setPreview?: any;
+    storeMarkdown?: any;
+    setShowSneakpeak?: any;
+    read?: boolean;
+    editor?: boolean;
 }
 
 export type Options = {
@@ -129,3 +129,12 @@ export interface OptionProps {
 export type BasicObject = Record<string, string>;
 
 export type KeyOfBasicObject = keyof BasicObject;
+
+export interface Image {
+	prompt: string;
+	date: string;
+	img: {
+		buffer: string;
+		contentType: string;
+	}
+}

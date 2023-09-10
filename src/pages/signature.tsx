@@ -2,13 +2,13 @@ import React, { ChangeEvent, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { Layout } from '@/components/Layout';
-import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
 import { Footer } from '@/components/Footer';
 import { Input } from '@/components/TicketForm/Input';
 import { Signature } from '@/components/Signature';
 import { SignatureInfo } from '@/types/sharedTypes';
 import { Checkbox } from '@/components/Checkbox';
 import { withAuth } from '@/hoc/withAuth';
+import { Navbar } from '@/components/Navbar';
 
 type SignaturePropMapping = {
     placeholder: string;
@@ -62,7 +62,8 @@ const SignaturePage = () => {
 
     return (
         <Layout index>
-            <TerminalHeader router={router} index header='Jardín Binario' />
+            {/* TODO remove navbar options */}
+            <Navbar router={router} />
             <div style={{ display: 'flex', height: '75vh', marginTop: '4rem', justifyContent: 'space-evenly', alignItems: 'center', width: '100vw' }}>
                 <div>
                     <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '10px', paddingRight: '1.5rem' }}>

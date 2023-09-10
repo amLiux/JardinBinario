@@ -1,0 +1,78 @@
+.container {
+    @apply w-screen mb-[-1rem] md:mb-0;
+    height: calc(100vh - 93px);
+}
+
+.headingContainer {
+    @apply bg-slate-900 h-[60%] md:h-full w-[100%] md:w-[50%] p-4 pl-8 md:pl-36 lg:pl-40;
+}
+
+.heading {
+    @apply text-white font-extrabold leading-tight text-5xl md:text-7xl p-2 md:p-10 md:text-left;
+}
+
+.letter {
+    @apply hover:text-purple-500 transition-colors delay-200 ease-in;
+}
+
+.hovered {
+    @apply text-purple-500;
+}
+
+.activeHover {
+    @apply border-b-2 border-purple-500/40;
+}
+
+.aiPrompt {
+    @apply mx-auto w-[80%] md:w-[55%];
+    width: 90%!important;
+}
+
+.aiPromptLabel {
+    @apply mx-auto text-xl;
+    color: white!important;
+    width: 90%!important;
+}
+
+
+@media (min-width: 640px) {
+	.aiPrompt {
+		width: 55%!important;
+	}
+    .aiPromptLabel {
+        width: 55%!important;
+    }
+}
+
+
+.imageContainer {
+    @apply rounded ring-2 mx-auto transition-all w-[40%] md:w-[100%] ease-in-out bg-gray-100 ring-white hover:ring-2 hover:ring-purple-500;
+}
+
+.imageDescriptionContainer {
+    @apply text-gray-600 bg-gray-100 p-2 mt-0 font-sans;
+}
+
+.description {
+    @apply flex justify-between mb-2 items-center text-base flex-col md:flex-row;
+}
+
+.link {
+    @apply underline ml-1 cursor-pointer text-purple-500 font-extralight font-mono mr-1;
+}
+
+.date {
+    @apply block text-xs mt-3 md:mt-0;
+}
+
+.prompt {
+    @apply italic pl-2;
+}
+
+.line {
+    @apply bg-purple-800 block;
+}
+
+.copy {
+    @apply mt-2 p-2 text-xs;
+}

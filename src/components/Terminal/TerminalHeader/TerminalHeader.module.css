@@ -1,5 +1,5 @@
 .terminalHeader {
-	@apply align-middle items-center;
+	@apply align-middle items-center min-h-[90px] p-4;
 }
 
 .terminalHeader > .terminalHeader__text {

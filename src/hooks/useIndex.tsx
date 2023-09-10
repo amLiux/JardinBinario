@@ -7,11 +7,7 @@ import { NewsletterValues, NewTicketValues } from '@/types/sharedTypes';
 import { useMutation } from '@apollo/client';
 import { querys } from '@/gql/querys';
 import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
-
-
-function timeout(delay: number) {
-    return new Promise(res => setTimeout(res, delay));
-}
+import { timeout } from '@/utils/timeout';
 
 export const useIndex = () => {
 
@@ -19,7 +15,6 @@ export const useIndex = () => {
 
     const [newTicket] = useMutation(querys.NEW_TICKET);
     const [newNewsletter] = useMutation(querys.NEW_NEWSLETTER);
-
     const sharedState = (initialState: boolean) => ({
         contactForm: initialState,
         newsletterForm: initialState

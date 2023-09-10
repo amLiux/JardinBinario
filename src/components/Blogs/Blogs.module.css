@@ -1,9 +1,9 @@
 .container {
-    @apply mt-20;
+    @apply mt-20 items-center;
 }
 
 .blogCard {
-    @apply bg-white rounded-md h-fit min-h-[340px] m-auto md:min-h-[300px] w-11/12 md:w-full p-5 hover:animate-pulse cursor-pointer;
+    @apply bg-white rounded-md h-fit min-h-[380px] m-auto md:min-h-[300px] w-11/12 md:w-full p-5 hover:animate-pulse cursor-pointer;
 }
 
 .blogTitle {
@@ -15,7 +15,7 @@
 }
 
 .sneakpeak {
-    @apply text-xs text-black m-0;
+    @apply text-xs text-black m-0 min-h-[64px];
     margin: 0!important;
     text-align: left!important;
 }
@@ -26,7 +26,7 @@
 }
 
 .identityCard {
-    @apply bg-slate-800 items-center text-sm text-white p-1 rounded-md pr-5 pb-[0.3rem] pl-1 md:pl-2 mt-3 w-fit;
+    @apply bg-slate-800 items-center text-sm text-white md:p-1 rounded-md pr-1 md:pr-5 pb-[0.3rem] pl-1 md:pl-2 md:w-fit mt-6;
 }
 
 .profilePicContainer {
@@ -44,7 +44,7 @@
 }
 
 .identityText {
-    @apply ml-1 pl-5 border-l-2 border-white;
+    @apply ml-1 px-1 md:pl-5 md:border-l-2 border-white;
 }
 
 .identityText > p {
@@ -52,19 +52,27 @@
 }
 
 .identityText > p:first-child {
-    @apply mb-0 font-bold;
+    @apply mb-0 font-bold text-left;
 }
 
 .identityText > p:last-child {
     @apply text-xs italic;
 }
 
+.longDate {
+    @apply hidden md:block;
+}
+
+.shortDate {
+    @apply md:hidden;
+}
+
 .statsContainer {
-    @apply ml-4;
+    @apply ml-2 md:ml-5 mt-6;
 }
 
 .stats {
-    @apply bg-slate-500 p-1 rounded-md text-left md:text-center mt-3;
+    @apply bg-slate-500 p-1 rounded-md text-left md:text-center;
 }
 
 .stats:last-child {
@@ -72,7 +80,7 @@
 }
 
 .stats > p {
-    @apply m-0 text-xs font-bold mt-0 md:mt-[-14.5px];
+    @apply m-0 text-sm text-slate-200 font-bold;
 }
 
 .tagsContainer {

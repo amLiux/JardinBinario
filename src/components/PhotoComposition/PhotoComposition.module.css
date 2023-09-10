@@ -1,5 +1,5 @@
 .container {
-    @apply relative mb-[-3rem] md:mb-[-2rem] lg:mb-[-18rem] m-auto mt-16 md:mt-0 lg:mt-10 p-0 md:p-5 lg:p-10;
+    @apply relative mb-[-3rem] md:mb-[-2rem] lg:mb-[-36.5rem] m-auto mt-16 md:mt-0 lg:mt-10 p-0 md:p-5 lg:p-10;
 }
 .composition {
 	@apply w-full relative;
@@ -54,8 +54,8 @@
 
 @media (min-width: 1024px) {
 	.compositionPhoto--p2 {
-		left: -25rem!important;
-		top: 10rem!important;
+		left: 12rem!important;
+		top: -29rem!important;
 	}
 }
 
@@ -73,15 +73,15 @@
 
 @media (min-width: 1024px) {
 	.compositionPhoto--p3 {
-		left: 36.5rem!important;
-		top: -31rem!important;
+		left: 35.5rem!important;
+		top: -65rem!important;
 	}
 }
 
 .compositionPhoto:hover {
 	transform: scale(1.05) translateY(-0.5rem);
 	box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
-	z-index: 20;
+	z-index: 80!important;
 }
 
 .composition:hover .compositionPhoto:not(:hover) {
