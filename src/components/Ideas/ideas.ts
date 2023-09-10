@@ -1,10 +1,10 @@
 import { StaticImageData } from 'next/image';
-import pythonLogo from '@/assets/logos/pythonLogo.png';
-import reactLogo from '@/assets/logos/reactLogo.png';
-import nodeLogo from '@/assets/logos/nodeLogo.png';
-import gqlLogo from '@/assets/logos/graphqlLogo.png';
-import slackLogo from '@/assets/logos/slackLogo.png';
-import trelloLogo from '@/assets/logos/trelloLogo.png';
+import pythonLogo from '@/assets/logos/pythonLogo.svg';
+import reactLogo from '@/assets/logos/reactLogo.svg';
+import nodeLogo from '@/assets/logos/nodeLogo.svg';
+import gqlLogo from '@/assets/logos/graphqlLogo.svg';
+import slackLogo from '@/assets/logos/slackLogo.svg';
+import trelloLogo from '@/assets/logos/trelloLogo.svg';
 
 type Stack = {
     name: string;
