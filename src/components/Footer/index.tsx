@@ -1,9 +1,9 @@
 import Image, { StaticImageData } from 'next/image';
 import { NextRouter } from 'next/router';
 import logo from '@/assets/littleLogo.png';
-import gitHubLogo from '@/assets/logos/gitHubLogo.png';
-import youtubeLogo from '@/assets/logos/youtubeLogo.png';
-import linkedinLogo from '@/assets/logos/linkedinLogo.png';
+import gitHubLogo from '@/assets/logos/gitHubLogo.svg';
+import youtubeLogo from '@/assets/logos/youtubeLogo.svg';
+import linkedinLogo from '@/assets/logos/linkedinLogo.svg';
 import edit from '@/assets/edit.png';
 
 import footerStyles from './Footer.module.css';
@@ -34,12 +34,6 @@ const socialMedia: SocialMediaEntry[] = [
 		alt: 'youtube logo',
 		displayName: 'YouTube',
 	},
-	// {
-	// 	url: 'https://behance.com/jardinbinario',
-	// 	logo: behanceLogo,
-	// 	alt: 'behance logo',
-	// 	displayName: 'Behance',
-	// },
 	{
 		url: 'https://www.linkedin.com/company/jard%C3%ADn-binario/',
 		logo: linkedinLogo,
@@ -69,7 +63,7 @@ export const Footer = ({ router, filePath }: FooterProps) => {
 				{
 					socialMedia.map(({ alt, displayName, url, logo }, idx) =>
 						<li key={idx}>
-							<a href={url} target='blank'>
+							<a href={url} className='min-w-[50px] text-center' target='blank'>
 								{displayName}
 							</a>
 							<div className={footerStyles.socialMediaLogoContainer}>

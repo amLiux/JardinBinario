@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Fragment } from 'react';
 
 import { CustomSwiper } from '@/components/Swiper';
@@ -16,20 +15,18 @@ interface BlogsProps {
 const getSlidesToRender = (blogs: BlogEntry[]) => (
     blogs.map(({ title, author: { name, lastName, avatar }, createdAt, views: blogViews, tags, id, sneakpeak, shares: blogShares }) =>
         <Fragment key={id}>
-            <Link href={`/read/${id}`} passHref scroll>
-                <BlogCard
-                    id={id}
-                    title={title}
-                    name={name}
-                    lastName={lastName}
-                    avatar={avatar}
-                    createdAt={createdAt}
-                    blogShares={blogShares}
-                    blogViews={blogViews}
-                    tags={tags}
-                    sneakpeak={sneakpeak}
-                />
-            </Link>
+            <BlogCard
+                id={id}
+                title={title}
+                name={name}
+                lastName={lastName}
+                avatar={avatar}
+                createdAt={createdAt}
+                blogShares={blogShares}
+                blogViews={blogViews}
+                tags={tags}
+                sneakpeak={sneakpeak}
+            />
         </Fragment>
     )
 );

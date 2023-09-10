@@ -1,12 +1,13 @@
 import { NextRouter } from 'next/router';
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { Flexbox } from '../lib/Flexbox';
-import { NavbarOptions } from '@/components/NavbarOptions';
 
 import { IndexNavbarOptions } from '../IndexNavbarOptions';
 import navbarStyles from './Navbar.module.css';
 import { CompletionBar } from './CompletionBar';
 import { Logo } from '../Logo';
+import BurgerMenu from './BurguerMenu';
+import { useMobile } from '@/hooks/useMobile';
 
 type NavbarProps = {
     handleClickServices?: (ref: string) => void;
@@ -18,6 +19,7 @@ type NavbarProps = {
 
 export const Navbar = ({ handleClickServices, router, read = false, privacy = false, renderShare = true }: NavbarProps) => {
 
+    const {isMobile} = useMobile();
     useEffect(() => {
         window.addEventListener('scroll', handleScroll as any);
         return () => {
@@ -49,10 +51,10 @@ export const Navbar = ({ handleClickServices, router, read = false, privacy = fa
             <Logo router={router} />
 
             <IndexNavbarOptions read={read} privacy={privacy} router={router} handleClickServices={handleClickServices} />
-            <NavbarOptions read={read && renderShare} editor={!renderShare} />
             
             <CompletionBar read={read} completion={completion} />
 
+            <BurgerMenu privacy={privacy} isMobile={isMobile} />
         </Flexbox>
     );
 };

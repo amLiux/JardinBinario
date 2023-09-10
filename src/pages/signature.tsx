@@ -2,7 +2,6 @@ import React, { ChangeEvent, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { Layout } from '@/components/Layout';
-import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
 import { Footer } from '@/components/Footer';
 import { Input } from '@/components/TicketForm/Input';
 import { Signature } from '@/components/Signature';
@@ -63,6 +62,7 @@ const SignaturePage = () => {
 
     return (
         <Layout index>
+            {/* TODO remove navbar options */}
             <Navbar router={router} />
             <div style={{ display: 'flex', height: '75vh', marginTop: '4rem', justifyContent: 'space-evenly', alignItems: 'center', width: '100vw' }}>
                 <div>

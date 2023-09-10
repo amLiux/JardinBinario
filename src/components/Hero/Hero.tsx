@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Flexbox } from '../lib/Flexbox';
 import heroStyles from './Hero.module.css';
 import { HeroHeading } from './HeroHeading';
@@ -8,6 +8,7 @@ import { ApolloError } from '@apollo/client';
 import { AiImageSwiper } from './AiImageSwiper';
 import { AiImagePrompt } from './AiImagePrompt';
 import { Spinner } from '../Spinner';
+import { useMobile } from '@/hooks/useMobile';
 
 interface HeroProps {
     imagesLoading: boolean;
@@ -17,23 +18,10 @@ interface HeroProps {
     };
 }
 
-export const Hero = ({ imagesLoading, imagesError, data }: HeroProps) => {
+export const Hero = ({ imagesLoading, data }: HeroProps) => {
     const { submitting, formik, image } = useHero();
     const images = data?.getAllImagesOfDay;
-        // move this to context maybe?
-    const [width, setWidth] = useState<number>(window.innerWidth);
-
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
-    }
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange);
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
-        };
-    }, []);
-
-    const isMobile = width <= 768;
+    const { isMobile } = useMobile();
     return (
         <Flexbox
             alignItems='center'

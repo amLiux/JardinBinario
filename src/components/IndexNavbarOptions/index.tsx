@@ -12,6 +12,7 @@ type Tab = {
 interface IndexNavbarOptionsProps {
     handleClickServices?: (ref: string) => void;
     router?: NextRouter;
+    burguer?: boolean;
     privacy: boolean;
     read: boolean;
 }
@@ -35,14 +36,16 @@ const tabs: Tab[] = [
     },
 ];
 
-export const IndexNavbarOptions = ({ handleClickServices, router, privacy, read }: IndexNavbarOptionsProps) => {
+export const IndexNavbarOptions = ({ handleClickServices, router, privacy, read, burguer }: IndexNavbarOptionsProps) => {
 
     if (privacy || read) {
         return null;
     }
 
+    console.log('I get here');
+
     return (
-        <Flexbox alignItems='center' html='ul' extraClass={indexNavbarOptionsStyles.container}>
+        <Flexbox alignItems='center' html='ul' flexDirection={burguer ? 'column' : 'row'} extraClass={indexNavbarOptionsStyles.container}>
             {
                 tabs.map(({ text, link, route, ctaButton }, idx) =>
                     <li key={idx} className='mx-5'>
