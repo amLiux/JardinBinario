@@ -52,8 +52,8 @@ export const BlogCard = ({
                         </div>
                         <div className={blogsStyles.identityText} >
                             <p>{`${name} ${lastName}`}</p>
-                            <p className={blogsStyles.longDate}>{new Date(createdAt).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                            <p className={blogsStyles.shortDate}>{new Date(createdAt).toLocaleDateString('es-us')}</p>
+                            <p className={blogsStyles.longDate}>{new Date(Number(createdAt)).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                            <p className={blogsStyles.shortDate}>{new Date(Number(createdAt)).toLocaleDateString('es-us')}</p>
                         </div>
                     </Flexbox>
                     <Flexbox justifyContent='center' alignItems='center' extraClass={blogsStyles.statsContainer}>
