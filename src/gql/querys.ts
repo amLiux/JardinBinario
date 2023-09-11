@@ -60,6 +60,7 @@ export const querys = {
                 markdown,
                 createdAt,
                 tags,
+                sneakpeak,
                 author {
                     name
                     lastName
