@@ -42,8 +42,6 @@ export const IndexNavbarOptions = ({ handleClickServices, router, privacy, read,
         return null;
     }
 
-    console.log('I get here');
-
     return (
         <Flexbox alignItems='center' html='ul' flexDirection={burguer ? 'column' : 'row'} extraClass={indexNavbarOptionsStyles.container}>
             {

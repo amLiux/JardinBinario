@@ -19,18 +19,16 @@ export const Layout = ({ children, style404, dynamicSeo = undefined }: LayoutPro
 
 	return (
 		<>
-			<Head>
-				<title>{seo?.title}</title>
-				<meta name="description" content={seo?.description} />
-				<meta property="og:title" content={seo?.title} />
-				<meta property="og:description" content={seo?.description} />
-				{/* <meta property="og:image" content={page?.data?.image} /> */}
-				<meta property="og:type" content="website" />
-				<meta
-					property="og:url"
-					content={'https://jardinbinario.com' + asPath}
-				/>
-			</Head>
+			<title>{seo?.title}</title>
+			<meta name="description" content={seo?.description} />
+			<meta property="og:title" content={seo?.title} />
+			<meta property="og:description" content={seo?.description} />
+			{/* <meta property="og:image" content={page?.data?.image} /> */}
+			<meta property="og:type" content="website" />
+			<meta
+				property="og:url"
+				content={'https://jardinbinario.com' + asPath}
+			/>
 			<Flexbox
 				extraClass={`
 					min-h-screen
