@@ -18,7 +18,7 @@ export const useMarkdownResult = (preview:boolean, context?:UserContext, blogEnt
             //TODO this is messed up, it works but it's ugly, debug this later
             return {
                 name: ` <div className='${markdownResultsStyles.identityText}'> [${fullName}](mailto:${email})`,
-                date: ` <p> ${new Date(createdAt ? createdAt : new Date()).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })} </p> </div> </blockquote>`,
+                date: ` <p> ${new Date(createdAt ? Number(createdAt) : new Date()).toLocaleDateString('es-us', { year: 'numeric', month: 'long', day: 'numeric' })} </p> </div> </blockquote>`,
                 avatar: `<blockquote className='${markdownResultsStyles.identityContainer}'> ![${fullName} profile pic](${avatar})`,
             };
         };
