@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		variables: { blogId },
 	});
 
-	const { title, markdown, createdAt, author, tags, id }: BlogEntry = data.getSpecificBlogEntry;
+	const { title, markdown, createdAt, author, tags, id, sneakpeak }: BlogEntry = data.getSpecificBlogEntry;
 
 	return {
 		props: {
@@ -53,7 +53,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 				markdown,
 				createdAt,
 				author,
-				tags
+				tags,
+				sneakpeak,
 			},
 		}
 	};
