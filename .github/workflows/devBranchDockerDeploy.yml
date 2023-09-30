@@ -23,6 +23,9 @@ jobs:
            lowercase_branch_name="${branch_name,,}"
            underscored_branch_name="${lowercase_branch_name//-/_}"
            echo "processed_branch=$underscored_branch_name" >> $GITHUB_OUTPUT
+       - name: Configure binfmt_misc
+         run: |
+          docker run --privileged --rm tonistiigi/binfmt --install all
        - name: BTC (build to cache)
          uses: docker/setup-buildx-action@v1
        - name: Login to Docker Hub
