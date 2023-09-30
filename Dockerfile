@@ -25,7 +25,7 @@ COPY package.json package.json
 COPY package-lock.json package-lock.json
 
 # installing via the recommended way for Docker (not npm install)
-RUN npm ci --only=production
+RUN npm ci
 
 # copying our source code
 COPY . .
