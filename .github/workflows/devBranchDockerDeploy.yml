@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
        - name: Set dynamic branch Docker tag
          id: set_docker_tag
-         run: echo "DOCKER_TAG=marceliux/jardinbinario:dev:${{ steps.process_branch.outputs.processed_branch }}" >> $GITHUB_ENV
+         run: echo "DOCKER_TAG=marceliux/jardinbinario:${{ steps.process_branch.outputs.processed_branch }}" >> $GITHUB_ENV
        - name: Build dev branch tag and push to Docker Hub
          uses: docker/build-push-action@v3
          with:
