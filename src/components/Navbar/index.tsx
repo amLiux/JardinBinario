@@ -8,6 +8,7 @@ import { CompletionBar } from './CompletionBar';
 import { Logo } from '../Logo';
 import BurgerMenu from './BurguerMenu';
 import { useMobile } from '@/hooks/useMobile';
+import { NavbarOptions } from '../NavbarOptions';
 
 type NavbarProps = {
     handleClickServices?: (ref: string) => void;
@@ -51,7 +52,7 @@ export const Navbar = ({ handleClickServices, router, read = false, privacy = fa
             <Logo router={router} />
 
             <IndexNavbarOptions read={read} privacy={privacy} router={router} handleClickServices={handleClickServices} />
-            
+            <NavbarOptions read={read} />
             <CompletionBar read={read} completion={completion} />
 
             <BurgerMenu privacy={privacy} isMobile={isMobile} />

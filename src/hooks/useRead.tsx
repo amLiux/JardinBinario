@@ -8,7 +8,7 @@ export const useRead = (
     blogEntry: BlogEntry,
 ) => {
 
-    const { author, title, sneakpeak, id } = blogEntry;
+    const { author, title, sneakpeak, _id } = blogEntry;
 	const router = useRouter();
 	const { query } = router;
 
@@ -28,7 +28,7 @@ export const useRead = (
                 mutation: querys.UPDATE_BLOG_METRICS,
                 variables: {
                     blogMetricsInput: {
-                        id,
+                        _id,
                         ...metrics,
                     }
                 }
