@@ -101,6 +101,7 @@ export const querys = {
                 shares,
                 tags,
                 sneakpeak,
+                deleted
             }
         }
     `,
@@ -121,6 +122,7 @@ export const querys = {
                 shares,
                 tags,
                 sneakpeak,
+                deleted
             }
         }
     `,

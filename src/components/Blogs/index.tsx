@@ -13,7 +13,7 @@ interface BlogsProps {
 
 
 const getSlidesToRender = (blogs: BlogEntry[]) => (
-    blogs.filter(({deleted}) => deleted).map(({ title, author: { name, lastName, avatar }, createdAt, views: blogViews, tags, _id, sneakpeak, shares: blogShares }) =>
+    blogs.map(({ title, author: { name, lastName, avatar }, createdAt, views: blogViews, tags, _id, sneakpeak, shares: blogShares }) =>
         <Fragment key={_id}>
             <BlogCard
                 id={_id}

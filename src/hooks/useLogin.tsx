@@ -17,6 +17,7 @@ export const useLogin = () => {
 
     const { signIn } = useAuth();
     const router = useRouter();
+    const { query: { redirectTo } } = router;
 
     const formik = useFormik({
         initialValues,
@@ -28,7 +29,7 @@ export const useLogin = () => {
         onSubmit: async (values) => {
             try {
                 await signIn(values);
-                router.push('/new');
+                router.push(redirectTo ? String(redirectTo) : '/new');
             } catch (err) {
                 console.error(err);
             }

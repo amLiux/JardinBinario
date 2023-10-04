@@ -26,7 +26,7 @@ export const BlogTable = ({ blogs, loading, router, refetch }: BlogTableProps) =
 
     if (loading) return <div className='h-[84vh]' />;
     const headers: string[] = ['Nombre', 'Autor', 'Tags', 'Sneakpeak', 'Acciones'];
-    console.log(blogs);
+
     return (
         <div className={blogStyles.tableContainer}>
             <table className={blogStyles.blogTable}>
