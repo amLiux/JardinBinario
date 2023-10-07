@@ -9,7 +9,6 @@ import { LoginFormValues } from '@/types/sharedTypes';
 import { useLogin } from '@/hooks/useLogin';
 
 export default function LoginPage() {
-
 	const {
 		disableButton,
 		formik,

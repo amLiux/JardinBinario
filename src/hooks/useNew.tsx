@@ -1,4 +1,4 @@
-import { useMutation } from '@apollo/client';
+import { useMutation, useLazyQuery } from '@apollo/client';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -11,18 +11,22 @@ import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
 
 
 export const useNew = () => {
+    const router = useRouter();
+    const { query: { blogId } } = router;
+    const [getBlogToUpdate, { data }] = useLazyQuery(querys.GET_BLOG_BY_ID);
     const [newBlogEntry] = useMutation(querys.NEW_BLOG_ENTRY);
+    const [updateBlogEntry] = useMutation(querys.UPDATE_BLOG);
     const [visualMarkdown, setVisualMarkdown] = useState<string>('');
     const [preview, setPreview] = useState<boolean>(false);
     const [showSneakpeak, setShowSneakpeak] = useState<boolean>(false);
+    const blogToUpdate = data?.getSpecificBlogEntry || undefined;
     const initialValues: NewBlogEntryValues = {
-        title: '',
-        markdown: '',
-        sneakpeak: '',
-        tags: [],
+        title: blogToUpdate ? blogToUpdate.title : '',
+        markdown: blogToUpdate ? blogToUpdate.markdown : '',
+        sneakpeak: blogToUpdate ? blogToUpdate.sneakpeak : '',
+        tags: blogToUpdate ? blogToUpdate.tags : [],
     };
 
-    const router = useRouter();
     const { setMessage } = useAuth();
 
     const formik = useFormik({
@@ -32,14 +36,23 @@ export const useNew = () => {
             markdown: Yup.string().required(generateRequiredMessage('markdown content')),
             tags: Yup.array().of(Yup.string()),
             sneakpeak: Yup.string().required(generateRequiredMessage('sneakpeak'))
-            // .test('len', 'Must be exactly 5 characters', val => val?.toString().length === 180)
+                .min(190, 'It must contain at least 190 characters')
+                .max(310, 'It must contain less than 310 characters')
         }),
         enableReinitialize: true,
         onSubmit: async (values) => {
             // we do this because if our 15 difference cap was not hit in the Editor we need to save the visual data
             values.markdown = visualMarkdown;
             try {
-                const response = await newBlogEntry({
+                const handler = blogToUpdate ? updateBlogEntry : newBlogEntry;
+                const prop = blogToUpdate ? 'updateBlogEntry' : 'newBlogEntry';
+                const action = blogToUpdate ? 'updated' : 'created';
+
+                if (blogId) values._id = Array.isArray(blogId) ? blogId[0] : blogId;
+
+                console.log(values);
+
+                const response = await handler({
                     variables: {
                         blogInput: {
                             ...values,
@@ -47,14 +60,14 @@ export const useNew = () => {
                     }
                 });
 
-                if (response.data.newBlogEntry) {
-                    const { title, id } = response.data.newBlogEntry;
+                if (response.data[prop]) {
+                    const { title, _id } = response.data[prop];
                     setMessage({
-                        msg: `The blog ${title} was created succesfuly`,
+                        msg: `The blog ${title} was ${action} succesfuly`,
                         error: false
                     });
 
-                    setTimeout(() => router.push(`/read/${id}`), 2000);
+                    setTimeout(() => router.push(`/read/${_id}`), 2000);
                 }
             } catch (err: any) {
                 // do we set error here 
@@ -81,6 +94,14 @@ export const useNew = () => {
     };
 
     useEffect(() => {
+        if (blogId) {
+            getBlogToUpdate({
+                variables: {
+                    blogId,
+                }
+            });
+        }
+
         if (window) {
             const storedMarkdown = window.sessionStorage.getItem('markdown') || '';
             if (storedMarkdown.trim().length > 0) {
@@ -88,8 +109,12 @@ export const useNew = () => {
                 formik.setFieldValue('markdown', storedMarkdown);
             }
         }
+
+        if (blogToUpdate) {
+            setVisualMarkdown(blogToUpdate.markdown);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [blogToUpdate]);
 
     return {
         contextValue,
