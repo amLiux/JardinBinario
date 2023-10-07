@@ -22,7 +22,7 @@ type Author = {
 };
 
 export type BlogEntry = {
-	id: string;
+	_id: string;
 	tags: string[];
 	title: string;
 	markdown: string;
@@ -31,6 +31,7 @@ export type BlogEntry = {
 	views: number;
 	shares: number;
 	sneakpeak: string;
+	deleted?: boolean;
 };
 
 export type NewBlogEntryValues = {
@@ -38,6 +39,7 @@ export type NewBlogEntryValues = {
 	title: string;
 	markdown: string;
 	sneakpeak: string;
+	_id?: string;
 };
 
 export type NewTicketValues = {
