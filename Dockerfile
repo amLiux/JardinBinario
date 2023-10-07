@@ -37,4 +37,6 @@ EXPOSE 3000
 # RUN npm run build
 
 # running our code
-CMD ["npm", "run", "dev"]
+RUN npm run build
+
+CMD ["npm", "start"]
