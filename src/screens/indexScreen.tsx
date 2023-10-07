@@ -59,6 +59,15 @@ export const IndexScreen = ({
                     block={texts.introBlock}
                 />
                 <PhotoComposition />
+                <Newsletter
+                    handleSubmit={formikNewsletter.handleSubmit}
+                    handleChange={formikNewsletter.handleChange}
+                    submitting={formikNewsletter.isSubmitting}
+                    values={formikNewsletter.values}
+                    errors={formikNewsletter.errors}
+                    disabledButton={disableButton.newsletterForm}
+                    submitted={submitted.newsletterForm}
+                />
                 <HeadingBlock
                     headingAnimationDirection='Right'
                     subheadingAnimationDirection='Left'
@@ -83,15 +92,6 @@ export const IndexScreen = ({
                     submitted={submitted.contactForm}
                     message={message}
                     refForForm={refForm}
-                />
-                <Newsletter
-                    handleSubmit={formikNewsletter.handleSubmit}
-                    handleChange={formikNewsletter.handleChange}
-                    submitting={formikNewsletter.isSubmitting}
-                    values={formikNewsletter.values}
-                    errors={formikNewsletter.errors}
-                    disabledButton={disableButton.newsletterForm}
-                    submitted={submitted.newsletterForm}
                 />
                 <Blogs recentBlogs={recentEntries} mostViewedBlogs={mostViewedEntries} />
             </div>
