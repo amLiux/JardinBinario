@@ -25,7 +25,8 @@ COPY package.json package.json
 COPY package-lock.json package-lock.json
 
 # installing via the recommended way for Docker (not npm install)
-RUN npm ci --only=production --legacy-peer-deps && npm cache clean --force
+RUN npm ci
+
 
 # copying our source code
 COPY . .
@@ -37,4 +38,6 @@ EXPOSE 3000
 # RUN npm run build
 
 # running our code
-CMD ["npm", "run", "dev"]
+RUN npm run build
+
+CMD ["npm", "start"]
