@@ -25,48 +25,6 @@
     text-align: left!important;
 }
 
-.identityCard {
-    @apply bg-slate-800 items-center text-sm text-white md:p-1 rounded-md pr-1 md:pr-5 pb-[0.3rem] pl-1 md:pl-2 md:w-fit mt-6;
-}
-
-.profilePicContainer {
-    @apply overflow-hidden rounded-md relative mx-1 md:mx-0;
-    width: 40px;
-    height: 40px;
-    margin-right: 5px;
-    position: relative;
-}
-
-@media (max-width: 640px) {
-    .profilePicContainer {
-        width: 50px!important;
-	}
-}
-
-.identityText {
-    @apply ml-1 px-1 md:pl-5 md:border-l-2 border-white;
-}
-
-.identityText > p {
-    margin: 0!important;
-}
-
-.identityText > p:first-child {
-    @apply mb-0 font-bold text-left;
-}
-
-.identityText > p:last-child {
-    @apply text-xs italic;
-}
-
-.longDate {
-    @apply hidden md:block;
-}
-
-.shortDate {
-    @apply md:hidden;
-}
-
 .statsContainer {
     @apply ml-2 md:ml-5 mt-6;
 }
@@ -83,10 +41,26 @@
     @apply m-0 text-sm text-slate-200 font-bold;
 }
 
-.tagsContainer {
-    @apply pt-2;
+.tableContainer {
+    @apply w-[80vw] text-black mx-auto my-8 h-[80vh];
 }
 
-.tag {
-    @apply inline-block bg-gray-200 rounded-md px-2 md:px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mr-1 md:mr-2 mb-2 text-center;
+.blogTable {
+    @apply min-w-full divide-y divide-slate-800;
+}
+
+.tableHeader {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider;
+}
+
+.tableBody {
+    @apply bg-white divide-y divide-gray-200;
+}
+
+.tableRow {
+    @apply px-6 py-4 whitespace-nowrap;
+}
+
+.tableRowWrap {
+    @apply px-6 py-4 whitespace-normal;
 }

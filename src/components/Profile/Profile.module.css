@@ -1,0 +1,41 @@
+.longDate {
+    @apply hidden md:block;
+}
+
+.shortDate {
+    @apply md:hidden;
+}
+
+.identityCard {
+    @apply bg-slate-800 items-center text-sm text-white md:p-1 rounded-md pr-1 md:pr-5 pb-[0.3rem] pl-1 md:pl-2 md:w-fit mt-6;
+}
+
+.profilePicContainer {
+    @apply overflow-hidden rounded-md relative mx-1 md:mx-0;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    position: relative;
+}
+
+@media (max-width: 640px) {
+    .profilePicContainer {
+        width: 50px!important;
+	}
+}
+
+.identityText {
+    @apply ml-1 px-1 md:pl-5 md:border-l-2 border-white;
+}
+
+.identityText > p {
+    margin: 0!important;
+}
+
+.identityText > p:first-child {
+    @apply mb-0 font-bold text-left;
+}
+
+.identityText > p:last-child {
+    @apply text-xs italic;
+}
