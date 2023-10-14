@@ -43,7 +43,7 @@ jobs:
   
         - name: Set dynamic branch Docker tag
           id: set_docker_tag
-          run: echo "DOCKER_TAG=marceliux/jardinbinario:${{ steps.process_branch.outputs.processed_branch }}.rpi" >> $GITHUB_ENV
+          run: echo "DOCKER_TAG=marceliux/jardinbinario:${{ steps.process_branch.outputs.processed_branch }}_rpi" >> $GITHUB_ENV
   
         - name: Build and Push Docker Image
           uses: docker/build-push-action@v3
