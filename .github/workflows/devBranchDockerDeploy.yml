@@ -43,7 +43,7 @@ jobs:
          uses: docker/build-push-action@v3
          with:
           push: true
-          platforms: linux/amd64,linux/arm/v7 
+          platforms: linux/amd64
           tags: ${{ env.DOCKER_TAG }}
           build-args: |
               "NEXT_PUBLIC_BACKEND_URL=${{ secrets.NEXT_PUBLIC_BACKEND_URL }}"
