@@ -14,7 +14,6 @@ import { Navbar } from '@/components/Navbar';
 import { DynamicSeo } from '@/components/DynamicSeo';
 
 const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
-	ssr: false,
 	loading: ({ isLoading }) => isLoading ? <div className='min-h-screen'></div> : null,
 });
 interface IParams extends ParsedUrlQuery {
