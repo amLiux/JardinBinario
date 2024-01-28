@@ -1,6 +1,4 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import type { MarkdownRestulProps } from '@/components/NewBlog/MarkdownResult';
-import dynamic from 'next/dynamic';
 import { ParsedUrlQuery } from 'querystring';
 
 import { Layout } from '@/components/Layout';
@@ -9,7 +7,6 @@ import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { BlogEntry } from '@/types/sharedTypes';
 import { Footer } from '@/components/Footer';
 import { useRead } from '@/hooks/useRead';
-import { SeoMapping } from '@/seo/index';
 import { Navbar } from '@/components/Navbar';
 import { MarkdownResult } from '@/components/NewBlog/MarkdownResult';
 
@@ -64,15 +61,13 @@ export default function ReadBlogPage({ blogEntry }: InferGetStaticPropsType<type
 		author,
 	} = useRead(blogEntry);
 
-	const seo:SeoMapping = {
-		[router.asPath]: {
-			title,
-			description: sneakpeak,
-		}
+	const seo = {
+		title,
+		description: sneakpeak,
 	};
 	
 	return (
-		<Layout index customSeo={seo[router.asPath]}>
+		<Layout index customSeo={seo}>
 			<Navbar router={router} read />
 			<MarkdownResult blogEntry={blogEntry} context={author} preview />
 			<Footer router={router} filePath='read/[blogId]' />
