@@ -7,12 +7,11 @@ import { useEffect } from 'react';
 export const useRead = (
     blogEntry: BlogEntry,
 ) => {
+    const { _id } = blogEntry || {};
+    const router = useRouter();
+    const { query } = router;
 
-    const { author, title, sneakpeak, _id } = blogEntry;
-	const router = useRouter();
-	const { query } = router;
-
-	useEffect(() => {
+    useEffect(() => {
         const updateBlog = async () => {
             const client = createUnauthorizedApolloClient();
             let metrics = {
@@ -20,7 +19,7 @@ export const useRead = (
                 shares: false,
             };
 
-            if(query?.shared) {
+            if (query?.shared) {
                 metrics.shares = true;
             }
 
@@ -35,13 +34,10 @@ export const useRead = (
             });
         };
         updateBlog().catch((_err) => console.error);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return {
-        author,
-        title,
-        sneakpeak,
         router
     };
 };

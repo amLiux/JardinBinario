@@ -17,6 +17,7 @@ function JardinBinario({ Component, pageProps, router }: AppProps) {
 					<CookieBanner />
 				</Transition>
 			) :
+				//TODO add different transition maybe?
 				<>
 					<Component {...pageProps} />
 					<CookieBanner />

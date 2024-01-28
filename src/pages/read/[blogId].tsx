@@ -60,18 +60,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function ReadBlogPage({ blogEntry }: InferGetStaticPropsType<typeof getStaticProps>) {
-	const {
-		title,
-		sneakpeak,
-		router,
-		author,
-	} = useRead(blogEntry);
+
+	const { router } = useRead(blogEntry);
+
+	if (!blogEntry) {
+		return null;
+	}
+
+	const { title, author, sneakpeak } = blogEntry;
 
 	const seo = {
 		title,
 		description: sneakpeak,
 	};
-	
+
 	return (
 		<Layout index customSeo={seo}>
 			<Navbar router={router} read />
