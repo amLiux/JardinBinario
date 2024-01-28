@@ -4,13 +4,25 @@ import '../styles/globals.css';
 import { Transition } from '@/components/Transition';
 import CookieBanner from '@/components/CookieBanner';
 
-function JardinBinario({ Component, pageProps }: AppProps) {
+function JardinBinario({ Component, pageProps, router }: AppProps) {
+
+	const isReadPage = router.pathname.startsWith('/read');
+
 
 	return <AuthProvider>
-		<Transition>
-			<Component {...pageProps} />
-			<CookieBanner />
-		</Transition>
+		<>
+			{!isReadPage ? (
+				<Transition>
+					<Component {...pageProps} />
+					<CookieBanner />
+				</Transition>
+			) :
+				<>
+					<Component {...pageProps} />
+					<CookieBanner />
+				</>
+			}
+		</>
 	</AuthProvider>;
 };
 
