@@ -11,11 +11,8 @@ import { Footer } from '@/components/Footer';
 import { useRead } from '@/hooks/useRead';
 import { SeoMapping } from '@/seo/index';
 import { Navbar } from '@/components/Navbar';
+import { MarkdownResult } from '@/components/NewBlog/MarkdownResult';
 
-const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
-	ssr: true,
-	loading: ({ isLoading }) => isLoading ? <div className='min-h-screen'></div> : null,
-});
 interface IParams extends ParsedUrlQuery {
 	blogId: string
 }
