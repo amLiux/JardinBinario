@@ -11,6 +11,7 @@ import { Footer } from '@/components/Footer';
 import { useRead } from '@/hooks/useRead';
 import { Navbar } from '@/components/Navbar';
 import { MarkdownRestulProps } from '@/components/NewBlog/MarkdownResult';
+
 const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
 	ssr: true,
 	loading: ({ isLoading }) => isLoading ? <div className='min-h-screen'></div> : null,
@@ -60,18 +61,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function ReadBlogPage({ blogEntry }: InferGetStaticPropsType<typeof getStaticProps>) {
-	const {
-		title,
-		sneakpeak,
-		router,
-		author,
-	} = useRead(blogEntry);
+
+	const { router } = useRead(blogEntry);
+
+	if (!blogEntry) {
+		return null;
+	}
+
+	const { title, author, sneakpeak } = blogEntry;
 
 	const seo = {
 		title,
 		description: sneakpeak,
 	};
-	
+
 	return (
 		<Layout index customSeo={seo}>
 			<Navbar router={router} read />
