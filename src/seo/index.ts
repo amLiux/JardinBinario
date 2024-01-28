@@ -4,6 +4,8 @@ export interface SeoMapping {
     [key: string] : {
         title:string;
         description:string;
+        author?: string;
+        createdAt?: string;
     }
 };
 

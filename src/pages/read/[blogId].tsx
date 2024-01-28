@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import type { MarkdownRestulProps } from '@/components/NewBlog/MarkdownResult';
-import dynamic from 'next/dynamic';
 import { ParsedUrlQuery } from 'querystring';
+import dynamic from 'next/dynamic';
+
 
 import { Layout } from '@/components/Layout';
 import { querys } from '@/gql/querys';
@@ -9,14 +9,13 @@ import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { BlogEntry } from '@/types/sharedTypes';
 import { Footer } from '@/components/Footer';
 import { useRead } from '@/hooks/useRead';
-import { SeoMapping } from '@/seo/index';
 import { Navbar } from '@/components/Navbar';
-import { DynamicSeo } from '@/components/DynamicSeo';
-
+import { MarkdownRestulProps } from '@/components/NewBlog/MarkdownResult';
 const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
-	ssr: false,
+	ssr: true,
 	loading: ({ isLoading }) => isLoading ? <div className='min-h-screen'></div> : null,
 });
+
 interface IParams extends ParsedUrlQuery {
 	blogId: string
 }
@@ -61,29 +60,28 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function ReadBlogPage({ blogEntry }: InferGetStaticPropsType<typeof getStaticProps>) {
-	const {
-		title,
-		sneakpeak,
-		router,
-		author,
-	} = useRead(blogEntry);
 
-	const seo:SeoMapping = {
-		[router.asPath]: {
-			title,
-			description: sneakpeak,
-		}
+	const { router } = useRead(blogEntry);
+
+	if (!blogEntry) {
+		return null;
+	}
+
+	const { title, author, sneakpeak, createdAt } = blogEntry;
+
+	const seo = {
+		title,
+		description: sneakpeak,
+		author: `${author.name} ${author.lastName}`,
+		createdAt
 	};
-	
+
 	return (
-		<>
-			<DynamicSeo seo={seo} asPath={router.asPath} />
-			<Layout index>
-				<Navbar router={router} read />
-				<MarkdownResult blogEntry={blogEntry} context={author} preview />
-				<Footer router={router} filePath='read/[blogId]' />
-			</Layout>
-		</>
+		<Layout index customSeo={seo}>
+			<Navbar router={router} read />
+			<MarkdownResult blogEntry={blogEntry} context={author} preview />
+			<Footer router={router} filePath='read/[blogId]' />
+		</Layout>
 	);
 }
 
