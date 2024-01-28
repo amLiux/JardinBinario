@@ -43,7 +43,7 @@ export const querys = {
     NEW_BLOG_ENTRY: gql`
         mutation newBlogEntry($blogInput: BlogInput) {
             newBlogEntry(blogInput: $blogInput) {
-                id,
+                _id,
                 author {
                     name,
                     lastName
@@ -88,7 +88,7 @@ export const querys = {
         query getRecentEntries {
             getRecentEntries {
                 title,
-                id,
+                _id,
                 markdown,
                 createdAt,
                 author {
@@ -101,6 +101,7 @@ export const querys = {
                 shares,
                 tags,
                 sneakpeak,
+                deleted
             }
         }
     `,
@@ -108,7 +109,7 @@ export const querys = {
         query getMostViewedEntries {
             getMostViewedEntries {
                 title,
-                id,
+                _id,
                 markdown,
                 createdAt,
                 author {
@@ -121,6 +122,7 @@ export const querys = {
                 shares,
                 tags,
                 sneakpeak,
+                deleted
             }
         }
     `,
@@ -164,5 +166,48 @@ export const querys = {
                 },
             }
         }
-    `
+    `,
+    GET_ALL_BLOGS: gql`
+        query getAllEntries {
+            getAllEntries {
+                title,
+                _id,
+                markdown,
+                createdAt,
+                author {
+                    name
+                    lastName
+                    email,
+                    avatar
+                },
+                views,
+                shares,
+                tags,
+                sneakpeak,
+                deleted
+            }
+        }
+    `,
+    UPDATE_BLOG: gql`
+        mutation updateBlogEntry($blogInput: BlogInput) {
+            updateBlogEntry(blogInput: $blogInput) {
+                _id,
+                author {
+                    name,
+                    lastName
+                },
+                title
+            }
+        }
+    `,
+    DELETE_BLOG: gql`
+        mutation deleteBlogEntry($blogId: String) {
+            deleteBlogEntry(blogId: $blogId)
+        }
+    `,
+    RECOVER_BLOG: gql`
+        mutation recoverDeletedBlogEntry($blogId: String) {
+            recoverDeletedBlogEntry(blogId: $blogId)
+        }
+    `,
 };

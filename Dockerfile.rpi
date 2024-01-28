@@ -12,6 +12,8 @@ ARG NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL
 ENV NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL=${NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL}
 
 # updating alpine package manager
+RUN apk update
+RUN apk upgrade -U
 RUN apk add --update tini
 
 # creating the directory that will hold our code

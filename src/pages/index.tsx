@@ -7,7 +7,6 @@ import { querys } from '@/gql/querys';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { useIndex } from '@/hooks/useIndex';
 import { IndexScreenProps } from '@/screens/indexScreen';
-import { Hero } from '@/components/Hero/Hero';
 import { useQuery } from '@apollo/client';
 import { Navbar } from '@/components/Navbar';
 
@@ -56,10 +55,12 @@ export default function IndexPage({ recentEntries, mostViewedEntries }: InferGet
 	return (
 		<Layout index>
 			<Navbar router={router} handleClickServices={handleClickServices} />
-			<Hero imagesLoading={imagesLoading} imagesError={error} data={data} />
 			<IndexScreen
 				recentEntries={recentEntries}
 				mostViewedEntries={mostViewedEntries}
+				imagesLoading={imagesLoading}
+				imagesError={error}
+				images={data}
 				{...restOfIndexProps}
 			/>
 			<Footer filePath='index' router={router} />
