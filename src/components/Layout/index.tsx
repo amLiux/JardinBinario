@@ -8,13 +8,17 @@ import { Flexbox } from '../lib/Flexbox';
 
 type LayoutProps = {
 	children: ReactNode | ReactNode[];
+	customSeo?: {
+		title: string;
+		description: string;
+	};
 	style404?: boolean;
 	index?: boolean;
 };
 
-export const Layout = ({ children, style404 }: LayoutProps) => {
+export const Layout = ({ children, style404, customSeo }: LayoutProps) => {
 	const { asPath } = useRouter();
-	const seo = seoMapping[asPath];
+	const seo = customSeo || seoMapping[asPath];
 
 	return (
 		<>
