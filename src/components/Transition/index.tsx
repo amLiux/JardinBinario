@@ -2,15 +2,16 @@ import React, { ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTransition } from '@/hooks/useTransition';
 import { Message } from '@/components/Message';
-import { Layout } from '@/components/Layout';
 import layoutStyles from '@/components/Layout/Layout.module.css';
 import { LoadingSplash } from '../LoadingSplash';
+import { Flexbox } from '../lib/Flexbox';
 
 interface TransitionProps {
 	children: ReactNode | ReactNode[];
+	isReadPage: boolean;
 };
 
-export const Transition = ({ children }: TransitionProps) => {
+export const Transition = ({ children, isReadPage }: TransitionProps) => {
 	const {
 		showMessage,
 		asPath,
@@ -21,7 +22,14 @@ export const Transition = ({ children }: TransitionProps) => {
 	} = useTransition();
 
 	return (
-		<Layout index>
+		<Flexbox
+			extraClass={`
+				min-h-screen
+				bg-slate-900
+			`}
+			justifyContent='center'
+			flexDirection='column'
+		>
 			<div
 				// TODO check this logic? sort of unreadable
 				className={`
@@ -49,9 +57,10 @@ export const Transition = ({ children }: TransitionProps) => {
 					animate="inactive"
 					exit="out"
 				>
-					{ loading ? <LoadingSplash/> : children }
+					{isReadPage && children }
+					{ loading && !isReadPage ? <LoadingSplash/> : children }
 				</motion.div>
 			</AnimatePresence>
-		</Layout>
+		</Flexbox>
 	);
 };

@@ -10,20 +10,10 @@ function JardinBinario({ Component, pageProps, router }: AppProps) {
 
 
 	return <AuthProvider>
-		<>
-			{!isReadPage ? (
-				<Transition>
-					<Component {...pageProps} />
-					<CookieBanner />
-				</Transition>
-			) :
-				//TODO add different transition maybe?
-				<>
-					<Component {...pageProps} />
-					<CookieBanner />
-				</>
-			}
-		</>
+		<Transition isReadPage={isReadPage}>
+			<Component {...pageProps} />
+			<CookieBanner />
+		</Transition>
 	</AuthProvider>;
 };
 

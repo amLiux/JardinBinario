@@ -11,6 +11,8 @@ type LayoutProps = {
 	customSeo?: {
 		title: string;
 		description: string;
+		author: string;
+		createdAt: string;
 	};
 	style404?: boolean;
 	index?: boolean;
@@ -30,6 +32,8 @@ export const Layout = ({ children, style404, customSeo }: LayoutProps) => {
 						<meta property="og:title" content={seo?.title} />
 						<meta property="og:description" content={seo?.description} />
 						{/* <meta property="og:image" content={page?.data?.image} /> */}
+						{seo?.author && <meta name="author" content={seo.author} />}
+						{seo?.createdAt && <meta name="publish_date" property="og:publish_date" content={seo.createdAt} />}
 						<meta property="og:type" content="website" />
 						<meta
 							property="og:url"

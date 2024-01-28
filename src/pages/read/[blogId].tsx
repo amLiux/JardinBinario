@@ -67,11 +67,13 @@ export default function ReadBlogPage({ blogEntry }: InferGetStaticPropsType<type
 		return null;
 	}
 
-	const { title, author, sneakpeak } = blogEntry;
+	const { title, author, sneakpeak, createdAt } = blogEntry;
 
 	const seo = {
 		title,
 		description: sneakpeak,
+		author: `${author.name} ${author.lastName}`,
+		createdAt
 	};
 
 	return (
