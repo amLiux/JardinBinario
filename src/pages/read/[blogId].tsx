@@ -11,7 +11,6 @@ import { Footer } from '@/components/Footer';
 import { useRead } from '@/hooks/useRead';
 import { Navbar } from '@/components/Navbar';
 import { MarkdownRestulProps } from '@/components/NewBlog/MarkdownResult';
-
 const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
 	ssr: true,
 	loading: ({ isLoading }) => isLoading ? <div className='min-h-screen'></div> : null,
