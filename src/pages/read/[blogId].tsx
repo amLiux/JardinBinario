@@ -11,9 +11,9 @@ import { Footer } from '@/components/Footer';
 import { useRead } from '@/hooks/useRead';
 import { SeoMapping } from '@/seo/index';
 import { Navbar } from '@/components/Navbar';
-import { DynamicSeo } from '@/components/DynamicSeo';
 
 const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
+	ssr: true,
 	loading: ({ isLoading }) => isLoading ? <div className='min-h-screen'></div> : null,
 });
 interface IParams extends ParsedUrlQuery {
@@ -75,14 +75,11 @@ export default function ReadBlogPage({ blogEntry }: InferGetStaticPropsType<type
 	};
 	
 	return (
-		<>
-			<DynamicSeo seo={seo} asPath={router.asPath} />
-			<Layout index>
-				<Navbar router={router} read />
-				<MarkdownResult blogEntry={blogEntry} context={author} preview />
-				<Footer router={router} filePath='read/[blogId]' />
-			</Layout>
-		</>
+		<Layout index customSeo={seo[router.asPath]}>
+			<Navbar router={router} read />
+			<MarkdownResult blogEntry={blogEntry} context={author} preview />
+			<Footer router={router} filePath='read/[blogId]' />
+		</Layout>
 	);
 }
 
