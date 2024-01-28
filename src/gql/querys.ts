@@ -55,7 +55,7 @@ export const querys = {
     GET_BLOG_BY_ID: gql`
         query getSpecificBlogEntry($blogId:String!) {
             getSpecificBlogEntry(blogId: $blogId) {
-                id,
+                _id,
                 title,
                 markdown,
                 createdAt,
@@ -127,7 +127,7 @@ export const querys = {
     GET_ALL_BLOGS_IDS: gql`
         query getAllEntriesIds {
             getAllEntriesIds {
-                id,
+                _id,
             }
         }
     `,

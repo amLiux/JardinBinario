@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic';
 import { ParsedUrlQuery } from 'querystring';
 
 import { Layout } from '@/components/Layout';
-import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
 import { querys } from '@/gql/querys';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { BlogEntry } from '@/types/sharedTypes';
@@ -15,7 +14,6 @@ import { Navbar } from '@/components/Navbar';
 import { DynamicSeo } from '@/components/DynamicSeo';
 
 const MarkdownResult = dynamic<MarkdownRestulProps>(() => import('@/components/NewBlog/MarkdownResult').then(mod => mod.MarkdownResult), {
-	ssr: false,
 	loading: ({ isLoading }) => isLoading ? <div className='min-h-screen'></div> : null,
 });
 interface IParams extends ParsedUrlQuery {
@@ -31,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const ids = data.getAllEntriesIds;
 
 	return {
-		paths: ids.map(({ id }: any) => ({ params: { blogId: id } })),
+		paths: ids.map(({ _id }: any) => ({ params: { blogId: _id } })),
 		fallback: true,
 	};
 };
@@ -44,12 +42,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		variables: { blogId },
 	});
 
-	const { title, markdown, createdAt, author, tags, id, sneakpeak }: BlogEntry = data.getSpecificBlogEntry;
+	const { title, markdown, createdAt, author, tags, _id, sneakpeak }: BlogEntry = data.getSpecificBlogEntry;
 
 	return {
 		props: {
 			blogEntry: {
-				id,
+				_id,
 				title,
 				markdown,
 				createdAt,

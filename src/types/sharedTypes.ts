@@ -22,7 +22,7 @@ type Author = {
 };
 
 export type BlogEntry = {
-	id: string;
+	_id: string;
 	tags: string[];
 	title: string;
 	markdown: string;
