@@ -21,8 +21,6 @@ export const Transition = ({ children, isReadPage }: TransitionProps) => {
 		loading
 	} = useTransition();
 
-	console.log(isReadPage);
-
 	return (
 		<Flexbox
 			extraClass={`
