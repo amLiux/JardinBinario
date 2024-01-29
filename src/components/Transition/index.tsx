@@ -21,6 +21,8 @@ export const Transition = ({ children, isReadPage }: TransitionProps) => {
 		loading
 	} = useTransition();
 
+	console.log(isReadPage);
+
 	return (
 		<Flexbox
 			extraClass={`
@@ -57,8 +59,8 @@ export const Transition = ({ children, isReadPage }: TransitionProps) => {
 					animate="inactive"
 					exit="out"
 				>
-					{isReadPage && children }
-					{ loading && !isReadPage ? <LoadingSplash/> : children }
+					{isReadPage ? children :
+						loading ? <LoadingSplash /> : children}
 				</motion.div>
 			</AnimatePresence>
 		</Flexbox>
