@@ -4,7 +4,7 @@
 }
 
 .headingContainer {
-    @apply bg-slate-900 h-[60%] md:h-full w-[100%] md:w-[50%] p-4 pl-8 md:pl-36 lg:pl-40;
+    @apply bg-slate-900 h-[60%] md:h-full w-[100%] md:w-[50%] p-4 pl-8 md:pl-36 lg:pl-16;
 }
 
 .heading {
