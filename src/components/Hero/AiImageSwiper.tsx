@@ -14,7 +14,7 @@ export const AiImageSwiper = ({ images, renderFromPromptComponent = false, isMob
     if (!showSwiper && !renderFromPromptComponent) return null;
 
     return (
-        <div className='md:w-[600px]'>
+        <div className='md:w-[600px] mt-[-30px]'>
             <CustomSwiper
                 slidesPerView={{
                     default: 1,
