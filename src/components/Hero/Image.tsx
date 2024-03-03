@@ -14,7 +14,7 @@ const ImageComponent = ({ prompt, img, date, isMobile }: ImageComponentProps) =>
     const realSize = isMobile ? SIZE/2 : SIZE;
     return (
         imageUrl ? <div className={heroStyles.imageContainer}>
-            <Image src={imageUrl} alt={`an ai generated image which has a ${prompt}`} width={realSize} height={realSize} />
+            <Image src={imageUrl} alt={`an ai generated image which has a ${prompt}`} width={realSize + (isMobile ? 25 : 75)} height={realSize} />
             <div className={heroStyles.imageDescriptionContainer}>
                 <div className={heroStyles.description}>
                     <p className={heroStyles.prompt}>{`"${prompt}"`}</p>

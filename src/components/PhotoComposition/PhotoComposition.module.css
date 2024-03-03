@@ -1,89 +1,36 @@
 .container {
-    @apply relative mb-[-3rem] md:mb-[-2rem] lg:mb-[-36.5rem] m-auto mt-16 md:mt-0 lg:mt-10 p-0 md:p-5 lg:p-10;
+	@apply grid grid-cols-2 gap-1 gap-y-16 gap-x-32 mt-16;
 }
+
 .composition {
-	@apply w-full relative;
+	@apply relative;
 }
 
-.composition > span {
-	overflow: visible!important;
+.composition>span {
+	overflow: visible !important;
 }
 
-@media (max-width: 37.5em) {
-	.composition {
-		padding: 2rem;
-		margin-top: -3rem;
-		margin-bottom: 2rem;
-	}
+.overlay {
+	@apply absolute inset-0 flex mr-12;
+}
+
+.overlayText {
+	@apply pl-10 mx-auto z-10 text-white self-center uppercase font-light;
 }
 
 .compositionPhoto {
-	overflow: auto!important;
-	position: absolute!important;
-	z-index: 10;
-	transition: all .2s ease-in-out;
-}
-
-@media (max-width: 56.25em) {
-	.compositionPhoto {
-		float: left;
-		position: relative;
-		width: 33.3%;
-		box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
-	}
-}
-
-@media (min-width: 640px) {
-	.compositionPhoto--p1 {
-		left: 10rem!important;
-	}
-}
-
-@media (min-width: 1024px) {
-	.compositionPhoto--p1 {
-		top: 0!important;
-		left: -22.8rem!important;
-	}
-}
-
-@media (min-width: 640px) {
-	.compositionPhoto--p2 {
-		left: 10rem!important;
-	}
-}
-
-@media (min-width: 1024px) {
-	.compositionPhoto--p2 {
-		left: 12rem!important;
-		top: -29rem!important;
-	}
-}
-
-.compositionPhoto--p2 {
-	top: 0;
-	transform: scale(1.1);
-	z-index: 20;
-}
-
-@media (min-width: 640px) {
-	.compositionPhoto--p3 {
-		left: 10rem!important;
-	}
-}
-
-@media (min-width: 1024px) {
-	.compositionPhoto--p3 {
-		left: 35.5rem!important;
-		top: -65rem!important;
-	}
+	transition: all .4s ease-in-out;
+	transform: scale(0.9);
+	@apply absolute inset-0 z-10 flex opacity-40 hover:opacity-100;
 }
 
 .compositionPhoto:hover {
 	transform: scale(1.05) translateY(-0.5rem);
 	box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
-	z-index: 80!important;
 }
 
-.composition:hover .compositionPhoto:not(:hover) {
-	transform: scale(0.9);
+.compositionPhoto:hover + .overlay .overlayText {
+	opacity: 1;
 }
+
+.composition:hover .compositionPhoto:not(:hover) {}
