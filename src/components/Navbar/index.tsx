@@ -34,7 +34,7 @@ export const Navbar = ({ handleClickServices, router, read = false, privacy = fa
     const handleScroll = (e: SyntheticEvent) => {
         const header = document.querySelector('.scroll');
         const currentProgress = window.scrollY;
-        currentProgress >= 70 ? header?.classList.add('isSticky') : header?.classList.remove('isSticky');
+        currentProgress >= 40 ? header?.classList.add('isSticky') : header?.classList.remove('isSticky');
         const scrollHeight = document.body.scrollHeight - window.innerHeight;
         setCompletion(Number((currentProgress / scrollHeight).toFixed(2)) * 100);
     };

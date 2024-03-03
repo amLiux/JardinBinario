@@ -5,7 +5,7 @@ export const texts = {
             highlight: 'tecnología',
             secondPart: ' que cosechan tus ideas.',
         },
-        subheading: 'Fundados en 2022, Jardín Binario es una incumbadora de ideas open-source que busca ayudar a empresas o inversores a crear oportunidades con inversión tecnológica, creando herramientas para aumentar y crear el máximo potencial de mercado.',
+        subheading: 'Fundados en 2022, Jardín Binario es una incumbadora de ideas open-source que busca ayudar a empresas o inversores a crear oportunidades con inversión tecnológica, creando herramientas para aumentar y crear el máximo potencial de mercado por medio de nuestros servicios:',
         link: [{
             toWrap: 'open-source',
             link: 'https://www.redhat.com/es/topics/open-source/what-is-open-source',
