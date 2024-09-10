@@ -24,13 +24,13 @@ export const BlogTable = ({ blogs, loading, router, refetch }: BlogTableProps) =
 
     const getDeleteHandler = (deleted?: boolean) => deleted ? recoverDeletedItem : deleteBlogEntry;
 
-    if (loading) return <div className='h-[84vh]' />;
+    if (loading) return <div className='h-[84vh] w-[91.4vw]' />;
     const headers: string[] = ['Nombre', 'Autor', 'Tags', 'Sneakpeak', 'Acciones'];
 
     return (
         <div className={blogStyles.tableContainer}>
             <table className={blogStyles.blogTable}>
-                <thead>
+                <thead className={blogStyles.blogTableHeader}>
                     <tr>
                         {headers.map((header) => (
                             <th key={`header-${header}`} className={blogStyles.tableHeader}>
@@ -59,7 +59,7 @@ export const BlogTable = ({ blogs, loading, router, refetch }: BlogTableProps) =
                                     {!blog?.deleted &&
                                         <button
                                             onClick={() => router.push({
-                                                pathname: '/new',
+                                                pathname: '/admin/new',
                                                 query: {
                                                     blogId: blog._id,
                                                 }
