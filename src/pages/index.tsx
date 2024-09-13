@@ -6,9 +6,9 @@ import { Footer } from '@/components/Footer';
 import { querys } from '@/gql/querys';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { useIndex } from '@/hooks/useIndex';
-import { IndexScreenProps } from '@/screens/indexScreen';
 import { useQuery } from '@apollo/client';
 import { Navbar } from '@/components/Navbar';
+import { IndexScreenProps } from '@/types/sharedTypes';
 
 
 const IndexScreen = dynamic<IndexScreenProps>(() => import('@/screens/indexScreen').then(mod => mod.IndexScreen), {

@@ -1,5 +1,8 @@
 import { FormikHelpers, FormikValues } from 'formik';
 import { ReactNode, SyntheticEvent } from 'react';
+import { RefObject } from 'react';
+import { FormikProps } from 'formik';
+import { ApolloError } from '@apollo/client';
 
 export type FormData = {
   initialValues: FormikValues;
@@ -139,5 +142,17 @@ export interface Image {
   img: {
     buffer: string;
     contentType: string;
+  };
+}
+
+export interface IndexScreenProps {
+  recentEntries: BlogEntry[];
+  mostViewedEntries: BlogEntry[];
+  refServices: RefObject<HTMLDivElement>;
+  refForm: RefObject<HTMLDivElement>;
+  imagesLoading: boolean;
+  imagesError: ApolloError | undefined;
+  images: {
+    getAllImagesOfDay: Image[];
   };
 }

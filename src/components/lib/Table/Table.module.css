@@ -1,0 +1,27 @@
+.blogTableHeader {
+    @apply bg-slate-800;
+}
+
+.tableContainer {
+    @apply w-[80vw] text-black mx-auto my-8 h-[80vh];
+}
+
+.blogTable {
+    @apply min-w-full divide-y divide-slate-800;
+}
+
+.tableHeader {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider;
+}
+
+.tableBody {
+    @apply bg-white divide-y divide-gray-200;
+}
+
+.tableRow {
+    @apply px-6 py-4 whitespace-nowrap;
+}
+
+.tableRowWrap {
+    @apply px-6 py-4 whitespace-normal;
+}

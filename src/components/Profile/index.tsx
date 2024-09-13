@@ -13,6 +13,7 @@ interface ProfileProps {
 }
 
 export const Profile = ({ user: { avatar, name, lastName }, createdAt = new Date().toUTCString() }: ProfileProps) => {
+    console.log(avatar);
     return (
         <Flexbox extraClass={profileStyles.identityCard}>
             <div className={profileStyles.profilePicContainer}>

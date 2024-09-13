@@ -15,7 +15,6 @@ const AdminBlogPage = () => {
 
     return (
         <Layout index>
-            <Navbar privacy router={router} />
             <Flexbox justifyContent='center' alignItems='center'>
                 <Sidebar />
                 <BlogTable refetch={refetch} router={router} blogs={data?.getAllEntries} loading={loading} />
