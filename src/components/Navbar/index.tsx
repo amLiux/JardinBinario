@@ -18,7 +18,7 @@ type NavbarProps = {
     renderShare?:boolean
 };
 
-export const Navbar = ({ handleClickServices, router, read = false, privacy = false, renderShare = true }: NavbarProps) => {
+export const Navbar = ({ handleClickServices, router, read = false, privacy = false }: NavbarProps) => {
 
     const {isMobile} = useMobile();
     useEffect(() => {

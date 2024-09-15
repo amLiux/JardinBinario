@@ -5,15 +5,16 @@ import { Transition } from '@/components/Transition';
 import CookieBanner from '@/components/CookieBanner';
 
 function JardinBinario({ Component, pageProps, router }: AppProps) {
+  const isReadPage = router.pathname.startsWith('/read');
 
-	const isReadPage = router.pathname.startsWith('/read');
-
-	return <AuthProvider>
-		<Transition isReadPage={isReadPage}>
-			<Component {...pageProps} />
-			<CookieBanner />
-		</Transition>
-	</AuthProvider>;
-};
+  return (
+    <AuthProvider>
+      <Transition isReadPage={isReadPage}>
+        <Component {...pageProps} />
+        <CookieBanner />
+      </Transition>
+    </AuthProvider>
+  );
+}
 
 export default JardinBinario;
