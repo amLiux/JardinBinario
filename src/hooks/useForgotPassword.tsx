@@ -34,7 +34,7 @@ export const useForgotPassword = () => {
         onSubmit: async function (values) {
             try {
                 const message = await forgotPasswordFinish(values);
-                router.push('/login');
+                router.push('/admin/login');
                 return message;
             } catch (err) {
                 console.error(err);

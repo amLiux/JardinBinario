@@ -1,3 +1,55 @@
 .container {
-    @apply flex flex-col w-48 h-screen px-5 py-8 overflow-y-auto bg-slate-700 border-r rtl:border-r-0 rtl:border-l dark:bg-slate-800 dark:border-gray-700 hover:shadow-lg hover:shadow-gray-500/70 transition-all duration-300;
+    @apply flex flex-col w-56 h-screen px-5 py-8 overflow-y-auto bg-slate-700 border-r rtl:border-r-0 rtl:border-l dark:bg-slate-800 dark:border-gray-700 hover:shadow-lg hover:shadow-gray-500/70 transition-all duration-300;
+}
+
+.routesContainer {
+    @apply flex flex-col justify-between flex-1 mt-6;
+}
+
+.routes {
+    @apply space-y-3;
+}
+
+.route {
+    @apply flex items-center px-4 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg;
+}
+
+.activeRoute {
+    @apply bg-blue-600 text-white;
+}
+
+.hoverRoute {
+    @apply hover:bg-slate-700 hover:text-gray-200;
+}
+
+.routeText {
+    @apply mx-4 font-medium;
+}
+
+.settings {
+    @apply flex;
+}
+
+.profile {
+    @apply flex items-center justify-between p-4 mt-6 bg-slate-700 rounded-lg;
+}
+
+.logout {
+    @apply ml-3 p-2 text-gray-400 rounded-lg hover:text-white focus:outline-none hover:shadow-xl transition-all duration-200;
+}
+
+.profileTexts {
+    @apply flex items-center space-x-3;
+}
+
+.name {
+    @apply text-sm font-medium text-white;
+}
+
+.email {
+    @apply text-xs text-gray-400;
+}
+
+.profileAndSettings {
+    @apply mt-6 space-y-3;
 }
