@@ -1,8 +1,7 @@
-// useNewsletterForm.js
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useEffect, useState } from 'react';
-import { NewsletterValues } from '@/types/sharedTypes'; // Asegúrate de que esta ruta sea correcta
+import { useState } from 'react';
+import { NewsletterValues } from '@/types/sharedTypes';
 import { useMutation } from '@apollo/client';
 import { querys } from '@/gql/querys';
 import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
@@ -14,7 +13,9 @@ export const useNewsletterForm = () => {
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string().email('Dirección de email inválida').required(generateRequiredMessage('email')),
+    email: Yup.string()
+      .email('Dirección de email inválida')
+      .required(generateRequiredMessage('email')),
   });
 
   const [newNewsletter] = useMutation(querys.NEW_NEWSLETTER);
