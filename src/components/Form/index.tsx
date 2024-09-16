@@ -2,7 +2,7 @@ import { FormikHandlers } from 'formik';
 import { ReactNode } from 'react';
 import terminalFormStyles from './Form.module.css';
 import newsletterStyles from '../Newsletter/Newsletter.module.css';
-import layoutStyles from '../Layout/Layout.module.css';
+import layoutStyles from '@/layouts/Layout/Layout.module.css';
 
 type FormProps = {
   children: ReactNode | ReactNode[];

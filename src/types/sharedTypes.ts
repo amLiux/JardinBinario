@@ -1,7 +1,6 @@
 import { FormikHelpers, FormikValues } from 'formik';
 import { ReactNode, SyntheticEvent } from 'react';
 import { RefObject } from 'react';
-import { FormikProps } from 'formik';
 import { ApolloError } from '@apollo/client';
 
 export type FormData = {
@@ -58,8 +57,11 @@ export type NewsletterValues = {
 };
 
 export interface UserContext extends Author {
-  id?: string;
+  id: string;
+  role: string;
+  createdAt: string;
   __typename?: string;
+  active: boolean;
 }
 
 type formikHelper = FormikHelpers<NewBlogEntryValues>['setFieldValue'];

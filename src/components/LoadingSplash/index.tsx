@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Layout } from '@/components/Layout';
+import { Layout } from '@/layouts/Layout';
 import logo from '@/assets/logo.png';
 import { Flexbox } from '../lib/Flexbox';
 

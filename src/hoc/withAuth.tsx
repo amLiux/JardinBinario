@@ -1,15 +1,21 @@
 import { useRouter } from 'next/router';
 import { ElementType, useEffect, useState } from 'react';
 import { useAuth } from '@/apollo/AuthClient';
-import { BasicObject, UserContext } from '@/types/sharedTypes';
+import { UserContext } from '@/types/sharedTypes';
 import { LoadingSplash } from '@/components/LoadingSplash';
 
 export const withAuth = (Component: ElementType) => {
   const AuthenticatedComponent = () => {
     const router = useRouter();
-    const redirectTo = window.location.pathname;
+    let redirectTo = '';
+    if (typeof window !== 'undefined') {
+      redirectTo = window.location.pathname;
+    }
     const [queryParams, setQueryParams] = useState<Record<string, string>>({});
-    if (!(Object.keys(queryParams).length > 0) && redirectTo !== '/admin/login') {
+    if (
+      !(Object.keys(queryParams).length > 0) &&
+      redirectTo !== '/admin/login'
+    ) {
       setQueryParams({ redirectTo });
     }
 
@@ -30,17 +36,12 @@ export const withAuth = (Component: ElementType) => {
         }
       };
 
-      setTimeout(() => {
-        getUser();
-      }, 2200);
-
+      getUser();
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [getUserInfo]);
 
-    return !!userContext ? (
+    return (
       <Component userContext={userContext} />
-    ) : (
-      <LoadingSplash />
     );
   };
 

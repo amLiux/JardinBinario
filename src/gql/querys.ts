@@ -210,4 +210,24 @@ export const querys = {
       recoverDeletedBlogEntry(blogId: $blogId)
     }
   `,
+  GET_ALL_USERS: gql`
+    query getAllUsers {
+      getAllUsers {
+        name
+        lastName
+        email
+        avatar
+        createdAt
+        role
+        active
+      }
+    }
+  `,
+  TOGGLE_USER_ACTIVE: gql`
+    mutation toggleUserActive($email: String) {
+      toggleUserActive(email: $email) {
+        name
+      }
+    }
+  `,
 };

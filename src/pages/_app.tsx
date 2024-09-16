@@ -1,18 +1,26 @@
 import { AppProps } from 'next/app';
 import { AuthProvider } from '@/apollo/AuthClient';
 import '../styles/globals.css';
-import { Transition } from '@/components/Transition';
 import CookieBanner from '@/components/CookieBanner';
+import { ReactElement } from 'react-markdown/lib/react-markdown';
+import { ReactNode } from 'react';
+import { NextPage } from 'next';
 
-function JardinBinario({ Component, pageProps, router }: AppProps) {
-  const isReadPage = router.pathname.startsWith('/read');
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
 
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function JardinBinario({ Component, pageProps, router }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
   return (
     <AuthProvider>
-      <Transition isReadPage={isReadPage}>
-        <Component {...pageProps} />
-        <CookieBanner />
-      </Transition>
+      {getLayout(<Component {...pageProps} />)}
+      {/* // TODO this is not working */}
+      {/* <CookieBanner /> */}
     </AuthProvider>
   );
 }

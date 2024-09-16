@@ -1,9 +1,14 @@
 .container {
     @apply flex flex-col w-56 h-screen px-5 py-8 overflow-y-auto bg-slate-700 border-r rtl:border-r-0 rtl:border-l dark:bg-slate-800 dark:border-gray-700 hover:shadow-lg hover:shadow-gray-500/70 transition-all duration-300;
+    min-width: 14rem!important;
 }
 
 .routesContainer {
     @apply flex flex-col justify-between flex-1 mt-6;
+}
+
+.icon {
+    @apply w-6;
 }
 
 .routes {
