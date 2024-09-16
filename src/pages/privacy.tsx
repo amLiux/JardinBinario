@@ -1,11 +1,13 @@
 import indexStyles from '@/components/Index/Index.module.css';
-import { Layout } from '@/components/Layout';
+import { Layout } from '@/layouts/Layout';
 import { TerminalHeader } from '@/components/Terminal/TerminalHeader';
 import { Footer } from '@/components/Footer';
 import { useIndex } from '@/hooks/useIndex';
 import { HeadingBlock } from '@/components/Index/HeadingBlock';
 import { texts } from '@/components/Index/text';
 import { Navbar } from '@/components/Navbar';
+import { Transition } from '@/components/Transition';
+import { ReactElement } from 'react-markdown/lib/react-markdown';
 
 export default function PrivacyPage() {
   const {
@@ -82,3 +84,7 @@ export default function PrivacyPage() {
     </Layout>
   );
 }
+
+PrivacyPage.getLayout = function (page: ReactElement) {
+  return <Transition fancyTransition>{page}</Transition>;
+};

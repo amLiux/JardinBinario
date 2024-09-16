@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import dynamic from 'next/dynamic';
 
-import { Layout } from '@/components/Layout';
+import { Layout } from '@/layouts/Layout';
 import { querys } from '@/gql/querys';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { BlogEntry } from '@/types/sharedTypes';
@@ -10,6 +10,8 @@ import { Footer } from '@/components/Footer';
 import { useRead } from '@/hooks/useRead';
 import { Navbar } from '@/components/Navbar';
 import { MarkdownRestulProps } from '@/components/NewBlog/MarkdownResult';
+import { Transition } from '@/components/Transition';
+import { ReactElement } from 'react-markdown/lib/react-markdown';
 const MarkdownResult = dynamic<MarkdownRestulProps>(
   () =>
     import('@/components/NewBlog/MarkdownResult').then(
@@ -99,3 +101,7 @@ export default function ReadBlogPage({
     </Layout>
   );
 }
+
+ReadBlogPage.getLayout = function getLayout(page: ReactElement) {
+  return <Transition fancyTransition>{page}</Transition>;
+};

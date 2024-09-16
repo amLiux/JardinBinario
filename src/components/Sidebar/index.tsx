@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Icons } from '@/components/Icons';
 import { Logo } from '@/components/Logo';
 import { Flexbox } from '@/components/lib/Flexbox';
 import sidebarStyles from './Sidebar.module.css';
+import { ArrowLeftStartOnRectangleIcon, ChartBarIcon, ClipboardDocumentListIcon, Cog6ToothIcon, TicketIcon, UserGroupIcon } from '@heroicons/react/24/outline';
 
 // TODO for now this is good, we might think on inject this over later on 
 const routes = [
-  { name: 'Blogs', href: '/admin/blogs' },
-  { name: 'Usuarios', href: '/admin/users' },
-  { name: 'Tiquetes', href: '/admin/tickets' },
-  { name: 'Análisis', href: '/admin/stats' },
+  { name: 'Blogs', href: '/admin/blogs', icon: <ClipboardDocumentListIcon className={sidebarStyles.icon} /> },
+  { name: 'Usuarios', href: '/admin/users', icon: <UserGroupIcon className={sidebarStyles.icon} /> },
+  { name: 'Tiquetes', href: '/admin/tickets', icon: <TicketIcon className={sidebarStyles.icon} /> },
+  { name: 'Análisis', href: '/admin/stats', icon: <ChartBarIcon className={sidebarStyles.icon} /> },
 ];
 
 const user = {
@@ -41,7 +41,8 @@ export const Sidebar = () => {
                       : sidebarStyles.hoverRoute
                   }`}
                 >
-                  {Icons[route.name.toUpperCase()]}
+
+                  {route.icon}
                   <span className={sidebarStyles.routeText}>{route.name}</span>
                 </a>
               </Link>
@@ -52,7 +53,7 @@ export const Sidebar = () => {
         <div className={sidebarStyles.profileAndSettings}>
         <Link href="/admin/settings" passHref>
             <a className={`${sidebarStyles.route} ${sidebarStyles.hoverRoute}`}>
-              {Icons.SETTINGS}
+              <Cog6ToothIcon className={sidebarStyles.icon} />
               <span className={sidebarStyles.routeText}>Ajustes</span>
             </a>
           </Link>
@@ -65,7 +66,7 @@ export const Sidebar = () => {
               </div>
             </div>
             <button aria-label="Log out" className={sidebarStyles.logout}>
-              {Icons.LOGOUT}
+              <ArrowLeftStartOnRectangleIcon className={sidebarStyles.icon} />
             </button>
           </div>
         </div>
