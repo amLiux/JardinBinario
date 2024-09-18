@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { seoMapping } from '@/seo/index';
 
 import layoutStyles from './Layout.module.css';
-import { Flexbox } from '../../components/lib/Flexbox';
+import { Flexbox } from '@/components/lib/Flexbox';
 
 type LayoutProps = {
   children: ReactNode | ReactNode[];

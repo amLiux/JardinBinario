@@ -1,58 +1,39 @@
-import React from 'react';
-import { Flexbox } from '../lib/Flexbox';
+import { ArrowRightIcon as ArrowRight } from '@heroicons/react/24/outline';
+import { Sky } from '../404/Sky';
+import { CanvasBackground } from '../Canva';
 import heroStyles from './Hero.module.css';
-import { HeroHeading } from './HeroHeading';
-import { useHero } from '@/hooks/useHero';
-import { Image } from '@/types/sharedTypes';
-import { ApolloError } from '@apollo/client';
-import { AiImageSwiper } from './AiImageSwiper';
-import { AiImagePrompt } from './AiImagePrompt';
-import { Spinner } from '../Spinner';
-import { useMobile } from '@/hooks/useMobile';
+import { Flexbox } from '../lib/Flexbox';
 
-interface HeroProps {
-    imagesLoading: boolean;
-    imagesError: ApolloError | undefined;
-    data: {
-        getAllImagesOfDay: Image[];
-    };
-}
-
-export const Hero = ({ imagesLoading, data }: HeroProps) => {
-    const { submitting, formik, image } = useHero();
-    const images = data?.getAllImagesOfDay;
-    const { isMobile } = useMobile();
-    return (
-        <Flexbox
-            alignItems='center'
-            justifyContent={isMobile ? 'start' : 'space-between'}
-            extraClass={heroStyles.container}
-            flexDirection={isMobile ? 'column' : 'row'}
-        >
-            <HeroHeading isMobile={isMobile} title='Trae tus ideas, cultivaremos la solución.' />
-            <Flexbox
-                justifyContent={isMobile ? 'center' : 'space-around'}
-                extraClass='bg-slate-900 h-[70%] md:h-full w-[100%] md:w-[60%]'
-                alignItems={isMobile ? image ? 'center' : 'start' : 'center'}
-            >
-                {
-                    imagesLoading
-                        ? <Spinner size='big' />
-                        :
-                        <>
-                            <AiImageSwiper isMobile={isMobile} images={images} />
-                            <AiImagePrompt
-                                isMobile={isMobile}
-                                submitting={submitting}
-                                formik={formik}
-                                image={image}
-                                renderPrompt={images?.length < 5 || false}
-                                images={images}
-                            />
-                        </>
-                }
-            </Flexbox>
+export const Hero = () => {
+  return (
+    <div className={heroStyles.container}>
+      <Sky stars={5} />
+      <Flexbox alignItems='center' justifyContent='center' extraClass={heroStyles.flexContainer}>
+        <Flexbox alignItems='center' justifyContent='between'  extraClass={heroStyles.contentContainer}>
+          <CanvasBackground />
+          <div className={heroStyles.textContainer}>
+            <h1 className={heroStyles.header}>
+              Trae tus ideas,{' '}
+              <span className={heroStyles.gradientEffect}>
+                cultivaremos
+              </span>{' '}
+              la solución.
+            </h1>
+            <p className={heroStyles.subHeading}>
+              Nuestro equipo de talentosos expertos está listo para cultivar el
+              éxito de tu proyecto. ¡Adéntrate en un jardín de creatividad
+              tecnológica y déjate sorprender!
+            </p>
+            <button className={heroStyles.cta}>
+              <a href='#ticket'>Siembra algo genial</a>
+              <ArrowRight className={heroStyles.ctaIcon} />
+            </button>
+          </div>
+          <div className={heroStyles.planetContainer}>
+            <div className={heroStyles.blinkingPlanet}></div>
+          </div>
         </Flexbox>
-    );
+      </Flexbox>
+    </div>
+  );
 };
-

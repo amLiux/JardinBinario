@@ -6,11 +6,10 @@ import { Footer } from '@/components/Footer';
 import { querys } from '@/gql/querys';
 import { createUnauthorizedApolloClient } from '@/apollo/AuthClient';
 import { useIndex } from '@/hooks/useIndex';
-import { useQuery } from '@apollo/client';
 import { Navbar } from '@/components/Navbar';
 import { IndexScreenProps } from '@/types/sharedTypes';
 import { Transition } from '@/components/Transition';
-import { ReactElement } from 'react-markdown/lib/react-markdown';
+import { ReactElement } from 'react';
 
 const IndexScreen = dynamic<IndexScreenProps>(
   () => import('@/screens/indexScreen').then((mod) => mod.IndexScreen),
@@ -61,21 +60,12 @@ export default function IndexPage({
     ...restOfIndexProps
   } = useIndex();
 
-  const {
-    loading: imagesLoading,
-    error,
-    data,
-  } = useQuery(querys.GET_ALL_IMAGES_OF_TODAY);
-
   return (
     <Layout index>
       <Navbar router={router} handleClickServices={handleClickServices} />
       <IndexScreen
         recentEntries={recentEntries}
         mostViewedEntries={mostViewedEntries}
-        imagesLoading={imagesLoading}
-        imagesError={error}
-        images={data}
         {...restOfIndexProps}
       />
       <Footer filePath="index" router={router} />
@@ -84,5 +74,9 @@ export default function IndexPage({
 }
 
 IndexPage.getLayout = function (page: ReactElement) {
-  return <Transition>{page}</Transition>;
+  return (
+    <Transition>
+      {page}
+    </Transition>
+  );
 };
