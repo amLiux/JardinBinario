@@ -96,6 +96,7 @@ export function Table<T>({
                     {actions.map((action, index) => (
                       <ActionButton
                         index={index}
+                        key={`action-button-${index}`}
                         icon={
                           action.getIcon ? action.getIcon(item) : action.icon
                         }
