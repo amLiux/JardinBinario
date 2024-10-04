@@ -14,7 +14,7 @@ type TicketFormProps = {
   refForForm: RefObject<HTMLDivElement>;
 };
 
-export const TicketForm = ({refForForm}: TicketFormProps) => {
+export const TicketForm = ({ refForForm }: TicketFormProps) => {
   const {
     isSubmitting,
     submitted,

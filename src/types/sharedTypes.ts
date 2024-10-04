@@ -152,9 +152,4 @@ export interface IndexScreenProps {
   mostViewedEntries: BlogEntry[];
   refServices: RefObject<HTMLDivElement>;
   refForm: RefObject<HTMLDivElement>;
-  imagesLoading: boolean;
-  imagesError: ApolloError | undefined;
-  images: {
-    getAllImagesOfDay: Image[];
-  };
 }

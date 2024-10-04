@@ -15,18 +15,11 @@ export const IndexScreen = (props: IndexScreenProps) => {
     mostViewedEntries,
     refForm,
     refServices,
-    imagesLoading,
-    imagesError,
-    images,
   } = props;
 
   return (
     <>
-      <Hero
-        imagesLoading={imagesLoading}
-        imagesError={imagesError}
-        data={images}
-      />
+      <Hero/>
       <div className={indexStyles.index}>
         <HeadingBlock
           subheadingAnimationDirection="Right"

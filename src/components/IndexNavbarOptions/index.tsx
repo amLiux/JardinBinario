@@ -19,7 +19,7 @@ interface IndexNavbarOptionsProps {
 
 const tabs: Tab[] = [
   // {
-  //     text: 'Blog',
+  //     text: 'Blogs',
   //     route: '/blog',
   //     link: true,
   // },
@@ -58,7 +58,7 @@ export const IndexNavbarOptions = ({
         <li key={idx} className="mx-5">
           <button
             className={`
-                                ${ctaButton ? indexNavbarOptionsStyles.ctaButton : indexNavbarOptionsStyles.linkStyle}`}
+              ${ctaButton ? indexNavbarOptionsStyles.ctaButton : indexNavbarOptionsStyles.linkStyle}`}
             onClick={
               link
                 ? () => router?.push(route)
