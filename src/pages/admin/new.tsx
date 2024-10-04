@@ -47,15 +47,15 @@ const NewBlogPage = ({ userContext }: NewBlogPageProps) => {
           <BlogCard
             preview
             id="preview"
-            title={formik.values.title}
-            name={userContext.name}
-            lastName={userContext.lastName}
-            avatar={userContext.avatar}
+            title={formik?.values.title}
+            name={userContext?.name}
+            lastName={userContext?.lastName}
+            avatar={userContext?.avatar}
             createdAt={new Date().toISOString()}
             blogShares={0}
             blogViews={0}
-            tags={formik.values.tags}
-            sneakpeak={formik.values.sneakpeak}
+            tags={formik?.values.tags}
+            sneakpeak={formik?.values.sneakpeak}
           />
         </div>
 
