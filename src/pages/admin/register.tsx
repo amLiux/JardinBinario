@@ -40,6 +40,7 @@ const RegisterPage = () => {
               if (inputValue === 'file')
                 return (
                   <input
+                    key={`register-input-${ind}`}
                     className="hidden"
                     type="file"
                     ref={inputFileRef}
