@@ -15,6 +15,7 @@ const fontConfig = font({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
+  adjustFontFallback: false,
 });
 
 type AppPropsWithLayout = AppProps & {
