@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { Layout } from '@/layouts/Layout';
 import logo from '@/assets/logo.png';
 import { Flexbox } from '../lib/Flexbox';

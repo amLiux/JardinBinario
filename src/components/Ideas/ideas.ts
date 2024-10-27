@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image';
+import { StaticImageData } from "next/legacy/image";
 import pythonLogo from '@/assets/logos/pythonLogo.svg';
 import reactLogo from '@/assets/logos/reactLogo.svg';
 import nodeLogo from '@/assets/logos/nodeLogo.svg';
