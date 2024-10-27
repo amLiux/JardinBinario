@@ -24,6 +24,9 @@ WORKDIR /usr/jardinbinario/app
 COPY package.json package.json
 COPY package-lock.json package-lock.json
 
+#disable telemetry
+RUN npx next telemetry disable
+
 # installing via the recommended way for Docker (not npm install)
 RUN npm ci
 
