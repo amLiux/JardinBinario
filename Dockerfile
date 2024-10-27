@@ -40,4 +40,4 @@ EXPOSE 3000
 # running our code
 RUN npm run build
 
-CMD ["npm", "start"]
+CMD ["NODE_OPTIONS=--max_old_space_size=4096", "npm", "start"]
