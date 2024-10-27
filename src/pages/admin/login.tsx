@@ -12,7 +12,7 @@ export default function LoginPage() {
   const { disableButton, formik, initialValues, router } = useLogin();
 
   return (
-    <Layout>
+    (<Layout>
       <div className="flex justify-center">
         <Terminal>
           <TerminalHeader header="Login" />
@@ -47,6 +47,6 @@ export default function LoginPage() {
           </Form>
         </Terminal>
       </div>
-    </Layout>
+    </Layout>)
   );
 }

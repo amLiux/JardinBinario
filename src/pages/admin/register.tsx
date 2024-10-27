@@ -22,7 +22,7 @@ const RegisterPage = () => {
   } = useRegister();
 
   return (
-    <Layout>
+    (<Layout>
       <div className="flex justify-center">
         {/* TODO can we abstract and re-use this because its really really similar to login */}
         <Terminal>
@@ -79,7 +79,7 @@ const RegisterPage = () => {
           </Form>
         </Terminal>
       </div>
-    </Layout>
+    </Layout>)
   );
 };
 

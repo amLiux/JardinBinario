@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from "next/legacy/image";
 import { NextRouter } from 'next/router';
 import logo from '@/assets/littleLogo.png';
 import gitHubLogo from '@/assets/logos/gitHubLogo.svg';
