@@ -38,6 +38,6 @@ EXPOSE 3000
 # RUN npm run build
 
 # running our code
-RUN npm run build
+RUN npm run build && ls -la .next
 
-CMD ["NODE_OPTIONS=--max_old_space_size=4096", "npm", "start"]
+CMD sh -c "NODE_OPTIONS=--max_old_space_size=4096 npm start"
