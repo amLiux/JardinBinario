@@ -4,7 +4,7 @@ import { Flexbox } from '../lib/Flexbox';
 import menu from '@/assets/buttons/menu.svg';
 import close from '@/assets/buttons/close.svg';
 
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { Logo } from '../Logo';
 import { useRouter } from 'next/router';
 import Link from 'next/link';

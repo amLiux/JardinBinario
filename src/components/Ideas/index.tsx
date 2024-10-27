@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { RefObject } from 'react';
 import { CustomSwiper } from '@/components/Swiper';
 import { ideas } from './ideas';

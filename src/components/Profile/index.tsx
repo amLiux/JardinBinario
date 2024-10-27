@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { Flexbox } from '../lib/Flexbox';
 import profileStyles from './Profile.module.css';
 

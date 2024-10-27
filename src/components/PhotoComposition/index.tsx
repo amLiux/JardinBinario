@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 
 import imagen1 from '@/assets/imagen1.jpg';
 import imagen2 from '@/assets/imagen2.jpg';

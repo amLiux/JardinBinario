@@ -5,16 +5,16 @@ import '../styles/globals.css';
 import { ReactElement } from 'react-markdown/lib/react-markdown';
 import { ReactNode } from 'react';
 import { NextPage } from 'next';
-import { Ubuntu  as font} from 'next/font/google'
+import { Ubuntu  as font} from 'next/font/google';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
 const fontConfig = font({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 type AppPropsWithLayout = AppProps & {
