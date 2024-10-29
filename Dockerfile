@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM node:current-alpine
+FROM node:22-alpine
 
 # Setting environment variables coming from the GitHub actions secrets
 ARG NEXT_PUBLIC_BACKEND_URL
@@ -24,6 +24,8 @@ WORKDIR /usr/jardinbinario/app
 COPY package.json package.json
 COPY package-lock.json package-lock.json
 
+RUN npm cache clean --force
+
 # installing via the recommended way for Docker (not npm install)
 RUN npm ci
 
@@ -39,7 +41,6 @@ EXPOSE 3000
 # building the 'production' version
 # RUN npm run build
 
-# running our code
 RUN npm run build && ls -la .next
 
-CMD sh -c "NODE_OPTIONS=--max_old_space_size=4096 npm start"
+CMD ["npm", "start"]
