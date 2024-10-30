@@ -10,7 +10,7 @@ type Tab = {
 };
 
 interface IndexNavbarOptionsProps {
-  handleClickServices: (ref: string) => void;
+  handleClickServices?: (ref: string) => void;
   router?: NextRouter;
   burguer?: boolean;
   privacy: boolean;
@@ -64,7 +64,7 @@ export const IndexNavbarOptions = ({
             </Link>
             : <button
               className={indexNavbarOptionsStyles.ctaButton}
-              onClick={() => handleClickServices(route)}
+              onClick={() => handleClickServices ? handleClickServices(route) : undefined}
             >
               {text}
             </button>}
