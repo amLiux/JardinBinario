@@ -1,16 +1,16 @@
 import { NextRouter } from 'next/router';
 import indexNavbarOptionsStyles from './IndexNavbarOptions.module.css';
 import { Flexbox } from '../lib/Flexbox';
+import Link from 'next/link';
 
 type Tab = {
   text: string;
   route: string;
   link: boolean;
-  ctaButton?: boolean;
 };
 
 interface IndexNavbarOptionsProps {
-  handleClickServices?: (ref: string) => void;
+  handleClickServices: (ref: string) => void;
   router?: NextRouter;
   burguer?: boolean;
   privacy: boolean;
@@ -32,13 +32,11 @@ const tabs: Tab[] = [
     text: 'Siembra algo genial',
     route: 'ticket',
     link: false,
-    ctaButton: true,
   },
 ];
 
 export const IndexNavbarOptions = ({
   handleClickServices,
-  router,
   privacy,
   read,
   burguer,
@@ -54,20 +52,22 @@ export const IndexNavbarOptions = ({
       flexDirection={burguer ? 'column' : 'row'}
       extraClass={indexNavbarOptionsStyles.container}
     >
-      {tabs.map(({ text, link, route, ctaButton }, idx) => (
+      {tabs.map(({ text, link, route }, idx) => (
         <li key={idx} className="mx-5">
-          <button
-            className={`
-              ${ctaButton ? indexNavbarOptionsStyles.ctaButton : indexNavbarOptionsStyles.linkStyle}`}
-            onClick={
-              link
-                ? () => router?.push(route)
-                : () =>
-                    handleClickServices ? handleClickServices(route) : undefined
-            }
-          >
-            {text}
-          </button>
+          {link
+            ? <Link
+              href={route}
+              passHref={false}
+              className={indexNavbarOptionsStyles.linkStyle}
+              scroll={false}>
+              {text}
+            </Link>
+            : <button
+              className={indexNavbarOptionsStyles.ctaButton}
+              onClick={() => handleClickServices(route)}
+            >
+              {text}
+            </button>}
         </li>
       ))}
     </Flexbox>

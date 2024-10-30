@@ -1,8 +1,13 @@
-import { useRef, RefObject } from 'react';
+import { useRef, RefObject, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export const useIndex = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   const refServices = useRef<HTMLDivElement>(null);
   const refForm = useRef<HTMLDivElement>(null);

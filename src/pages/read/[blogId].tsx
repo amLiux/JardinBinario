@@ -12,6 +12,7 @@ import { Navbar } from '@/components/Navbar';
 import { MarkdownRestulProps } from '@/components/NewBlog/MarkdownResult';
 import { Transition } from '@/components/Transition';
 import { ReactElement } from 'react-markdown/lib/react-markdown';
+import { useEffect } from 'react';
 const MarkdownResult = dynamic<MarkdownRestulProps>(
   () =>
     import('@/components/NewBlog/MarkdownResult').then(
@@ -79,6 +80,11 @@ export default function ReadBlogPage({
   blogEntry,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { router } = useRead(blogEntry);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   if (!blogEntry) {
     return null;

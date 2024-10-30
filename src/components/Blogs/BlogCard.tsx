@@ -40,7 +40,7 @@ export const BlogCard = ({
   preview = false,
 }: BlogCardProps) => {
   return (
-    <Link href={`/read/${id}`} passHref scroll>
+    <Link href={`/read/${id}`} passHref scroll={false}>
       <div className={blogsStyles.blogCard}>
         <h4 className={blogsStyles.blogTitle}>{title}</h4>
         {/* TODO add min-height for the tags and identity box stay in one place */}
