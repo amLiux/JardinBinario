@@ -7,7 +7,6 @@ import imagen4 from '@/assets/imagen4.jpg';
 
 import photoCompositionStyles from './PhotoComposition.module.css';
 import { Fragment, useState } from 'react';
-import useTranslation from 'next-translate/useTranslation';
 
 interface PhotoCompositionProps {
   t: (key: string) => string;
