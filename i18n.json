@@ -1,0 +1,21 @@
+{
+  "locales": [
+    "en",
+    "es"
+  ],
+  "defaultLocale": "es",
+  "pages": {
+    "*": [
+      "index"
+    ],
+    "/": [
+      "privacy"
+    ],
+    "/privacy": [
+      "privacy"
+    ],
+    "/about": [
+      "about"
+    ]
+  }
+}

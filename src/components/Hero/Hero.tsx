@@ -1,58 +1,40 @@
-import React from 'react';
-import { Flexbox } from '../lib/Flexbox';
+import { ArrowRightIcon as ArrowRight } from '@heroicons/react/24/outline';
+import useTranslation from 'next-translate/useTranslation';
+import { Sky } from '../404/Sky';
+import { CanvasBackground } from '../Canva';
 import heroStyles from './Hero.module.css';
-import { HeroHeading } from './HeroHeading';
-import { useHero } from '@/hooks/useHero';
-import { Image } from '@/types/sharedTypes';
-import { ApolloError } from '@apollo/client';
-import { AiImageSwiper } from './AiImageSwiper';
-import { AiImagePrompt } from './AiImagePrompt';
-import { Spinner } from '../Spinner';
-import { useMobile } from '@/hooks/useMobile';
+import { Flexbox } from '../lib/Flexbox';
+import indexStyles from '../Index/Index.module.css';
 
-interface HeroProps {
-    imagesLoading: boolean;
-    imagesError: ApolloError | undefined;
-    data: {
-        getAllImagesOfDay: Image[];
-    };
-}
-
-export const Hero = ({ imagesLoading, data }: HeroProps) => {
-    const { submitting, formik, image } = useHero();
-    const images = data?.getAllImagesOfDay;
-    const { isMobile } = useMobile();
-    return (
-        <Flexbox
-            alignItems='center'
-            justifyContent={isMobile ? 'start' : 'space-between'}
-            extraClass={heroStyles.container}
-            flexDirection={isMobile ? 'column' : 'row'}
-        >
-            <HeroHeading isMobile={isMobile} title='Trae tus ideas, cultivaremos la solución.' />
-            <Flexbox
-                justifyContent={isMobile ? 'center' : 'space-around'}
-                extraClass='bg-slate-900 h-[70%] md:h-full w-[100%] md:w-[60%]'
-                alignItems={isMobile ? image ? 'center' : 'start' : 'center'}
-            >
-                {
-                    imagesLoading
-                        ? <Spinner size='big' />
-                        :
-                        <>
-                            <AiImageSwiper isMobile={isMobile} images={images} />
-                            <AiImagePrompt
-                                isMobile={isMobile}
-                                submitting={submitting}
-                                formik={formik}
-                                image={image}
-                                renderPrompt={images?.length < 5 || false}
-                                images={images}
-                            />
-                        </>
-                }
-            </Flexbox>
+export const Hero = () => {
+  const { t } = useTranslation('index');
+  return (
+    <div className={heroStyles.container}>
+      <Sky stars={5} />
+      <Flexbox alignItems='center' justifyContent='center' extraClass={heroStyles.flexContainer}>
+        <Flexbox alignItems='center' justifyContent='between'  extraClass={heroStyles.contentContainer}>
+          <CanvasBackground />
+          <div className={heroStyles.textContainer}>
+            <h1 className={heroStyles.header}>
+              {t('hero.heading.part1')}{' '}
+              <span className={indexStyles.headingEffect}>
+                {t('hero.heading.gradient')}
+              </span>{' '}
+              {t('hero.heading.part2')}
+            </h1>
+            <p className={heroStyles.subHeading}>
+              {t('hero.subheading')}
+            </p>
+            <button className={heroStyles.cta}>
+              <a href='#ticket'>{t('cta')}</a>
+              <ArrowRight className={heroStyles.ctaIcon} />
+            </button>
+          </div>
+          <div className={heroStyles.planetContainer}>
+            <div className={heroStyles.blinkingPlanet}></div>
+          </div>
         </Flexbox>
-    );
+      </Flexbox>
+    </div>
+  );
 };
-

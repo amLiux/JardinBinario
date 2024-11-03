@@ -1,78 +1,43 @@
 .container {
-    @apply w-screen mb-[-1rem] md:mb-0;
-    height: calc(100vh - 93px);
+    @apply relative z-20 bg-slate-900 min-h-screen overflow-hidden px-28;
 }
 
-.headingContainer {
-    @apply bg-slate-900 h-[60%] md:h-full w-[100%] md:w-[50%] p-4 pl-8 md:pl-36 lg:pl-16;
+.flexContainer {
+    @apply min-h-screen p-8;
 }
 
-.heading {
-    @apply text-white font-extrabold leading-tight text-5xl md:text-7xl p-2 md:p-10 md:text-left;
+.contentContainer {
+    @apply max-w-7xl mx-auto w-full flex-col md:flex-row md:items-start;
 }
 
-.letter {
-    @apply hover:text-purple-500 transition-colors delay-200 ease-in;
+.header {
+    @apply text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6;
 }
 
-.hovered {
-    @apply text-purple-500;
+.gradientEffect {
+    @apply bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text;
 }
 
-.activeHover {
-    @apply border-b-2 border-purple-500/40;
+.subHeading {
+    @apply text-slate-300 text-lg md:text-xl max-w-md mb-8;
 }
 
-.aiPrompt {
-    @apply mx-auto w-[80%] md:w-[55%];
-    width: 90%!important;
+.cta {
+    @apply bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center;
 }
 
-.aiPromptLabel {
-    @apply mx-auto text-xl;
-    color: white!important;
-    width: 90%!important;
+.ctaIcon {
+    @apply ml-2 h-6 w-6;
 }
 
-
-@media (min-width: 640px) {
-	.aiPrompt {
-		width: 55%!important;
-	}
-    .aiPromptLabel {
-        width: 55%!important;
-    }
+.textContainer {
+    @apply md:w-1/2 text-left mb-8 md:mb-0;
 }
 
-
-.imageContainer {
-    @apply rounded ring-2 mx-auto transition-all w-[40%] md:w-[100%] ease-in-out bg-gray-100 ring-white hover:ring-2 hover:ring-purple-500;
+.planetContainer {
+    @apply md:w-1/2 flex justify-center items-center;
 }
 
-.imageDescriptionContainer {
-    @apply text-gray-600 bg-gray-100 p-2 mt-0 font-sans;
-}
-
-.description {
-    @apply flex justify-between mb-2 items-center text-base flex-col md:flex-row;
-}
-
-.link {
-    @apply underline ml-1 cursor-pointer text-purple-500 font-extralight font-mono mr-1;
-}
-
-.date {
-    @apply block text-xs mt-3 md:mt-0;
-}
-
-.prompt {
-    @apply italic pl-2;
-}
-
-.line {
-    @apply bg-purple-800 block;
-}
-
-.copy {
-    @apply mt-2 p-2 text-xs;
+.blinkingPlanet {
+    @apply absolute md:relative top-60 md:top-0 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full opacity-20 filter blur-3xl animate-pulse;
 }

@@ -11,11 +11,11 @@
 }
 
 .overlay {
-	@apply absolute inset-0 flex mr-12;
+	@apply absolute inset-0 flex mr-12 text-center;
 }
 
 .overlayText {
-	@apply pl-10 mx-auto z-10 text-white self-center uppercase font-light;
+	@apply pl-10 mx-auto z-10 text-white self-center font-light uppercase text-center;
 }
 
 .compositionPhoto {

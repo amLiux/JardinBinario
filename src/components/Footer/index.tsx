@@ -1,6 +1,5 @@
-import Image, { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from 'next/legacy/image';
 import { NextRouter } from 'next/router';
-import logo from '@/assets/littleLogo.png';
 import gitHubLogo from '@/assets/logos/gitHubLogo.svg';
 import youtubeLogo from '@/assets/logos/youtubeLogo.svg';
 import linkedinLogo from '@/assets/logos/linkedinLogo.svg';
@@ -8,6 +7,7 @@ import edit from '@/assets/edit.png';
 
 import footerStyles from './Footer.module.css';
 import { Flexbox } from '../lib/Flexbox';
+import { Logo } from '../Logo';
 
 interface FooterProps {
 	router: NextRouter;
@@ -54,11 +54,7 @@ export const Footer = ({ router, filePath }: FooterProps) => {
 					:
 					<div></div>
 			}
-			<div
-				onClick={() => router.push('/')}
-				className={footerStyles.imageContainer}>
-				<Image src={logo} alt='jardin binario logo little version' layout='responsive' />
-			</div>
+			<Logo router={router} isSmall />
 			<ul className={footerStyles.socialMedia}>
 				{
 					socialMedia.map(({ alt, displayName, url, logo }, idx) =>

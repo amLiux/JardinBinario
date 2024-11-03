@@ -1,3 +1,7 @@
 .logoContainer {
-	@apply w-32 md:w-40 cursor-pointer ml-0 md:ml-10 mt-1 pt-1;
+	@apply w-32 md:w-40 cursor-pointer ml-0 mt-1 pt-1;
+}
+
+.smallLogoContainer {
+    @apply w-20 h-20 md:w-24 md:h-24 cursor-pointer;
 }

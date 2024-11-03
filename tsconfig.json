@@ -34,6 +34,12 @@
       ],
       "@/utils/*": [
         "utils/*"
+      ],
+      "@/layouts/*": [
+        "layouts/*"
+      ],
+      "@/lib/*": [
+        "components/lib/*"
       ]
     },
     "target": "es2016",

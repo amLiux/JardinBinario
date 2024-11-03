@@ -4,13 +4,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import customSwiperStyles from './CustomSwiper.module.css';
-import ticketFormStyles from '../TicketForm/TicketForm.module.css';
 import { AutoplayOptions, SwiperModule } from 'swiper/types';
+import { ModernHeader } from '@/components/lib/Header';
 
 type amountOfSlides = 1 | 2;
 interface CustomSwiperProps {
     children: ReactNode | ReactNode[];
-    title?: string;
+    headerText: {
+        title: string;
+        highlight: string;
+        copy?: string;
+    };
     slidesPerView: {
         default: amountOfSlides;
         640: amountOfSlides;
@@ -27,7 +31,7 @@ type SharedProps = {
     modules?: SwiperModule[];
 };
 
-export const CustomSwiper = ({ children, title, slidesPerView, autoplay, requiresMarginTop = true }: CustomSwiperProps) => {
+export const CustomSwiper = ({ children, headerText, slidesPerView, autoplay, requiresMarginTop = true }: CustomSwiperProps) => {
     const wrapper = Array.isArray(children) ? children : [children];
     let sharedProps: SharedProps = {};
     if (autoplay) {
@@ -40,11 +44,7 @@ export const CustomSwiper = ({ children, title, slidesPerView, autoplay, require
     }
     return (
         <div className={requiresMarginTop ? customSwiperStyles.container : undefined}>
-            {
-                title && <span className={ticketFormStyles.coolHeading} >
-                    <h3>{title}</h3>
-                </span> 
-            }
+            <ModernHeader {...headerText}  />
             <div className={customSwiperStyles.swiperContainer}>
                 <Swiper
                     {...sharedProps}

@@ -3,235 +3,241 @@
 @tailwind utilities;
 
 :root {
-	--velocidad: 5s;
-	--main-bg-color: brown;
-	--brand-success: #5cb85c;
-	--loader-size: 100px;
-	--loader-size-little: 40px;
-	--tw-border-opacity: 1;
-	--check-height: var(--loader-size)/2;
-	--check-width: var(--loader-size)/2;
-	--check-left: (var(--loader-size)/6 + var(--loader-size)/12);
-	--check-thickness: 3px;
-	--check-color: rgb(147 51 234 / var(--tw-border-opacity));
+  --velocidad: 5s;
+  --main-bg-color: brown;
+  --brand-success: #5cb85c;
+  --loader-size: 100px;
+  --loader-size-little: 40px;
+  --tw-border-opacity: 1;
+  --check-height: var(--loader-size) / 2;
+  --check-width: var(--loader-size) / 2;
+  --check-left: (var(--loader-size) / 6 + var(--loader-size) / 12);
+  --check-thickness: 3px;
+  --check-color: rgb(147 51 234 / var(--tw-border-opacity));
 }
 
 html,
 body {
-	padding: 0;
-	margin: 0;
-	font-family: 'Anuphan', sans-serif;
-	scrollbar-width: none;
-	@apply bg-slate-900;
-	scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: none;
+  @apply bg-slate-900;
+  scroll-behavior: smooth;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none!important;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .star {
-	@apply absolute top-80 left-10 h-0.5 animate-star-trail;
-	filter: drop-shadow(0 0 6px rgb(216 180 254));
-	background: linear-gradient(-45deg, rgb(192 132 252), rgb(147 51 234));
+  @apply absolute top-80 left-10 h-0.5 animate-star-trail;
+  filter: drop-shadow(0 0 6px rgb(216 180 254));
+  background: linear-gradient(-45deg, rgb(192 132 252), rgb(147 51 234));
 }
 
 .star::before,
 .star::after {
-	@apply h-[2.8px] absolute content-[''] right-0 transform translate-x-1/2 rotate-45 animate-star;
-	top: calc(100% - 2.2px);
-	border-radius: 100%;
-	background: linear-gradient(-45deg, rgb(147 51 234), rgb(216 180 254), rgb(192 132 252));
+  @apply h-[2.8px] absolute content-[''] right-0 transform translate-x-1/2 rotate-45 animate-star;
+  top: calc(100% - 2.2px);
+  border-radius: 100%;
+  background: linear-gradient(
+    -45deg,
+    rgb(147 51 234),
+    rgb(216 180 254),
+    rgb(192 132 252)
+  );
 }
 
 .star::after {
-	transform: translateX(50%) rotateZ(-45deg);
+  transform: translateX(50%) rotateZ(-45deg);
 }
 
 .star:nth-child(1) {
-	top: calc(30% - 1rem);
-	left: calc(40% - 2rem);
-	animation-delay: 650ms;
+  top: calc(30% - 1rem);
+  left: calc(40% - 2rem);
+  animation-delay: 650ms;
 }
 
 @media only screen and (max-width: 640px) {
-	.star:nth-child(1) {
-		top: calc(50% - 1rem);
-		left: calc(40% - 8rem);
-		animation-delay: 650ms;
-	}
+  .star:nth-child(1) {
+    top: calc(50% - 1rem);
+    left: calc(40% - 8rem);
+    animation-delay: 650ms;
+  }
 }
 
 .star:nth-child(1)::before,
 .star:nth-child(1)::after {
-	animation-delay: 650ms;
+  animation-delay: 650ms;
 }
 
 .star:nth-child(2) {
-	top: calc(43% - 5rem);
-	left: calc(50% - 3rem);
-	animation-delay: 150ms;
+  top: calc(43% - 5rem);
+  left: calc(50% - 3rem);
+  animation-delay: 150ms;
 }
 
 @media only screen and (max-width: 640px) {
-	.star:nth-child(2) {
-		top: calc(43% - 5.2rem);
-		left: calc(17% - 3rem);
-		animation-delay: 150ms;
-	}
+  .star:nth-child(2) {
+    top: calc(43% - 5.2rem);
+    left: calc(17% - 3rem);
+    animation-delay: 150ms;
+  }
 }
 
 .star:nth-child(2)::before,
 .star:nth-child(2)::after {
-	animation-delay: 150ms;
+  animation-delay: 150ms;
 }
 
 .star:nth-child(3) {
-	top: calc(30% - 8rem);
-	left: calc(50% - 5rem);
-	animation-delay: 1600ms;
+  top: calc(30% - 8rem);
+  left: calc(50% - 5rem);
+  animation-delay: 1600ms;
 }
 
 .star:nth-child(3)::before,
 .star:nth-child(3)::after {
-	animation-delay: 1600ms;
+  animation-delay: 1600ms;
 }
 
 .star:nth-child(4) {
-	top: calc(110% - 14rem);
-	left: calc(17% - 9rem);
-	animation-delay: 4700ms;
+  top: calc(110% - 14rem);
+  left: calc(17% - 9rem);
+  animation-delay: 4700ms;
 }
 
 .star:nth-child(4)::before,
 .star:nth-child(4)::after {
-	animation-delay: 4700ms;
+  animation-delay: 4700ms;
 }
 
 .star:nth-child(5) {
-	top: calc(90% - 3rem);
-	left: calc(20% - 10rem);
-	animation-delay: 2100ms;
+  top: calc(90% - 3rem);
+  left: calc(20% - 10rem);
+  animation-delay: 2100ms;
 }
 
 .star:nth-child(5)::before,
 .star:nth-child(5)::after {
-	animation-delay: 2100ms;
+  animation-delay: 2100ms;
 }
 
 .errorContainer {
-	@apply w-40 rounded flex flex-col m-auto px-3 py-1 items-center justify-around;
-	background-color: rgb(22, 21, 21);
+  @apply w-40 rounded flex flex-col m-auto px-3 py-1 items-center justify-around;
+  background-color: rgb(22, 21, 21);
 }
 
 /* TODO don't override h1, create a class for this */
 
 .header {
-	@apply text-base relative w-full text-white;
+  @apply text-base relative w-full text-white;
 }
 
 .header::before,
 .header::after {
-	@apply content-[''] absolute top-0 right-0 bottom-0 left-0;
+  @apply content-[''] absolute top-0 right-0 bottom-0 left-0;
 }
 
 .header::before {
-	@apply animate-writing-machine-before;
-	background-color: rgb(22, 21, 21);
+  @apply animate-writing-machine-before;
+  background-color: rgb(22, 21, 21);
 }
 
 .header::after {
-	@apply w-[3px] bg-slate-200 animate-writing-machine-after;
+  @apply w-[3px] bg-slate-200 animate-writing-machine-after;
 }
 
 .yellow {
-	@apply bg-yellow-500;
+  @apply bg-yellow-500;
 }
 
 /* Animations */
 
 @keyframes tail {
-	0% {
-		width: 0;
-	}
+  0% {
+    width: 0;
+  }
 
-	30% {
-		width: 100px;
-	}
+  30% {
+    width: 100px;
+  }
 
-	100% {
-		width: 0;
-	}
+  100% {
+    width: 0;
+  }
 }
 
 @keyframes shining {
-	0% {
-		width: 0;
-	}
+  0% {
+    width: 0;
+  }
 
-	50% {
-		width: 30px;
-	}
+  50% {
+    width: 30px;
+  }
 
-	100% {
-		width: 0;
-	}
+  100% {
+    width: 0;
+  }
 }
 
 @keyframes shooting {
-	0% {
-		transform: translateX(0);
-	}
+  0% {
+    transform: translateX(0);
+  }
 
-	100% {
-		transform: translateX(320px);
-	}
+  100% {
+    transform: translateX(320px);
+  }
 }
 
 @keyframes writingMachine {
-	to {
-		left: 100%;
-	}
+  to {
+    left: 100%;
+  }
 }
 
 @keyframes blink {
-	to {
-		background: transparent;
-	}
+  to {
+    background: transparent;
+  }
 
-	100% {
-		color: rgb(22, 21, 21);
-	}
+  100% {
+    color: rgb(22, 21, 21);
+  }
 }
 
 .no-scrollbar::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-	scrollbar-width: none; /* Firefox */
-	-ms-overflow-style: none;  /* IE 10+ */	
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
 }
 
 body::-webkit-scrollbar {
-	display: none;
-	background: transparent; /* Chrome/Safari/Webkit */
-	width: 0px;
+  display: none;
+  background: transparent; /* Chrome/Safari/Webkit */
+  width: 0px;
 }
 
 .isSticky {
-	@apply shadow-md sticky;
-	backdrop-filter: blur(10px);
-	z-index: 100;
+  @apply shadow-md sticky;
+  backdrop-filter: blur(10px);
 }
 
+.navbar {
+  z-index: 100;
+}
 
 .swiper {
-	padding: .2rem!important;
+  padding: 0.2rem !important;
 }
