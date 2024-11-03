@@ -47,6 +47,6 @@ export const useIdeas = (t: (key: string) => string) => {
   return {
     ideas
   };
-}
+};
 
 

@@ -19,5 +19,5 @@ export const ModernHeader = ({ title, highlight, copy }: SwiperHeaderProps) => {
                 </span>}
             </div>
         </header>
-    )
-}
+    );
+};

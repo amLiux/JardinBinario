@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import dropdownStyles from './Dropdown.module.css';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 
@@ -51,6 +51,7 @@ export const Dropdown = ({ dropdownItems, title }: Props) => {
                     {
                         dropdownItems.map(({ label, extraClass, id, onClick }) => (
                             <a
+                                key={`${label}-item`}
                                 href='#'
                                 className={`${dropdownStyles.dropdownItems} ${extraClass}`}
                                 role="menuitem"
@@ -68,5 +69,5 @@ export const Dropdown = ({ dropdownItems, title }: Props) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

@@ -19,6 +19,6 @@ export const seoMapping: SeoMapping = {
   },
   '/privacy': {
     title: 'Jardín Binario | Privacidad',
-    "description": "Descubre cómo Jardín Binario protege tu información personal y tu privacidad. Conoce nuestra política de privacidad, efectiva desde el 10 de abril de 2023."  },
+    'description': 'Descubre cómo Jardín Binario protege tu información personal y tu privacidad. Conoce nuestra política de privacidad, efectiva desde el 10 de abril de 2023.'  },
 };
 
