@@ -7,7 +7,7 @@ import { Flexbox } from '../lib/Flexbox';
 import indexStyles from '../Index/Index.module.css';
 
 export const Hero = () => {
-  const { t } = useTranslation('index')
+  const { t } = useTranslation('index');
   return (
     <div className={heroStyles.container}>
       <Sky stars={5} />

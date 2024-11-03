@@ -57,12 +57,13 @@ export const Blogs = ({ recentBlogs, mostViewedBlogs, t }: BlogsProps) => {
     },
     blogs: mostViewedBlogs
   }
-  ]
+  ];
 
   return (
     <div className={blogsStyles.container}>
       {toRender.map((blogInfo) => (
         <CustomSwiper
+          key={`swiper-${blogInfo.headerText.title}`}
           headerText={blogInfo.headerText}
           slidesPerView={{
             default: 1,
