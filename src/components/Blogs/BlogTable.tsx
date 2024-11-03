@@ -1,7 +1,7 @@
 import React from 'react';
 import { BlogEntry } from '@/types/sharedTypes';
 import { Profile } from '@/components/Profile';
-import { Tags } from '@/components/Tags';
+import { Tags } from '@/components/lib/Tags';
 import { Icons } from '@/components/Icons';
 import { NextRouter } from 'next/router';
 import { useMutation } from '@apollo/client';

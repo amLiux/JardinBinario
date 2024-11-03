@@ -21,7 +21,7 @@ export const RadioGroup = ({ options, onChange, value, labelText }: IProps) => {
 
     return (
         <div>
-            <h4 style={{ marginTop: '2rem', marginBottom: '0.6666667em' }} className="after:content-['⚙️'] after:ml-1">{labelText}</h4>
+            <h4 style={{ marginTop: '2rem', marginBottom: '0.6666667em' }}>{labelText}</h4>
             <Flexbox wrap extraClass={optionsStyles.container}>
                 {options.map((el, index) => (
                     <Option

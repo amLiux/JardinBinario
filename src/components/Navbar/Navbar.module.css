@@ -1,5 +1,5 @@
 .navbar {
-	@apply align-middle items-center sticky top-0 p-2 min-h-[93px] md:px-48;
+	@apply align-middle items-center sticky top-0 p-2 min-h-[93px] md:px-12;
 }
 
 .completion {

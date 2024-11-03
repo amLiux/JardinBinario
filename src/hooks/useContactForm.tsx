@@ -7,35 +7,39 @@ import { useMutation } from '@apollo/client';
 import { querys } from '@/gql/querys';
 import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
 import { timeout } from '@/utils/timeout';
+import useTranslation from 'next-translate/useTranslation';
 
 type TextInputValuesMapping = {
   friendlyName: string;
-  extraStyling: string;
   placeholder: string;
   type: string;
 };
 
-export const useContactForm = () => {
+export const useContactForm = (t: (key: string) => string) => {
   const textInputValues: string[] = ['companyName', 'email', 'phoneNumber'];
-  const services = ['Frontend', 'Backend', 'Diseño', 'Educacion', 'Mobile'];
+  const services = [
+    t('ticketForm.form.services.frontEnd'),
+    t('ticketForm.form.services.backEnd'),
+    t('ticketForm.form.services.design'),
+    t('ticketForm.form.services.education'),
+    t('ticketForm.form.services.mobile'),
+
+  ];
 
   const textInputValuesMapping: Record<string, TextInputValuesMapping> = {
     companyName: {
-      friendlyName: 'Compañía',
-      extraStyling: "after:content-['🏛️']",
-      placeholder: 'Tu compañía',
+      friendlyName: t('ticketForm.form.labels.company'),
+      placeholder: t('ticketForm.form.placeholders.company'),
       type: 'text',
     },
     email: {
-      friendlyName: 'E-mail',
-      extraStyling: "after:content-['✉️']",
-      placeholder: 'Tu e-mail',
+      friendlyName: t('ticketForm.form.labels.email'),
+      placeholder: t('ticketForm.form.placeholders.email'),
       type: 'email',
     },
     phoneNumber: {
-      friendlyName: 'Número telefónico',
-      extraStyling: "after:content-['📱']",
-      placeholder: 'Tu número',
+      friendlyName: t('ticketForm.form.labels.phoneNumber'),
+      placeholder: t('ticketForm.form.placeholders.phoneNumber'),
       type: 'phone',
     },
   };
@@ -107,5 +111,6 @@ export const useContactForm = () => {
     textInputValues,
     textInputValuesMapping,
     services,
+    t,
   };
 };

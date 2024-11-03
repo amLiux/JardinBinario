@@ -2,10 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/legacy/image';
 
-import { Flexbox } from '../lib/Flexbox';
+import { Flexbox } from '@/lib/Flexbox';
+import { Tags } from '@/lib/Tags';
+
 import shares from '@/assets/buttons/shares.svg';
 import views from '@/assets/buttons/views.svg';
-import { Tags } from '@/components/Tags';
 import { Profile } from '@/components/Profile';
 
 import blogsStyles from './Blogs.module.css';

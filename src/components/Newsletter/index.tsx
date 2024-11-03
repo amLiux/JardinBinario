@@ -7,8 +7,13 @@ import ticketFormStyles from '@/components/TicketForm/TicketForm.module.css';
 import newsletterStyles from './Newsletter.module.css';
 import { Flexbox } from '../lib/Flexbox';
 import { useNewsletterForm } from '@/hooks/useNewsletter';
+import useTranslation from 'next-translate/useTranslation';
 
-export const Newsletter = () => {
+interface NewsletterProps {
+  t: (key: string) => string;
+}
+
+export const Newsletter = ({ t }: NewsletterProps) => {
   const {
     handleChange,
     handleSubmit,
@@ -23,11 +28,10 @@ export const Newsletter = () => {
     <Form newsletter handleSubmit={handleSubmit}>
       <Sky stars={2} />
       <h4 className={newsletterStyles.header}>
-        Suscríbete a nuestro newsletter
+        {t('newsletter.title')}
       </h4>
       <p className={newsletterStyles.subheading}>
-        Recibe notificaciones de nuestras últimas actualizaciones, blogs,
-        posiciones, ofertas.
+        {t('newsletter.subheading')}
       </p>
       <Flexbox alignItems="center" extraClass={newsletterStyles.inputContainer}>
         <Input
@@ -50,13 +54,12 @@ export const Newsletter = () => {
           {isSubmitting || (submitted && !isSubmitting) ? (
             <Spinner size="little" submitted={submitted}></Spinner>
           ) : (
-            'Suscríbete'
+            t('newsletter.cta')
           )}
         </button>
       </Flexbox>
       <p className={newsletterStyles.copy}>
-        ¡Únete a nuestra lista de correo de Jardín Binario y mantente al tanto
-        de nuestras últimas noticias y actualizaciones!{' '}
+        {t('newsletter.copy')}
       </p>
     </Form>
   );

@@ -1,0 +1,101 @@
+{
+    "cta": "Plant something great",
+    "hero": {
+        "heading": {
+            "part1": "Bring your ideas, we'll",
+            "gradient": "cultivate",
+            "part2": "the solution."
+        },
+        "subheading": "Our team of talented experts is ready to cultivate the success of your project. Dive into a garden of technological creativity and prepare to be amazed!"
+    },
+    "navbar": {
+        "links": {
+            "privacy": "Privacy",
+            "language": "Language"
+        }
+    },
+    "introBlock": {
+        "heading": {
+            "firstPart": "Craftsmanship turned into",
+            "highlight": " technology ",
+            "secondPart": "that harvests your ideas."
+        },
+        "subheading": "Founded in 2022, Jardín Binario is an open-source ideas incubator that seeks to help companies or investors create opportunities through technological investment, developing tools to maximize market potential through our services:"
+    },
+    "photoComposition": {
+        "design": "Design",
+        "socialMedia": "Social Media",
+        "uiUx": "UI/UX",
+        "software": "Software Development"
+    },
+    "descriptionBlock": {
+        "heading": {
+            "firstPart": "A team dedicated to helping you ",
+            "highlight": "analyze, plant, and harvest",
+            "secondPart": " ideas."
+        },
+        "subheading": "In our company, we focus on creating innovative solutions that benefit society and promote job creation. We work closely with the client from the start of the project to develop a personalized brand and implement technical solutions that meet their expectations. We are always willing to listen and consider any client suggestions to achieve exceptional results together."
+    },
+    "newsletter": {
+        "title": "Subscribe to our newsletter",
+        "subheading": "Receive notifications of our latest updates, blogs, positions, and offers.",
+        "copy": "Join our mailing list and stay updated on our latest news and updates!",
+        "cta": "Subscribe"
+    },
+    "swiper": {
+        "header": {
+            "title": "Our",
+            "highlight": "ideas"
+        }
+    },
+    "disclaimerBlock": {
+        "subheading": "And we not only focus on our own ideas, but we also care about making a positive social contribution. For this reason, our service costs are tailored to each proposed project and its potential to generate social impact. In this way, we are committed not only to providing high-quality solutions but also to making a difference in our community."
+    },
+    "ticketForm": {
+        "header": {
+            "title": "Collaborate with",
+            "highlight": "us",
+            "copy": "If you have an idea you'd like to share or want to collaborate with us, we'd love to hear from you! Contact us and let's explore new opportunities together."
+        },
+        "form": {
+            "title": "Contact Form",
+            "labels": {
+                "company": "Company",
+                "email": "E-mail",
+                "phoneNumber": "Phone Number",
+                "description": "Tell us a little about your project"
+            },
+            "placeholders": {
+                "company": "Your company",
+                "email": "Your e-mail",
+                "phoneNumber": "Your number",
+                "description": "A brief description of the implementation you want, the technology you want to learn, your experience..."
+            },
+            "services": {
+                "title": "Services",
+                "frontEnd": "Frontend",
+                "backEnd": "Backend",
+                "design": "Design",
+                "education": "Education",
+                "mobile": "Mobile"
+            },
+            "submit": "Submit"
+        },
+        "muted": "Contact us to receive consulting services, quotes, or if you want to be part of our team."
+    },
+    "blogs": {
+        "mostViewed": {
+            "title": "Most viewed",
+            "highlight": "blogs"
+        },
+        "mostRecent": {
+            "title": "Most recent",
+            "highlight": "blogs"
+        }
+    },
+    "ideas": {
+        "brainyBoardDesc": "Brainy Board is an online collaboration and task management plugin that uses APIs, is open source, and easy to use, which enhances team productivity. It is ideal for implementation in software factories/software offices. Additionally, anyone can contribute to the development of the project.",
+        "jardinBinarioDesc": "Jardín Binario is a social platform that connects investors, entrepreneurs, and specialists, fostering the creation of innovative companies and job generation. Additionally, we offer a blogging platform to share knowledge, experiences, and to meet potential partners.",
+        "repo": "Repository"
+    }
+}

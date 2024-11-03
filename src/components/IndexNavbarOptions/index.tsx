@@ -1,7 +1,10 @@
-import { NextRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
+import Link from 'next/link';
+
 import indexNavbarOptionsStyles from './IndexNavbarOptions.module.css';
 import { Flexbox } from '../lib/Flexbox';
-import Link from 'next/link';
+import { Dropdown } from '../lib/Dropdown';
+import useTranslation from 'next-translate/useTranslation';
 
 type Tab = {
   text: string;
@@ -17,33 +20,59 @@ interface IndexNavbarOptionsProps {
   read: boolean;
 }
 
-const tabs: Tab[] = [
-  // {
-  //     text: 'Blogs',
-  //     route: '/blog',
-  //     link: true,
-  // },
-  {
-    text: 'Privacidad',
-    route: '/privacy',
-    link: true,
-  },
-  {
-    text: 'Siembra algo genial',
-    route: 'ticket',
-    link: false,
-  },
-];
-
 export const IndexNavbarOptions = ({
   handleClickServices,
   privacy,
   read,
   burguer,
 }: IndexNavbarOptionsProps) => {
-  if (privacy || read) {
+  const { t, lang } = useTranslation('index');
+  const router = useRouter();
+
+  const tabs: Tab[] = [
+    // {
+    //     text: 'Blogs',
+    //     route: '/blog',
+    //     link: true,
+    // },
+    {
+      text: t('navbar.links.privacy'),
+      route: '/privacy',
+      link: true,
+    },
+    {
+      text: t('cta'),
+      route: 'ticket',
+      link: false,
+    },
+  ];
+
+  const changeLanguage = (newLang:string) => {
+    const currentPath = router.pathname;
+    const currentQuery = router.query;
+
+    router.push({ pathname: currentPath, query: currentQuery }, currentPath, { locale: newLang });
+  };
+  
+  if (read) {
     return null;
   }
+
+
+  const dropdownItems = [
+    {
+      label: 'English',
+      extraClass: "after:ml-2 after:content-['🇺🇸']",
+      id: 'english-lang-option',
+      onClick: () => changeLanguage('en')
+    },
+    {
+      label: 'Spanish',
+      extraClass: "after:ml-2 after:content-['🇨🇷']",
+      id: 'spanish-lang-option',
+      onClick: () => changeLanguage('es')
+    }
+  ];
 
   return (
     <Flexbox
@@ -52,7 +81,8 @@ export const IndexNavbarOptions = ({
       flexDirection={burguer ? 'column' : 'row'}
       extraClass={indexNavbarOptionsStyles.container}
     >
-      {tabs.map(({ text, link, route }, idx) => (
+      <Dropdown dropdownItems={dropdownItems} title={t('navbar.links.language')} />
+      {!privacy && tabs.map(({ text, link, route }, idx) => (
         <li key={idx} className="mx-5">
           {link
             ? <Link

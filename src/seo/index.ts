@@ -1,5 +1,3 @@
-// import { BlogEntry } from '../types/sharedTypes';
-
 export interface SeoMapping {
   [key: string]: {
     title: string;
@@ -19,8 +17,8 @@ export const seoMapping: SeoMapping = {
     title: 'Jardín Binario | Generador de firmas',
     description: 'Generador de firmas de correo para Jardín Binario',
   },
+  '/privacy': {
+    title: 'Jardín Binario | Privacidad',
+    "description": "Descubre cómo Jardín Binario protege tu información personal y tu privacidad. Conoce nuestra política de privacidad, efectiva desde el 10 de abril de 2023."  },
 };
 
-// export const dynamicSeoGenerator = (blog:BlogEntry):SeoMapping => {
-
-// };

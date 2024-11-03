@@ -1,4 +1,4 @@
-import { texts } from '@/components/Index/text';
+import { useTexts } from '@/components/Index/text';
 import indexStyles from '@/components/Index/Index.module.css';
 import { PhotoComposition } from '@/components/PhotoComposition';
 import { Ideas } from '@/components/Ideas';
@@ -17,9 +17,11 @@ export const IndexScreen = (props: IndexScreenProps) => {
     refServices,
   } = props;
 
+  const { texts, t } = useTexts('index');
+
   return (
     <>
-      <Hero/>
+      <Hero />
       <div className={indexStyles.index}>
         <HeadingBlock
           subheadingAnimationDirection="Right"
@@ -27,23 +29,24 @@ export const IndexScreen = (props: IndexScreenProps) => {
           tag="h1"
           block={texts.introBlock}
         />
-        <PhotoComposition />
-        <Newsletter />
+        <PhotoComposition t={t} />
         <HeadingBlock
           headingAnimationDirection="Right"
           subheadingAnimationDirection="Left"
           tag="h2"
           block={texts.descriptionBlock}
         />
-        <Ideas refForScroll={refServices} />
+        <Newsletter t={t} />
+        <Ideas t={t} refForScroll={refServices} />
         <HeadingBlock
           headingAnimationDirection="Right"
           subheadingAnimationDirection="Left"
           tag="h3"
           block={texts.disclaimerBlock}
         />
-        <TicketForm refForForm={refForm} />
+        <TicketForm t={t} refForForm={refForm} />
         <Blogs
+          t={t}
           recentBlogs={recentEntries}
           mostViewedBlogs={mostViewedEntries}
         />

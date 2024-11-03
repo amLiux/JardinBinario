@@ -1,5 +1,5 @@
 .container {
-    @apply relative z-20 bg-slate-900 min-h-screen overflow-hidden;
+    @apply relative z-20 bg-slate-900 min-h-screen overflow-hidden px-28;
 }
 
 .flexContainer {

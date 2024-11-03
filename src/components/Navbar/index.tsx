@@ -50,7 +50,7 @@ export const Navbar = ({
       alignItems="center"
       html="navbar"
       // scroll class is for the sticky behavior (shadows, completion when reading a blog, etc)
-      extraClass={`${navbarStyles.navbar} scroll`}
+      extraClass={`${navbarStyles.navbar} scroll navbar`}
     >
       <Logo router={router} />
 
