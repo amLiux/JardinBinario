@@ -9,6 +9,7 @@ import { BlogCard } from './BlogCard';
 interface BlogsProps {
   recentBlogs: BlogEntry[];
   mostViewedBlogs: BlogEntry[];
+  t: (key: string) => string;
 }
 
 const getSlidesToRender = (blogs: BlogEntry[]) =>
@@ -40,33 +41,40 @@ const getSlidesToRender = (blogs: BlogEntry[]) =>
     )
   );
 
-export const Blogs = ({ recentBlogs, mostViewedBlogs }: BlogsProps) => {
+export const Blogs = ({ recentBlogs, mostViewedBlogs, t }: BlogsProps) => {
+
+  const toRender = [{
+    headerText: {
+      title: t('blogs.mostRecent.title'),
+      highlight: t('blogs.mostRecent.highlight')
+    },
+    blogs: recentBlogs
+  },
+  {
+    headerText: {
+      title: t('blogs.mostViewed.title'),
+      highlight: t('blogs.mostViewed.highlight')
+    },
+    blogs: mostViewedBlogs
+  }
+  ]
+
   return (
     <div className={blogsStyles.container}>
-      <CustomSwiper
-        title="Blogs más recientes:"
-        slidesPerView={{
-          default: 1,
-          640: 1,
-          768: 1,
-          1024: 2,
-        }}
-        autoplay
-      >
-        {getSlidesToRender(recentBlogs)}
-      </CustomSwiper>
-      <CustomSwiper
-        title="Blogs más vistos:"
-        slidesPerView={{
-          default: 1,
-          640: 1,
-          768: 1,
-          1024: 2,
-        }}
-        autoplay
-      >
-        {getSlidesToRender(mostViewedBlogs)}
-      </CustomSwiper>
+      {toRender.map((blogInfo) => (
+        <CustomSwiper
+          headerText={blogInfo.headerText}
+          slidesPerView={{
+            default: 1,
+            640: 1,
+            768: 1,
+            1024: 2,
+          }}
+          autoplay
+        >
+          {getSlidesToRender(blogInfo.blogs)}
+        </CustomSwiper>
+      ))}
     </div>
   );
 };

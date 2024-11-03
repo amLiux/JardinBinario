@@ -7,32 +7,37 @@ import imagen4 from '@/assets/imagen4.jpg';
 
 import photoCompositionStyles from './PhotoComposition.module.css';
 import { Fragment, useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 
-const toRender = [
-  {
-    image: imagen3,
-    alt: 'a desk with some work on branding design with an iPad',
-    overlayText: 'Diseño',
-  },
-  {
-    image: imagen4,
-    alt: 'a desk with some work on branding design with an iPad',
-    overlayText: 'Social Media',
-  },
-  {
-    image: imagen2,
-    alt: 'mobile application interface sketches',
-    overlayText: 'UI/UX',
-  },
-  {
-    image: imagen1,
-    alt: 'someone coding on a laptop with a cup on coffee and a plant on the desk',
-    overlayText: 'Software',
-  },
-];
+interface PhotoCompositionProps {
+  t: (key: string) => string;
+}
 
-export const PhotoComposition = () => {
+export const PhotoComposition = ({ t }: PhotoCompositionProps) => {
   const [hoveringPic, setHoveringPic] = useState<Record<string, boolean>>({});
+
+  const toRender = [
+    {
+      image: imagen3,
+      alt: 'a desk with some work on branding design with an iPad',
+      overlayText: t('photoComposition.design'),
+    },
+    {
+      image: imagen4,
+      alt: 'a desk with some work on branding design with an iPad',
+      overlayText: t('photoComposition.socialMedia'),
+    },
+    {
+      image: imagen2,
+      alt: 'mobile application interface sketches',
+      overlayText: t('photoComposition.uiUx'),
+    },
+    {
+      image: imagen1,
+      alt: 'someone coding on a laptop with a cup on coffee and a plant on the desk',
+      overlayText: t('photoComposition.software'),
+    },
+  ];
 
   return (
     <>

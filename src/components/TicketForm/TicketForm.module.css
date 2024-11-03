@@ -1,19 +1,10 @@
-.coolHeading {
-    @apply transition-all ease-in-out before:block before:absolute before:-inset-1 bg-purple-500 relative block before:rounded p-4 text-center;
-    scroll-margin-top: 16rem;
-}
-
-.coolHeading > h3 {
-    @apply relative m-0;
-}
-
 .formContainer {
-    @apply transition-all hover:shadow-xl hover:shadow-gray-700 duration-300 z-30 relative bg-white uppercase w-full h-fit md:h-[39rem] mt-10 rounded p-10 hover:ring-2 hover:ring-purple-500;
+    @apply transition-all hover:shadow-xl hover:shadow-gray-700 duration-300 z-30 relative bg-white w-full h-fit md:h-[39rem] mt-10 rounded p-10 hover:ring-2 hover:ring-purple-500;
     margin-top: 2.5rem!important;
 }
 
 .formHeading {
-    @apply after:content-['📝'] after:ml-1 mb-8;
+    @apply after:ml-1 mb-8;
     margin-bottom: 2rem!important;
     margin-top: 0!important;
 }
@@ -23,11 +14,11 @@
 }
 
 .textInputLabel {
-    @apply after:ml-1 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2;
+    @apply after:ml-1 block tracking-wide text-gray-700 text-sm font-bold mb-2;
 }
 
 .textInput {
-    @apply transition-all ease-in-out appearance-none block w-full text-gray-600 bg-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-purple-500 focus:outline-none;
+    @apply transition-all text-lg ease-in-out appearance-none block w-full text-gray-600 bg-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-purple-500 focus:outline-none;
 }
 
 textarea.textInput {

@@ -9,12 +9,14 @@ import { useContactForm } from '@/hooks/useContactForm';
 
 import { Input } from './Input';
 import ticketFormStyles from './TicketForm.module.css';
+import { ModernHeader } from '@/lib/Header';
 
 type TicketFormProps = {
   refForForm: RefObject<HTMLDivElement>;
+  t: (key: string) => string;
 };
 
-export const TicketForm = ({ refForForm }: TicketFormProps) => {
+export const TicketForm = ({ refForForm, t }: TicketFormProps) => {
   const {
     isSubmitting,
     submitted,
@@ -29,16 +31,15 @@ export const TicketForm = ({ refForForm }: TicketFormProps) => {
     textInputValues,
     textInputValuesMapping,
     services,
-  } = useContactForm();
+  } = useContactForm(t);
 
   return (
-    <>
-      <h2 style={{ textAlign: 'center' }}>
-        Te interesa proponer o invertir en alguna de nuestras ideas?
-      </h2>
-      <span ref={refForForm} className={ticketFormStyles.coolHeading}>
-        <h3>Contáctanos!</h3>
-      </span>
+    <div ref={refForForm}>
+      <ModernHeader
+        title={t('ticketForm.header.title')}
+        highlight={t('ticketForm.header.highlight')}
+        copy={t('ticketForm.header.copy')}
+      />
       <div
         className={`${ticketFormStyles.formContainer} ${isSubmitting || (submitted && !isSubmitting) ? 'flex flex-col justify-center items-center' : ''}`}
       >
@@ -47,14 +48,14 @@ export const TicketForm = ({ refForForm }: TicketFormProps) => {
         ) : (
           <>
             <h4 className={ticketFormStyles.formHeading}>
-              Formulario de contacto
+              {t('ticketForm.form.title')}
             </h4>
             <Form handleSubmit={handleSubmit}>
               <div className="flex flex-col md:flex-row">
                 <Flexbox justifyContent="evenly" flexDirection="column">
                   {textInputValues.map((textInput, idx) => {
                     const textInputAsKey = textInput as keyof NewTicketValues;
-                    const { friendlyName, placeholder, type, extraStyling } =
+                    const { friendlyName, placeholder, type } =
                       textInputValuesMapping[textInputAsKey];
                     return (
                       <Input
@@ -65,7 +66,6 @@ export const TicketForm = ({ refForForm }: TicketFormProps) => {
                         friendlyName={friendlyName}
                         placeholder={placeholder}
                         type={type}
-                        extraLabelStyling={extraStyling}
                         key={idx}
                         error={errors[textInputAsKey]}
                       />
@@ -74,31 +74,31 @@ export const TicketForm = ({ refForForm }: TicketFormProps) => {
                 </Flexbox>
                 <div className={ticketFormStyles.textInputBox}>
                   <label
-                    className={`after:content-['👂'] ${ticketFormStyles.textInputLabel}`}
+                    className={`${ticketFormStyles.textInputLabel}`}
                     htmlFor="description"
                   >
-                    Cuéntanos un poco sobre tu proyecto
+                    {t('ticketForm.form.labels.description')}
                   </label>
                   <textarea
                     value={values.description}
                     className={`resize-none h-[87%] ${ticketFormStyles.textInput} ${errors?.hasOwnProperty('description') ? 'ring-2 ring-red-500 focus:ring-2 focus:border-purple-500' : ''}`}
                     onChange={handleChange}
                     id="description"
-                    placeholder="Una pequeña descripcion de la implementacion que quieres, la tecnologia que quieres aprender, tu experiencia..."
+                    placeholder={t('ticketForm.form.placeholders.description')}
                   />
                 </div>
               </div>
               <RadioGroup
                 value={[]}
-                labelText="Servicios"
+                labelText={t('ticketForm.form.services.title')}
                 onChange={(index) => {
                   const service = services[index].toLowerCase();
                   servicesToSend.includes(service)
                     ? setServicesToSend(
-                        servicesToSend.filter(
-                          (includedService) => includedService !== service
-                        )
+                      servicesToSend.filter(
+                        (includedService) => includedService !== service
                       )
+                    )
                     : setServicesToSend([...servicesToSend, service]);
 
                   if (servicesToSend !== values.service) {
@@ -122,16 +122,15 @@ export const TicketForm = ({ refForForm }: TicketFormProps) => {
                 type="submit"
                 className={ticketFormStyles.submitButton}
               >
-                {isSubmitting ? <Spinner></Spinner> : 'Enviar'}
+                {isSubmitting ? <Spinner></Spinner> : t('ticketForm.form.submit')}
               </button>
             </Form>
           </>
         )}
       </div>
       <span className="mt-20 text-sm italic">
-        Contáctanos para poder brindarte servicios de asesoría, cotizaciones o
-        si quieres ser parte de nuestro equipo.
+        {t('ticketForm.muted')}
       </span>
-    </>
+    </div>
   );
 };

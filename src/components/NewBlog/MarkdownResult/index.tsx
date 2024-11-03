@@ -43,8 +43,6 @@ export const MarkdownResult = ({
       >
         {toRender || visualMarkdown}
       </ReactMarkdown>
-      {/* TODO should we do this here? not sure, looks good for now */}
-      <Newsletter />
     </div>
   );
 };

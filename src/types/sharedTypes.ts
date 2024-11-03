@@ -1,7 +1,6 @@
 import { FormikHelpers, FormikValues } from 'formik';
 import { ReactNode, SyntheticEvent } from 'react';
 import { RefObject } from 'react';
-import { ApolloError } from '@apollo/client';
 
 export type FormData = {
   initialValues: FormikValues;

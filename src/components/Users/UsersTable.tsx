@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserContext } from '@/types/sharedTypes';
-import { Tags } from '@/components/Tags';
+import { Tags } from '@/components/lib/Tags';
 import { useMutation } from '@apollo/client';
 import { querys } from '@/gql/querys';
 import { Table } from '@/components/lib/Table';
