@@ -14,10 +14,10 @@ interface FlexboxProps {
 }
 
 interface WrapperProps {
-    html: keyof Record<string, any>, 
+    html: keyof Record<string, any>,
     className: string,
     id: string | undefined,
-    children:ReactNode;
+    children: ReactNode;
 }
 
 export const Flexbox = ({
@@ -60,7 +60,8 @@ export const Flexbox = ({
         div: <div {...propsToPass}>{children}</div>,
         ul: <ul {...propsToPass}>{children}</ul>,
         span: <span {...propsToPass}>{children}</span>,
-        navbar: <nav {...propsToPass}>{children} </nav>
+        navbar: <nav {...propsToPass}>{children} </nav>,
+        aside: <aside {...propsToPass}>{children}</aside>
     };
 
     const Element = types[html];

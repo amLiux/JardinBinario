@@ -1,0 +1,19 @@
+.container {
+    @apply relative inline-block text-left;
+}
+
+.dropdownItems {
+    @apply block w-full border-b-2 border-transparent hover:border-purple-500 px-4 py-2 text-base text-white transition-all ease-in-out delay-75;
+}
+
+.dropdownMenu {
+    @apply right-0 mt-2 w-max origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-[50];
+}
+
+.button {
+    @apply inline-flex w-full justify-center gap-x-1.5 rounded-md text-white px-3 py-2 text-gray-900 shadow-sm text-base;
+}
+
+.title {
+    @apply text-white transition-all ease-in-out border-b-2 border-transparent hover:border-b-purple-400;
+}
