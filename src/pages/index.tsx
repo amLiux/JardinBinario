@@ -66,6 +66,7 @@ export default function IndexPage({
       <IndexScreen
         recentEntries={recentEntries}
         mostViewedEntries={mostViewedEntries}
+        handleClickServices={handleClickServices}
         {...restOfIndexProps}
       />
       <Footer filePath="index" router={router} />

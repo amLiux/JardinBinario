@@ -22,14 +22,13 @@ export const Newsletter = ({ t }: NewsletterProps) => {
     submitted,
     isSubmitting,
     isValid,
+    isMobile,
   } = useNewsletterForm();
 
   return (
     <Form newsletter handleSubmit={handleSubmit}>
-      <Sky stars={2} />
-      <h4 className={newsletterStyles.header}>
-        {t('newsletter.title')}
-      </h4>
+      {!isMobile && <Sky newsletter stars={2} />}
+      <h4 className={newsletterStyles.header}>{t('newsletter.title')}</h4>
       <p className={newsletterStyles.subheading}>
         {t('newsletter.subheading')}
       </p>
@@ -58,9 +57,7 @@ export const Newsletter = ({ t }: NewsletterProps) => {
           )}
         </button>
       </Flexbox>
-      <p className={newsletterStyles.copy}>
-        {t('newsletter.copy')}
-      </p>
+      <p className={newsletterStyles.copy}>{t('newsletter.copy')}</p>
     </Form>
   );
 };

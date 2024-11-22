@@ -148,6 +148,7 @@ export interface Image {
 
 export interface IndexScreenProps {
   recentEntries: BlogEntry[];
+  handleClickServices: (ref: string) => void;
   mostViewedEntries: BlogEntry[];
   refServices: RefObject<HTMLDivElement>;
   refForm: RefObject<HTMLDivElement>;

@@ -6,11 +6,14 @@ import { useMutation } from '@apollo/client';
 import { querys } from '@/gql/querys';
 import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
 import { timeout } from '@/utils/timeout';
+import { useMobile } from '@/hooks/useMobile';
 
 export const useNewsletterForm = () => {
   const initialValues: NewsletterValues = {
     email: '',
   };
+
+  const { isMobile } = useMobile();
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -49,5 +52,6 @@ export const useNewsletterForm = () => {
     ...formik,
     submitted,
     setSubmitted,
+    isMobile,
   };
 };

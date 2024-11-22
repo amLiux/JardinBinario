@@ -15,13 +15,14 @@ export const IndexScreen = (props: IndexScreenProps) => {
     mostViewedEntries,
     refForm,
     refServices,
+    handleClickServices,
   } = props;
 
   const { texts, t } = useTexts('index');
 
   return (
     <>
-      <Hero />
+      <Hero handleClickServices={handleClickServices} />
       <div className={indexStyles.index}>
         <HeadingBlock
           subheadingAnimationDirection="Right"
@@ -37,14 +38,20 @@ export const IndexScreen = (props: IndexScreenProps) => {
           block={texts.descriptionBlock}
         />
         <Newsletter t={t} />
-        <Ideas t={t} refForScroll={refServices} />
+        <Ideas
+          t={t}
+          refForScroll={refServices}
+        />
         <HeadingBlock
           headingAnimationDirection="Right"
           subheadingAnimationDirection="Left"
           tag="h3"
           block={texts.disclaimerBlock}
         />
-        <TicketForm t={t} refForForm={refForm} />
+        <TicketForm
+          t={t}
+          refForForm={refForm}
+        />
         <Blogs
           t={t}
           recentBlogs={recentEntries}
