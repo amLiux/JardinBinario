@@ -6,7 +6,11 @@ import heroStyles from './Hero.module.css';
 import { Flexbox } from '../lib/Flexbox';
 import indexStyles from '../Index/Index.module.css';
 
-export const Hero = () => {
+interface HeroProps {
+  handleClickServices: (ref: string) => void;
+}
+
+export const Hero = ({handleClickServices}:HeroProps) => {
   const { t } = useTranslation('index');
   return (
     <div className={heroStyles.container}>
@@ -25,8 +29,8 @@ export const Hero = () => {
             <p className={heroStyles.subHeading}>
               {t('hero.subheading')}
             </p>
-            <button className={heroStyles.cta}>
-              <a href='#ticket'>{t('cta')}</a>
+            <button onClick={() => handleClickServices('ticket')} className={heroStyles.cta}>
+              <a>{t('cta')}</a>
               <ArrowRight className={heroStyles.ctaIcon} />
             </button>
           </div>

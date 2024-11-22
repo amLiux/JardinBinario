@@ -23,7 +23,7 @@
 }
 
 .cta {
-    @apply bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center;
+    @apply hover:animate-pulse bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center;
 }
 
 .ctaIcon {
