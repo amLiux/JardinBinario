@@ -18,7 +18,7 @@ export const IndexScreen = (props: IndexScreenProps) => {
     handleClickServices,
   } = props;
 
-  const { texts, t } = useTexts('index');
+  const { texts, t } = useTexts('home');
 
   return (
     <>
@@ -31,17 +31,17 @@ export const IndexScreen = (props: IndexScreenProps) => {
           block={texts.introBlock}
         />
         <PhotoComposition t={t} />
-        <HeadingBlock
+        {/* <HeadingBlock
           headingAnimationDirection="Right"
           subheadingAnimationDirection="Left"
           tag="h2"
           block={texts.descriptionBlock}
-        />
+        /> */}
         <Newsletter t={t} />
-        <Ideas
+        {/* <Ideas
           t={t}
           refForScroll={refServices}
-        />
+        /> */}
         <HeadingBlock
           headingAnimationDirection="Right"
           subheadingAnimationDirection="Left"

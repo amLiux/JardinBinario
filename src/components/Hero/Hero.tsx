@@ -1,5 +1,5 @@
 import { ArrowRightIcon as ArrowRight } from '@heroicons/react/24/outline';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslations } from 'next-intl';
 import { Sky } from '../404/Sky';
 import { CanvasBackground } from '../Canva';
 import heroStyles from './Hero.module.css';
@@ -10,13 +10,13 @@ interface HeroProps {
   handleClickServices: (ref: string) => void;
 }
 
-export const Hero = ({handleClickServices}:HeroProps) => {
-  const { t } = useTranslation('index');
+export const Hero = ({ handleClickServices }: HeroProps) => {
+  const t = useTranslations('home');
   return (
     <div className={heroStyles.container}>
       <Sky stars={5} />
       <Flexbox alignItems='center' justifyContent='center' extraClass={heroStyles.flexContainer}>
-        <Flexbox alignItems='center' justifyContent='between'  extraClass={heroStyles.contentContainer}>
+        <Flexbox alignItems='center' justifyContent='between' extraClass={heroStyles.contentContainer}>
           <CanvasBackground />
           <div className={heroStyles.textContainer}>
             <h1 className={heroStyles.header}>

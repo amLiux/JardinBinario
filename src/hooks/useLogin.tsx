@@ -17,19 +17,19 @@ export const useLogin = () => {
 
     const { signIn } = useAuth();
     const router = useRouter();
-    const { query: { redirectTo } } = router;
-
+    const { query } = router;
+    const redirectTo = query?.redirectTo;
     const formik = useFormik({
         initialValues,
         validationSchema: Yup.object({
             email: Yup.string().email().required(generateRequiredMessage('email'))
-            .matches(/\@jardinbinario.com$/, 'Domain not allowed'),
+                .matches(/\@jardinbinario.com$/, 'Domain not allowed'),
             password: Yup.string().required(generateRequiredMessage('password')).min(7, 'The password should at least have 7 characters'),
         }),
         onSubmit: async (values) => {
             try {
                 await signIn(values);
-                router.push(redirectTo ? String(redirectTo) : '/new');
+                router.push(redirectTo ? String(redirectTo) : '/admin/new');
             } catch (err) {
                 console.error(err);
             }

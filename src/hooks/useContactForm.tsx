@@ -7,7 +7,6 @@ import { useMutation } from '@apollo/client';
 import { querys } from '@/gql/querys';
 import { generateRequiredMessage } from '@/utils/generateRequiredMessage';
 import { timeout } from '@/utils/timeout';
-import useTranslation from 'next-translate/useTranslation';
 
 type TextInputValuesMapping = {
   friendlyName: string;

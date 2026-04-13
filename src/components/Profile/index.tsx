@@ -1,5 +1,4 @@
-import React from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { Flexbox } from '../lib/Flexbox';
 import profileStyles from './Profile.module.css';
 
@@ -16,7 +15,13 @@ export const Profile = ({ user: { avatar, name, lastName }, createdAt = new Date
     return (
         <Flexbox extraClass={profileStyles.identityCard}>
             <div className={profileStyles.profilePicContainer}>
-                <Image src={avatar} alt={`${name} ${lastName} profile pic`} layout='fill' objectFit='cover' />
+                <img
+                    src={avatar}
+                    alt={`${name} ${lastName} profile pic`}
+                    // fill
+                    sizes="(max-width: 640px) 50px, 40px"
+                    className={profileStyles.image}
+                />
             </div>
             <div className={profileStyles.identityText} >
                 <p>{`${name} ${lastName}`}</p>

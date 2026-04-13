@@ -4,7 +4,7 @@ import Link from 'next/link';
 import indexNavbarOptionsStyles from './IndexNavbarOptions.module.css';
 import { Flexbox } from '../lib/Flexbox';
 import { Dropdown } from '../lib/Dropdown';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslations, useLocale } from 'next-intl';
 
 type Tab = {
   text: string;
@@ -26,7 +26,8 @@ export const IndexNavbarOptions = ({
   read,
   burguer,
 }: IndexNavbarOptionsProps) => {
-  const { t, lang } = useTranslation('index');
+  const t = useTranslations('home');
+  const lang = useLocale();
   const router = useRouter();
 
   const tabs: Tab[] = [
@@ -47,13 +48,13 @@ export const IndexNavbarOptions = ({
     },
   ];
 
-  const changeLanguage = (newLang:string) => {
+  const changeLanguage = (newLang: string) => {
     const currentPath = router.pathname;
     const currentQuery = router.query;
 
     router.push({ pathname: currentPath, query: currentQuery }, currentPath, { locale: newLang });
   };
-  
+
   if (read) {
     return null;
   }

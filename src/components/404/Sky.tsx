@@ -13,7 +13,7 @@ export const Sky = ({ stars, newsletter = false }: SkyProps) => {
 
   return (
     <Flexbox
-      extraClass={`${newsletter ? 'absolute' : ''}`}
+      extraClass={`${newsletter ? 'absolute top-2/4 -z-10 left-20' : ''}`}
       flexDirection="column"
     >
       <div>

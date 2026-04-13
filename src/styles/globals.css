@@ -27,7 +27,7 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 
 * {
@@ -45,12 +45,10 @@ a {
   @apply h-[2.8px] absolute content-[''] right-0 transform translate-x-1/2 rotate-45 animate-star;
   top: calc(100% - 2.2px);
   border-radius: 100%;
-  background: linear-gradient(
-    -45deg,
-    rgb(147 51 234),
-    rgb(216 180 254),
-    rgb(192 132 252)
-  );
+  background: linear-gradient(-45deg,
+      rgb(147 51 234),
+      rgb(216 180 254),
+      rgb(192 132 252));
 }
 
 .star::after {
@@ -219,13 +217,16 @@ a {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
 }
 
 body::-webkit-scrollbar {
   display: none;
-  background: transparent; /* Chrome/Safari/Webkit */
+  background: transparent;
+  /* Chrome/Safari/Webkit */
   width: 0px;
 }
 

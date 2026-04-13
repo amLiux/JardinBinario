@@ -11,8 +11,8 @@ import { useRead } from '@/hooks/useRead';
 import { Navbar } from '@/components/Navbar';
 import { MarkdownRestulProps } from '@/components/NewBlog/MarkdownResult';
 import { Transition } from '@/components/Transition';
-import { ReactElement } from 'react-markdown/lib/react-markdown';
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
+import { getI18nProps } from 'i18n/loadMessages';
 const MarkdownResult = dynamic<MarkdownRestulProps>(
   () =>
     import('@/components/NewBlog/MarkdownResult').then(
@@ -45,6 +45,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { blogId } = params as IParams;
+
   const client = createUnauthorizedApolloClient();
   const { data } = await client.query({
     query: querys.GET_BLOG_BY_ID,
@@ -72,6 +73,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         tags,
         sneakpeak,
       },
+      ...(await getI18nProps('es'))
     },
   };
 };

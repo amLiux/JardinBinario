@@ -5,12 +5,12 @@ import { Flexbox } from '../lib/Flexbox';
 
 interface SignatureProps {
     signatureInfo: SignatureInfo;
-    signatureRef: RefObject<HTMLDivElement>;
+    signatureRef: RefObject<HTMLDivElement | null>;
     confidential: boolean;
     dark: boolean;
 }
 
-const copyIcon = (white:boolean) => <svg
+const copyIcon = (white: boolean) => <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 460 460"
     // style={{

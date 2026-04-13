@@ -7,7 +7,6 @@ import ticketFormStyles from '@/components/TicketForm/TicketForm.module.css';
 import newsletterStyles from './Newsletter.module.css';
 import { Flexbox } from '../lib/Flexbox';
 import { useNewsletterForm } from '@/hooks/useNewsletter';
-import useTranslation from 'next-translate/useTranslation';
 
 interface NewsletterProps {
   t: (key: string) => string;
