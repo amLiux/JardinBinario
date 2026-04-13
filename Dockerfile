@@ -1,46 +1,46 @@
 # syntax=docker/dockerfile:1
-FROM node:22-alpine
 
-# Setting environment variables coming from the GitHub actions secrets
-ARG NEXT_PUBLIC_BACKEND_URL
-ENV NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
-ARG NEXT_PUBLIC_PLACEHOLDER_IMAGE
-ENV NEXT_PUBLIC_PLACEHOLDER_IMAGE=${NEXT_PUBLIC_PLACEHOLDER_IMAGE}
-ARG NEXT_PUBLIC_UPLOAD_IMAGE
-ENV NEXT_PUBLIC_UPLOAD_IMAGE=${NEXT_PUBLIC_UPLOAD_IMAGE}
-ARG NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL
-ENV NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL=${NEXT_PUBLIC_CLOUDINARY_UPLOAD_URL}
+# --- STAGE 1: Dependencies ---
+FROM node:22-alpine AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
 
-# updating alpine package manager
-RUN apk add --update tini
-
-# creating the directory that will hold our code
-RUN mkdir -p /usr/jardinbinario/app
-
-# moving to that directory inside of the container
-WORKDIR /usr/jardinbinario/app
-
-# copying package.json and package-lock.json to the container
-COPY package.json package.json
-COPY package-lock.json package-lock.json
-
-RUN npm cache clean --force
-
-# installing via the recommended way for Docker (not npm install)
+COPY package.json package-lock.json ./
 RUN npm ci
 
-#disable telemetry
-RUN npx next telemetry disable
-
-# copying our source code
+# --- STAGE 2: Builder ---
+FROM node:22-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-#exposing port 3000
+# Solo desactivamos telemetría, sin exponer URLs ni llaves
+ENV NEXT_TELEMETRY_DISABLED=1
+
+RUN npm run build
+
+# --- STAGE 3: Runner ---
+FROM node:22-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1
+
+RUN apk add --no-cache tini
+
+# Usuario de baja autoridad
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+USER nextjs
+
 EXPOSE 3000
+ENV PORT=3000
 
-# building the 'production' version
-# RUN npm run build
-
-RUN npm run build && ls -la .next
-
+ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["npm", "start"]
