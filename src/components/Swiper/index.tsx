@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Autoplay } from 'swiper';
+import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
@@ -44,7 +44,7 @@ export const CustomSwiper = ({ children, headerText, slidesPerView, autoplay, re
     }
     return (
         <div className={requiresMarginTop ? customSwiperStyles.container : undefined}>
-            <ModernHeader {...headerText}  />
+            <ModernHeader {...headerText} />
             <div className={customSwiperStyles.swiperContainer}>
                 <Swiper
                     {...sharedProps}

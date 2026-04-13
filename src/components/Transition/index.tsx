@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { useTransition } from '@/hooks/useTransition';
 import { Message } from '@/components/Message';
 import layoutStyles from '@/layouts/Layout/Layout.module.css';
@@ -28,13 +28,12 @@ export const Transition = ({ children, fancyTransition = false }: TransitionProp
       <div
         // TODO check this logic? sort of unreadable
         className={`
-						${
-              showMessage !== ''
-                ? layoutStyles.smoothRender
-                : message !== ''
-                  ? layoutStyles.smoothRemove
-                  : ''
-            }
+						${showMessage !== ''
+            ? layoutStyles.smoothRender
+            : message !== ''
+              ? layoutStyles.smoothRemove
+              : ''
+          }
 					`}
       >
         {message?.msg !== '' && (

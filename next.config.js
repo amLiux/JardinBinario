@@ -1,14 +1,22 @@
 /** @type {import('next').NextConfig} */
-const nextTranslate = require('next-translate-plugin');
 
-const nextConfig =  nextTranslate({
+const nextConfig = {
   reactStrictMode: true,
+  transpilePackages: ['swiper', 'ssr-window', 'dom7'],
   images: {
-    domains: ['res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
+    ],
   },
   i18n: {
-    localeDetection: false,
-  }
-});
+    locales: ['es', 'en'],
+    defaultLocale: 'es',
+  },
+};
 
-module.exports = nextConfig;
+export default nextConfig;
+

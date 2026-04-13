@@ -1,9 +1,8 @@
-import React from 'react';
 import { NextRouter } from 'next/router';
 
 import logo from '@/assets/logo.png';
 import littleLogo from '@/assets/littleLogo.png';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import logoStyles from './LogoStyles.module.css';
 import Link from 'next/link';
 

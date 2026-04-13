@@ -1,6 +1,5 @@
 import { RefObject } from 'react';
-import Image from 'next/legacy/image';
-import useTranslation from 'next-translate/useTranslation';
+import Image from 'next/image';
 
 import { CustomSwiper } from '@/components/Swiper';
 import { Flexbox } from '@/lib/Flexbox';
@@ -14,7 +13,7 @@ interface IdeasProps {
 }
 
 export const Ideas = ({ refForScroll, t }: IdeasProps) => {
-    const {ideas} = useIdeas(t);
+    const { ideas } = useIdeas(t);
     return (
         <div id='ideas' ref={refForScroll}>
             <CustomSwiper

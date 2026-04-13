@@ -1,71 +1,71 @@
-import Image from 'next/legacy/image';
+import Image from 'next/image';
+import { useState } from 'react';
+import styles from './PhotoComposition.module.css';
 
 import imagen1 from '@/assets/imagen1.jpg';
 import imagen2 from '@/assets/imagen2.jpg';
 import imagen3 from '@/assets/imagen3.jpg';
 import imagen4 from '@/assets/imagen4.jpg';
 
-import photoCompositionStyles from './PhotoComposition.module.css';
-import { Fragment, useState } from 'react';
-
 interface PhotoCompositionProps {
   t: (key: string) => string;
 }
 
 export const PhotoComposition = ({ t }: PhotoCompositionProps) => {
-  const [hoveringPic, setHoveringPic] = useState<Record<string, boolean>>({});
+  const [hoveringPic, setHoveringPic] = useState<Record<number, boolean>>({});
 
   const toRender = [
     {
       image: imagen3,
-      alt: 'a desk with some work on branding design with an iPad',
+      alt: 'design',
       overlayText: t('photoComposition.design'),
     },
     {
       image: imagen4,
-      alt: 'a desk with some work on branding design with an iPad',
+      alt: 'socialMedia',
       overlayText: t('photoComposition.socialMedia'),
     },
     {
       image: imagen2,
-      alt: 'mobile application interface sketches',
+      alt: 'uiUx',
       overlayText: t('photoComposition.uiUx'),
     },
     {
       image: imagen1,
-      alt: 'someone coding on a laptop with a cup on coffee and a plant on the desk',
+      alt: 'software',
       overlayText: t('photoComposition.software'),
     },
   ];
 
   return (
-    <>
-      <div className={photoCompositionStyles.container}>
-        {toRender.map(({ image, alt, overlayText }, idx) => (
-          <Fragment key={`${alt}-${idx}`}>
-            <div className={photoCompositionStyles.composition}>
-              <Image
-                onMouseOver={() => setHoveringPic({ [idx]: true })}
-                onMouseLeave={() => setHoveringPic({ [idx]: false })}
-                key={idx}
-                className={photoCompositionStyles.compositionPhoto}
-                alt={alt}
-                src={image}
-                width={400}
-                height={400}
-                objectFit="cover"
-              />
-              <div className={photoCompositionStyles.overlay}>
-                <div
-                  className={`${photoCompositionStyles.overlayText} ${hoveringPic[idx] ? 'transition duration-500 opacity-0' : ''}`}
-                >
-                  {overlayText}
-                </div>
+    <div className={styles.container}>
+      {toRender.map(({ image, alt, overlayText }, idx) => (
+        <div key={idx} className={styles.composition}>
+          <div
+            className={styles.imageWrapper}
+            onMouseEnter={() => setHoveringPic({ [idx]: true })}
+            onMouseLeave={() => setHoveringPic({ [idx]: false })}
+          >
+            <Image
+              src={image}
+              alt={alt}
+              className={styles.compositionPhoto}
+              width={600}
+              height={600}
+              placeholder="blur"
+              style={{ objectFit: 'cover' }}
+            />
+            <div className={styles.overlay}>
+              <div
+                className={`${styles.overlayText} ${hoveringPic[idx] ? 'opacity-0' : 'opacity-100'
+                  }`}
+              >
+                {overlayText}
               </div>
             </div>
-          </Fragment>
-        ))}
-      </div>
-    </>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-import { InferGetServerSidePropsType } from 'next';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import dynamic from 'next/dynamic';
 
 import { Layout } from '@/layouts/Layout';
@@ -10,6 +10,7 @@ import { Navbar } from '@/components/Navbar';
 import { IndexScreenProps } from '@/types/sharedTypes';
 import { Transition } from '@/components/Transition';
 import { ReactElement } from 'react';
+import { getI18nProps } from 'i18n/loadMessages';
 
 const IndexScreen = dynamic<IndexScreenProps>(
   () => import('@/screens/indexScreen').then((mod) => mod.IndexScreen),
@@ -20,8 +21,9 @@ const IndexScreen = dynamic<IndexScreenProps>(
   }
 );
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const client = createUnauthorizedApolloClient();
+  const { locale } = context;
 
   const {
     data: { getRecentEntries },
@@ -45,6 +47,7 @@ export const getServerSideProps = async () => {
     props: {
       recentEntries: getRecentEntries,
       mostViewedEntries: getMostViewedEntries,
+      ...(await getI18nProps(locale))
     },
   };
 };

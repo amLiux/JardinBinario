@@ -13,8 +13,15 @@ export const useRegister = () => {
 
     const onFilechange = ({ target }: any) => {
         const file = target.files[0];
-        setSelectedFile(URL.createObjectURL(file));
-        formik.setFieldValue('file', file);
+        if (file) {
+            setSelectedFile(URL.createObjectURL(file));
+            if (typeof window !== 'undefined') {
+                if (selectedFile) URL.revokeObjectURL(selectedFile);
+                setSelectedFile(URL.createObjectURL(file));
+            }
+            formik.setFieldValue('file', file);
+        }
+
     };
 
     const handleCheckboxChange = (): void => {
@@ -39,7 +46,7 @@ export const useRegister = () => {
             name: Yup.string().required(generateRequiredMessage('name')),
             lastName: Yup.string().required(generateRequiredMessage('last name')),
             email: Yup.string().email().required(generateRequiredMessage('email'))
-            .matches(/\@jardinbinario.com$/, 'Domain not allowed'),
+                .matches(/\@jardinbinario.com$/, 'Domain not allowed'),
             password: Yup.string().required(generateRequiredMessage('password')).min(7, 'The password should at least have 7 characters'),
             file: Yup.mixed().required(generateRequiredMessage('profile pic')),
             avatar: Yup.string()

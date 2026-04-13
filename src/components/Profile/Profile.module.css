@@ -3,7 +3,7 @@
 }
 
 .shortDate {
-    @apply md:hidden;
+    @apply md:hidden text-left;
 }
 
 .identityCard {
@@ -11,31 +11,46 @@
 }
 
 .profilePicContainer {
-    @apply overflow-hidden rounded-md relative mx-1 md:mx-0;
-    width: 40px;
-    height: 40px;
+    @apply overflow-hidden rounded-md relative w-12 h-12;
+    /* border: 2px solid white; */
     margin-right: 5px;
-    position: relative;
+    line-height: 0;
+}
+
+.image {
+    transform: translateY(-2.3rem);
+}
+
+@media (max-width: 640px) {
+    .image {
+        transform: translateY(-1.9rem);
+    }
 }
 
 @media (max-width: 640px) {
     .profilePicContainer {
-        width: 50px!important;
-	}
+        margin-top: 3.3px;
+        width: 55px !important;
+        height: 50px !important;
+    }
 }
 
 .identityText {
     @apply ml-1 px-1 md:pl-5 md:border-l-2 border-white;
 }
 
-.identityText > p {
-    margin: 0!important;
+.identityText>p {
+    margin: 0 !important;
 }
 
-.identityText > p:first-child {
-    @apply mb-0 font-bold text-left;
+.identityText>p:first-child {
+    @apply mb-0 text-sm font-bold text-left;
 }
 
-.identityText > p:last-child {
+.identityText>p:not(:first-child) {
     @apply text-xs italic;
+}
+
+.image {
+    object-fit: cover;
 }

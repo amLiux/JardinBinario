@@ -1,5 +1,6 @@
 .container {
     @apply mt-20 items-center;
+
 }
 
 .blogCard {
@@ -8,21 +9,21 @@
 
 .blogTitle {
     @apply text-base font-bold text-black mb-3 leading-5 min-h-[40px];
-    line-height: 1.25rem!important;
-    font-weight: 700!important;
-    margin-bottom: 0.75rem!important;
-    margin-top: 0!important;
+    line-height: 1.25rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.75rem !important;
+    margin-top: 0 !important;
 }
 
 .sneakpeak {
     @apply text-xs text-black m-0 min-h-[64px];
-    margin: 0!important;
-    text-align: left!important;
+    margin: 0 !important;
+    text-align: left !important;
 }
 
-.sneakpeak > p {
-    margin: 0!important;
-    text-align: left!important;
+.sneakpeak>p {
+    margin: 0 !important;
+    text-align: left !important;
 }
 
 .statsContainer {
@@ -37,6 +38,6 @@
     @apply ml-2;
 }
 
-.stats > p {
+.stats>p {
     @apply m-0 text-sm text-slate-200 font-bold;
 }

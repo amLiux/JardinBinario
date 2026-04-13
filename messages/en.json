@@ -1,0 +1,167 @@
+{
+    "home": {
+        "cta": "Plant something great",
+        "hero": {
+            "heading": {
+                "part1": "Bring your ideas, we'll",
+                "gradient": "cultivate",
+                "part2": "the solution."
+            },
+            "subheading": "Our team of talented experts is ready to cultivate the success of your project. Dive into a garden of technological creativity and prepare to be amazed!"
+        },
+        "navbar": {
+            "links": {
+                "privacy": "Privacy",
+                "language": "Language"
+            }
+        },
+        "introBlock": {
+            "heading": {
+                "firstPart": "Craftsmanship turned into",
+                "highlight": " technology ",
+                "secondPart": "that harvests your ideas."
+            },
+            "subheading": "Founded in 2022, Jardín Binario is an open-source ideas incubator that seeks to help companies or investors create opportunities through technological investment, developing tools to maximize market potential through our services:"
+        },
+        "photoComposition": {
+            "design": "Design",
+            "socialMedia": "Social Media",
+            "uiUx": "UI/UX",
+            "software": "Software Development"
+        },
+        "descriptionBlock": {
+            "heading": {
+                "firstPart": "A team dedicated to helping you ",
+                "highlight": "analyze, plant, and harvest",
+                "secondPart": " ideas."
+            },
+            "subheading": "In our company, we focus on creating innovative solutions that benefit society and promote job creation. We work closely with the client from the start of the project to develop a personalized brand and implement technical solutions that meet their expectations. We are always willing to listen and consider any client suggestions to achieve exceptional results together."
+        },
+        "newsletter": {
+            "title": "Subscribe to our newsletter",
+            "subheading": "Receive notifications of our latest updates, blogs, positions, and offers.",
+            "copy": "Join our mailing list and stay updated on our latest news and updates!",
+            "cta": "Subscribe"
+        },
+        "swiper": {
+            "header": {
+                "title": "Our",
+                "highlight": "ideas"
+            }
+        },
+        "disclaimerBlock": {
+            "subheading": "And we not only focus on our own ideas, but we also care about making a positive social contribution. For this reason, our service costs are tailored to each proposed project and its potential to generate social impact. In this way, we are committed not only to providing high-quality solutions but also to making a difference in our community."
+        },
+        "ticketForm": {
+            "header": {
+                "title": "Collaborate with",
+                "highlight": "us",
+                "copy": "If you have an idea you'd like to share or want to collaborate with us, we'd love to hear from you! Contact us and let's explore new opportunities together."
+            },
+            "form": {
+                "title": "Contact Form",
+                "labels": {
+                    "company": "Company",
+                    "email": "E-mail",
+                    "phoneNumber": "Phone Number",
+                    "description": "Tell us a little about your project"
+                },
+                "placeholders": {
+                    "company": "Your company",
+                    "email": "Your e-mail",
+                    "phoneNumber": "Your number",
+                    "description": "A brief description of the implementation you want, the technology you want to learn, your experience..."
+                },
+                "services": {
+                    "title": "Services",
+                    "frontEnd": "Frontend",
+                    "backEnd": "Backend",
+                    "design": "Design",
+                    "education": "Education",
+                    "mobile": "Mobile"
+                },
+                "submit": "Submit"
+            },
+            "muted": "Contact us to receive consulting services, quotes, or if you want to be part of our team."
+        },
+        "blogs": {
+            "mostViewed": {
+                "title": "Most viewed",
+                "highlight": "blogs"
+            },
+            "mostRecent": {
+                "title": "Most recent",
+                "highlight": "blogs"
+            }
+        },
+        "ideas": {
+            "brainyBoardDesc": "Brainy Board is an online collaboration and task management plugin that uses APIs, is open source, and easy to use, which enhances team productivity. It is ideal for implementation in software factories/software offices. Additionally, anyone can contribute to the development of the project.",
+            "jardinBinarioDesc": "Jardín Binario is a social platform that connects investors, entrepreneurs, and specialists, fostering the creation of innovative companies and job generation. Additionally, we offer a blogging platform to share knowledge, experiences, and to meet potential partners.",
+            "repo": "Repository"
+        }
+    },
+    "privacy": {
+        "privacyIntroBlock": {
+            "heading": {
+                "firstPart": "Privacy ",
+                "highlight": "Policy"
+            },
+            "subheading": "At Jardín Binario, we respect your privacy and are committed to protecting your personal information. This privacy policy explains how we collect, use, and disclose information about you when you use our website Jardín Binario; this policy is effective as of 04/10/2023."
+        },
+        "privacyInfoBlock": {
+            "heading": {
+                "highlight": "Information",
+                "secondPart": " we collect"
+            },
+            "subheading": "When you visit our website, we may collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, while you browse our website, we may collect information about the individual web pages or products you view, what websites or search terms referred you to our website, and information about how you interact with our website."
+        },
+        "privacyRecopilationBlock": {
+            "heading": {
+                "highlight": "following technologies:",
+                "firstPart": "We collect this information using the "
+            },
+            "subheading": "We currently only use the js-cookie package along with the window.navigator object to obtain information that allows us to plan new features for our application."
+        },
+        "privacyInfoUseBlock": {
+            "heading": {
+                "firstPart": "We use the information we ",
+                "highlight": "collect",
+                "secondPart": " to"
+            },
+            "subheading": "Provide and improve our services, including providing customer support and responding to inquiries and requests, analyzing trends and monitoring the use of our website, personalizing your experience on our website, offering relevant content and advertising, and communicating with you, including sending you promotional offers and updates about our products and services."
+        },
+        "privacyRightsBlock": {
+            "heading": {
+                "firstPart": "Your ",
+                "highlight": "rights"
+            },
+            "subheading": "You have the right to access and request the deletion of personal information we hold about you. You also have the right to opt out of certain marketing communications we send you."
+        },
+        "privacyRetentionBlock": {
+            "heading": {
+                "secondPart": " of data",
+                "highlight": "Retention"
+            },
+            "subheading": "We retain your personal information for as long as necessary to fulfill the purposes described in this privacy policy, unless the law requires or permits a longer retention period."
+        },
+        "privacyChangesBlock": {
+            "heading": {
+                "highlight": "Changes"
+            },
+            "subheading": "We may update this privacy policy from time to time to reflect, for example, changes in our practices or for other operational, legal, or regulatory reasons."
+        },
+        "privacyContactBlock": {
+            "heading": {
+                "highlight": "Contact Us"
+            },
+            "subheading": "If you have any questions or concerns about this privacy policy, please contact us at help@jardinbinario.com."
+        },
+        "privacySharingBlock": {
+            "heading": {
+                "highlight": "Share",
+                "secondPart": " your information"
+            },
+            "subheading": "We may share your personal information to comply with applicable laws and regulations, respond to a subpoena, search warrant, or other legal request for information we receive, or to protect our rights."
+        }
+    }
+}

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flexbox } from '../lib/Flexbox';
 import menu from '@/assets/buttons/menu.svg';
 import close from '@/assets/buttons/close.svg';
 
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { Logo } from '../Logo';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -49,13 +49,13 @@ const BurgerMenu = ({ isMobile, privacy }: BurgerMenuProps) => {
                             <Image src={close} width={48} height={48} alt='close menu button' />
                         </button>
                         <Flexbox extraClass='h-[100%]' justifyContent='center' alignItems='center'>
-                            <div style={{color: 'white'}}>
-                            <Logo router={router} />
-                            {privacy ? null : <ul className='mt-5'>
-                                <li className='border-b-2 hover:border-purple-500'>
-                                    <Link href="/privacy">Privacy</Link>
-                                </li>
-                            </ul>}
+                            <div style={{ color: 'white' }}>
+                                <Logo router={router} />
+                                {privacy ? null : <ul className='mt-5'>
+                                    <li className='border-b-2 hover:border-purple-500'>
+                                        <Link href="/privacy">Privacy</Link>
+                                    </li>
+                                </ul>}
                             </div>
                         </Flexbox>
                     </motion.div>

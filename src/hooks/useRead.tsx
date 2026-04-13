@@ -12,16 +12,13 @@ export const useRead = (
     const { query } = router;
 
     useEffect(() => {
+        if (!blogEntry?._id || router.isFallback) return;
         const updateBlog = async () => {
             const client = createUnauthorizedApolloClient();
             let metrics = {
                 views: true,
-                shares: false,
+                shares: !!query?.shared,
             };
-
-            if (query?.shared) {
-                metrics.shares = true;
-            }
 
             await client.mutate({
                 mutation: querys.UPDATE_BLOG_METRICS,

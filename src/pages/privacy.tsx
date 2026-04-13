@@ -8,6 +8,18 @@ import { HeadingBlock } from '@/components/Index/HeadingBlock';
 import { useTexts } from '@/components/Index/text';
 import { Navbar } from '@/components/Navbar';
 import { Transition } from '@/components/Transition';
+import { getI18nProps } from 'i18n/loadMessages';
+import { GetServerSideProps } from 'next';
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { locale } = context;
+
+  return {
+    props: {
+      ...(await getI18nProps(locale))
+    },
+  };
+};
 
 export default function PrivacyPage() {
   const {

@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useAuth } from '@/apollo/AuthClient';
 import { useEffect, useState } from 'react';
+import { Variants } from 'framer-motion';
 
 
 export const useTransition = () => {
@@ -8,7 +9,7 @@ export const useTransition = () => {
 	const [showMessage, setShowMessage] = useState<string>('');
 	const [loading, setLoading] = useState<boolean>(true);
 
-	const variants = {
+	const variants: Variants = {
 		inactive: {
 			opacity: 1,
 			x: 0,

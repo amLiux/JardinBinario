@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { useRouter, usePathname } from 'next/navigation';
 import { seoMapping } from '@/seo/index';
 
 import layoutStyles from './Layout.module.css';
@@ -20,8 +20,8 @@ type LayoutProps = {
 };
 
 export const Layout = ({ children, style404, customSeo, admin }: LayoutProps) => {
-  const { asPath } = useRouter();
-  const seo = customSeo || seoMapping[asPath];
+  const asPath = usePathname();
+  const seo = customSeo || seoMapping[asPath as any];
 
   return (
     <>

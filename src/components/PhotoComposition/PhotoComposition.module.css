@@ -1,36 +1,26 @@
 .container {
-	@apply flex-row sm:grid sm:grid-cols-2 sm:gap-1 sm:gap-y-16 sm:gap-x-32 mt-16;
+	@apply flex flex-col sm:grid sm:grid-cols-2 sm:gap-x-12 sm:gap-y-12 mt-12 px-8 max-w-7xl mx-auto;
 }
 
 .composition {
-	@apply relative;
+	@apply relative w-full;
 }
 
-.composition>span {
-	overflow: visible !important;
-}
-
-.overlay {
-	@apply absolute inset-0 flex mr-12 text-center;
-}
-
-.overlayText {
-	@apply pl-10 mx-auto z-10 text-white self-center font-light uppercase text-center;
+.imageWrapper {
+	@apply relative overflow-hidden rounded-xl w-full aspect-square cursor-pointer bg-slate-900;
 }
 
 .compositionPhoto {
-	transition: all .4s ease-in-out;
-	transform: scale(0.9);
-	@apply absolute inset-0 z-10 flex opacity-40 hover:opacity-100;
+	transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+	@apply absolute inset-0 w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 hover:opacity-100 scale-100 hover:scale-110;
 }
 
-.compositionPhoto:hover {
-	transform: scale(1.05) translateY(-0.5rem);
-	box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+.overlay {
+	@apply absolute inset-0 flex items-center justify-center pointer-events-none z-10;
 }
 
-.compositionPhoto:hover + .overlay .overlayText {
-	opacity: 1;
+.overlayText {
+	@apply text-white font-light uppercase tracking-widest text-center px-6 transition-all duration-500 leading-none;
+	transform: translateY(1.4rem);
+	text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
-
-.composition:hover .compositionPhoto:not(:hover) {}

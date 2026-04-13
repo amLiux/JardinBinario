@@ -13,7 +13,7 @@ export const useIndex = () => {
   const refForm = useRef<HTMLDivElement>(null);
 
   const handleClickServices = (ref: string) => {
-    const toScrollMapping: Record<string, RefObject<HTMLDivElement>> = {
+    const toScrollMapping: Record<string, RefObject<HTMLDivElement | null>> = {
       ticket: refForm,
       services: refServices,
     };

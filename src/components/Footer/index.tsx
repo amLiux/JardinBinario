@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from 'next/legacy/image';
+import Image, { StaticImageData } from 'next/image';
 import { NextRouter } from 'next/router';
 import gitHubLogo from '@/assets/logos/gitHubLogo.svg';
 import youtubeLogo from '@/assets/logos/youtubeLogo.svg';

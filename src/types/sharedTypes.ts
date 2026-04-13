@@ -150,6 +150,6 @@ export interface IndexScreenProps {
   recentEntries: BlogEntry[];
   handleClickServices: (ref: string) => void;
   mostViewedEntries: BlogEntry[];
-  refServices: RefObject<HTMLDivElement>;
-  refForm: RefObject<HTMLDivElement>;
+  refServices: RefObject<HTMLDivElement | null>;
+  refForm: RefObject<HTMLDivElement | null>;
 }

@@ -34,28 +34,27 @@ export const Sidebar = () => {
             const isActive = router.pathname === route.href;
             return (
               <Link key={route.name} href={route.href} passHref>
-                <a
-                  className={`${sidebarStyles.route} ${
-                    isActive
-                      ? sidebarStyles.activeRoute
-                      : sidebarStyles.hoverRoute
-                  }`}
+                <div
+                  className={`${sidebarStyles.route} ${isActive
+                    ? sidebarStyles.activeRoute
+                    : sidebarStyles.hoverRoute
+                    }`}
                 >
 
                   {route.icon}
                   <span className={sidebarStyles.routeText}>{route.name}</span>
-                </a>
+                </div>
               </Link>
             );
           })}
         </nav>
 
         <div className={sidebarStyles.profileAndSettings}>
-        <Link href="/admin/settings" passHref>
-            <a className={`${sidebarStyles.route} ${sidebarStyles.hoverRoute}`}>
+          <Link href="/admin/settings" passHref>
+            <div className={`${sidebarStyles.route} ${sidebarStyles.hoverRoute}`}>
               <Cog6ToothIcon className={sidebarStyles.icon} />
               <span className={sidebarStyles.routeText}>Ajustes</span>
-            </a>
+            </div>
           </Link>
           <div className={sidebarStyles.profile}>
             <div className={sidebarStyles.profileTexts}>

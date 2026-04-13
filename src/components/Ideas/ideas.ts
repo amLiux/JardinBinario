@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/legacy/image';
+import { StaticImageData } from 'next/image';
 import pythonLogo from '@/assets/logos/pythonLogo.svg';
 import reactLogo from '@/assets/logos/reactLogo.svg';
 import nodeLogo from '@/assets/logos/nodeLogo.svg';
@@ -34,7 +34,7 @@ export const useIdeas = (t: (key: string) => string) => {
     },
     {
       title: 'Jardín Binario',
-      description:  t('ideas.jardinBinarioDesc'),
+      description: t('ideas.jardinBinarioDesc'),
       stack: [
         { name: 'react', logo: reactLogo, alt: 'React logo' },
         { name: 'node', logo: nodeLogo, alt: 'Nodejs logo' },

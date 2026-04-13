@@ -12,7 +12,7 @@ import ticketFormStyles from './TicketForm.module.css';
 import { ModernHeader } from '@/lib/Header';
 
 type TicketFormProps = {
-  refForForm: RefObject<HTMLDivElement>;
+  refForForm: RefObject<HTMLDivElement | null>;
   t: (key: string) => string;
 };
 

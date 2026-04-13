@@ -1,0 +1,167 @@
+{
+    "home": {
+        "cta": "Siembra algo genial",
+        "hero": {
+            "heading": {
+                "part1": "Trae tus ideas,",
+                "gradient": "cultivaremos",
+                "part2": "la solución."
+            },
+            "subheading": "Nuestro equipo de talentosos expertos está listo para cultivar el éxito de tu proyect ¡Adéntrate en un jardín de creatividad tecnológica y déjate sorprender!"
+        },
+        "navbar": {
+            "links": {
+                "privacy": "Privacidad",
+                "language": "Lenguaje"
+            }
+        },
+        "introBlock": {
+            "heading": {
+                "firstPart": "Artesanía convertida en ",
+                "highlight": "tecnología",
+                "secondPart": " que cosechan tus ideas."
+            },
+            "subheading": "Fundados en 2022, Jardín Binario es una incumbadora de ideas open-source que busca ayudar a empresas o inversores a crear oportunidades con inversión tecnológica, creando herramientas para aumentar y crear el máximo potencial de mercado por medio de nuestros servicios:"
+        },
+        "photoComposition": {
+            "design": "Diseño",
+            "socialMedia": "Redes Sociales",
+            "uiUx": "UI/UX",
+            "software": "Software personalizado"
+        },
+        "descriptionBlock": {
+            "heading": {
+                "firstPart": "Un equipo que busca ayudarte a ",
+                "highlight": "analizar, sembrar y cosechar",
+                "secondPart": " ideas."
+            },
+            "subheading": "En nuestra empresa, nos enfocamos en crear soluciones innovadoras que beneficien a la sociedad y promuevan la creación de empleos. Trabajamos de la mano con el cliente desde el inicio del proyecto para desarrollar una marca personalizada e implementar soluciones técnicas que cumplan con sus expectativas. Siempre estamos dispuestos a escuchar y considerar cualquier sugerencia del cliente para lograr resultados excepcionales juntos."
+        },
+        "newsletter": {
+            "title": "Suscríbete a nuestro newsletter",
+            "subheading": "Recibe notificaciones de nuestras últimas actualizaciones, blogs, posiciones y ofertas.",
+            "copy": "¡Únete a nuestra lista de correo de Jardín Binario y mantente al tanto de nuestras últimas noticias y actualizaciones!",
+            "cta": "Suscríbete"
+        },
+        "swiper": {
+            "header": {
+                "title": "Nuestras",
+                "highlight": "ideas"
+            }
+        },
+        "disclaimerBlock": {
+            "subheading": "En nuestra empresa, nos enfocamos en crear soluciones innovadoras que beneficien a la sociedad y promuevan la creación de empleos. Trabajamos de la mano con el cliente desde el inicio del proyecto para desarrollar una marca personalizada e implementar soluciones técnicas que cumplan con sus expectativas. Siempre estamos dispuestos a escuchar y considerar cualquier sugerencia del cliente para lograr resultados excepcionales juntos."
+        },
+        "ticketForm": {
+            "header": {
+                "title": "Ponte en",
+                "highlight": "contacto",
+                "copy": "Si tienes una idea que te gustaría compartir o colaborar con nosotros, ¡nos encantaría saber de ti! Contáctanos y exploremos nuevas oportunidades juntos."
+            },
+            "form": {
+                "title": "Formulario de contacto",
+                "labels": {
+                    "company": "Compañía",
+                    "email": "E-mail",
+                    "phoneNumber": "Número telefónico",
+                    "description": "Cuéntanos un poco sobre tu proyecto"
+                },
+                "placeholders": {
+                    "company": "Tú compañía",
+                    "email": "Tú e-mail",
+                    "phoneNumber": "Tú número",
+                    "description": "Una pequeña descripcion de la implementacion que quieres, la tecnologia que quieres aprender, tu experiencia..."
+                },
+                "services": {
+                    "title": "Servicios",
+                    "frontEnd": "Frontend",
+                    "backEnd": "Backend",
+                    "design": "Diseño",
+                    "education": "Educación",
+                    "mobile": "Mobile"
+                },
+                "submit": "Enviar"
+            },
+            "muted": "Contáctanos para poder brindarte servicios de asesoría, cotizaciones o si quieres ser parte de nuestro equipo."
+        },
+        "blogs": {
+            "mostViewed": {
+                "title": "Blogs más",
+                "highlight": "destacados"
+            },
+            "mostRecent": {
+                "title": "Blogs más",
+                "highlight": "recientes"
+            }
+        },
+        "ideas": {
+            "brainyBoardDesc": "Brainy Board es una plugin de colaboración y gestión de tareas en línea que por medio de API's, con código abierto y fácil de usar, que aumenta la productividad del equipo. Ideal para implementar en software factories/oficinas de software. Además, cualquier persona puede contribuir al desarrollo del proyecto.",
+            "jardinBinarioDesc": "Jardín Binario es una plataforma social para conectar inversores, emprendedores y especialistas, fomentando la creación de empresas innovadoras y la generación de empleos. Además, también ofrecemos una plataforma de blogs para compartir conocimientos, experiencias y conocer futuros socios.",
+            "repo": "Repositorio"
+        }
+    },
+    "privacy": {
+        "privacyIntroBlock": {
+            "heading": {
+                "firstPart": "Política de ",
+                "highlight": "Privacidad"
+            },
+            "subheading": "En Jardín Binario respetamos su privacidad y estamos comprometidos a proteger su información personal. Esta política de privacidad explica cómo recopilamos, usamos y divulgamos información sobre usted cuando utiliza nuestro sitio web Jardín Binario, esta política es efectiva desde el 10/04/2023."
+        },
+        "privacyInfoBlock": {
+            "heading": {
+                "highlight": "Información",
+                "secondPart": " que recopilamos"
+            },
+            "subheading": "Cuando visita nuestro sitio web, podemos recopilar cierta información sobre su dispositivo, incluida información sobre su navegador web, dirección IP, zona horaria y algunas de las cookies que se instalan en su dispositivo. Además, mientras navega por nuestro sitio web, podemos recopilar información sobre las páginas web o productos individuales que ve, qué sitios web o términos de búsqueda lo remitieron a nuestro sitio web e información sobre cómo interactúa con nuestro sitio web."
+        },
+        "privacyRecopilationBlock": {
+            "heading": {
+                "highlight": "siguientes tecnologías:",
+                "firstPart": "Recopilamos esta información utilizando las "
+            },
+            "subheading": "Actualmente solo utilizamos el paquete js-cookie junto a el objeto window.navigator para obtener información que nos permite planificar nuevas características para nuestra aplicación."
+        },
+        "privacyInfoUseBlock": {
+            "heading": {
+                "firstPart": "Utilizamos la información que ",
+                "highlight": "recopilamos",
+                "secondPart": " para"
+            },
+            "subheading": "Proporcionar y mejorar nuestros servicios, incluido proporcionar soporte al cliente y responder a consultas y solicitudes, analizar tendencias y monitorear el uso de nuestro sitio web, personalizar su experiencia en nuestro sitio web y ofrecer contenido y publicidad relevantes y comunicarnos con usted, incluido enviarle ofertas promocionales y actualizaciones sobre nuestros productos y servicios."
+        },
+        "privacyRightsBlock": {
+            "heading": {
+                "firstPart": "Sus ",
+                "highlight": "derechos"
+            },
+            "subheading": "Tiene derecho a acceder y solicitar la eliminación de la información personal que tenemos sobre usted. También tiene derecho a darse de baja de ciertas comunicaciones de marketing que le enviamos."
+        },
+        "privacyRetentionBlock": {
+            "heading": {
+                "secondPart": " de datos",
+                "highlight": "Retención"
+            },
+            "subheading": "Mantenemos su información personal durante el tiempo necesario para cumplir con los fines descritos en esta política de privacidad, a menos que la ley exija o permita un período de retención más prolongado."
+        },
+        "privacyChangesBlock": {
+            "heading": {
+                "highlight": "Cambios"
+            },
+            "subheading": "Podemos actualizar esta política de privacidad de vez en cuando para reflejar, por ejemplo, cambios en nuestras prácticas o por otras razones operativas, legales o regulatorias."
+        },
+        "privacyContactBlock": {
+            "heading": {
+                "highlight": "Contáctenos"
+            },
+            "subheading": "Si tiene alguna pregunta o inquietud sobre esta política de privacidad, comuníquese con nosotros en help@jardinbinario.com."
+        },
+        "privacySharingBlock": {
+            "heading": {
+                "highlight": "Compartir",
+                "secondPart": " su información"
+            },
+            "subheading": "Podemos compartir su información personal para cumplir con las leyes y regulaciones aplicables, responder a una citación judicial, orden de registro u otra solicitud legal de información que recibamos o para proteger nuestros derechos."
+        }
+    }
+}

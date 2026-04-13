@@ -71,7 +71,7 @@ export const Blogs = ({ recentBlogs, mostViewedBlogs, t }: BlogsProps) => {
             768: 1,
             1024: 2,
           }}
-          autoplay
+          autoplay={false}
         >
           {getSlidesToRender(blogInfo.blogs)}
         </CustomSwiper>
